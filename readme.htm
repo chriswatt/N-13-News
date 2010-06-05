@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>N-13 News 3.6</title>
+<style>
+.header {
+	background-color:#FFFFFF;
+	color:#15497C;
+	font-size:14pt;
+	margin-right:26px;
+	padding-left:6px;
+	padding-right:6px;
+}
+</style>
+</head>
+<body>
+<center><img src="images/n13newslogo.png" alt="N-13 News 3.6" /><br /><span style="font-size: 10pt; font-family: Verdana">N-13 News<br />3.6</span></center>
+<br /><br />
+<span class="header">Requirements</span>
+<ol>
+<span style="font-family: Verdana; font-size: 10pt">
+<li>PHP 5+
+<li>1 MySQL database
+</span>
+</ol>
+<span class="header">Installation</span>
+<span style="font-family: Verdana; font-size: 10pt">
+<ol>
+<li>Extract and upload all files to your server
+<li>CHMOD <b>db.php</b> to 777
+<li>Run <b>install/index.php</b> from your web browser
+<li>Follow the instructions
+<li>Once the installation is finished CHMOD db.php to 755
+<li>Done!
+</ol>
+</span>
+
+<span class="header">Integrating news</span>
+<span style="font-family: Verdana; font-size: 10pt">
+<br />
+<ol>
+Integrating news posts into your current design is now easier than ever. Use the following code samples to control how your news is displayed.<br>
+<br>
+
+<code>
+<span style="color: rgb(0, 68, 0);">
+<span style="color: rgb(63, 109, 174);">&lt;?php&nbsp;<br>include&nbsp;</span><span style="color: rgb(229, 54, 0);">'news/index.php'</span><span style="color: rgb(71, 163, 94);">;<br></span><span style="color: rgb(63, 109, 174);">?&gt;</span>
+</span>
+</code>
+<br><br>
+
+If you want to further control how your news is displayed you can specify some variables before using the include function that will determine which posts to show.
+<br /><br />
+
+<span style="color: rgb(63, 109, 174);">&lt;?php&nbsp;<br></span><span style="color: rgb(0, 68, 0);">
+<span style="color: rgb(63, 109, 174);"><?php<br/>$author</span><span style="color: rgb(71, 163, 94);">[] = </span><span style="color: rgb(229, 54, 0);">'Chris'</span><span style="color: rgb(71, 163, 94);">;<br/></span><span style="color: rgb(63, 109, 174);">$author</span><span style="color: rgb(71, 163, 94);">[] = </span><span style="color: rgb(229, 54, 0);">'Admin'</span><span style="color: rgb(71, 163, 94);">;<br/></span><span style="color: rgb(128, 128, 128);">#if specified then only articles belonging to the above authors will be shown.<br/>#if no authors are specified then all will be shown.<br/></span><span style="color: rgb(63, 109, 174);">$template </span><span style="color: rgb(71, 163, 94);">= </span><span style="color: rgb(229, 54, 0);">'Template1'</span><span style="color: rgb(71, 163, 94);">;<br/></span><span style="color: rgb(128, 128, 128);">#if specified this template will be used, if not the default will be used<br/></span><span style="color: rgb(63, 109, 174);">$cat</span><span style="color: rgb(71, 163, 94);">[] = </span><span style="color: rgb(229, 54, 0);">'category1'</span><span style="color: rgb(71, 163, 94);">;<br/></span><span style="color: rgb(63, 109, 174);">$cat</span><span style="color: rgb(71, 163, 94);">[] = </span><span style="color: rgb(229, 54, 0);">'category2'</span><span style="color: rgb(71, 163, 94);">;<br/></span><span style="color: rgb(128, 128, 128);">#if specified any posts assigned to those categories will be displayed.<br/>#if no cats are specified then all posts will be displayed.<br/></span><span style="color: rgb(71, 163, 94);">include </span><span style="color: rgb(229, 54, 0);">'path/to/news/index.php'</span><span style="color: rgb(71, 163, 94);">; <br/></span><span style="color: rgb(128, 128, 128);">#example 'news/index.php';<br/></span><span style="color: rgb(63, 109, 174);">?></span>
+</span>
+
+
+
+</ol>
+<br />
+For help and more tutorials on integrating the system into your site, please visit <a href="http://network-13.com" alt="network-13.com">http://network-13.com</a>
+</span>
+</body>
+</html>

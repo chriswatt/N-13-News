@@ -1,0 +1,86 @@
+UPDATE `news30_options` SET `version` = '3.5' WHERE 1;
+ALTER TABLE `news30_templates` CHANGE `name` `name` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `news30_access` CHANGE `name` `name` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ;
+ALTER TABLE `news30_cats` CHANGE `name` `name` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `news30_comments` CHANGE `user` `user` VARCHAR( 50 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `email` `email` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `message` `message` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `timestamp` `timestamp` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `approved` `approved` INT( 11 ) NOT NULL DEFAULT '1',
+CHANGE `ip` `ip` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `pid` `pid` VARCHAR( 20 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `id` `id` INT( 11 ) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `news30_files` CHANGE `title` `title` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `url` `url` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `filesize` `filesize` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE `news30_filter` CHANGE `filter` `filter` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `alt` `alt` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `news30_private` CHANGE `title` `title` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `message` `message` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `news30_privateout` CHANGE `title` `title` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `message` `message` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `news30_rssfeeds` CHANGE `name` `name` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `location` `location` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `title` `title` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `description` `description` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `encoding` `encoding` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `language` `language` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `rsscode` `rsscode` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE `news30_story` CHANGE `title` `title` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `story` `story` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `shortstory` `shortstory` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `origauthor` `origauthor` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+CHANGE `ip` `ip` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `catid` `catid` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `rating` `rating` VARCHAR( 30 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0';
+
+ALTER TABLE `news30_smilies` CHANGE `path` `path` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `keycode` `keycode` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+CHANGE `type` `type` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `news30_users` CHANGE `user` `user` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `pass` `pass` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `newpass` `newpass` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `email` `email` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `vcode` `vcode` VARCHAR(34) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `avatar` `avatar` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_image` `profile_image` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_quote` `profile_quote` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_occupation` `profile_occupation` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_hobbies` `profile_hobbies` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_interests` `profile_interests` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_homepage` `profile_homepage` VARCHAR(250) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_sex` `profile_sex` VARCHAR(6) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_location` `profile_location` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_age` `profile_age` CHAR(3) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `profile_name` `profile_name` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `alertmsg` `alertmsg` INT(11) NOT NULL DEFAULT '0', CHANGE `access` `access` INT(11) NOT NULL DEFAULT '0', CHANGE `cookie` `cookie` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `language` `language` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, CHANGE `uid` `uid` INT(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE news30_options ADD publickey varchar(255) AFTER unapprovednotify, ADD privatekey varchar(255) AFTER publickey;
+
+ALTER TABLE news30_options DROP showavatars;
+ALTER TABLE news30_options ADD showavatars int(11) DEFAULT 0 AFTER newstime;
+
+ALTER TABLE news30_options ADD deleteowncomments INT(11) DEFAULT 0 AFTER unapprovednotify;
+
+ALTER TABLE news30_access ADD viewips INT(11) DEFAULT 0 AFTER nocat;
+
+ALTER TABLE news30_templates ADD loginform TEXT after uploadedfiles;
+
+ALTER TABLE news30_options ADD tail TEXT after privatekey;
+
+UPDATE news30_options SET tail = '<br /><div style="text-align: center; font-family: Verdana; font-size: 8pt">Powered by <a href="http://network-13.com">N-13 News</a></div>' WHERE 1;
+
+ALTER TABLE news30_templates DROP ratingsform;
+
+ALTER TABLE news30_options DROP sendtodelay;
+
+ALTER TABLE news30_access ADD fileimages INT(11) DEFAULT 1 AFTER viewips;
+
+UPDATE news30_options SET catdelimiter = '{cat}, ' WHERE 1;
+
+ALTER TABLE news30_options ADD loginverification INT(11) DEFAULT '2' AFTER useimgverification;
+
+ALTER TABLE news30_options ADD registrationverification INT(11) DEFAULT '2' AFTER registrationaccess;
+
+UPDATE news30_options SET publickey = '6Lc8JgwAAAAAAI5NI_jBvrXrcgysIijSoKDa-UHx', privatekey = '6Lc8JgwAAAAAAPjP992CMgeV6Gs6E83NGNltwaFo' WHERE 1;
+
+UPDATE news30_options SET newstime = '%d/%m/%y %I:%M%p', commentstime = '%d/%m/%y %I:%M%p' WHERE 1;
+
+UPDATE news30_options SET filetime = '%d-%m-%y' WHERE 1;
+
+ALTER TABLE news30_templates ADD searchform TEXT after loginform, ADD searchresults TEXT after searchform;
+
+INSERT INTO `news30_templates` (`name`, `template`, `comments`, `commentsform`, `npagintation`, `cpagintation`, `profile`, `newsstructure`, `commentsstructure`, `registrationform`, `sendtoform`, `uploadedfiles`, `loginform`, `searchform`, `searchresults`) VALUES
+('3.5 Ajax Template', '<span style="font-size: 18pt; color: #000000">{title}</span><br />\r\n\r\n<span style="font-family: Verdana; font-size: 10pt; color: #ADADAD">Posted by [email]{author}[/email] - {date} - [comments]{comments} Comments[/comments] - {categories} - {ratingstars} <span id="ratingstars_text_{id}"></span>\r\n</span>\r\n<div style="font-family: Verdana; font-size: 10pt">\r\n{shortstory}\r\n{story}\r\n[readmore]Full Story[/readmore]\r\n\r\n\r\n[files]\r\n<br /><br />\r\n<table style="border: 1px solid #EEEEEE">\r\n<tr>\r\n<td>Title</td><td>Filename</td><td>Filesize</td><td>Uploaded</td><td>Downloads</td><td>Uploader</td>\r\n</tr>\r\n{files}\r\n</table>\r\n[/files]\r\n\r\n\r\n</div>\r\n<br /><br />', '<div style="float: right">{ip}</div><span style="font-family: Verdana; font-size: 12pt">{author}</span>\r\n<br />\r\n\r\n<span style="font-family: Verdana; color: #ADADAD; font-size: 10pt">{date}</span> [delete-link]Delete[/delete-link]\r\n<div style="padding-top: 5px; border-top: 1px solid #EAEAEA">\r\n\r\n<span style="font-family: Verdana; font-size: 10pt">{message}</span>\r\n</div>\r\n<br />', '<form method="POST" id="commentsform" name="commentsform" action="" onsubmit="return submitcomment(useajax=''yes'')">\r\n<div style="font-family: Verdana; font-size: 12pt; padding-bottom: 5px">Add a comment</div>\r\n\r\n<div style="font-family: Verdana; font-size: 10pt">\r\n<div style="padding-bottom: 3px"><div style="width: 100px; float: left">Name</div><input type="text" name="name" id="name" size="23" value="{name}" /></div>\r\n<div style="padding-bottom: 3px"><div style="width: 100px; float: left">Email/URL</div><input type="text" name="email" id="email" size="23" value="{email}" />\r\n<div style="padding-bottom: 3px"><div style="width: 100px; float: left">&nbsp;</div>{smilies}</div>\r\n\r\n<div style="width: 100px; float: left">Comment</div><textarea style="width: 400px; height: 120px" id="message" name="message">{message}</textarea>\r\n<br />\r\n<div style="width: 100px; float: left;">&nbsp;</div>{recaptcha}\r\n <br />\r\n<div style="padding-left: 100px; "><input type="submit" value="Add comment" name="S1"></div>\r\n</div>\r\n</form>', '<span style="font-family: Verdana; font-size: 12pt">Older news.</span><br >\r\n<div style="font-family: Verdana; font-size: 10pt">[prev-link]<[/prev-link] {pages} [next-link]>[/next-link]\r\n</div>\r\n<br>', '<span style="font-family: Verdana; font-size: 12pt">Older Comments.</span><br >\r\n<div style="font-family: Verdana; font-size: 10pt">[prev-link]<[/prev-link] {newpages} [next-link]>[/next-link]\r\n</div>\r\n<br>', '<table style="font-family: Verdana" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="48%" valign="top"><span style="font-family: Verdana; color: #309ceb; font-size: 14pt">{username}''s profile.</span>\r\n<table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Name:</div></td>\r\n    <td width="74%">{name}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Age:</div></td>\r\n    <td width="74%">{age}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Location:</div></td>\r\n    <td width="74%">{location}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Sex:</div></td>\r\n    <td width="74%">{sex}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Interests:</div></td>\r\n    <td width="74%">{interests}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Hobbies</div></td>\r\n    <td width="74%">{hobbies}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Occupation:</div></td>\r\n    <td width="74%">{occupation}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Quote:</div></td>\r\n    <td width="74%">{quote}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Homepage</div></td>\r\n    <td width="74%" valign="top">[homepage-link]Here[/homepage-link]</td>\r\n  </tr>\r\n</table>\r\n</div>\r\n    <p> </td>\r\n    <td width="2%" valign="top"> </td>\r\n    <td width="100%" valign="top"><div class=codetitle> <font class=bodytitle>\r\n      <font class=bodytitles>Profile picture: {username}</div></font></div>\r\n{image} \r\n</td>\r\n  </tr>\r\n</table>', '{news}\r\n{pagintation}', '{news}\r\n<a name="comments"></a>\r\n{comments}\r\n{commentspagintation}\r\n[loggedin]Welcome, {username}[/loggedin]\r\n{commentsform}\r\n{loginform}', '<span style="font-size: 12pt; font-family: Verdana;">Fill out the form below to register an account.</span><br /><br />\r\n<span style="font-size: 10pt; font-family: Verdana; color: #AA0000">{errormessage}</span>\r\n\r\n<form method="post" action="" id="registrationform" name="registrationform">\r\n<div style="font-size: 10pt; font-family: Verdana; float: left; width: 150px">Username:</div><input type="text" name="registrationusername" id="registrationusername" value="{username}" /><br />\r\n<div style="font-size: 10pt; font-family: Verdana; float: left; width: 150px">Email:</div><input type="text" name="registrationemail" id="registrationemail" value="{email}" /><br />\r\n<div style="font-size: 10pt; font-family: Verdana; float: left; width: 150px">Password:</div><input type="password" name="registrationpassword1" id="registrationpassword1" /><br />\r\n<div style="font-size: 10pt; font-family: Verdana; float: left; width: 150px">Confirm Password:</div><input type="password" name="registrationpassword2" id="registrationpassword2" /><br />\r\n<div style="font-size: 10pt; font-family: Verdana; float: left; width: 150px">&nbsp;</div>{recaptcha}\r\n\r\n<div style="float: left; padding-left: 150px"><input type="submit" name="register_submit" value="Create Account" /></div>\r\n<br style="clear: both" />\r\n</form>', '<a name="sendto"></a>\r\n<form method="post" action="" name="sendtoform" id="sendtoform">\r\n<div style="border: 1px dotted #AAAAAA; background-color: #EFEFEF;" align="center">\r\n<table width="470" cellspacing="5" style="font-family: Verdana; font-size: 8pt; color: #666666;">\r\n	<tr valign="center">\r\n		<td>\r\n			<div><div style="width: 120px; float: left;">Name</div>\r\n			<input type="text" name="sendto_yourname" /></div>\r\n			<br />\r\n			<div><div style="width: 120px; float: left;">Email:</div>\r\n			<input type="text" name="sendto_youremail" /><div>\r\n			<br />\r\n			<div><div style="width: 120px; float: left;">Friends Email:</div>\r\n			<input type="text" name="sendto_friendsemail" /></div>\r\n			<br />\r\n			<div><div style="width: 120px; float: left;">Message:</div>\r\n			<textarea name="sendto_message" style="width: 200px; height: 60px">Hey check out this article I found!</textarea></div>\r\n			<br />\r\n			<div><div style="width: 120px; float: left;">&nbsp;</div>\r\n			<input type="submit" name="sendto_submit" value="Send to friend" /></div>									\r\n		</td>\r\n	</tr>\r\n</table>\r\n</div>\r\n</form>', '<tr>\r\n<td>{filetitle}</td>\r\n<td><a href="{url}">{filename}</a></td>\r\n<td>{filesize} KB</td>\r\n<td>{filedate}</td>\r\n<td>{downloadcount}</td>\r\n<td>{uploader}</td>\r\n</tr>', '<form method="POST" id="loginform" name="loginform" action="">\r\n\r\n<span style="font-family: Verdana; font-size: 12pt">Please login to comment</span><br />\r\n\r\n<span style="font-family: Verdana; font-size: 10pt">Don''t have an account? <a href="?goto=register">Register here</a></span>\r\n<br /><br />\r\n<span style="color: #AA0000">{loginerror}</span>\r\n<div style="font-family: Verdana; font-size: 10pt">\r\n<div style="width: 100px; float: left">Username:</div><input type="text" name="loginname" id="loginname" size="23" value="{username}" /><br />\r\n<div style="width: 100px; float: left">Password:</div><input type="password" name="loginpassword" id="loginpassword" size="23" /><br />\r\n<div style="width: 100px; float: left">Remember me:</div><input type="checkbox" name="loginremember" id="loginremember" /><br />\r\n<br />\r\n<div style="width: 100px; float: left">&nbsp;</div>{recaptcha}\r\n<div style="padding-left: 100px; "><input type="submit" value="Login" name="login_s1"></div>\r\n</div>\r\n</form>', '<form method="post" action="" name="searchform" id="searchform">\r\n<div style="font-family: Verdana; font-size: 10pt; width: 100px; float: left">Search:</div><input type="text" name="searchstring" />&nbsp;<input type="submit" name="searchsubmit" value="Search" />\r\n</form>\r\n\r\n[results]\r\nTotal results: {totalresults}\r\n<table width="100%">\r\n<tr><td>Title</td><td>Date</td><td>Author</td><td>Categories</td></tr>\r\n\r\n{searchresults}\r\n\r\n</table>\r\n[/results]', '<tr><td><a href="?id={id}">{title}</a></td><td>{date}</td><td>{author}</td><td>{categories}</td></tr>');

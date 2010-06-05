@@ -1,0 +1,336 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Apr 11, 2008 at 03:39 PM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.5
+
+
+
+--
+-- Database: `news`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_access`
+--
+
+DROP TABLE IF EXISTS `news30_access`;
+
+CREATE TABLE `news30_access` (
+  `name` text NOT NULL,
+  `accounts` int(11) NOT NULL default '0',
+  `accesslevels` int(11) NOT NULL default '0',
+  `sysconfig` int(11) NOT NULL default '0',
+  `newscats` int(11) NOT NULL default '0',
+  `templates` int(11) NOT NULL default '0',
+  `smilies` int(11) NOT NULL default '0',
+  `wordfilters` int(11) NOT NULL default '0',
+  `bannedips` int(11) NOT NULL default '0',
+  `accesslevel` int(11) NOT NULL default '0',
+  `uid` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`uid`)
+);
+
+--
+-- Dumping data for table `news30_access`
+--
+
+INSERT INTO `news30_access` (`name`, `accounts`, `accesslevels`, `sysconfig`, `newscats`, `templates`, `smilies`, `wordfilters`, `bannedips`, `accesslevel`, `uid`) VALUES
+('Gods', 1, 1, 1, 1, 1, 1, 1, 1, 3, 1),
+('Mods', 0, 0, 0, 0, 0, 0, 0, 0, 2, 2),
+('Members', 0, 0, 0, 0, 0, 0, 0, 0, 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_cats`
+--
+
+DROP TABLE IF EXISTS `news30_cats`;
+CREATE TABLE `news30_cats` (
+  `name` varchar(255) default NULL,
+  `id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `news30_cats`
+--
+
+INSERT INTO `news30_cats` (`name`, `id`) VALUES
+('', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_comments`
+--
+
+DROP TABLE IF EXISTS `news30_comments`;
+CREATE TABLE `news30_comments` (
+  `user` varchar(50) default NULL,
+  `email` varchar(100) default NULL,
+  `message` text,
+  `timestamp` varchar(100) default NULL,
+  `ip` varchar(15) default NULL,
+  `pid` varchar(20) default NULL,
+  `id` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=210 ;
+
+--
+-- Dumping data for table `news30_comments`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_filter`
+--
+
+DROP TABLE IF EXISTS `news30_filter`;
+CREATE TABLE `news30_filter` (
+  `filter` text,
+  `alt` text,
+  `id` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `news30_filter`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_options`
+--
+
+DROP TABLE IF EXISTS `news30_options`;
+CREATE TABLE `news30_options` (
+  `nppage` int(10) default NULL,
+  `commentspop` char(1) default NULL,
+  `newsorder` varchar(4) default NULL,
+  `newstime` varchar(100) default NULL,
+  `showavatars` char(3) default NULL,
+  `commentsorder` varchar(4) default NULL,
+  `commentstime` varchar(100) default NULL,
+  `commentslength` int(6) default NULL,
+  `cppage` int(10) default NULL,
+  `spamtime` int(10) default NULL,
+  `banned` text,
+  `bannedmsg` text,
+  `imagefiletypes` text,
+  `uploadpath` text,
+  `timezone` varchar(20) default NULL,
+  `template` varchar(10) default NULL,
+  `noaccessmsg` text,
+  `commentmsg` text NOT NULL,
+  `spammsg` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `news30_options`
+--
+
+INSERT INTO `news30_options` (`nppage`, `commentspop`, `newsorder`, `newstime`, `showavatars`, `commentsorder`, `commentstime`, `commentslength`, `cppage`, `spamtime`, `banned`, `bannedmsg`, `imagefiletypes`, `uploadpath`, `timezone`, `template`, `noaccessmsg`, `commentmsg`, `spammsg`) VALUES
+(4, '0', 'DESC', 'j/m/y g:ia', 'No', 'DESC', 'j/m/y g:ia', 1000, 5, 20, '', 'Go away ;o', 'jpg jpeg gif png bmp', 'http://dev/news/uploads/', '+0000', '2', 'You can''t edit this section. Contact the administrator.', 'Your comment has been added.', 'Please wait {timeleft} second(s) before posting again.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_private`
+--
+
+DROP TABLE IF EXISTS `news30_private`;
+CREATE TABLE `news30_private` (
+  `title` text,
+  `message` text,
+  `sentfrom` int(11) NOT NULL default '0',
+  `sentto` int(11) NOT NULL default '0',
+  `viewed` int(11) NOT NULL default '0',
+  `posted` int(11) NOT NULL default '0',
+  `uid` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`uid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `news30_private`
+--
+
+INSERT INTO `news30_private` (`title`, `message`, `sentfrom`, `sentto`, `viewed`, `posted`, `uid`) VALUES
+('Welcome to N-13 News 3.6', '[color=#00AA00]Congratulations![/color] :happy:\r\n\r\nYou have successfully installed N-13 News. You can delete this message or mark it as read using the options below.', 1, 1, 1, 1207566572, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_privateout`
+--
+
+DROP TABLE IF EXISTS `news30_privateout`;
+CREATE TABLE `news30_privateout` (
+  `title` text,
+  `message` text,
+  `sentfrom` int(11) NOT NULL default '0',
+  `sentto` int(11) NOT NULL default '0',
+  `viewed` int(11) NOT NULL default '0',
+  `posted` int(11) NOT NULL default '0',
+  `uid` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `news30_privateout`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_smilies`
+--
+
+DROP TABLE IF EXISTS `news30_smilies`;
+CREATE TABLE `news30_smilies` (
+  `path` text,
+  `keycode` text,
+  `type` text,
+  `id` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+
+--
+-- Dumping data for table `news30_smilies`
+--
+
+INSERT INTO `news30_smilies` (`path`, `keycode`, `type`, `id`) VALUES
+('http://dev/news/smilies/chris.gif', ':arrr!:', 'news', 1),
+('http://dev/news/smilies/angry.gif', ':angry:', 'news', 2),
+('http://dev/news/smilies/flowers.gif', ':flowers:', 'news', 3),
+('http://dev/news/smilies/wassat.gif', ':wassat:', 'news', 4),
+('http://dev/news/smilies/blink.gif', ':blink:', 'news', 5),
+('http://dev/news/smilies/fear.gif', ':ninja:', 'news', 6),
+('http://dev/news/smilies/pinch.gif', ':pinch:', 'news', 7),
+('http://dev/news/smilies/nuke.gif', ':nuke:', 'news', 8),
+('http://dev/news/smilies/blushing.gif', ':blushing:', 'news', 9),
+('http://dev/news/smilies/crying.gif', ':crying:', 'news', 10),
+('http://dev/news/smilies/devil.gif', ':devil:', 'news', 11),
+('http://dev/news/smilies/ermm.gif', ':ermm:', 'news', 12),
+('http://dev/news/smilies/excl.gif', ':excl:', 'news', 13),
+('http://dev/news/smilies/getlost.gif', ':getlost:', 'news', 14),
+('http://dev/news/smilies/grin.gif', ':grin:', 'news', 15),
+('http://dev/news/smilies/happy.gif', ':happy:', 'news', 16),
+('http://dev/news/smilies/hug.gif', ':hug:', 'news', 17),
+('http://dev/news/smilies/innocent.gif', ':innocent:', 'news', 18),
+('http://dev/news/smilies/kiss.gif', ':kiss:', 'news', 19),
+('http://dev/news/smilies/laughing.gif', ':laugh:', 'news', 20),
+('http://dev/news/smilies/noexpression.gif', ':blah:', 'news', 21),
+('http://dev/news/smilies/online2long.gif', ':online2long:', 'news', 22),
+('http://dev/news/smilies/original.gif', ':smile:', 'news', 23),
+('http://dev/news/smilies/phone.gif', ':phone:', 'news', 24),
+('http://dev/news/smilies/sad.gif', ':sad:', 'news', 25),
+('http://dev/news/smilies/santa.gif', ':santa:', 'news', 26),
+('http://dev/news/smilies/shaun.gif', ':sheep:', 'news', 27),
+('http://dev/news/smilies/tongue.gif', ':tongue:', 'news', 28),
+('http://dev/news/smilies/wink.gif', ':wink:', 'news', 29);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_story`
+--
+
+DROP TABLE IF EXISTS `news30_story`;
+CREATE TABLE `news30_story` (
+  `title` varchar(255) default NULL,
+  `story` text,
+  `author` int(11) default NULL,
+  `origauthor` varchar(255) NOT NULL,
+  `avatar` varchar(255) default NULL,
+  `ip` varchar(15) default NULL,
+  `timestamp` int(11) default NULL,
+  `catid` int(11) default NULL,
+  `allowcomments` int(11) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `news30_story`
+--
+
+INSERT INTO `news30_story` (`title`, `story`, `author`, `origauthor`, `avatar`, `ip`, `timestamp`, `catid`, `allowcomments`, `id`) VALUES
+('Welcome to N-13 News 3.6', '[color=#00AA00]Congratulations![/color] :happy:\r\nYou have successfully installed N-13 News. This is a test post inserted into your database to show everything is working fine. You can delete this post by logging into the admin area. While logged in you can control every aspect of how your news is displayed. If you''re unsure or need help with anything feel free to visit [url="http://network-13.com"]Network-13[/url]', 1, 'Chris', '', '192.168.0.1', 1207811521, 0, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_templates`
+--
+
+DROP TABLE IF EXISTS `news30_templates`;
+CREATE TABLE `news30_templates` (
+  `name` varchar(250) default NULL,
+  `id` int(11) NOT NULL auto_increment,
+  `template` text,
+  `comments` text,
+  `commentsform` text,
+  `npagintation` text,
+  `cpagintation` text,
+  `profile` text,
+  `newsstructure` text,
+  `commentsstructure` text,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `news30_templates`
+--
+
+INSERT INTO `news30_templates` (`name`, `id`, `template`, `comments`, `commentsform`, `npagintation`, `cpagintation`, `profile`, `newsstructure`, `commentsstructure`) VALUES
+('Default style', 2, '<span style="font-family: Verdana; font-size: 16pt; color: #309ceb">{title}</span><br />\r\n\r\n<span style="font-family: Verdana; font-size: 10pt; color: #ADADAD">Posted by [email]{author}[/email] {date}</span>\r\n<div style="font-family: Verdana; font-size: 10pt">{story}\r\n[readmore]Read full story[/readmore]\r\n</div>\r\n<br />\r\n<span style="font-family: Verdana; font-size: 10pt">[comments]Comments ({comments})[/comments]</span>\r\n<br /><br />', '<div style="float: right">{ip}</div><span style="color: #309ceb; font-family: Verdana; font-size: \r\n14pt">{author}</span>\r\n<br />\r\n\r\n<span style="font-family: Verdana; color: #ADADAD; font-size: 10pt">{date}</span>\r\n<div style="padding-top: 5px; border-top: 1px solid #EAEAEA">\r\n<span style="font-family: Verdana; font-size: 10pt">{message}</span>\r\n</div>\r\n<br />', '<form method="POST" name="commentsform" action="?id={id}">\r\n<span style="font-family: Verdana; font-size: 14pt; color: #309ceb">Add a comment</span><br />\r\n<div style="font-family: Verdana; font-size: 10pt">\r\n<div style="width: 100px; float: left">Username:</div><input type="text" name="name" size="23" value="{name}"><br />\r\n<div style="width: 100px; float: left">Email:</div><input type="text" name="email" size="23" value="{email}"><br />\r\n<div style="width: 100px; float: left">Smilies:</div>{smilies}<br />\r\n<div style="width: 100px; float: left">Message:</div><textarea style="width: 400px; height: 120px" name="message"></textarea><br />\r\n<div style="width: 100px; float: left">&nbsp;</div><input type="submit" value="Add comment" name="S1">\r\n</div>\r\n</form>', '<span style="font-family: Verdana; color: #309ceb; font-size: 14pt">Older news.</span><br >\r\n<div style="font-family: Verdana; font-size: 10pt">[prev-link]<[/prev-link] {pages} [next-link]>[/next-link]\r\n</div>\r\n<br>', '<span style="font-family: Verdana; color: #309ceb; font-size: 14pt">Older news.</span><br >\r\n<div style="font-family: Verdana; font-size: 10pt">[prev-link]<[/prev-link] {pages} [next-link]>[/next-link]\r\n</div>\r\n<br>', '<table style="font-family: Verdana" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="48%" valign="top"><span style="font-family: Verdana; color: #309ceb; font-size: 14pt">{username}''s profile.</span>\r\n<table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Name:</div></td>\r\n    <td width="74%">{name}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Age:</div></td>\r\n    <td width="74%">{age}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Location:</div></td>\r\n    <td width="74%">{location}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Sex:</div></td>\r\n    <td width="74%">{sex}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Interests:</div></td>\r\n    <td width="74%">{interests}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Hobbies</div></td>\r\n    <td width="74%">{hobbies}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Occupation:</div></td>\r\n    <td width="74%">{occupation}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Quote:</div></td>\r\n    <td width="74%">{quote}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Homepage</div></td>\r\n    <td width="74%" valign="top">[homepage-link]Here[/homepage-link]</td>\r\n  </tr>\r\n</table>\r\n</div>\r\n    <p> </td>\r\n    <td width="2%" valign="top"> </td>\r\n    <td width="100%" valign="top"><div class=codetitle> <font class=bodytitle>\r\n      <font class=bodytitles>Profile picture: {username}</div></font></div>\r\n{image} \r\n</td>\r\n  </tr>\r\n</table>', '{news}\r\n{pagintation}', '{news}\r\n{comments}\r\n{commentspagintation}\r\n{commentsform}\r\n'),
+('Plain style', 3, '{title} - Posted by [email]{author}[/email] - Posted on {date} {ip}\r\n<br>\r\n{story}\r\n<br>\r\n[comments]Comments {comments}[/comments] [profile]{author}''s profile[/profile]<br><br>', '<div style="font-family: Tahoma: font-size: 10pt">\r\n[email]{author}[/email]<br />\r\n{message} {ip}\r\n</div>\r\n<br>', '<form method="POST" name="commentsform" action="?id={id}">\r\n<div style="font-family: Tahoma; font-size: 10pt">\r\nAdd a comment<br />\r\n<div style="width: 100px; float: left">Username:</div><input type="text" name="name" size="23" value="{name}"><br />\r\n<div style="width: 100px; float: left">Email:</div><input type="text" name="email" size="23" value="{email}"><br />\r\n<div style="width: 100px; float: left">Smilies:</div>{smilies}<br />\r\n<div style="width: 100px; float: left">Message:</div><textarea style="width: 400px; height: 120px" name="message"></textarea><br />\r\n<div style="width: 100px; float: left">&nbsp;</div><input type="submit" value="Add comment" name="S1">\r\n</div>\r\n</form>', '[prev-link]Previous [/prev-link] {pages} [next-link]Next[/next-link]', '[prev-link]Previous [/prev-link] {pages} [next-link]Next[/next-link]', '<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="16%">Profile for:</td>\r\n    <td width="84%">{username}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Name:</td>\r\n    <td width="84%">{name}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Age:</td>\r\n    <td width="84%">{age}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Location:</td>\r\n    <td width="84%">{location}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Sex:</td>\r\n    <td width="84%">{sex}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Interests:</td>\r\n    <td width="84%">{interests}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Hobbies</td>\r\n    <td width="84%">{hobbies}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Occupation:</td>\r\n    <td width="84%">{occupation}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Quote:</td>\r\n    <td width="84%">{quote}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="16%">Homepage</td>\r\n    <td width="84%">[homepage-link]Here[/homepage-link]</td>\r\n  </tr>\r\n</table>\r\n<br>Picture<br>\r\n{image}\r\n', '{news}\r\n{pagintation}', '{news}\r\n{comments}\r\n{commentspagintation}\r\n{commentsform}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news30_users`
+--
+
+DROP TABLE IF EXISTS `news30_users`;
+CREATE TABLE `news30_users` (
+  `user` varchar(100) default NULL,
+  `pass` varchar(100) default NULL,
+  `email` varchar(100) default NULL,
+  `vcode` varchar(34) default NULL,
+  `avatar` varchar(255) default NULL,
+  `god` char(1) default NULL,
+  `profile_image` text,
+  `profile_quote` text,
+  `profile_occupation` text,
+  `profile_hobbies` text,
+  `profile_interests` text,
+  `profile_homepage` varchar(250) default NULL,
+  `profile_sex` varchar(6) default NULL,
+  `profile_location` varchar(100) default NULL,
+  `profile_age` char(3) default NULL,
+  `profile_name` varchar(100) default NULL,
+  `alertmsg` int(11) NOT NULL default '0',
+  `access` int(11) NOT NULL default '0',
+  `uid` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (`uid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6379 ;
+
+--
+-- Dumping data for table `news30_users`
+--
+
+INSERT INTO `news30_users` (`user`, `pass`, `email`, `vcode`, `avatar`, `god`, `profile_image`, `profile_quote`, `profile_occupation`, `profile_hobbies`, `profile_interests`, `profile_homepage`, `profile_sex`, `profile_location`, `profile_age`, `profile_name`, `alertmsg`, `access`, `uid`) VALUES
+('Chris', 'e10adc3949ba59abbe56e057f20f883e', 'chris@network-13.com', 'dd16442b3b63285850e025ff991b3a28', '', '1', '', '', '', '', '', '', 'Male', '', '', '', 0, 1, 1);

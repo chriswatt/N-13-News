@@ -1,0 +1,63 @@
+ALTER TABLE `news30_story` ADD `viewcount` INT NOT NULL DEFAULT '0' AFTER `approved` ;
+ CREATE TABLE `news30_rating` (
+`vote` INT NOT NULL ,
+`ip` VARCHAR( 40 ) NOT NULL ,
+`storyid` INT NOT NULL ,
+`uid` INT NOT NULL AUTO_INCREMENT ,
+PRIMARY KEY ( `uid` )
+);
+ALTER TABLE `news30_story` ADD `rating` INT NOT NULL DEFAULT '0' AFTER `viewcount` ;
+ALTER TABLE `news30_story` CHANGE `rating` `rating` VARCHAR( 30 ) NOT NULL DEFAULT '0' ;
+
+CREATE TABLE `news30_images` (
+`file` VARCHAR( 255 ) NOT NULL ,
+`uid` INT NULL AUTO_INCREMENT ,
+PRIMARY KEY ( `uid` )
+);
+ALTER TABLE `news30_images` ADD `filesize` VARCHAR( 255 ) NOT NULL AFTER `file` ,
+ADD `uploader` INT NOT NULL AFTER `filesize` ;
+ALTER TABLE `news30_images` ADD `height` VARCHAR( 100 ) NOT NULL AFTER `uploader` ,
+ADD `width` VARCHAR( 100 ) NOT NULL AFTER `height` ;
+ALTER TABLE `news30_story` ADD `archivedate` INT NOT NULL AFTER `rating` ,
+ADD `neverarchive` INT( 1 ) NOT NULL DEFAULT '1' AFTER `archivedate` ,
+ADD `archived` INT( 0 ) NOT NULL AFTER `neverarchive` ;
+ALTER TABLE `news30_smilies` ADD `showhide` INT NOT NULL DEFAULT '1' AFTER `type`;
+UPDATE `news30_options` SET version = '3.3' WHERE 1;
+
+
+ALTER TABLE `news30_access` ADD `fileuploads` INT NOT NULL DEFAULT '0' AFTER `imageuploads`;
+ALTER TABLE `news30_options` ADD `uploadedfiletypes` TEXT NOT NULL AFTER `imagefiletypes`;
+UPDATE `news30_options` SET uploadedfiletypes = 'pdf zip rar' WHERE 1;
+CREATE TABLE `news30_files` (
+`title` VARCHAR( 255 ) NOT NULL ,
+`url` VARCHAR( 255 ) NOT NULL ,
+`downloadcount` INT NOT NULL DEFAULT '0',
+`author` INT NOT NULL ,
+`timestamp` INT NOT NULL ,
+`uid` INT NOT NULL ,
+PRIMARY KEY ( `uid` )
+);
+ALTER TABLE `news30_files` CHANGE `uid` `uid` INT( 11 ) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `news30_files` ADD `filesize` TEXT NOT NULL AFTER `url`;
+CREATE TABLE `news30_linkedfiles` (
+`storyid` INT NOT NULL ,
+`fileid` INT NOT NULL ,
+`uid` INT NOT NULL
+);
+ALTER TABLE `news30_linkedfiles` ADD PRIMARY KEY ( `uid` );
+ALTER TABLE `news30_linkedfiles` CHANGE `uid` `uid` INT( 11 ) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `news30_templates` ADD `uploadedfiles` LONGTEXT NOT NULL AFTER `registrationform`;
+ALTER TABLE `news30_options` ADD `filetime` VARCHAR( 100 ) NOT NULL AFTER `registrationaccess`;
+UPDATE `news30_options` SET filetime = 'j-m-y' WHERE 1;
+ALTER TABLE `news30_options` ADD `scriptpath` TEXT NOT NULL AFTER `salt`;
+ALTER TABLE `news30_users` ADD `newpass` VARCHAR( 100 ) NOT NULL AFTER `pass`;
+ALTER TABLE `news30_templates` ADD `ratingsform` LONGTEXT NOT NULL AFTER `registrationform` ,
+ADD `sendtoform` LONGTEXT NOT NULL AFTER `ratingsform`;
+ALTER TABLE `news30_options` ADD `sendtodelay` INT NOT NULL AFTER `filetime`;
+UPDATE news30_options SET sendtodelay = '300' WHERE 1;
+ALTER TABLE `news30_options` ADD `regcomment` INT NOT NULL AFTER `sendtodelay`;
+ALTER TABLE `news30_options` ADD `commentsnotify` INT NOT NULL AFTER `regcomment` ,
+ADD `registernotify` INT NOT NULL AFTER `commentsnotify`;
+ALTER TABLE `news30_options` ADD `emailnotify` VARCHAR( 255 ) NOT NULL AFTER `registernotify`;
+INSERT INTO `news30_templates` (`name`, `template`, `comments`, `commentsform`, `npagintation`, `cpagintation`, `profile`, `newsstructure`, `commentsstructure`, `registrationform`, `ratingsform`, `sendtoform`, `uploadedfiles`) VALUES
+('3.3 Ajax Template', '<span style="font-size: 18pt; color: #000000">{title}</span><br />\r\n\r\n<span style="font-family: Verdana; font-size: 10pt; color: #ADADAD">Posted by [email]{author}[/email] - {date} - [comments]{comments} Comments[/comments] - {categories} - {ratingstars}\r\n</span>\r\n<div style="font-family: Verdana; font-size: 10pt">\r\n{shortstory}\r\n{story}\r\n[readmore]Full Story[/readmore]\r\n</div>\r\n\r\n<br /><br />', '<div style="float: right">{ip}</div><span style="font-family: Verdana; font-size: 12pt">{author}</span>\r\n<br />\r\n\r\n<span style="font-family: Verdana; color: #ADADAD; font-size: 10pt">{date}</span>\r\n<div style="padding-top: 5px; border-top: 1px solid #EAEAEA">\r\n\r\n<span style="font-family: Verdana; font-size: 10pt">{message}</span>\r\n</div>\r\n<br />', '<form method="POST" id="commentsform" name="commentsform" action="" onsubmit="return submitcomment(useajax=''yes'')">\r\n<span style="font-family: Verdana; font-size: 12pt">Add a comment</span><br />\r\n<div style="font-family: Verdana; font-size: 10pt">\r\n<div style="width: 100px; float: left">Username:</div><input type="text" name="name" id="name" size="23" value="{name}" /><br />\r\n<div style="width: 100px; float: left">Email/URL:</div><input type="text" name="email" id="email" size="23" value="{email}" /><br />\r\n<div style="width: 100px; float: left">Smilies:</div>{smilies}<br />\r\n\r\n<div style="display: none">\r\n<div style="width: 100px; float: left">Security key:</div><input type="text" name="skey" id="skey" size="5" /> <img id="skeyimage" src="http://dev.network-13.com/news/image.php" title="Security key" /><br />\r\n</div>\r\n\r\n<div style="width: 100px; float: left">Message:</div><textarea style="width: 400px; height: 120px" id="message" name="message">{message}</textarea><br />\r\n<div style="padding-left: 100px; "><input type="submit" value="Add comment" name="S1">\r\n</div>\r\n</div>\r\n</form>', '<span style="font-family: Verdana; font-size: 12pt">Older news.</span><br >\r\n<div style="font-family: Verdana; font-size: 10pt">[prev-link]<[/prev-link] {newpages} [next-link]>[/next-link]\r\n</div>\r\n<br>', '<span style="font-family: Verdana; font-size: 12pt">Older Comments.</span><br >\r\n<div style="font-family: Verdana; font-size: 10pt">[firstpage]First Page[/firstpage] [prev-link]<[/prev-link] {newpages} [next-link]>[/next-link] [lastpage]Last Page[/lastpage]\r\n</div>\r\n<br>', '<table style="font-family: Verdana" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="48%" valign="top"><span style="font-family: Verdana; color: #309ceb; font-size: 14pt">{username}''s profile.</span>\r\n<table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Name:</div></td>\r\n    <td width="74%">{name}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Age:</div></td>\r\n    <td width="74%">{age}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Location:</div></td>\r\n    <td width="74%">{location}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Sex:</div></td>\r\n    <td width="74%">{sex}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Interests:</div></td>\r\n    <td width="74%">{interests}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Hobbies</div></td>\r\n    <td width="74%">{hobbies}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Occupation:</div></td>\r\n    <td width="74%">{occupation}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Quote:</div></td>\r\n    <td width="74%">{quote}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Homepage</div></td>\r\n    <td width="74%" valign="top">[homepage-link]Here[/homepage-link]</td>\r\n  </tr>\r\n</table>\r\n</div>\r\n    <p> </td>\r\n    <td width="2%" valign="top"> </td>\r\n    <td width="100%" valign="top"><div class=codetitle> <font class=bodytitle>\r\n      <font class=bodytitles>Profile picture: {username}</div></font></div>\r\n{image} \r\n</td>\r\n  </tr>\r\n</table>', '{news}\r\n{pagintation}', '{news}\r\n{comments}\r\n{commentspagintation}\r\n{commentsform}', 'Fill out the form below to register an account.<br /><br />\r\n{errormessage}\r\n<form method="post" action="" id="registrationform" name="registrationform">\r\n<div style="float: left; width: 150px">Username:</div><input type="text" name="registrationusername" id="registrationusername" value="{username}" /><br />\r\n<div style="float: left; width: 150px">Email:</div><input type="text" name="registrationemail" id="registrationemail" value="{email}" /><br />\r\n<div style="float: left; width: 150px">Password:</div><input type="password" name="registrationpassword1" id="registrationpassword1" /><br />\r\n<div style="float: left; width: 150px">Confirm Password:</div><input type="password" name="registrationpassword2" id="registrationpassword2" /><br />\r\n<div style="float: left; width: 150px">Security Key:</div><img src="http://dev.network-13.com/news/image.php" /> <input type="text" name="registrationskey" id="registrationskey" style="width: 50px" /><br />\r\n\r\n<div style="float: left; padding-left: 150px"><input type="submit" name="register_submit" value="Create Account" /></div>\r\n<br style="clear: both" />\r\n</form>', '<form method="post" action="" name="rating_form">\r\n<div style="border: 1px dotted #AAAAAA; background-color: #EFEFEF;" align="center">\r\n<table width="470" cellspacing="5" style="font-family: Verdana; font-size: 8pt; color: #666666;">\r\n	<tr valign="center">\r\n		<td> </td>\r\n		<td style="width: 0px" align="center"><b>1</b></td>\r\n		<td style="width: 0px" align="center"><b>2</b></td>\r\n		<td style="width: 0px" align="center"><b>3</b></td>\r\n		<td style="width: 0px" align="center"><b>4</b></td>\r\n		<td style="width: 0px" align="center"><b>5</b></td>\r\n		<td> </td>\r\n	</tr>\r\n	<tr>\r\n		<td><div align="right"><b style="padding-right: 15px">Please rate this article</b>Poor</div></td>\r\n		<td align="center"><input type="radio" name="ratingvalue" value="1" /></td>\r\n		<td align="center"><input type="radio" name="ratingvalue" value="2" /></td>\r\n		<td align="center"><input type="radio" name="ratingvalue" value="3" /></td>\r\n		<td align="center"><input type="radio" name="ratingvalue" value="4" /></td>\r\n		<td align="center"><input type="radio" name="ratingvalue" value="5" /></td>\r\n		<td>Excellent<input style="margin-left: 15px" type="submit" value="Vote" name="rating_submit" /></td>\r\n	</td>\r\n</table>\r\n</div>\r\n</form>', '<a name="sendto"></a>\r\n<form method="post" action="" name="sendtoform" id="sendtoform">\r\n<div style="border: 1px dotted #AAAAAA; background-color: #EFEFEF;" align="center">\r\n<table width="470" cellspacing="5" style="font-family: Verdana; font-size: 8pt; color: #666666;">\r\n	<tr valign="center">\r\n		<td>\r\n			<div><div style="width: 120px; float: left;">Name</div>\r\n			<input type="text" name="sendto_yourname" /></div>\r\n			<br />\r\n			<div><div style="width: 120px; float: left;">Email:</div>\r\n			<input type="text" name="sendto_youremail" /><div>\r\n			<br />\r\n			<div><div style="width: 120px; float: left;">Friends Email:</div>\r\n			<input type="text" name="sendto_friendsemail" /></div>\r\n			<br />\r\n			<div><div style="width: 120px; float: left;">Message:</div>\r\n			<textarea name="sendto_message" style="width: 200px; height: 60px">Hey check out this article I found!</textarea></div>\r\n			<br />\r\n			<div><div style="width: 120px; float: left;">&nbsp;</div>\r\n			<input type="submit" name="sendto_submit" value="Send to friend" /></div>									\r\n		</td>\r\n	</tr>\r\n</table>\r\n</div>\r\n</form>', '');

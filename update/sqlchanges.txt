@@ -1,0 +1,46 @@
+ALTER TABLE `news30_access` ADD `rss` INT NOT NULL DEFAULT '1', ADD `personaloptions` INT NOT NULL DEFAULT '1', ADD `privatemsgs` INT NOT NULL DEFAULT '1';
+ALTER TABLE `news30_options` ADD `rsslocation` TEXT NOT NULL AFTER `spammsg`;
+ALTER TABLE `news30_options` ADD `rsstitle` TEXT NOT NULL AFTER `rsslocation`;
+ALTER TABLE `news30_options` ADD `rssdescription` TEXT NOT NULL AFTER `rsslocation`;
+ALTER TABLE `news30_options` ADD `rssencoding` VARCHAR( 100 ) NOT NULL AFTER `rsslocation`;
+ALTER TABLE `news30_options` ADD `rsslanguage` VARCHAR( 100 ) NOT NULL AFTER `rsslocation`;
+ALTER TABLE `news30_options` ADD `rsscat` VARCHAR( 100 ) NOT NULL AFTER `rsslocation`;
+ALTER TABLE `news30_options` ADD `rssdisplay` INT NOT NULL DEFAULT '3' AFTER `rsslocation` ;
+ALTER TABLE `news30_options` ADD `rssamount` INT NOT NULL AFTER `rsslocation` ;
+UPDATE news30_options SET rssencoding = 'UTF-8', rsslanguage = 'en-us' WHERE 1;
+UPDATE news30_options SET rssamount = '0' WHERE 1;
+ALTER TABLE `news30_options` ADD `furlenabled` INT NOT NULL DEFAULT '0' AFTER `spammsg` , ADD `furlextension` VARCHAR( 50 ) NOT NULL AFTER `furlenabled` , ADD `furldirname` VARCHAR( 50 ) NOT NULL AFTER `furlextension` , ADD `furlprefix` VARCHAR( 50 ) NOT NULL AFTER `furldirname` ; 
+ALTER TABLE `news30_comments` CHANGE `message` `message` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+ALTER TABLE `news30_story` ADD `short` INT NOT NULL DEFAULT '0' AFTER `allowcomments` ;
+ALTER TABLE `news30_story` ADD `shortstory` TEXT NOT NULL AFTER `story` ; 
+ALTER TABLE `news30_story` CHANGE `story` `story` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL , CHANGE `shortstory` `shortstory` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+ALTER TABLE `news30_templates` CHANGE `template` `template` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL , CHANGE `comments` `comments` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL , CHANGE `commentsform` `commentsform` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL , CHANGE `npagintation` `npagintation` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL , CHANGE `cpagintation` `cpagintation` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL , CHANGE `profile` `profile` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL , CHANGE `newsstructure` `newsstructure` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL , CHANGE `commentsstructure` `commentsstructure` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+UPDATE news30_options SET furlenabled = '0', furlextension = '.html', furldirname = 'index.html', furlprefix = '/news/' WHERE 1;
+ALTER TABLE `news30_access` ADD `profile` INT NOT NULL DEFAULT '1' AFTER `privatemsgs` ;
+ALTER TABLE `news30_users` DROP `god`;
+
+INSERT INTO `news30_templates` (`name`, `template`, `comments`, `commentsform`, `npagintation`, `cpagintation`, `profile`, `newsstructure`, `commentsstructure`) VALUES
+('Ajax comments style','<span style="font-family: Verdana; font-size: 16pt; color: #309ceb">{title}</span><br />\r\n\r\n<span style="font-family: Verdana; font-size: 10pt; color: #ADADAD">Posted by [email]{author}[/email] {date} [comments]{comments} Comments[/comments] \r\n<span style="font-family: Verdana; font-size: 10pt">[readmore]Full story[/readmore]</span></span>\r\n<div style="font-family: Verdana; font-size: 10pt">\r\n{shortstory}\r\n{story}\r\n[readmore]Full Story[/readmore]\r\n</div>\r\n\r\n<br /><br />', '<div style="float: right">{ip}</div><span style="color: #309ceb; font-family: Verdana; font-size: \r\n14pt">{author}</span>\r\n<br />\r\n\r\n<span style="font-family: Verdana; color: #ADADAD; font-size: 10pt">{date}</span>\r\n<div style="padding-top: 5px; border-top: 1px solid #EAEAEA">\r\n<span style="font-family: Verdana; font-size: 10pt">{message}</span>\r\n</div>\r\n<br />', '<form method="POST" id="commentsform" name="commentsform" action="" onsubmit="return submitcomment(useajax=''yes'')">\r\n<span style="font-family: Verdana; font-size: 14pt; color: #309ceb">Add a comment</span><br />\r\n<div style="font-family: Verdana; font-size: 10pt">\r\n<div style="width: 100px; float: left">Username:</div><input type="text" name="name" id="name" size="23" value="{name}"><br />\r\n<div style="width: 100px; float: left">Email:</div><input type="text" name="email" id="email" size="23" value="{email}"><br />\r\n<div style="width: 100px; float: left">Smilies:</div>{smilies}<br />\r\n<div style="width: 100px; float: left">Message:</div><textarea style="width: 400px; height: 120px" id="message" name="message">{message}</textarea><br />\r\n<div style="width: 100px; float: left">&nbsp;</div><input type="submit" value="Add comment" name="S1">\r\n</div>\r\n</form>', '<span style="font-family: Verdana; color: #309ceb; font-size: 14pt">Older news.</span><br >\r\n<div style="font-family: Verdana; font-size: 10pt">[prev-link]<[/prev-link] {pages} [next-link]>[/next-link]\r\n</div>\r\n<br>', '<span style="font-family: Verdana; color: #309ceb; font-size: 14pt">Older news.</span><br >\r\n<div style="font-family: Verdana; font-size: 10pt">[prev-link]<[/prev-link] {pages} [next-link]>[/next-link]\r\n</div>\r\n<br>', '<table style="font-family: Verdana" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="48%" valign="top"><span style="font-family: Verdana; color: #309ceb; font-size: 14pt">{username}''s profile.</span>\r\n<table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Name:</div></td>\r\n    <td width="74%">{name}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Age:</div></td>\r\n    <td width="74%">{age}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Location:</div></td>\r\n    <td width="74%">{location}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Sex:</div></td>\r\n    <td width="74%">{sex}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Interests:</div></td>\r\n    <td width="74%">{interests}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Hobbies</div></td>\r\n    <td width="74%">{hobbies}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Occupation:</div></td>\r\n    <td width="74%">{occupation}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Quote:</div></td>\r\n    <td width="74%">{quote}</td>\r\n  </tr>\r\n  <tr>\r\n    <td width="26%"><font class=bodytitles>Homepage</div></td>\r\n    <td width="74%" valign="top">[homepage-link]Here[/homepage-link]</td>\r\n  </tr>\r\n</table>\r\n</div>\r\n    <p> </td>\r\n    <td width="2%" valign="top"> </td>\r\n    <td width="100%" valign="top"><div class=codetitle> <font class=bodytitle>\r\n      <font class=bodytitles>Profile picture: {username}</div></font></div>\r\n{image} \r\n</td>\r\n  </tr>\r\n</table>', '{news}\r\n{pagintation}', '{news}\r\n{comments}\r\n{commentspagintation}\r\n{commentsform}\r\n');
+
+DELETE FROM news30_cats WHERE id = '0';
+ALTER TABLE `news30_cats` CHANGE `id` `id` INT( 11 ) NOT NULL AUTO_INCREMENT;
+
+ CREATE TABLE `news30_banned` (
+`ip` VARCHAR( 50 ) NOT NULL ,
+`blocked` INT NOT NULL ,
+`id` INT NOT NULL AUTO_INCREMENT ,
+PRIMARY KEY ( `id` )
+);
+
+ALTER TABLE `news30_options` DROP `banned`;
+
+ALTER TABLE `news30_story` ADD `approved` INT NOT NULL DEFAULT '1' AFTER `short` ;
+
+ALTER TABLE `news30_access` ADD `autoapproved` INT NOT NULL DEFAULT '1' AFTER `privatemsgs` ,
+ADD `canapprove` INT NOT NULL DEFAULT '1' AFTER `autoapproved` ,
+ADD `usehtml` INT NOT NULL DEFAULT '0' AFTER `canapprove` ;
+ALTER TABLE `news30_options` ADD `commentapprovemsg` VARCHAR( 250 ) NOT NULL AFTER `commentmsg` ;
+UPDATE news30_options SET commentapprovemsg = 'Your comment has been added and will be shown once it has been approved.' WHERE 1;
+ALTER TABLE `news30_comments` ADD `approved` INT NOT NULL DEFAULT '1' AFTER `timestamp` ;
+ALTER TABLE `news30_access` ADD `cats` VARCHAR( 250 ) NOT NULL AFTER `usehtml` ;
+UPDATE `news30_access` SET cats = 'all';
