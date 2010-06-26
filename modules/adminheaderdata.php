@@ -42,6 +42,7 @@ function dologin(){
 				$newpass = md5(SALT . $pass);
                 DataAccess::put("UPDATE " . NEWS_USERS . " SET pass = ?, newpass = ? WHERE user = ?", "", $newpass, $_POST['name']);
 				updatelogs('1', $_SESSION['name']);
+				$_POST['rememberme'] = (empty($_POST['rememberme'])) ? '' : $_POST['rememberme'];
 				if($_POST['rememberme']){
 					setcookies($_POST['name'], $_SESSION['uid'], $language); 
 				}				 
