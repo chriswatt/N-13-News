@@ -3,7 +3,7 @@
 define('HOSTNAME',	'localhost');
 define('USER',		'root');
 define('PASS',		'concept');
-define('DATABASE',	'news37');
+define('DATABASE',	'news372');
 define('PORT',		'');
 define('SOCKET',	'');
 define('EXTENSION',	'mysql');

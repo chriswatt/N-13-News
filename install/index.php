@@ -105,6 +105,15 @@ if($_POST['install'] == "true"){
 	}elseif($_POST['next'] == "sqlchanges36.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges36.txt');
 
+		
+		// delete the old catid column
+		DataAccess::put("ALTER TABLE " . NEWS_ARTICLES . " DROP catid");
+		
+		echo "sqlchanges36.txt~~" . $querycount . "~~OK~~sqlchanges37.txt";
+	}elseif($_POST['next'] == "sqlchanges37.txt"){
+		sqldump(ABSPATH . 'update/sqlchanges37.txt');
+		
+
 		#make 3.7 Ajax Template the default.
 		$templateid = DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = '3.7 Ajax Template'");
 		$templateid = $templateid['0']['id'];
@@ -125,14 +134,9 @@ if($_POST['install'] == "true"){
 		// set 3.7
 		DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET template = '$templateid' WHERE 1");	
 		$querycount++;
-		
-		// delete the old catid column
-		DataAccess::put("ALTER TABLE " . NEWS_ARTICLES . " DROP catid");
-		
-		echo "sqlchanges36.txt~~" . $querycount . "~~OK~~sqlchanges37.txt";
-	}elseif($_POST['next'] == "sqlchanges37.txt"){
-		sqldump(ABSPATH . 'update/sqlchanges37.txt');
-		
+
+
+
 		require_once(ABSPATH . '/langmsg.php');
 		$finishmessage = $langmsg['install'][24] . " <a href=\"../admin.php\">" . $langmsg['install'][25] . "</a><hr />";
 		echo "sqlchanges37.txt~~" . $querycount . "~~OK~~finished~~" . $finishmessage;		
