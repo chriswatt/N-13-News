@@ -131,7 +131,7 @@ function rssform(){
 	foreach($allcats AS $row){
 		$cats .= "<div style=\"float: left\"><input name=\"cats[]\" id=\"$row[id]\" value=\"$row[id]\" ";
 		if(count($selectedcats) > 0){	
-			if(in_array($row[id],$selectedcats)){
+			if(in_array($row['id'],$selectedcats)){
 				$cats .= " checked=\"checked\" ";
 			}
 		}
