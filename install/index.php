@@ -105,13 +105,13 @@ if($_POST['install'] == "true"){
 	}elseif($_POST['next'] == "sqlchanges36.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges36.txt');
 
-		#make 3.6 Ajax Template the default.
-		$templateid = DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = '3.6 Ajax Template'");
+		#make 3.7 Ajax Template the default.
+		$templateid = DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = '3.7 Ajax Template'");
 		$templateid = $templateid['0']['id'];
 		$querycount++;
 		
 		// delete all other templates
-		DataAccess::put("DELETE FROM " . NEWS_TEMPLATES . " WHERE name != '3.6 Ajax Template'");
+		DataAccess::put("DELETE FROM " . NEWS_TEMPLATES . " WHERE name != '3.7 Ajax Template'");
 		$querycount++;
 		
 		// set recaptcha as the default
@@ -122,7 +122,7 @@ if($_POST['install'] == "true"){
 		DataAccess::put("UPDATE " . NEWS_SMILIES . " SET showhide = '0' WHERE id IN (1,4,6,8,11,13,18,22,24,26,27)");
 		$querycount++;
 
-		// set 3.6
+		// set 3.7
 		DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET template = '$templateid' WHERE 1");	
 		$querycount++;
 		
