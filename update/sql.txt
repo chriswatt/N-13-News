@@ -166,7 +166,7 @@ CREATE TABLE `news30_private` (
 --
 
 INSERT INTO `news30_private` (`title`, `message`, `sentfrom`, `sentto`, `viewed`, `posted`, `uid`) VALUES
-('Welcome to N-13 News 3.6', '[color=#00AA00]Congratulations![/color] :happy:\r\n\r\nYou have successfully installed N-13 News. You can delete this message or mark it as read using the options below.', 1, 1, 1, 1207566572, 1);
+('Welcome to N-13 News 3.7', '[color=#00AA00]Congratulations![/color] :happy:\r\n\r\nYou have successfully installed N-13 News. You can delete this message or mark it as read using the options below.', 1, 1, 1, 1207566572, 1);
 
 -- --------------------------------------------------------
 
@@ -267,7 +267,7 @@ CREATE TABLE `news30_story` (
 --
 
 INSERT INTO `news30_story` (`title`, `story`, `author`, `origauthor`, `avatar`, `ip`, `timestamp`, `catid`, `allowcomments`, `id`) VALUES
-('Welcome to N-13 News 3.6', '[color=#00AA00]Congratulations![/color] :happy:\r\nYou have successfully installed N-13 News. This is a test post inserted into your database to show everything is working fine. You can delete this post by logging into the admin area. While logged in you can control every aspect of how your news is displayed. If you''re unsure or need help with anything feel free to visit [url="http://network-13.com"]Network-13[/url]', 1, 'Chris', '', '192.168.0.1', 1207811521, 0, 1, 1);
+('Welcome to N-13 News 3.7', '[color=#00AA00]Congratulations![/color] :happy:\r\nYou have successfully installed N-13 News. This is a test post inserted into your database to show everything is working fine. You can delete this post by logging into the admin area. While logged in you can control every aspect of how your news is displayed. If you''re unsure or need help with anything feel free to visit [url="http://network-13.com"]Network-13[/url]', 1, 'Chris', '', '192.168.0.1', 1207811521, 0, 1, 1);
 
 -- --------------------------------------------------------
 
