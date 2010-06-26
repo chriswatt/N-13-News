@@ -20,8 +20,8 @@
 #########################################################
 #                                                       #
 #   N-13 News Language File                             #
-#   LANGUAGE    Turish                                  #
-#   VERSION     3.6                                     #
+#   LANGUAGE    Turkish                                  #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -120,6 +120,7 @@ $langmsg['editnews'][21] = x("tanesi gösterilmekte.");
 $langmsg['editnews'][22] = x("toplam");
 $langmsg['editnews'][23] = x("Seçilen article (s için 0 ila View count reset)");
 $langmsg['editnews'][24] = x("Derecelendirme seçilen madde (ler) sifirlama");
+$langmsg['editnews'][25] = x("Filtre kategoriye göre");
 
 #-----NEWSFORM
 $langmsg['newsform'][0] = x("Add your news post below.");
@@ -138,6 +139,10 @@ $langmsg['newsform'][18] = x("Hiçbir zaman arsivleme");
 $langmsg['newsform'][19] = x("Dosya yükleme");
 $langmsg['newsform'][20] = x("Dosya indirme");
 $langmsg['newsform'][21] = x("Yükleme tamamlandi");
+$langmsg['newsform'][22] = x("Makale");
+$langmsg['newsform'][23] = x("bir resim girin URL");
+$langmsg['newsform'][24] = x("Eklemek");
+$langmsg['newsform'][25] = x("Seç yüklenmis bir resim");
 
 #-----COMMENTS MODULE
 $langmsg['editcomments'][0] = x("Yorumlari Düzenle");
@@ -264,6 +269,7 @@ $langmsg['personal'][9] = x("Sifreyi dogrula:");
 $langmsg['personal'][10] = x("Bir e-posta adresi girmeniz gerekmekte.");
 $langmsg['personal'][11] = x("Ayarlar güncellendi.");
 $langmsg['personal'][12] = x("Sifreler uyusmuyor.");
+$langmsg['personal'][13] = x("Enable WYSIWYG editörü?");
 
 #-----LOGIN MODULE
 $langmsg['login'][0] = x("Lütfen Giris Yapin");
@@ -293,6 +299,7 @@ $langmsg['profile'][11] = x("Favori sözü:");
 $langmsg['profile'][12] = x("Erkek");
 $langmsg['profile'][13] = x("Kadin");
 $langmsg['profile'][14] = x("Profil güncellendi.");
+$langmsg['profile'][15] = x("Hiçbiri");
 
 #-----ACCOUNTS MODULE
 $langmsg['accounts'][0] = x("Hesaplar");
@@ -670,6 +677,9 @@ $langmsg['templates'][130] = x("Geçerli sayfa numarasi.");
 $langmsg['templates'][131] = x("Bir önceki sayfa numarasi.");
 $langmsg['templates'][132] = x("Bir sonraki sayfa numarasi.");
 $langmsg['templates'][133] = x("Görüntüler haber makalenin dostu baslik.");
+$langmsg['templates'][134] = x("Arama formu gönder");
+$langmsg['templates'][135] = x("Arama sonuçlari");
+$langmsg['templates'][136] = x("Yüklenen dosyalar");
 
 
 #-----UPLOADED FILES
@@ -836,6 +846,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Ad");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Mesaj");
+$langmsg['news'][50] = x("Girin bir makale basligi");
+$langmsg['news'][51] = x("Özet");
+$langmsg['news'][52] = x("Hayir kategoriler");
+$langmsg['news'][53] = x("Tarih");
+$langmsg['news'][54] = x("Tarih Bu yazi yayinlanmistir");
+$langmsg['news'][55] = x("Arsiv");
 
 #-----MONTHS
 $langmsg['shortmonths'][0] = x("Oca");

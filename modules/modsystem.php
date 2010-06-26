@@ -71,13 +71,15 @@ function systemsettingsform(){
 	
 	
 	echo "<form method=\"POST\" action=\"\">\n";
-	echo "<div align=\"right\">\n";
-	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
+	
+	
 
 	// comments
+	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('comments')\">" . $langmsg['system'][11] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_comments\" style=\"display: none; width: 548px\">";
+	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 
-	echo "<tr><td><span class=\"header\">".$langmsg['system'][11]."</span></td></tr>";
-	echo "  <tr class=\"row1\">\n";
+	echo "  <tr class=\"\">\n";
 	echo "    <td>".$langmsg['system'][41]."</td>\n";
 	echo "    <td>";
 	echo "<select name=\"regcomment\">";
@@ -97,7 +99,7 @@ function systemsettingsform(){
 		echo"</td>";
 	echo "</tr>";
 	
-	echo "  <tr class=\"row1\">\n";       
+	echo "  <tr class=\"\">\n";       
 	echo "    <td>".$langmsg['system'][12]."</td>\n";
 	echo "    <td><input type=\"text\" name=\"T5\" style=\"width: 140px\" value=\"$cppage\"></td>\n";
 	echo "  </tr>\n";
@@ -113,16 +115,16 @@ function systemsettingsform(){
 	}
 	echo "    </select></td>\n";
 	echo "  </tr>\n";
-	echo "  <tr class=\"row1\">\n";
+	echo "  <tr class=\"\">\n";
 	echo "    <td>".$langmsg['system'][14]."</td>\n";
-	echo "    <td><input type=\"text\" name=\"T3\" size=\"12\" value=\"$commentstime\"> <a href=\"http://uk3.php.net/strftime\" target=\"_NEW\">Date()</a></td>\n";
+	echo "    <td><input type=\"text\" name=\"T3\" style=\"width: 140px\" value=\"$commentstime\"> <a href=\"http://uk3.php.net/strftime\" target=\"_NEW\">Date()</a></td>\n";
 	echo "  </tr>\n";	   
 	echo "  <tr>\n";
 	echo "    <td>".$langmsg['system'][15]."</td>\n";
 	echo "    <td><input type=\"text\" style=\"width: 140px\" name=\"T4\" value=\"$commentslength\"></td>\n";
 	echo "  </tr>\n";
 
-	echo "  <tr class=\"row1\">\n";
+	echo "  <tr class=\"\">\n";
 	echo "    <td>".$langmsg['system'][16]."</td>\n";
 	echo "    <td>";
 	echo "<select name=\"D4\">";
@@ -135,7 +137,7 @@ function systemsettingsform(){
 	echo "    <td>".$langmsg['system'][17]."</td>\n";
 	echo "    <td><input type=\"text\" name=\"T6\" style=\"width: 140px\" value=\"$spamtime\"> ".$langmsg['system'][18]."</td>\n";
 	echo "  </tr>\n";
-	echo "  <tr class=\"row1\">\n";
+	echo "  <tr class=\"\">\n";
 	echo "    <td>".$langmsg['system'][19]."</td>\n";
 	echo "    <td><input type=\"text\" name=\"spammsg\" style=\"width: 140px\" value=\"$spammsg\"></td>\n";
 	echo "  </tr>\n";
@@ -145,7 +147,7 @@ function systemsettingsform(){
 	echo "    <td><input type=\"text\" name=\"commentmsg\" style=\"width: 140px\" value=\"$commentmsg\"></td>\n";
 	echo "  </tr>\n";  	   
 
-	echo "  <tr class=\"row1\">\n";
+	echo "  <tr class=\"\">\n";
 	echo "    <td>".$langmsg['system'][21]."</td>\n";
 	echo "    <td><input type=\"text\" name=\"commentapprovemsg\" style=\"width: 140px\" value=\"$commentapprovemsg\"></td>\n";
 	echo "  </tr>\n";  	   
@@ -157,21 +159,36 @@ function systemsettingsform(){
 	echo "</select>";
 	echo " <a href=\"http://network-13.com/thread/17b52a97b5d713df\">(?)</a>";
 	echo "</td></tr>";	
+	echo "</table>";
+	
+	echo "</div>";
 
 
+	
 	// friendly urls
-	echo "<tr><td><span class=\"header\">".$langmsg['system'][23]."</td><td></td></tR>";
-	echo "<tr class=\"row1\"><td>".$langmsg['system'][24]."</td><td><select name=\"furlenabled\"><option ";
+
+	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('friendlyurls')\">" . $langmsg['system'][23] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_friendlyurls\" style=\"display: none; width: 548px\">";
+	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
+	
+	echo "<tr class=\"\"><td>".$langmsg['system'][24]."</td><td><select name=\"furlenabled\"><option ";
 	if($furlenabled == "1"){ echo " selected=\"selected\" "; }
 	echo "value=\"1\">".$langmsg['selectfield'][1]."</option><option ";
 	if($furlenabled == "0"){ echo " selected=\"selected\" "; }
 	echo "value=\"0\">".$langmsg['selectfield'][2]."</option></select></td></tr>";
 	echo "<tr><td>".$langmsg['system'][25]."</td><td><input type=\"text\" style=\"width: 140px\" name=\"furlextension\" value=\"$furlextension\" size=\"12\" /></td></tr>";
-	echo "<tr class=\"row1\"><td>".$langmsg['system'][26]."</td><td><input type=\"text\" style=\"width: 140px\" name=\"furlprefix\" value=\"$furlprefix\" size=\"12\" /></td></tr>";
+	echo "<tr class=\"\"><td>".$langmsg['system'][26]."</td><td><input type=\"text\" style=\"width: 140px\" name=\"furlprefix\" value=\"$furlprefix\" size=\"12\" /></td></tr>";
 	echo "<tr><td>".$langmsg['system'][27]."</td><td><input type=\"text\" style=\"width: 140px\" name=\"furldirname\" value=\"$furldirname\" size=\"12\" /></td></tr>";		
+	echo "</table></div>";
 
-	echo "<tr><td><span class=\"header\">".$langmsg['system'][2]."</span></td></tr>";
-	echo "  <tr class=\"row1\">\n";
+
+
+	// news
+	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('news')\">" . $langmsg['system'][2] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_news\" style=\"display: none; width: 548px\">";
+	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
+	
+	echo "  <tr class=\"\">\n";
 	echo "    <td width=\"60%\">".$langmsg['system'][3]."</td>\n";
 	echo "    <td width=\"40%\"><input type=\"text\" name=\"T1\" style=\"width: 140px\"  value=\"$nppage\"></td>\n";
 	echo "  </tr>\n";
@@ -187,7 +204,7 @@ function systemsettingsform(){
 	}
 	echo "    </select></td>\n";
 	echo "  </tr>\n";
-	echo "  <tr class=\"row1\">\n";
+	echo "  <tr class=\"\">\n";
 	echo "    <td>".$langmsg['system'][7]."</td>\n";
 	echo "    <td><input type=\"text\" name=\"T2\" style=\"width: 140px\" value=\"$newstime\"> <a href=\"http://uk3.php.net/strftime\" target=\"_NEW\">Date()</a></td>\n";
 	echo "  </tr>\n";
@@ -198,13 +215,20 @@ function systemsettingsform(){
 		echo "<option "; if($showavatars == "1"){ echo "selected=\"selected\""; } echo "value=\"1\">" . $langmsg['selectfield']['1'] . "</option>";
 	echo "    </select></td>\n";
 	echo "  </tr>\n";
-	echo "<tr class=\"row1\"><td>".$langmsg['system'][10]."</td><td>";
+	echo "<tr class=\"\"><td>".$langmsg['system'][10]."</td><td>";
 	echo "<input type=\"text\" name=\"catdelimiter\" style=\"width: 140px\"  value=\"$catdelimiter\" />";
 	echo "</td></tr>";
+	echo "</table></div>";
+
+
+
 
 	// notifications
-	echo "<tr><td><span class=\"header\">".$langmsg['system'][38]."</span></td></tr>";
-	echo "  <tr class=\"row1\">\n";
+	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('notifications')\">" . $langmsg['system'][38] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_notifications\" style=\"display: none; width: 548px\">";
+	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
+	
+	echo "  <tr class=\"\">\n";
 	echo "    <td>".$langmsg['system'][39]."</td>\n";
 	echo "    <td>";
 	echo "<select name=\"commentsnotify\">";
@@ -222,7 +246,7 @@ function systemsettingsform(){
 	echo "</select>";
 	echo "</td>\n";
 	echo "  </tr>\n";	
-		echo "  <tr class=\"row1\">\n";
+		echo "  <tr class=\"\">\n";
 	echo "    <td>".$langmsg['system'][44]."</td>\n";
 	echo "    <td>";
 	echo "<select name=\"unapprovednotify\">";
@@ -236,10 +260,14 @@ function systemsettingsform(){
 	echo "    <td>";
 	echo "<input type=\"text\" name=\"emailnotify\" style=\"width: 140px\" value=\"$emailnotify\" />";
 	echo "</td>\n";
+	echo "</table></div>";
+	
 	
 	// recaptcha
-	echo "<tr><td><span class=\"header\">reCAPTCHA</span></td></tr>";
-	echo "  <tr class=\"row1\">\n";
+	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('recaptcha')\">reCAPTCHA</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_recaptcha\" style=\"display: none; width: 548px\">";
+	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";	
+	echo "  <tr class=\"\">\n";
 	echo "    <td>" . $langmsg['system'][45] . "</td>\n";
 	echo "    <td>";
 	echo "<input type=\"text\" name=\"publickey\" style=\"width: 140px\" value=\"$publickey\" />";
@@ -250,12 +278,15 @@ function systemsettingsform(){
 	echo "    <td>";
 	echo "<input type=\"text\" name=\"privatekey\" style=\"width: 140px\" value=\"$privatekey\" />";
 	echo "</td>\n";
-	echo "  </tr>\n";			
+	echo "  </tr>\n";
+	echo "</table></div>";
 
 	// registration
-	echo "<tr><td><span class=\"header\">".$langmsg['system'][28]."</span></td></tr>";
-
-	echo "<tr><td class=\"row1\">".$langmsg['system'][29]."</td><td class=\"row1\">";
+	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('registration')\">".$langmsg['system'][28]."</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_registration\" style=\"display: none; width: 548px\">";
+	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";	
+	
+	echo "<tr><td class=\"\">".$langmsg['system'][29]."</td><td class=\"\">";
 	echo "<select name=\"registrationallow\">";
 	if($registrationallow == "0"){
 		echo "<option value=\"0\">".$langmsg['selectfield'][2]."</option>";
@@ -279,20 +310,23 @@ function systemsettingsform(){
 	echo "</select>";
 	echo "</td></tr>";
   
-	echo "<tr class=\"row1\"><td>" . $langmsg['system'][50] . "</td><td>";
+	echo "<tr class=\"\"><td>" . $langmsg['system'][50] . "</td><td>";
 	echo "<select name=\"registrationverification\">";
 		echo "<option "; if($registrationverification == "0"){ echo "selected=\"selected\""; } echo "value=\"0\">" . $langmsg['selectfield'][2] . "</option>";
 		echo "<option "; if($registrationverification == "1"){ echo "selected=\"selected\""; } echo "value=\"1\">" . $langmsg['selectfield'][1] . "</option>";
 		echo "<option "; if($registrationverification == "2"){ echo "selected=\"selected\""; } echo "value=\"2\">reCAPTCHA</option>";
 	echo "</select>";
 	echo " <a href=\"http://network-13.com/thread/17b52a97b5d713df\">(?)</a>";
-	echo "</td></tr>";		
+	echo "</td></tr>";
+	echo "</table></div>";
 	
 	
 
 	// login
-	echo "<tr><td><span class=\"header\">Login</span></td></tr>";
-	echo "  <tr class=\"row1\">\n";
+	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('login')\">" . $langmsg['login'][6] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_login\" style=\"display: none; width: 548px\">";
+	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";		
+	echo "  <tr class=\"\">\n";
 	echo "    <td>" . $langmsg['system'][49] . "</td>\n";
 	echo "    <td>";
 	echo "<select name=\"loginverification\">";
@@ -301,22 +335,26 @@ function systemsettingsform(){
 	echo "<option "; if($loginverification == "2"){ echo "selected=\"selected\""; } echo "value=\"2\">reCAPTCHA</option>";
 	echo "</select>";	
 	echo "</td>\n";
-	echo "  </tr>\n";	
+	echo "  </tr>\n";
+	echo "</table></div>";
 	
 
 	
 	
 	// other
-	echo "<tr><td><span class=\"header\">".$langmsg['system'][31]."</span></td></tr>";
+	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('other')\">" . $langmsg['system'][31] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_other\" style=\"display: none; width: 548px\">";
+	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";		
+	
 	echo "  <tr>\n";
-	echo "    <td class=\"row1\">".$langmsg['system'][32]."</td>\n";
-	echo "    <td class=\"row1\"><input type=\"text\" name=\"T8\" style=\"width: 140px\"  value=\"$timezone\"> <a href=\"http://php.net/time\" target=\"_NEW\">Time()</a></td>\n";
+	echo "    <td class=\"\">".$langmsg['system'][32]."</td>\n";
+	echo "    <td class=\"\"><input type=\"text\" name=\"T8\" style=\"width: 140px\"  value=\"$timezone\"> <a href=\"http://php.net/time\" target=\"_NEW\">Time()</a></td>\n";
 	echo "  </tr>\n";
 	echo "  <tr>\n";
 	echo "    <td>".$langmsg['system'][33]."</td>\n";
 	echo "    <td><input type=\"text\" name=\"T7\" style=\"width: 140px\" value=\"$imagefiletypes\"></td>\n";
 	echo "  </tr>\n";
-    echo "  <tr class=\"row1\">\n";
+    echo "  <tr class=\"\">\n";
     echo "    <td>".$langmsg['system'][43]."</td>\n";
     echo "    <td><input type=\"text\" name=\"uploadedfiletypes\" style=\"width: 140px\" value=\"$uploadedfiletypes\"></td>\n";
     echo "  </tr>\n";	
@@ -325,7 +363,7 @@ function systemsettingsform(){
     echo "    <td>".$langmsg['system'][51]."</td>\n";
     echo "    <td><input type=\"text\" name=\"filetime\" style=\"width: 140px\" value=\"$filetime\"></td>\n";
     echo "  </tr>\n";	
-	echo "  <tr class=\"row1\">\n";	
+	echo "  <tr class=\"\">\n";	
 	echo "    <td>".$langmsg['system'][34]."</td>\n";
 	echo "    <td><input type=\"text\" name=\"T9\" style=\"width: 140px\" value=\"$uploadpath\"></td>\n";
 	echo "  </tr>\n";
@@ -336,7 +374,7 @@ function systemsettingsform(){
 	echo "    <td><input type=\"text\" name=\"T10\" style=\"width: 140px\" value=\"$noaccessmsg\"></td>\n";
 	echo "  </tr>\n";
 	echo "  <tr>\n";
-	echo "  <tr class=\"row1\">\n";
+	echo "  <tr class=\"\">\n";
 	echo "    <td>" . $langmsg['system'][47] . "</td>\n";
 	echo "    <td><input type=\"text\" name=\"scriptpath\" style=\"width: 140px\" value=\"$scriptpath\"></td>\n";
 	echo "  </tr>\n";       
@@ -351,13 +389,14 @@ function systemsettingsform(){
 	echo "</td>\n";
 	echo "  </tr>\n";       
 	echo "  <tr>\n";		
-	echo "    <td>&nbsp;</td>\n";
-	echo "    <td><input type=\"submit\" value=\"".$langmsg['submitfield'][3]."\" class=\"nostyle\" name=\"B1\"></td>\n";
+	echo "    <td colspan=\"2\"></td>\n";
 	echo "  </tr>\n";
 	echo "</table>\n";
 	echo "</div>\n";
+	echo "<br /><input type=\"submit\" value=\"".$langmsg['submitfield'][3]."\" style=\"width: 100%\" name=\"B1\">";
 	echo "</form>\n";
 	echo "</td></tr></table>";
+	
 }
 
 $_POST['B1'] = (empty($_POST['B1'])) ? '' : $_POST['B1'];

@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Galician		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("noticias.");
 $langmsg['editnews'][22] = x("en total.");
 $langmsg['editnews'][23] = x("Ver reset contador a 0 para o artigo seleccionado (s)");
 $langmsg['editnews'][24] = x("Valoración de reset ao artigo seleccionado (s)");
+$langmsg['editnews'][25] = x("Filtrar por categoría");
 
 $langmsg['newsform'][0] = x("Dea sua enviar novas abaixo.");
 $langmsg['newsform'][1] = x("Título:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Nunca ficheiro");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Descargas");
 $langmsg['newsform'][21] = x("Cargado");
+$langmsg['newsform'][22] = x("Artigo");
+$langmsg['newsform'][23] = x("Introduza unha URL de imaxe");
+$langmsg['newsform'][24] = x("Inserir");
+$langmsg['newsform'][25] = x("Seleccione unha imaxe importada");
 
 $langmsg['editcomments'][0] = x("Editar comentarios");
 $langmsg['editcomments'][1] = x("Editar o comentario a continuación.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Confirmar contrasinal:");
 $langmsg['personal'][10] = x("Este enderezo de correo-e debe ser ingresaran.");
 $langmsg['personal'][11] = x("Definicións actualizadas.");
 $langmsg['personal'][12] = x("Os contrasinais non coinciden.");
+$langmsg['personal'][13] = x("Activar editor WYSIWYG?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Nome:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Macho");
 $langmsg['profile'][13] = x("Femia");
 $langmsg['profile'][14] = x("Perfil actualizado.");
+$langmsg['profile'][15] = x("Ningún");
 
 $langmsg['accounts'][0] = x("Contas");
 $langmsg['accounts'][1] = x("Contas.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Dille o número da páxina actual.");
 $langmsg['templates'][131] = x("Dille o número de páxina anterior.");
 $langmsg['templates'][132] = x("Dille o número da páxina seguinte.");
 $langmsg['templates'][133] = x("Dille o título agradable da noticia.");
+$langmsg['templates'][134] = x("Formulario de Busca");
+$langmsg['templates'][135] = x("Resultados da busca");
+$langmsg['templates'][136] = x("Envío de arquivos");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Cargar un novo ficheiro");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nome");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Mensaxe");
+$langmsg['news'][50] = x("Introduza o título dun artigo");
+$langmsg['news'][51] = x("Resumo");
+$langmsg['news'][52] = x("Non hai categorías");
+$langmsg['news'][53] = x("Data");
+$langmsg['news'][54] = x("Data este artigo foi publicado");
+$langmsg['news'][55] = x("Arquivo");
 
 $langmsg['shortmonths'][0] = x("Xan");
 $langmsg['shortmonths'][1] = x("Febreiro");

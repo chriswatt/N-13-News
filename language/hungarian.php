@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Hungarian		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("híreket.");
 $langmsg['editnews'][22] = x("összesen.");
 $langmsg['editnews'][23] = x("View Count 0 visszaáll a kiválasztott cikk (ek)");
 $langmsg['editnews'][24] = x("Értékelések állítani a kiválasztott cikk (ek)");
+$langmsg['editnews'][25] = x("Szűrés kategória");
 
 $langmsg['newsform'][0] = x("Add el a hírünk alább.");
 $langmsg['newsform'][1] = x("Cím:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Soha archívum");
 $langmsg['newsform'][19] = x("Fájlfeltöltés");
 $langmsg['newsform'][20] = x("Letöltéseket");
 $langmsg['newsform'][21] = x("Feltöltött");
+$langmsg['newsform'][22] = x("Cikk");
+$langmsg['newsform'][23] = x("Adja meg a kép URL");
+$langmsg['newsform'][24] = x("Beszúrás");
+$langmsg['newsform'][25] = x("Válassza ki a feltöltött kép");
 
 $langmsg['editcomments'][0] = x("Edit Comments");
 $langmsg['editcomments'][1] = x("Edit a megjegyzést alább.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Jelszó megerősítése:");
 $langmsg['personal'][10] = x("Egy e-mail címet kell beírni.");
 $langmsg['personal'][11] = x("Beállítások frissítve.");
 $langmsg['personal'][12] = x("A jelszavak nem egyeznek.");
+$langmsg['personal'][13] = x("Lehetővé teszi WYSIWYG szerkesztő?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Név:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Kedvenc Idézet:");
 $langmsg['profile'][12] = x("Hím");
 $langmsg['profile'][13] = x("Nő");
 $langmsg['profile'][14] = x("Profil frissítve.");
+$langmsg['profile'][15] = x("Egyik sem");
 
 $langmsg['accounts'][0] = x("Számlákon");
 $langmsg['accounts'][1] = x("Számlákat.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Megjeleníti az aktuális oldal száma.");
 $langmsg['templates'][131] = x("Megjeleníti az előző oldalra száma.");
 $langmsg['templates'][132] = x("Megjeleníti a következő oldal számát.");
 $langmsg['templates'][133] = x("Megjeleníti a barátságos címe újságcikk.");
+$langmsg['templates'][134] = x("Keresési űrlap");
+$langmsg['templates'][135] = x("Keresési eredmények");
+$langmsg['templates'][136] = x("Feltöltött fájlok");
 
 $langmsg['uploadedfiles'][0] = x("Fájlfeltöltés");
 $langmsg['uploadedfiles'][1] = x("Töltsön fel egy új fájlt");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x(": {author} - {date} - {title}");
 $langmsg['news'][47] = x("Név");
 $langmsg['news'][48] = x("E-mail / URL");
 $langmsg['news'][49] = x("Üzenet");
+$langmsg['news'][50] = x("Adja meg egy cikk címe");
+$langmsg['news'][51] = x("Összefoglalás");
+$langmsg['news'][52] = x("Nem KATEGÓRIÁK");
+$langmsg['news'][53] = x("Dátum");
+$langmsg['news'][54] = x("Mai napig ez a cikk volt kifüggesztett");
+$langmsg['news'][55] = x("Archívum");
 
 $langmsg['shortmonths'][0] = x("Január");
 $langmsg['shortmonths'][1] = x("Február");

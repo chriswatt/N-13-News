@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Belarusian                              #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("навін.");
 $langmsg['editnews'][22] = x("у агульнай складанасці.");
 $langmsg['editnews'][23] = x("Адкрыць кол абыходзяць ў 0 для абранага артыкул (артыкулы)");
 $langmsg['editnews'][24] = x("Ацэнкі для скіду выбраных артыкул (артыкулы)");
+$langmsg['editnews'][25] = x("Фільтр па катэгорыях");
 
 $langmsg['newsform'][0] = x("Дадаць навіна пост ніжэй.");
 $langmsg['newsform'][1] = x("Назва:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Ніколі Архіў");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Загрузкі");
 $langmsg['newsform'][21] = x("Загружана");
+$langmsg['newsform'][22] = x("Артыкул");
+$langmsg['newsform'][23] = x("Увядзіце URL выявы");
+$langmsg['newsform'][24] = x("Уставіць");
+$langmsg['newsform'][25] = x("Выберыце загружанага выявы");
 
 $langmsg['editcomments'][0] = x("Змяніць Каментары");
 $langmsg['editcomments'][1] = x("Змяніць каментар ніжэй.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Пацвердзіце пароль:");
 $langmsg['personal'][10] = x("Адрас электроннай пошты павінен быць уведзены.");
 $langmsg['personal'][11] = x("Настройка абнаўлення.");
 $langmsg['personal'][12] = x("Паролі не супадаюць.");
+$langmsg['personal'][13] = x("Ўключыць WYSIWYG рэдактар?");
 
 $langmsg['login'][0] = x("Калі ласка, Увайсці");
 $langmsg['login'][1] = x("Імя:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Любімая Цытата:");
 $langmsg['profile'][12] = x("Мужчына");
 $langmsg['profile'][13] = x("Жанчына");
 $langmsg['profile'][14] = x("Профіль абнаўляецца.");
+$langmsg['profile'][15] = x("Ніхто");
 
 $langmsg['accounts'][0] = x("Рахункі");
 $langmsg['accounts'][1] = x("Рахунках.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Адлюстроўвае бягучы нумар
 $langmsg['templates'][131] = x("Адлюстроўвае папярэдні нумар старонкі.");
 $langmsg['templates'][132] = x("Адлюстроўвае наступны нумар старонкі.");
 $langmsg['templates'][133] = x("Адлюстроўвае дружалюбных назва нашай артыкулы.");
+$langmsg['templates'][134] = x("Форма за търсене");
+$langmsg['templates'][135] = x("Резултати");
+$langmsg['templates'][136] = x("Добавен файлове");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Загрузіць новы файл");
@@ -805,6 +815,13 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Імя");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Паведамленне");
+$langmsg['news'][50] = x("Калі ласка, увядзіце назву артыкула");
+$langmsg['news'][51] = x("Рэзюмэ");
+$langmsg['news'][52] = x("Няма катэгорый");
+$langmsg['news'][53] = x("Дзень");
+$langmsg['news'][54] = x("Дата гэтая артыкул была размешчана");
+$langmsg['news'][55] = x("Архіў");
+
 
 $langmsg['shortmonths'][0] = x("Студзень");
 $langmsg['shortmonths'][1] = x("Люты");

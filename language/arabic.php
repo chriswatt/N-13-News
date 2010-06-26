@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Arabic                                  #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -118,6 +118,7 @@ $langmsg['editnews'][21] = x("قصص اخبارية.");
 $langmsg['editnews'][22] = x("في المجموع.");
 $langmsg['editnews'][23] = x("عرض العد إعادة تعيين إلى 0 لهذه المادة المختارة (ق)");
 $langmsg['editnews'][24] = x("إعادة التقييم لهذه المادة المختارة (ق)");
+$langmsg['editnews'][25] = x("تصفية حسب الفئة");
 
 
 $langmsg['newsform'][0] = x("إضافة الأخبار الخاصة بك وظيفة أدناه.");
@@ -136,6 +137,10 @@ $langmsg['newsform'][18] = x("أبدا ارشيف");
 $langmsg['newsform'][19] = x("تحميل الملف");
 $langmsg['newsform'][20] = x("التنزيلات");
 $langmsg['newsform'][21] = x("تم الرفع");
+$langmsg['newsform'][22] = x("مقالة");
+$langmsg['newsform'][23] = x("أدخل رابط صورة");
+$langmsg['newsform'][24] = x("أدخل");
+$langmsg['newsform'][25] = x("تحديد صورة تم الرفع");
 
 
 $langmsg['editcomments'][0] = x("عدل تعليقات");
@@ -262,6 +267,7 @@ $langmsg['personal'][9] = x("تأكيد كلمة المرور :");
 $langmsg['personal'][10] = x("ويجب أن يتم إدخال عنوان البريد الإلكتروني.");
 $langmsg['personal'][11] = x("الإعدادات المحدثة.");
 $langmsg['personal'][12] = x("لا تتطابق كلمات المرور.");
+$langmsg['personal'][13] = x("تمكين سوغ محرر؟");
 
 
 $langmsg['login'][0] = x("يرجى تسجيل الدخول");
@@ -291,6 +297,7 @@ $langmsg['profile'][11] = x("المفضلة اقتباس :");
 $langmsg['profile'][12] = x("ذكر");
 $langmsg['profile'][13] = x("أنثى");
 $langmsg['profile'][14] = x("لمحة تحديثها.");
+$langmsg['profile'][15] = x("لا شيء");
 
 
 $langmsg['accounts'][0] = x("الحسابات");
@@ -668,6 +675,9 @@ $langmsg['templates'][130] = x("يعرض رقم الصفحة الحالية.");
 $langmsg['templates'][131] = x("يعرض رقم الصفحة السابقة.");
 $langmsg['templates'][132] = x("يعرض رقم الصفحة التالية.");
 $langmsg['templates'][133] = x("يعرض عنوان المقال ودية للأنباء.");
+$langmsg['templates'][134] = x("نموذج بحث");
+$langmsg['templates'][135] = x("نتائج البحث");
+$langmsg['templates'][136] = x("تم الرفع الملفات");
 
 
 $langmsg['uploadedfiles'][0] = x("تحميل الملف");
@@ -833,6 +843,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("اسم");
 $langmsg['news'][48] = x("البريد الالكتروني / رابط");
 $langmsg['news'][49] = x("رسالة");
+$langmsg['news'][50] = x("أدخل عنوان مقال");
+$langmsg['news'][51] = x("ملخص");
+$langmsg['news'][52] = x("أي الفئات");
+$langmsg['news'][53] = x("تاريخ");
+$langmsg['news'][54] = x("وقد نشرت هذه المقالة تاريخ");
+$langmsg['news'][55] = x("الأرشيف");
 
 
 $langmsg['shortmonths'][0] = x("يناير");

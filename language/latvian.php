@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Latvian			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("ziņas.");
 $langmsg['editnews'][22] = x("in total.");
 $langmsg['editnews'][23] = x("View Count reset uz 0 izvēlēto izstrādājumā (os)");
 $langmsg['editnews'][24] = x("Ratings reset par izvēlēto izstrādājumā (os)");
+$langmsg['editnews'][25] = x("Filtrēt pēc kategorijas");
 
 $langmsg['newsform'][0] = x("Pievienot savu ziņu pakāpi zemākam amatam.");
 $langmsg['newsform'][1] = x("Nosaukums:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Nekad arhīvs");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Augšupielādēts");
+$langmsg['newsform'][22] = x("Raksts");
+$langmsg['newsform'][23] = x("Ievadiet attēla URL");
+$langmsg['newsform'][24] = x("Ievietot");
+$langmsg['newsform'][25] = x("Izvēlēties augšupielādēto attēlu");
 
 $langmsg['editcomments'][0] = x("Edit Comments");
 $langmsg['editcomments'][1] = x("Rediģēt komentāru turpmāk.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Apstipriniet paroli:");
 $langmsg['personal'][10] = x("E-pasta adrese jāievada.");
 $langmsg['personal'][11] = x("Iestatījumi atjaunināti.");
 $langmsg['personal'][12] = x("Paroles nesakrīt.");
+$langmsg['personal'][13] = x("Ieslēgt WYSIWYG redaktors?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Vārds:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Vīrietis");
 $langmsg['profile'][13] = x("Sieviete");
 $langmsg['profile'][14] = x("Profile atjaunina.");
+$langmsg['profile'][15] = x("Neviens");
 
 $langmsg['accounts'][0] = x("Konti");
 $langmsg['accounts'][1] = x("Kontos.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Parāda pašreizējo lapu skaitu.");
 $langmsg['templates'][131] = x("Parāda iepriekšējo lapu skaitu.");
 $langmsg['templates'][132] = x("Parāda nākamo lapu skaitu.");
 $langmsg['templates'][133] = x("Parāda draudzīgs nosaukums ziņu rakstu.");
+$langmsg['templates'][134] = x("Meklēšanas forma");
+$langmsg['templates'][135] = x("Meklēšanas rezultāti");
+$langmsg['templates'][136] = x("Augšupielādēto failu");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Augšupielādēt jaunu failu");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nosaukums");
 $langmsg['news'][48] = x("E-pasts / URL");
 $langmsg['news'][49] = x("Ziņa");
+$langmsg['news'][50] = x("Ievadiet rakstu nosaukuma");
+$langmsg['news'][51] = x("Kopsavilkums");
+$langmsg['news'][52] = x("Nr kategorijām");
+$langmsg['news'][53] = x("Datums");
+$langmsg['news'][54] = x("Datums, kad šis raksts tika publicēts");
+$langmsg['news'][55] = x("Arhīvs");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Februāris");

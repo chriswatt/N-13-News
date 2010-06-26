@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Thai                                    #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -118,6 +118,7 @@ $langmsg['editnews'][21] = x("ข่าว.");
 $langmsg['editnews'][22] = x("รวม.");
 $langmsg['editnews'][23] = x("รีเซ็ต นับ ดู เป็น 0 สำหรับ บทความ ที่ เลือก (s)");
 $langmsg['editnews'][24] = x("คะแนน การ ตั้ง ค่า สำหรับ บทความ ที่ เลือก (s)");
+$langmsg['editnews'][25] = x("กรองตามประเภท");
 
 
 $langmsg['newsform'][0] = x("เพิ่มประกาศข่าวของคุณด้านล่าง.");
@@ -136,6 +137,10 @@ $langmsg['newsform'][18] = x("เก็บไม่");
 $langmsg['newsform'][19] = x("อัพโหลดไฟล์");
 $langmsg['newsform'][20] = x("ดาวน์โหลด");
 $langmsg['newsform'][21] = x("อัปโหลด");
+$langmsg['newsform'][22] = x("บทความ");
+$langmsg['newsform'][23] = x("URL ใส่รูปภาพ");
+$langmsg['newsform'][24] = x("แทรก");
+$langmsg['newsform'][25] = x("เลือกรูปภาพที่อัปโหลด");
 
 
 $langmsg['editcomments'][0] = x("แก้ไขความคิดเห็น");
@@ -262,6 +267,7 @@ $langmsg['personal'][9] = x("ยืนยันรหัสผ่าน:");
 $langmsg['personal'][10] = x("ที่อยู่อีเมลจะต้องใส่.");
 $langmsg['personal'][11] = x("การตั้งค่าการปรับปรุง.");
 $langmsg['personal'][12] = x("รหัสผ่านไม่ตรงกัน.");
+$langmsg['personal'][13] = x("Enable WYSIWYG editor?");
 
 
 $langmsg['login'][0] = x("กรุณาเข้าสู่ระบบ");
@@ -291,6 +297,7 @@ $langmsg['profile'][11] = x("ราคาที่ชอบ:");
 $langmsg['profile'][12] = x("เพศชาย");
 $langmsg['profile'][13] = x("เพศหญิง");
 $langmsg['profile'][14] = x("โปรไฟล์ปรับปรุง.");
+$langmsg['profile'][15] = x("ไม่");
 
 
 $langmsg['accounts'][0] = x("บัญชี");
@@ -668,6 +675,9 @@ $langmsg['templates'][130] = x("แสดงหมายเลขหน้าป
 $langmsg['templates'][131] = x("แสดงหมายเลขหน้าก่อนหน้า");
 $langmsg['templates'][132] = x("แสดงหมายเลขหน้าถัดไป");
 $langmsg['templates'][133] = x("แสดงชื่อมิตรของบทความข่าว");
+$langmsg['templates'][134] = x("แบบฟอร์มการค้นหา");
+$langmsg['templates'][135] = x("ผลการค้นหา");
+$langmsg['templates'][136] = x("อัพโหลดไฟล์");
 
 
 $langmsg['uploadedfiles'][0] = x("อัพโหลดไฟล์");
@@ -832,6 +842,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("ชื่อ");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Message");
+$langmsg['news'][50] = x("ใส่ชื่อบทความ");
+$langmsg['news'][51] = x("Summary");
+$langmsg['news'][52] = x("ไม่มีประเภท");
+$langmsg['news'][53] = x("วันที่");
+$langmsg['news'][54] = x("วันที่บทความนี้ถูกโพสต์");
+$langmsg['news'][55] = x("Archive");
 
 
 $langmsg['shortmonths'][0] = x("Jan");

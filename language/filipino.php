@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Filipino		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("balita.");
 $langmsg['editnews'][22] = x("sa kabuuan.");
 $langmsg['editnews'][23] = x("Tingnan ang count i-reset sa 0 para sa mga napiling artikulo (s)");
 $langmsg['editnews'][24] = x("Ratings-reset para sa napiling artikulo (s)");
+$langmsg['editnews'][25] = x("Salain sa pamamagitan ng kategorya");
 
 $langmsg['newsform'][0] = x("Idagdag ang iyong mga balita post sa ibaba.");
 $langmsg['newsform'][1] = x("Title:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Huwag ilagay sa archive");
 $langmsg['newsform'][19] = x("File upload");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Artikulo");
+$langmsg['newsform'][23] = x("Magpasok ng isang URL ng imahe");
+$langmsg['newsform'][24] = x("Isingit");
+$langmsg['newsform'][25] = x("Pumili ng isang nai-upload na imahe");
 
 $langmsg['editcomments'][0] = x("I-edit ang mga Komento");
 $langmsg['editcomments'][1] = x("I-edit ang mga puna sa ibaba.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Kumpirmahin ang password:");
 $langmsg['personal'][10] = x("Isang email address ay dapat maipasok.");
 $langmsg['personal'][11] = x("Setting-update.");
 $langmsg['personal'][12] = x("Ang mga password ay hindi tumutugma.");
+$langmsg['personal'][13] = x("Paganahin ang WYSIWYG editor?");
 
 $langmsg['login'][0] = x("Paki-Login");
 $langmsg['login'][1] = x("Pangalan:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Lalaki");
 $langmsg['profile'][13] = x("Babae");
 $langmsg['profile'][14] = x("Profile na-update.");
+$langmsg['profile'][15] = x("Wala");
 
 $langmsg['accounts'][0] = x("Accounts");
 $langmsg['accounts'][1] = x("Accounts.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Ipinapakita ang kasalukuyang numero ng pahina.")
 $langmsg['templates'][131] = x("Ay ipinapakita ang nakaraang numero pahina.");
 $langmsg['templates'][132] = x("Ay ipinapakita ang susunod na numero ng pahina.");
 $langmsg['templates'][133] = x("Ay ipinapakita ang friendly pamagat ng artikulo ng balita.");
+$langmsg['templates'][134] = x("Search form");
+$langmsg['templates'][135] = x("Mga resulta ng paghahanap");
+$langmsg['templates'][136] = x("Uploaded mga file");
 
 $langmsg['uploadedfiles'][0] = x("File upload");
 $langmsg['uploadedfiles'][1] = x("Mag-upload ng bagong file");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Pangalan");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Mensahe");
+$langmsg['news'][50] = x("Ipasok ang isang artikulo pamagat");
+$langmsg['news'][51] = x("Buod");
+$langmsg['news'][52] = x("Walang mga kategorya");
+$langmsg['news'][53] = x("Petsa");
+$langmsg['news'][54] = x("Petsa ng artikulo na ito ay nai-post");
+$langmsg['news'][55] = x("Archive");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Pebrero");

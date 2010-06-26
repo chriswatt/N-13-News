@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Catalan                                 #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("les notícies.");
 $langmsg['editnews'][22] = x("en total.");
 $langmsg['editnews'][23] = x("He perdut Veure compte a 0 per l'article seleccionat (s)");
 $langmsg['editnews'][24] = x("Votacions per restablir l'article seleccionat (s)");
+$langmsg['editnews'][25] = x("Filtrar per categoria");
 
 $langmsg['newsform'][0] = x("Afegeix el teu publicar notícies a continuació.");
 $langmsg['newsform'][1] = x("Títol:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Mai arxiu");
 $langmsg['newsform'][19] = x("Càrrega d'Arxius");
 $langmsg['newsform'][20] = x("Descàrregues");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Article");
+$langmsg['newsform'][23] = x("Introduïu un URL de la imatge");
+$langmsg['newsform'][24] = x("Insereix");
+$langmsg['newsform'][25] = x("Seleccioneu una imatge carregada");
 
 $langmsg['editcomments'][0] = x("Modificar els comentaris");
 $langmsg['editcomments'][1] = x("Edita el comentari a continuació.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Confirmar contrasenya:");
 $langmsg['personal'][10] = x("Una adreça de correu electrònic ha de ser introduït.");
 $langmsg['personal'][11] = x("Configuració actualitzada.");
 $langmsg['personal'][12] = x("Les contrasenyes no coincideixen.");
+$langmsg['personal'][13] = x("Activar l'editor WYSIWYG?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Nom:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Cita favorita:");
 $langmsg['profile'][12] = x("Mascle");
 $langmsg['profile'][13] = x("Femella");
 $langmsg['profile'][14] = x("Perfil actualitzat.");
+$langmsg['profile'][15] = x("Cap");
 
 $langmsg['accounts'][0] = x("Comptes");
 $langmsg['accounts'][1] = x("Comptes.");
@@ -646,6 +653,10 @@ $langmsg['templates'][130] = x("Mostra el número de pàgina actual.");
 $langmsg['templates'][131] = x("Mostra el número de la pàgina anterior.");
 $langmsg['templates'][132] = x("Mostra el número de la pàgina següent.");
 $langmsg['templates'][133] = x("Mostra el títol descriptiu del reportatge.");
+$langmsg['templates'][134] = x("Formulari de cerca");
+$langmsg['templates'][135] = x("Resultats de la cerca");
+$langmsg['templates'][136] = x("Arxius enviats");
+
 
 $langmsg['uploadedfiles'][0] = x("Càrrega d'Arxius");
 $langmsg['uploadedfiles'][1] = x("Carrega un fitxer nou");
@@ -805,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nom");
 $langmsg['news'][48] = x("Correu electrònic / URL");
 $langmsg['news'][49] = x("Missatge");
+$langmsg['news'][50] = x("Escriviu un article de títol");
+$langmsg['news'][51] = x("Resum");
+$langmsg['news'][52] = x("No hi ha categories");
+$langmsg['news'][53] = x("Data");
+$langmsg['news'][54] = x("Data d'aquest article va ser publicada");
+$langmsg['news'][55] = x("Arxiu");
 
 
 $langmsg['shortmonths'][0] = x("Gen");

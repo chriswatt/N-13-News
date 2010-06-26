@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Albanian                                #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("lajmet.");
 $langmsg['editnews'][22] = x("gjithsej.");
 $langmsg['editnews'][23] = x("Shiko reset count to 0 për artikullin zgjedhur (s)");
 $langmsg['editnews'][24] = x("Ratings reset për artikullin zgjedhur (s)");
+$langmsg['editnews'][25] = x("Filter sipas kategorisë");
 
 $langmsg['newsform'][0] = x("Add shkrimin tuaj lajme më poshtë.");
 $langmsg['newsform'][1] = x("Title:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Asnjëherë archive");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Shkarkime");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Artikull");
+$langmsg['newsform'][23] = x("Shkruani një imazh URL");
+$langmsg['newsform'][24] = x("Kall");
+$langmsg['newsform'][25] = x("Zgjidh një imazh i ngarkuar");
 
 $langmsg['editcomments'][0] = x("Ndrysho Komente");
 $langmsg['editcomments'][1] = x("Edit koment më poshtë.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Konfirmo fjalëkalimin:");
 $langmsg['personal'][10] = x("Një adresë e-mail duhet të jenë hyri.");
 $langmsg['personal'][11] = x("Settings updated.");
 $langmsg['personal'][12] = x("Fjalkalimet nuk perputhen.");
+$langmsg['personal'][13] = x("Aktivizo WYSIWYG?");
 
 $langmsg['login'][0] = x("Lutem Identifikohu");
 $langmsg['login'][1] = x("Emri:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Mashkull");
 $langmsg['profile'][13] = x("Femër");
 $langmsg['profile'][14] = x("Profili updated.");
+$langmsg['profile'][15] = x("Asnjë");
 
 $langmsg['accounts'][0] = x("Llogaritë");
 $langmsg['accounts'][1] = x("Llogaritë.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Tregon numrin aktual faqe.");
 $langmsg['templates'][131] = x("Tregon numrin e mëparshme faqe.");
 $langmsg['templates'][132] = x("Tregon numrin e ardhshëm faqe.");
 $langmsg['templates'][133] = x("Shfaq titullin miqësore e shkrimit lajmeve.");
+$langmsg['templates'][134] = x("formën e kërkimit");
+$langmsg['templates'][135] = x("Rezultatet e kërkimit");
+$langmsg['templates'][136] = x("Ngarkoni skeda");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Ngarko një skedar të ri");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Emër");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Mesazh");
+$langmsg['news'][50] = x("Shkruani një artikull titull");
+$langmsg['news'][51] = x("Përmbledhje");
+$langmsg['news'][52] = x("Pa kategori");
+$langmsg['news'][53] = x("Data");
+$langmsg['news'][54] = x("Data këtë artikull u shpall");
+$langmsg['news'][55] = x("Arkivi");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Shkurt");

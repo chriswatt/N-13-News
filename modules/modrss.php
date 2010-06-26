@@ -79,12 +79,12 @@ function rssform(){
 			$encoding = 'UTF-8';
 			$language= 'en-us';
 			$display = '3';
-			$amount = '0';
+			$amount = '10';
 			$nocats = '1';
 			$rsscode = '   	<item>
 		<title>{title}</title>
 		<link>{url}</link>
-		<description><![CDATA[{shortstory}]]></description>		
+		<description><![CDATA[{summary}]]></description>		
 		<pubDate>{date} {timezone}</pubDate>
 		<guid isPermaLink="false">{id}_{timestamp}</guid>
 	</item>
@@ -160,8 +160,8 @@ function rssform(){
 	echo "<br /><br />";
 	echo "<b>{title}</b> - " . $langmsg['rss'][15] . "<br>";
 	echo "<b>{friendlytitle}</b> - " . $langmsg['rss'][43] . "<br>";
-	echo "<b>{shortstory}</b> - " . $langmsg['rss'][16] . "<br />";
-	echo "<b>{story}</b> - " . $langmsg['rss'][17] . "<br />";
+	echo "<b>{summary}</b> - " . $langmsg['rss'][16] . "<br />";
+	echo "<b>{article}</b> - " . $langmsg['rss'][17] . "<br />";
 	echo "<b>{categories}</b> - " . $langmsg['rss'][18] . "<br />";
 	echo "<b>{url}</b> - " . $langmsg['rss'][19] . "<br />";
 	echo "<b>{date}</b> - " . $langmsg['rss'][20] . "<br />";
@@ -174,9 +174,9 @@ function rssform(){
 
 	echo "<textarea name=\"rsscode\" style=\"width: 100%; height: 100px\">$rsscode</textarea></td></tr>";
 	if($_GET['new'] == "true"){
-		echo "<tr><td></td><td><input type=\"submit\" name=\"S1\" value=\"".$langmsg['submitfield'][5]."\" /></td></tr>";
+		echo "<tr><td align=\"center\" colspan=\"2\"><input type=\"submit\" name=\"S1\" style=\"width: 100%\" value=\"".$langmsg['submitfield'][5]."\" /></td></tr>";
 	}else{
-		echo "<tr><td></td><td><input type=\"submit\" name=\"S1\" value=\"".$langmsg['submitfield'][3]."\" /></td></tr>";
+		echo "<tr><td align=\"center\" colspan=\"2\"><input type=\"submit\" name=\"S1\" style=\"width: 100%\" value=\"".$langmsg['submitfield'][3]."\" /></td></tr>";
 	}
 	echo "</table>";
 	echo "</form>";
@@ -346,6 +346,7 @@ $num = DataAccess::fetch("SELECT COUNT(feedid) AS total FROM " . NEWS_FEEDS);
 $num = $num['0']['total'];
 $i = 0;
 $allcats = DataAccess::fetch("SELECT * FROM " . NEWS_CATS);
+$cats = array();
 foreach($allcats AS $row2){
 	$cats[$i] = array("name" => $row2['name'], "id" => $row2['id']);
 	$i++;                                        		

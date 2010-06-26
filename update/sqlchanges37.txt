@@ -1,0 +1,4 @@
+UPDATE `news30_options` SET `version` = '3.7' WHERE 1;
+ALTER TABLE news30_story ADD old INT(11) DEFAULT 1 AFTER commentcount;
+ALTER TABLE news30_users ADD enablewysiwyg INT(11) DEFAULT '1' AFTER alertmsg;
+UPDATE news30_users SET avatar = '0';

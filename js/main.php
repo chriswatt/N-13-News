@@ -301,9 +301,10 @@ function accountaction(){
 function xxx(){
 	
 }
-function insertimage(e,d){
-	d = '[img="' + d + '"][/img]';
-	document.getElementById(e).focus(); insertAtCursor(document.getElementById(e),d);
+function insertimage(e,d,source){
+	d = '<img src="' + d + '" alt="Image" title="Image" />';
+	CKEDITOR.instances[document.getElementById('whichbox').innerHTML].insertHtml(d);
+	//document.getElementById(e).focus(); insertAtCursor(document.getElementById(e),d);
 }
 function doeditaction(){
 	if(document.getElementById('action').value == 'delete'){ 
@@ -349,6 +350,7 @@ function bbcode(a,e){
 	document.getElementById(e).focus(); insertAtCursor(document.getElementById(e),'\n[ol]\n[*] Item\n[*] Item2\n[/ol]');
  } 
  if(a == "image"){
+   document.getElementById('whichbox').innerHTML = e;
    if(document.getElementById('imagebox').style.display == ''){
    	 document.getElementById('imagebox').style.display = 'none';
    	 document.getElementById('fade').style.display = 'none';
@@ -429,31 +431,6 @@ function deletecat(){
 		}
 	}
 }
-function showsmilies(event){
- if(event.pageX){
-	 var x = document.getElementById('smileybutton').style.left + event.pageX;
-	 var y = document.getElementById('smileybutton').style.top + event.pageY;
- }else{
-	 var x = document.getElementById('smileybutton').style.left + event.clientX;
-	 var y = document.getElementById('smileybutton').style.top + event.clientY;
- }
- if(!document.getElementById('smileybox')){
-	 var insertO, oSpan, results;
-	 insertO = document.getElementById('box');
-	 oSpan = document.createElement('div');
-	 oSpan.setAttribute('id','smileybox');
-	 insertO.insertBefore(oSpan, insertO.firstChild);
-	 document.getElementById('smileybox').style.display = '';
-	 document.getElementById('smileybox').innerHTML = "<?php echo esc($langmsg['js'][30]); ?>";
-	
- }else{
- 		 document.getElementById('smileybox').style.display = '';
- 		 document.getElementById('fade').style.display = 'block';
- }
- 	document.getElementById('smileybox').style.left = x + "px";
- 	document.getElementById('smileybox').style.top = y + "px";
- }
-
 function insertAtCursor(myField, myValue){
 	if(document.selection){
 		var temp;
@@ -479,159 +456,27 @@ function insertAtCursor(myField, myValue){
 	}
 }
 
-var W3CDOM = (document.createElement && document.getElementsByTagName);
+function showsmilies(event,source){
+ document.getElementById('whichbox').innerHTML = source;
+ if(!document.getElementById('smileybox')){
+	 var insertO, oSpan, results;
+	 insertO = document.getElementById('box');
+	 oSpan = document.createElement('div');
+	 oSpan.setAttribute('id','smileybox');
+	 insertO.insertBefore(oSpan, insertO.firstChild);
+	 document.getElementById('smileybox').style.display = '';
+	 document.getElementById('smileybox').innerHTML = "<?php echo esc($langmsg['js'][30]); ?>";
+	
+ }else{
+ 		 document.getElementById('smileybox').style.display = '';
+ 		 document.getElementById('fade').style.display = 'block';
+ }
+	//	document.getElementById('smileybox').style.left = x + "px";
+	// 	document.getElementById('smileybox').style.top = y + "px";
+ }
 
-addEvent(window, 'load', initCollapsingRows);
 
-var pathToImages = "";
 
-function addEvent(obj, eventType,fn, useCapture)
-{
-	if (obj.addEventListener) {
-		obj.addEventListener(eventType, fn, useCapture);
-		return true;
-	} else {
-		if (obj.attachEvent) {
-			var r = obj.attachEvent("on"+eventType, fn);
-			return r;
-		}
-	}
-}
-
-// this function is needed to work around 
-// a bug in IE related to element attributes
-function hasClass(obj) {
-   var result = false;
-   if (obj.getAttributeNode("class") != null) {
-       result = obj.getAttributeNode("class").value;
-   }
-   return result;
-}  
-
-function toggleVisibility() {
-
-    var theImage = this;
-    var theRowName = this.id.replace('_image', '_comment');
-    var theRow = document.getElementById(theRowName);
-    
-    if (theRow.style.display=="none") {
-        theRow.style.display = "";
-        theImage.src = pathToImages + "images/Collapse.gif";
-    } else {
-        theRow.style.display = "none";
-        theImage.src = pathToImages + "images/Expand.gif";
-    }
-}
- 
-function insertExtraCells(theTable) {
-
-    // get reference to all of the tbody's, thead's, and tfoot's
-    var tbodies = theTable.getElementsByTagName('tbody');
-    var theads = theTable.getElementsByTagName('thead');
-    var tfoots = theTable.getElementsByTagName('tfoot');
-
-    insertInto(theads, 'th');
-    insertInto(tbodies, 'td');
-    insertInto(tfoots, 'td');    
-    
-}
-
-function insertInto(parentCollections, typeOfCell) {
-    // loop through all of the parent collections passed in
-    for (var m = 0; m < parentCollections.length; m++) {
-
-        // get all of the rows for each collection
-        var trs = parentCollections[m].getElementsByTagName('tr');
-        
-        // loop through each of the rows
-        for (i=0;i < trs.length;i++) {
-            // create a new cell
-            var theNewCell = document.createElement(typeOfCell);
-            
-            // insert the new cell before the first child
-            var cells = trs[i].getElementsByTagName(typeOfCell);
-            trs[i].insertBefore(theNewCell, cells[0]);
-        }
-    }
-}
-
-function initCollapsingRows()
-{
-	if (!W3CDOM) return;
-
-    // the flag we'll use to keep track of 
-    // whether the current row is odd or even
-    var even = true;  
-
-    // get a list of all the tables
-    var tables = document.getElementsByTagName('table');
-
-    // if there aren't any tables exit
-    if (tables.length==0) { return; }
-
-    // and iterate through them...
-    for (var k = 0; k < tables.length; k++) {
-        
-        // if the table has a class
-        if (hasClass(tables[k])) {
-            
-            // if that class is "collapsible"
-            if (tables[k].getAttributeNode('class').value.indexOf('collapsible')!=-1) {
-                
-                // since we are adding a graphic for expanding and collapsing
-                // the rows in the first column of the table, we need to add
-                // an extra column everywhere
-                insertExtraCells(tables[k]);
-
-                var tbodies = tables[k].getElementsByTagName('tbody');
-                
-                // iterate through the bodies...
-                for (var h = 0; h < tbodies.length; h++) {
-          
-                    // find all the &lt;tr&gt; elements... 
-                    var trs = tbodies[h].getElementsByTagName('tr');
-    
-                    // ... and iterate through them
-                    for (var i = 0; i < trs.length; i++) {
-
-                        if (i%2==0) {
-                            // Get a reference to the TD's
-                            var td = trs[i].getElementsByTagName('td')[0];
-    
-                            // Assign a related unique ID to the next row where the comment is
-                            // This is the row that will be expanded and collapsed
-                            var theRowName = "row_" + i + "_comment";
-                            trs[i+1].id = theRowName;
-                            trs[i+1].style.display = "none";
-    
-                            // Create the new image object
-                            var theNewImage = document.createElement('img');
-                            var theNewImageName = "row_" + i + "_image";
-                            theNewImage.id = theNewImageName;
-                            theNewImage.src = pathToImages + "images/Expand.gif";
-                            theNewImage.width = 13;
-                            theNewImage.height = 13;
-                            theNewImage.style.margin = "5px";
-                            theNewImage.style.cursor = "pointer";
-                            
-                            // Add "onclick" event to the image that expands and collapses the next row
-                            theNewImage.onclick = toggleVisibility;
-    
-                            // Insert an image into the document tree inside the first TD
-                            td.appendChild(theNewImage);
-                            td.style.width="2%"
-    
-                            // Skip the collapsbile row
-                            i++;
-                        }
-                    }
-                }
-            }
-        } 
-        // Reset "even" for the next table
-        even = true;
-    } // End for loop  
-}
 
 function showeditimage(id){
 	document.getElementById(id+'_editicon').style.display = '';
@@ -700,9 +545,13 @@ function filecatchange(){
 		document.getElementById('addtocat').style.display = 'none';
 	}
 }
-function insertsmiley(keycode,path){
-	document.getElementById(e).focus(); 
-	insertAtCursor(document.getElementById(e),keycode); 
+function insertsmiley(keycode,path,source){
+	//document.getElementById(e).focus(); 
+	//insertAtCursor(document.getElementById(e),keycode); 
+	d = '<img src="' + path + '" title="' + keycode + '" alt="' + keycode + '" />';
+	CKEDITOR.instances[document.getElementById('whichbox').innerHTML].insertHtml(d);
+	document.getElementById('smileybox').style.display = 'none';
+	document.getElementById('fade').style.display = 'none';
 	
 }
 function showhidesection(id){
@@ -719,5 +568,19 @@ function showhideeditnewsfiles(id){
 		document.getElementById(id).style.display = '';
 	}else{
 		document.getElementById(id).style.display = 'none';
+	}
+}
+function toggle_section(id){
+	if(document.getElementById('section_'+id).style.display == "none"){
+		document.getElementById('section_'+id).style.display = 'block';
+	}else{
+		document.getElementById('section_'+id).style.display = 'none';
+	}
+}
+function toggle_section2(id){
+	if(document.getElementById('section_'+id).style.display == "none"){
+		document.getElementById('section_'+id).style.display = 'table';
+	}else{
+		document.getElementById('section_'+id).style.display = 'none';
 	}
 }

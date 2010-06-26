@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Estonian		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("uudiseid.");
 $langmsg['editnews'][22] = x("kokku.");
 $langmsg['editnews'][23] = x("View Count Taasta 0 valitud Artikli (te)");
 $langmsg['editnews'][24] = x("Reitingud nullitud valitud Artikli (te)");
+$langmsg['editnews'][25] = x("Filtreeri kategooria");
 
 $langmsg['newsform'][0] = x("Lisa oma uudis oleval ametikohal.");
 $langmsg['newsform'][1] = x("Pealkiri:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Kunagi arhiiv");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Allalaadimised");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Artikkel");
+$langmsg['newsform'][23] = x("Sisesta pildi URL");
+$langmsg['newsform'][24] = x("Lisa");
+$langmsg['newsform'][25] = x("Valige üleslaaditud pilt");
 
 $langmsg['editcomments'][0] = x("Muuda Kommentaarid");
 $langmsg['editcomments'][1] = x("Muuda allapoole kommentaar.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Kinnita salasõna:");
 $langmsg['personal'][10] = x("E-posti aadress tuleb sisestada.");
 $langmsg['personal'][11] = x("Seaded uuendatud.");
 $langmsg['personal'][12] = x("Paroolid ei kattu.");
+$langmsg['personal'][13] = x("Luba WYSIWYG editor?");
 
 $langmsg['login'][0] = x("Palun Logi sisse");
 $langmsg['login'][1] = x("Nimi:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Lemmik Tsitaat:");
 $langmsg['profile'][12] = x("Meessoost");
 $langmsg['profile'][13] = x("Naissoost");
 $langmsg['profile'][14] = x("Profiili ajakohastada.");
+$langmsg['profile'][15] = x("Mitte ükski");
 
 $langmsg['accounts'][0] = x("Kontod");
 $langmsg['accounts'][1] = x("Kontod.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Näitab aktiivse lehekülje number.");
 $langmsg['templates'][131] = x("Kuvab eelmise lehe number.");
 $langmsg['templates'][132] = x("Näitab järgmise lehe number.");
 $langmsg['templates'][133] = x("Näitab sõbralik pealkiri uudis.");
+$langmsg['templates'][134] = x("Otsinguvorm");
+$langmsg['templates'][135] = x("Otsingu tulemused");
+$langmsg['templates'][136] = x("Üleslaetud failid");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Lae uus fail");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nimi");
 $langmsg['news'][48] = x("Post / URL");
 $langmsg['news'][49] = x("Sõnum");
+$langmsg['news'][50] = x("Sisestage artikli pealkiri");
+$langmsg['news'][51] = x("Kokkuvõte");
+$langmsg['news'][52] = x("Nr kategooriad");
+$langmsg['news'][53] = x("Kuupäev");
+$langmsg['news'][54] = x("Kuupäev see artikkel oli lähetatud");
+$langmsg['news'][55] = x("Arhiiv");
 
 $langmsg['shortmonths'][0] = x("Jaan");
 $langmsg['shortmonths'][1] = x("Veebruar");

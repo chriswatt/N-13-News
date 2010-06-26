@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Hebrew			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("כתבות חדשותיות.");
 $langmsg['editnews'][22] = x("בסך הכל.");
 $langmsg['editnews'][23] = x("הצג לאפס לספור עד 0 עבור המאמר הנבחר (ים)");
 $langmsg['editnews'][24] = x("דירוג לאפס עבור המאמר הנבחר (ים)");
+$langmsg['editnews'][25] = x("סנן לפי קטגוריה");
 
 $langmsg['newsform'][0] = x("הוסף העברת החדשות שלך למטה.");
 $langmsg['newsform'][1] = x("כותרת:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("לעולם ארכיון");
 $langmsg['newsform'][19] = x("קובץ ההעלאות");
 $langmsg['newsform'][20] = x("הורדות");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("מאמר");
+$langmsg['newsform'][23] = x("הזן כתובת URL של תמונה");
+$langmsg['newsform'][24] = x("להכניס");
+$langmsg['newsform'][25] = x("בחר תמונה שהוטענה");
 
 $langmsg['editcomments'][0] = x("עריכת תגובות");
 $langmsg['editcomments'][1] = x("ערוך את ההערה למטה.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("אשר סיסמה:");
 $langmsg['personal'][10] = x("כתובת דואל חייבת להיות נכנס.");
 $langmsg['personal'][11] = x("הגדרות עודכן.");
 $langmsg['personal'][12] = x("הסיסמאותלאתואמות.");
+$langmsg['personal'][13] = x("אפשר עורך WYSIWYG?");
 
 $langmsg['login'][0] = x("בבקשה התחבר");
 $langmsg['login'][1] = x("שם:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("ציטוט מועדף:");
 $langmsg['profile'][12] = x("זכר");
 $langmsg['profile'][13] = x("נקבה");
 $langmsg['profile'][14] = x("פרופיל עודכן.");
+$langmsg['profile'][15] = x("אף לא אחד");
 
 $langmsg['accounts'][0] = x("חשבונות");
 $langmsg['accounts'][1] = x("חשבונות.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("מציג את מספר העמוד הנוכחי."
 $langmsg['templates'][131] = x("מציג את מספר העמוד הקודם.");
 $langmsg['templates'][132] = x("מציג את מספר העמוד הבא.");
 $langmsg['templates'][133] = x("מציג את הכותרת של המאמר ידידותי החדשות.");
+$langmsg['templates'][134] = x("חיפוש צורה");
+$langmsg['templates'][135] = x("תוצאות חיפוש");
+$langmsg['templates'][136] = x("הוטען קבצים");
 
 $langmsg['uploadedfiles'][0] = x("קובץ ההעלאות");
 $langmsg['uploadedfiles'][1] = x("להעלות קובץ חדש");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("שם");
 $langmsg['news'][48] = x("אימייל / כתובת");
 $langmsg['news'][49] = x("הודעה");
+$langmsg['news'][50] = x("הכנס מאמר כותרת");
+$langmsg['news'][51] = x("תקציר");
+$langmsg['news'][52] = x("אין קטגוריות");
+$langmsg['news'][53] = x("תאריך");
+$langmsg['news'][54] = x("תאריך מאמר זה פורסמה");
+$langmsg['news'][55] = x("ארכיון");
 
 $langmsg['shortmonths'][0] = x("ינואר");
 $langmsg['shortmonths'][1] = x("פבואר");

@@ -203,10 +203,19 @@ hr {
 	height: 20px;  
 }
 .panel {
-	background: url('images/panelbg.png') no-repeat;
-	
-	padding: 4px;
-	color: #FFFFFF;
+	padding: 6px;
+	-moz-border-radius: 5px 5px 5px 5px;	
+	border: 1px solid #E3E3E3;
+	background-image: url('images/white-grad.png');
+}
+.panel2 {
+	display: table;
+	height: 70px; 
+	width: 678px; 
+	padding: 6px;
+	-moz-border-radius: 0px 0px 5px 5px;	
+	border: 1px solid #D1D1D1;
+	border-top: 0px;
 }
 .messagesnav {
 	display: block; 
@@ -472,4 +481,58 @@ hr {
 }
 .slink {
 	cursor: pointer;
+}
+.newborder {
+	-moz-border-radius:5px 5px 5px 5px;
+	border:1px solid #D1D1D1;
+	padding:3px;
+}
+input[type="button"], input[type="submit"], button  {
+	border: 1px solid #D1D1D1; 
+	-moz-border-radius: 5px 5px 5px 5px; 
+	padding: 2px 10px; 
+	background-image: url("images/white-grad.png");
+}
+input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+	border: 1px solid #A1A1A1;
+	outline: none;
+}
+input[type="button"]:active, input[type="submit"]:active, button:active {
+	background-image: url("images/white-grad-active.png");
+	outline: none;
+}
+input[type="text"], input[type="textarea"], input[type="password"], textarea, select {
+	border: 1px solid #D1D1D1;
+	-moz-border-radius: 5px 5px 5px 5px;
+	padding: 3px; 
+}
+.subheaders {
+	background-color: #E6E6E6; 
+	margin-top: 10px; 
+	padding: 5px; 
+	-moz-border-radius: 5px 5px 0 0; 
+	width: 678px;
+background-image:url("js/ckeditor/skins/kama/images/sprites.png");
+background-position:0 -1950px;
+	cursor: pointer;
+}
+.subheaders:hover {
+	-moz-box-shadow: 0 0 3px #999999;
+}
+.subheaders_body {
+	display: block;
+	height: 70px; 
+	width: 678px; 
+	padding: 6px;
+	-moz-border-radius: 0px 0px 5px 5px;	
+	border: 1px solid #D1D1D1;
+	border-top: 0px;
+}
+.subheaders_bodytextarea {
+	height: 70px; 
+	width: 678px; 
+	padding: 6px;
+	-moz-border-radius: 0px 0px 5px 5px;	
+	border: 1px solid #D1D1D1;
+	border-top: 0px;
 }

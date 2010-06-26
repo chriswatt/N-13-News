@@ -29,9 +29,10 @@ if(get_magic_quotes_gpc()){
 		}
 	}
 }
-$_GET['action'] = (empty($_GET['action'])) ? '' : $_GET['action'];
-$_GET['mod'] = (empty($_GET['mod'])) ? '' : $_GET['mod'];
-$_GET['thumb'] = (empty($_GET['thumb'])) ? '' : $_GET['thumb'];
+$_GET['action']	= (empty($_GET['action'])) ? '' : $_GET['action'];
+$_GET['mod']	= (empty($_GET['mod'])) ? '' : $_GET['mod'];
+$_GET['thumb']	= (empty($_GET['thumb'])) ? '' : $_GET['thumb'];
+$_POST['B3']	= (empty($_POST['B3'])) ? '' : $_POST['B3'];
 
 if($_GET['action'] == "options" && $_GET['mod'] == "imageuploads" && $_GET['thumb']){
 	#create thumbnails
@@ -40,8 +41,17 @@ if($_GET['action'] == "options" && $_GET['mod'] == "imageuploads" && $_GET['thum
 
 require_once 'db.php';
 require_once 'config.php';
-require_once 'modules/adminheaderdata.php';
+
+if(!$_SESSION['language']){
+	$_SESSION['language'] = $default_login_language;
+}
+if($_POST['B3']){
+	$_SESSION['language'] = $_POST['n13language'];
+}
+
 require_once 'langmsg.php';
+require_once 'modules/adminheaderdata.php';
+
 
 #update scriptpath if it hasn't been set yet. added in 3.3
 $scriptpath = DataAccess::fetch("SELECT scriptpath FROM " . NEWS_OPTIONS . " WHERE 1");
@@ -65,6 +75,7 @@ if(!$commentsupdated){
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script type="text/javascript" src="js/main.php"></script>
     <script type="text/javascript" src="js/lightbox.js"></script>
+	<script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
 	<title>N-13 News <?php echo $version; ?></title>
 </head>

@@ -228,7 +228,7 @@ $f = "<b>$totalaccounts</b> " . $f;
 echo "<div class=panel>$f</div><br>";
 echo "<form id=\"accounteditform\" method=\"POST\" action=\"?action=options&mod=accounts\">";
 echo "<table id=\"rows\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\" width=\"100%\">\n";
-echo "<tr><td width=\"25%\">".$langmsg['accounts'][2]."</td><td width=\"25%\">".$langmsg['accounts'][3]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts'][4]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts'][5]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts']['26']."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts']['27']."</td><td><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\"></td></tr>";
+echo "<tr><td width=\"30%\">".$langmsg['accounts'][2]."</td><td width=\"25%\">".$langmsg['accounts'][3]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts'][4]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts'][5]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts']['26']."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts']['27']."</td><td><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\"></td></tr>";
 $d = 1;
 $sql = "SELECT user, " . NEWS_USERS . ".uid as useruid, name FROM " . NEWS_USERS . "
 		LEFT JOIN " . NEWS_ACCESS . "

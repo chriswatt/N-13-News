@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Vietnamese		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("Tin câu chuyện.");
 $langmsg['editnews'][22] = x("trong tổng số.");
 $langmsg['editnews'][23] = x("Số truy cập để đặt lại 0 cho bài viết chọn (s)");
 $langmsg['editnews'][24] = x("Xếp đặt lại cho bài viết chọn (s)");
+$langmsg['editnews'][25] = x("Lọc theo thể loại");
 
 $langmsg['newsform'][0] = x("Thêm đăng tin của bạn dưới đây.");
 $langmsg['newsform'][1] = x("Tiêu đề:");
@@ -132,6 +133,11 @@ $langmsg['newsform'][18] = x("Không bao giờ lưu trữ");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Tải");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Điều");
+$langmsg['newsform'][23] = x("Nhập một hình ảnh URL");
+$langmsg['newsform'][24] = x("Chèn");
+$langmsg['newsform'][25] = x("Chọn một hình ảnh tải lên");
+
 
 $langmsg['editcomments'][0] = x("Chỉnh sửa bình");
 $langmsg['editcomments'][1] = x("Chỉnh sửa bình luận dưới đây.");
@@ -251,6 +257,7 @@ $langmsg['personal'][9] = x("Xác nhận mật khẩu:");
 $langmsg['personal'][10] = x("Một địa chỉ email phải được nhập.");
 $langmsg['personal'][11] = x("Cài đặt cập nhật.");
 $langmsg['personal'][12] = x("Mật khẩu không khớp.");
+$langmsg['personal'][13] = x("Kích hoạt tính năng WYSIWYG biên tập?");
 
 $langmsg['login'][0] = x("Vui lòng Đăng nhập");
 $langmsg['login'][1] = x("Tên:");
@@ -278,6 +285,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Đàn ông");
 $langmsg['profile'][13] = x("Nữ");
 $langmsg['profile'][14] = x("Hồ sơ cập nhật.");
+$langmsg['profile'][15] = x("Không ai");
 
 $langmsg['accounts'][0] = x("Tài khoản");
 $langmsg['accounts'][1] = x("Tài khoản.");
@@ -646,6 +654,9 @@ $langmsg['templates'][130] = x("Hiển thị số trang hiện tại.");
 $langmsg['templates'][131] = x("Hiển thị số trang trước đó.");
 $langmsg['templates'][132] = x("Hiển thị số trang tiếp theo.");
 $langmsg['templates'][133] = x("Hiển thị tiêu đề thân thiện của bài báo tin tức.");
+$langmsg['templates'][134] = x("Mẫu đơn tìm kiếm");
+$langmsg['templates'][135] = x("Kết quả tìm kiếm");
+$langmsg['templates'][136] = x("Tải lên tập tin");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Tải lên một tập tin mới");
@@ -805,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Tên");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Thông báo");
+$langmsg['news'][50] = x("Nhập một bài viết tiêu đề");
+$langmsg['news'][51] = x("Tóm tắt");
+$langmsg['news'][52] = x("Không có chuyên mục");
+$langmsg['news'][53] = x("Ngày");
+$langmsg['news'][54] = x("Ngày bài viết này đã được đăng");
+$langmsg['news'][55] = x("Lưu trữ");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Tháng Hai");

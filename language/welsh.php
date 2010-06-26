@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Welsh			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("straeon newyddion.");
 $langmsg['editnews'][22] = x("yn y cyfanswm.");
 $langmsg['editnews'][23] = x("Reset cyfrif Edrychwch i 0 ar gyfer yr erthygl dethol (au)");
 $langmsg['editnews'][24] = x("Graddau ar gyfer ailosod yr erthygl dethol (au)");
+$langmsg['editnews'][25] = x("Filter yn ôl categori");
 
 $langmsg['newsform'][0] = x("Ychwanegwch eich swydd newyddion isod.");
 $langmsg['newsform'][1] = x("Teitl:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Peidiwch byth â archif");
 $langmsg['newsform'][19] = x("Llwythiadau ffeil");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Llwythwyd i fyny");
+$langmsg['newsform'][22] = x("Erthygl");
+$langmsg['newsform'][23] = x("Rhowch an image URL");
+$langmsg['newsform'][24] = x("Mewnosod");
+$langmsg['newsform'][25] = x("Dewiswch delwedd uploaded");
 
 $langmsg['editcomments'][0] = x("Golygu Sylwadau");
 $langmsg['editcomments'][1] = x("Golygu y sylwadau isod.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Cadarnhau cyfrinair:");
 $langmsg['personal'][10] = x("Rhaid cyfeiriad e-bost yn cael ei rhoi.");
 $langmsg['personal'][11] = x("Gosodiadau ddiweddaru.");
 $langmsg['personal'][12] = x("Nid yw'r cyfrineiriau yn cyfateb.");
+$langmsg['personal'][13] = x("Galluogi WYSIWYG Golygydd?");
 
 $langmsg['login'][0] = x("Os gwelwch yn dda Mewngofnodi");
 $langmsg['login'][1] = x("Enw:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Hoff Dyfyniad:");
 $langmsg['profile'][12] = x("Gwryw");
 $langmsg['profile'][13] = x("Benyw");
 $langmsg['profile'][14] = x("Proffil ddiweddaru.");
+$langmsg['profile'][15] = x("Dim");
 
 $langmsg['accounts'][0] = x("Cyfrifon");
 $langmsg['accounts'][1] = x("Cyfrifon.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Arddangosiadau rhif y dudalen gyfredol.");
 $langmsg['templates'][131] = x("Arddangosiadau rhif y dudalen flaenorol.");
 $langmsg['templates'][132] = x("Arddangosiadau rhif y dudalen nesaf.");
 $langmsg['templates'][133] = x("Arddangosiadau gyfeillgar y teitl yr erthygl newyddion.");
+$langmsg['templates'][134] = x("Chwilio ffurflen");
+$langmsg['templates'][135] = x("Canlyniadau chwilio");
+$langmsg['templates'][136] = x("Llwythwyd i fyny ffeil");
 
 $langmsg['uploadedfiles'][0] = x("Llwythiadau ffeil");
 $langmsg['uploadedfiles'][1] = x("Lanlwytho ffeil newydd");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Enw");
 $langmsg['news'][48] = x("E-bost / URL");
 $langmsg['news'][49] = x("Neges");
+$langmsg['news'][50] = x("Rhowch deitl erthygl");
+$langmsg['news'][51] = x("Crynodeb");
+$langmsg['news'][52] = x("Dim categorïau");
+$langmsg['news'][53] = x("Dyddiad");
+$langmsg['news'][54] = x("Dyddiad yr erthygl hon bostiwyd");
+$langmsg['news'][55] = x("Archif");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Chwefror");

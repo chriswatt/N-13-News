@@ -22,13 +22,14 @@ if (!defined('ABSPATH')){ die(); }
 echo "<span class=header>".$langmsg['personal'][0]."</span></div><table width=\"685px\"><tr><td width=\"17%\" align=center valign=top><br><img src=\"images/largemail.png\" alt=\"Personal Options\"></td>";
 echo "<td><br><div class=panel>".$langmsg['personal'][1]."</div><br>";
 echo "<style>table { text-align: left; } </style>";
-$userdata = DataAccess::fetch("SELECT * FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
-$all = $userdata['0'];
-$avatar = $all['avatar'];
-$email = $all['email'];
-$name = $_SESSION['name'];
-$alertmsg = $all['alertmsg'];
-function showpersonal($name,$avatar,$email,$alertmsg){
+$userdata		= DataAccess::fetch("SELECT * FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
+$all			= $userdata['0'];
+$email			= $all['email'];
+$name			= $_SESSION['name'];
+$alertmsg		= $all['alertmsg'];
+$enablewysiwyg	= $all['enablewysiwyg'];
+
+function showpersonal($name,$email,$alertmsg,$enablewysiwyg){
 	global $langmsg;
 	echo "<form method=\"POST\" action=\"?action=options&mod=personal\">\n";
 	echo "<div align=\"right\"><table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
@@ -36,28 +37,31 @@ function showpersonal($name,$avatar,$email,$alertmsg){
 	echo "      <td width=\"24%\">".$langmsg['personal'][2]."</td>\n";
 	echo "      <td width=\"76%\"><div class=success>$name</div></td>\n";
 	echo "    </tr>\n";
-	echo "    <tr>\n";
-	echo "      <td width=\"24%\">".$langmsg['personal'][3]."</td>\n";
-	echo "      <td width=\"76%\"><input type=\"text\" name=\"T1\" size=\"25\" value=\"$avatar\"></td>\n";
-	echo "    </tr>\n";
-	echo "    <tr>\n";
 	echo "      <td width=\"24%\">".$langmsg['personal'][4]."</td>\n";
 	echo "      <td width=\"76%\"><input type=\"text\" name=\"T2\" size=\"25\" value=\"$email\"></td>\n";
 	echo "    </tr>\n";
-	echo "<tr><td>".$langmsg['personal'][5]."</td>";
-	echo "<td><select name=\"alertmsg\">";
-	echo "<option value=\"1\""; if($alertmsg == 1){ echo " selected=selected"; } echo">".$langmsg['selectfield'][1]."</option>";
-	echo "<option value=\"0\""; if($alertmsg == 0){ echo " selected=selected"; } echo ">".$langmsg['selectfield'][2]."</option>";		
-	echo "</select> ".$langmsg['personal'][6]."</td></tr>";
 	echo "    <tr>\n";
 	echo "      <td width=\"24%\">".$langmsg['personal'][7]."</td>\n";
-	echo "      <td width=\"76%\"><input type=\"password\" name=\"T3\" size=\"20\"> ".$langmsg['personal'][8]."</td>\n";
+	echo "      <td width=\"76%\"><input type=\"password\" name=\"T3\" size=\"25\"> ".$langmsg['personal'][8]."</td>\n";
 	echo "    </tr>\n";
 	echo "    <tr>\n";
 	echo "      <td width=\"24%\">".$langmsg['personal'][9]."</td>\n";
-	echo "      <td width=\"76%\"><input type=\"password\" name=\"T4\" size=\"20\"></td>\n";
+	echo "      <td width=\"76%\"><input type=\"password\" name=\"T4\" size=\"25\"></td>\n";
 	echo "    </tr>\n";
 	echo "    <tr>\n";
+	echo "<tr><td>".$langmsg['personal'][5]."</td>";
+	echo "<td><select name=\"alertmsg\">";
+	echo "<option value=\"1\""; if($alertmsg == '1'){ echo " selected=selected"; } echo">".$langmsg['selectfield'][1]."</option>";
+	echo "<option value=\"0\""; if($alertmsg == '0'){ echo " selected=selected"; } echo ">".$langmsg['selectfield'][2]."</option>";		
+	echo "</select> ".$langmsg['personal'][6]."</td></tr>";
+	echo "<tr>";
+	echo "<td>" . $langmsg['personal'][13] . "</td><td>";
+	echo "<select name=\"enablewysiwyg\">";
+		echo "<option value=\"1\""; if($enablewysiwyg == '1'){ echo " selected=selected"; } echo">" . $langmsg['selectfield'][1] . "</option>";
+		echo "<option value=\"0\""; if($enablewysiwyg == '0'){ echo " selected=selected"; } echo">" . $langmsg['selectfield'][2] . "</option>";
+	echo "</select>";
+	echo "</td></tr>";
+	echo "</tr>";
 	echo "      <td width=\"24%\">&nbsp;</td>\n";
 	echo "      <td width=\"76%\"><input type=\"submit\" class=\"nostyle\" value=\"".$langmsg['submitfield'][3]."\" name=\"B1\"></td>\n";
 	echo "    </tr>\n";
@@ -67,21 +71,22 @@ function showpersonal($name,$avatar,$email,$alertmsg){
 }
 $_POST['B1'] = (empty($_POST['B1'])) ? '' : $_POST['B1'];
 if($_POST['B1'] == ""){
-	showpersonal($name,$avatar,$email,$alertmsg);
+	showpersonal($name,$email,$alertmsg,$enablewysiwyg);
 }elseif(!$_POST['T2']){
 	echo "<div class=error>".$langmsg['personal'][10]."</div>";
-	showpersonal($name,$avatar,$email,$alertmsg);
+	showpersonal($name,$email,$alertmsg,$enablewysiwyg);
 }elseif($_POST['T3'] == $_POST['T4']){
 	if($_POST['T3'] == ""){
-		DataAccess::put("UPDATE " . NEWS_USERS . " SET alertmsg = ?, avatar = ?, email = ? WHERE user = ?", $_POST['alertmsg'], $_POST['T1'],  $_POST['T2'], $_SESSION['name']);
+		DataAccess::put("UPDATE " . NEWS_USERS . " SET alertmsg = ?, email = ?, enablewysiwyg = ? WHERE user = ?", $_POST['alertmsg'], $_POST['T2'], $_POST['enablewysiwyg'], $_SESSION['name']);
 	}else{
 		$pass = md5(SALT . $_POST['T3']);
-		DataAccess::put("UPDATE " . NEWS_USERS . " SET alertmsg = ?, newpass = ?, avatar = ?, email = ? WHERE user = ?", $_POST['alertmsg'], $pass, $_POST['T1'], $_POST['T2'], $_SESSION['name']);                
+		DataAccess::put("UPDATE " . NEWS_USERS . " SET alertmsg = ?, newpass = ?, email = ?, enablewysiwyg = ? WHERE user = ?", $_POST['alertmsg'], $pass, $_POST['T2'], $_POST['enablewysiwyg'], $_SESSION['name']);                
 	}
 	echo "<div class=success>".$langmsg['personal'][11]."</div>";
+	showpersonal($name, $email, $alertmsg,$enablewysiwyg);
 }else{
 	echo "<div class=error>".$langmsg['personal'][12]."</div>";
-	showpersonal($name,$avatar,$email,$alertmsg);
+	showpersonal($name,$email,$alertmsg,$enablewysiwyg);
 }
 echo "</td></tr></table>";
 ?>

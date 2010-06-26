@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Haitian			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("nouvèl istwa.");
 $langmsg['editnews'][22] = x("nan total.");
 $langmsg['editnews'][23] = x("Egzamine konte 0 rkonpoze pandan ArtikAtik a seleksyone (s)");
 $langmsg['editnews'][24] = x("Evalyasyon pou remonte kèk atik la (yo)");
+$langmsg['editnews'][25] = x("Filtre pa kategori");
 
 $langmsg['newsform'][0] = x("Add Post nouvèl ou anba.");
 $langmsg['newsform'][1] = x("Tit:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Janmen achiv");
 $langmsg['newsform'][19] = x("Ranpli ajou");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Telecharje");
+$langmsg['newsform'][22] = x("Atik");
+$langmsg['newsform'][23] = x("Mete yon imaj URL");
+$langmsg['newsform'][24] = x("Insert");
+$langmsg['newsform'][25] = x("Chwazi yon imaj charger");
 
 $langmsg['editcomments'][0] = x("Editusergroup Kòmantè");
 $langmsg['editcomments'][1] = x("Editusergroup kòmantè anba.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Konfime modpas:");
 $langmsg['personal'][10] = x("dwe Yon adrès imel dwe antre.");
 $langmsg['personal'][11] = x("Settings Updated.");
 $langmsg['personal'][12] = x("Modpas pa matche.");
+$langmsg['personal'][13] = x("Pèmèt wiziwig editè?");
 
 $langmsg['login'][0] = x("Tanpri Login");
 $langmsg['login'][1] = x("Non:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Prefere Quote:");
 $langmsg['profile'][12] = x("Gason");
 $langmsg['profile'][13] = x("Femèl");
 $langmsg['profile'][14] = x("Profile Updated.");
+$langmsg['profile'][15] = x("Okenn");
 
 $langmsg['accounts'][0] = x("Kont");
 $langmsg['accounts'][1] = x("Accounts.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Montre nimewo paj la kounye a.");
 $langmsg['templates'][131] = x("Montre nimewo paj la anvan.");
 $langmsg['templates'][132] = x("Montre nimewo nan paj kap vini an.");
 $langmsg['templates'][133] = x("Montre tit nan zanmitay nan atik la nouvèl.");
+$langmsg['templates'][134] = x("Search fòm");
+$langmsg['templates'][135] = x("Search Results");
+$langmsg['templates'][136] = x("Charger dosye");
 
 
 $langmsg['uploadedfiles'][0] = x("Ranpli ajou");
@@ -806,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Non");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Mesaj");
+$langmsg['news'][50] = x("Ekri yon atik tit");
+$langmsg['news'][51] = x("Rezime sou");
+$langmsg['news'][52] = x("Pa gen kategori");
+$langmsg['news'][53] = x("Dat");
+$langmsg['news'][54] = x("Dat li te pibliye atik sa a");
+$langmsg['news'][55] = x("Archive");
 
 $langmsg['shortmonths'][0] = x("Mar");
 $langmsg['shortmonths'][1] = x("Feb");

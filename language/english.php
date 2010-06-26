@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    English                                 #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -33,8 +33,8 @@ global $langmsg;
 $langmsg = array();
 
 #-----MENUS
-$langmsg['menu'][0] = x("Add News");
-$langmsg['menu'][1] = x("Edit News");
+$langmsg['menu'][0] = x("Add Article");
+$langmsg['menu'][1] = x("Edit Articles");
 $langmsg['menu'][2] = x("Archives");
 $langmsg['menu'][3] = x("New Message");
 $langmsg['menu'][4] = x("Inbox");
@@ -52,7 +52,7 @@ $langmsg['menu'][15] = x("System");
 $langmsg['menu'][16] = x("Templates");
 $langmsg['menu'][17] = x("Word Filters");
 $langmsg['menu'][18] = x("Home");
-$langmsg['menu'][19] = x("News");
+$langmsg['menu'][19] = x("Articles");
 $langmsg['menu'][20] = x("Messages");
 $langmsg['menu'][21] = x("Options");
 $langmsg['menu'][22] = x("Help");
@@ -91,11 +91,11 @@ $langmsg['home'][25] = x("Total RSS Feeds");
 $langmsg['addnews'][0] = x("News Preview");
 $langmsg['addnews'][1] = x("Please enter a title");
 $langmsg['addnews'][2] = x("Please select if this posts will allow comments or not");
-$langmsg['addnews'][3] = x("Add News");
+$langmsg['addnews'][3] = x("Add Article");
 $langmsg['addnews'][4] = x("Please select a category");
 
 #-----EDITNEWS MODULE
-$langmsg['editnews'][0] = x("Edit News");
+$langmsg['editnews'][0] = x("Edit Articles");
 $langmsg['editnews'][1] = x("Showing");
 $langmsg['editnews'][2] = x("Options");
 $langmsg['editnews'][3] = x("Amount to display");
@@ -115,28 +115,33 @@ $langmsg['editnews'][17] = x("Selected posts deleted.");
 $langmsg['editnews'][18] = x("Selected posts updated.");
 $langmsg['editnews'][19] = x("News updated.");
 $langmsg['editnews'][20] = x("Disabled");
-$langmsg['editnews'][21] = x("news stories.");
+$langmsg['editnews'][21] = x("articles.");
 $langmsg['editnews'][22] = x("in total.");
 $langmsg['editnews'][23] = x("View count reset to 0 for the selected article(s)");
 $langmsg['editnews'][24] = x("Ratings reset for the selected article(s)");
+$langmsg['editnews'][25] = x("Filter by category");
 
 #-----NEWSFORM
 $langmsg['newsform'][0] = x("Add your news post below.");
-$langmsg['newsform'][1] = x("Title:");
-$langmsg['newsform'][2] = x("Categories:");
-$langmsg['newsform'][3] = x("Short Story:");
-$langmsg['newsform'][4] = x("Story:");
+$langmsg['newsform'][1] = x("Title");
+$langmsg['newsform'][2] = x("Categories");
+$langmsg['newsform'][3] = x("Short Story");
+$langmsg['newsform'][4] = x("Story");
 $langmsg['newsform'][5] = x("HTML Disabled");
 $langmsg['newsform'][6] = x("HTML Enabled");
-$langmsg['newsform'][7] = x("Comments:");
+$langmsg['newsform'][7] = x("Comments");
 $langmsg['newsform'][8] = x("Toggle date");
 $langmsg['newsform'][9] = x("Toggle short story");
 $langmsg['newsform'][16] = x("Date:");
 $langmsg['newsform'][17] = x("Toggle archive");
-$langmsg['newsform'][18] = x("Never archive");
+$langmsg['newsform'][18] = x("Never archive this article");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Article");
+$langmsg['newsform'][23] = x("Enter an image URL");
+$langmsg['newsform'][24] = x("Insert");
+$langmsg['newsform'][25] = x("Select an uploaded image");
 
 #-----COMMENTS MODULE
 $langmsg['editcomments'][0] = x("Edit Comments");
@@ -253,7 +258,7 @@ $langmsg['img'][32] = x("Unable to write to the uploads directory. CHMOD this di
 $langmsg['personal'][0] = x("Personal Options");
 $langmsg['personal'][1] = x("Edit your account info below.");
 $langmsg['personal'][2] = x("Personal settings for");
-$langmsg['personal'][3] = x("Avatar url:");
+$langmsg['personal'][3] = x("Avatar:");
 $langmsg['personal'][4] = x("Email address:");
 $langmsg['personal'][5] = x("Message alerts:");
 $langmsg['personal'][6] = x("Get alerted of unread messages on initial login?");
@@ -263,6 +268,7 @@ $langmsg['personal'][9] = x("Confirm password:");
 $langmsg['personal'][10] = x("An email address must be entered.");
 $langmsg['personal'][11] = x("Settings updated.");
 $langmsg['personal'][12] = x("Passwords don't match.");
+$langmsg['personal'][13] = x("Enable WYSIWYG editor?");
 
 #-----LOGIN MODULE
 $langmsg['login'][0] = x("Please Login");
@@ -292,6 +298,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Male");
 $langmsg['profile'][13] = x("Female");
 $langmsg['profile'][14] = x("Profile updated.");
+$langmsg['profile'][15] = x("None");
 
 #-----ACCOUNTS MODULE
 $langmsg['accounts'][0] = x("Accounts");
@@ -344,7 +351,7 @@ $langmsg['access'][16] = x("Smilies:");
 $langmsg['access'][17] = x("System Configuration:");
 $langmsg['access'][18] = x("Templates:");
 $langmsg['access'][19] = x("Word Filters:");
-$langmsg['access'][20] = x("Which categories can this access level post in?");
+$langmsg['access'][20] = x("Which categories can this access level use?");
 $langmsg['access'][21] = x("All:");
 $langmsg['access'][22] = x("Which posts can this level edit?");
 $langmsg['access'][23] = x("Admin (All)");
@@ -414,17 +421,17 @@ $langmsg['rss'][11] = x("Categories to display:");
 $langmsg['rss'][12] = x("Display posts which haven't been assigned a category?");
 $langmsg['rss'][13] = x("Rss Code:");
 $langmsg['rss'][14] = x("Edit how your feed is displayed");
-$langmsg['rss'][15] = x("Displays the title of the story.");
-$langmsg['rss'][16] = x("Shows the short story of the news.");	
-$langmsg['rss'][17] = x("Shows the story of the news.");
+$langmsg['rss'][15] = x("Displays the title of the article.");
+$langmsg['rss'][16] = x("Shows the summary.");	
+$langmsg['rss'][17] = x("Shows the article.");
 $langmsg['rss'][18] = x("Shows the categories each post has been assigned to.");    
 $langmsg['rss'][19] = x("Shows the URL for a specific post.");
-$langmsg['rss'][20] = x("Shows the date the story was published on.");
+$langmsg['rss'][20] = x("Shows the date the article was published on.");
 $langmsg['rss'][21] = x("Shows the timezone setting.");
 $langmsg['rss'][22] = x("Shows the timestamp of each post.");
-$langmsg['rss'][23] = x("Shows the author the story.");
+$langmsg['rss'][23] = x("Shows the author the article.");
 $langmsg['rss'][24] = x("Shows the users avatar if they have one.");
-$langmsg['rss'][25] = x("Shows the unique ID each story has.");
+$langmsg['rss'][25] = x("Shows the unique ID each article has.");
 $langmsg['rss'][26] = x("Shows the amount of comments for each news post.");
 $langmsg['rss'][27] = x("Please enter a feedname");
 $langmsg['rss'][28] = x("Please enter a news location");
@@ -442,7 +449,7 @@ $langmsg['rss'][39] = x("Name");
 $langmsg['rss'][40] = x("Categories");
 $langmsg['rss'][41] = x("URL");
 $langmsg['rss'][42] = x("Create a new RSS Feed.");
-$langmsg['rss'][43] = x("Displays the friendly title of the story.");
+$langmsg['rss'][43] = x("Displays the friendly title of the article.");
 
 #-----SMILIES MODULE
 $langmsg['smilies'][0] = x("Smilies");
@@ -546,14 +553,14 @@ $langmsg['templates'][0] = x("Templates");
 $langmsg['templates'][1] = x("Create a new template.");
 $langmsg['templates'][2] = x("Name:");
 $langmsg['templates'][3] = x("Changes how your news is displayed.");
-$langmsg['templates'][4] = x("Displays the title of the story.");
-$langmsg['templates'][5] = x("Shows the short story of the news.");
-$langmsg['templates'][6] = x("Shows the story of the news.");
-$langmsg['templates'][7] = x("Shows the date the story was published on.");
+$langmsg['templates'][4] = x("Displays the title of the article.");
+$langmsg['templates'][5] = x("Shows the summary.");
+$langmsg['templates'][6] = x("Shows the article.");
+$langmsg['templates'][7] = x("Shows the date the article was published on.");
 $langmsg['templates'][8] = x("Shows the categories each post has been assigned to.");
-$langmsg['templates'][9] = x("Shows the author the story.");
+$langmsg['templates'][9] = x("Shows the author the article.");
 $langmsg['templates'][10] = x("Shows the users avatar if they have one.");
-$langmsg['templates'][11] = x("Shows the unique ID each story has.");
+$langmsg['templates'][11] = x("Shows the unique ID each article has.");
 $langmsg['templates'][12] = x("Shows the IP address of the author. (Only shows if you are logged in)");
 $langmsg['templates'][13] = x("Shows the link to read the full post");
 $langmsg['templates'][14] = x("Will show your email address.");
@@ -631,10 +638,10 @@ $langmsg['templates'][88] = x("Name");
 $langmsg['templates'][89] = x("Selected");
 $langmsg['templates'][90] = x("Create a new template.");
 $langmsg['templates'][91] = x("Select");
-$langmsg['templates'][92] = x("Shows the views each story has.");
+$langmsg['templates'][92] = x("Shows the views each article has.");
 $langmsg['templates'][93] = x("Shows the rating stars image.");
-$langmsg['templates'][94] = x("Shows the current rating for the story.");
-$langmsg['templates'][95] = x("Shows the amount of times the story has been rated.");
+$langmsg['templates'][94] = x("Shows the current rating for the article.");
+$langmsg['templates'][95] = x("Shows the amount of times the article has been rated.");
 $langmsg['templates'][96] = x("Shows the rating form.");
 $langmsg['templates'][98] = x("Shows the send to form.");
 $langmsg['templates'][99] = x("Shows the users location");
@@ -653,7 +660,7 @@ $langmsg['templates'][111] = x("Only shows 3 pages at a time");
 $langmsg['templates'][112] = x("Link to page one, shows if not currently on page one.");
 $langmsg['templates'][113] = x("Link to the last page, shows if not currently on page the last page.");
 $langmsg['templates'][114] = x("Shows the number of words for this post");
-$langmsg['templates'][115] = x("Shows the friendly title of the story");
+$langmsg['templates'][115] = x("Shows the friendly title of the article");
 $langmsg['templates'][116] = x("Displays the reCAPTCHA element");
 $langmsg['templates'][117] = x("Creates a link to delete the comment.");
 $langmsg['templates'][118] = x("Displays the login form only if login is required.");
@@ -673,6 +680,9 @@ $langmsg['templates'][131] = x("Displays the previous page number.");
 $langmsg['templates'][132] = x("Displays the next page number.");
 $langmsg['templates'][133] = x("Displays the unique ID of the news article.");
 $langmsg['templates'][133] = x("Displays the friendly title of the news article.");
+$langmsg['templates'][134] = x("Search form");
+$langmsg['templates'][135] = x("Search results");
+$langmsg['templates'][136] = x("Uploaded files");
 
 #-----UPLOADED FILES
 $langmsg['uploadedfiles'][0] = x("File Uploads");
@@ -838,6 +848,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Name");
 $langmsg['news'][48] = x("Email/URL");
 $langmsg['news'][49] = x("Message");
+$langmsg['news'][50] = x("Enter an article title");
+$langmsg['news'][51] = x("Summary");
+$langmsg['news'][52] = x("No categories");
+$langmsg['news'][53] = x("Date");
+$langmsg['news'][54] = x("Date this article was posted");
+$langmsg['news'][55] = x("Archive");
 
 #-----MONTHS
 $langmsg['shortmonths'][0] = x("Jan");

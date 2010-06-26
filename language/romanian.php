@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Romanian		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("de ştiri.");
 $langmsg['editnews'][22] = x("în total.");
 $langmsg['editnews'][23] = x("Vizualizare a nu putea suporta conta la 0 pentru articol selectat (e)");
 $langmsg['editnews'][24] = x("Calificative a nu putea suporta pentru articol selectat (e)");
+$langmsg['editnews'][25] = x("Filtru pe categorii");
 
 $langmsg['newsform'][0] = x("Adauga post de ştiri de mai jos.");
 $langmsg['newsform'][1] = x("Titlu:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Never arhivă");
 $langmsg['newsform'][19] = x("File Upload");
 $langmsg['newsform'][20] = x("Download-uri");
 $langmsg['newsform'][21] = x("Incarcat");
+$langmsg['newsform'][22] = x("Articol");
+$langmsg['newsform'][23] = x("Introduceţi un URL-ul imaginii");
+$langmsg['newsform'][24] = x("Insera");
+$langmsg['newsform'][25] = x("Selectaţi o imagine încărcată");
 
 $langmsg['editcomments'][0] = x("Edita comentariile");
 $langmsg['editcomments'][1] = x("Editare comentariu de mai jos.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Confirma parola:");
 $langmsg['personal'][10] = x("O adresă de e-mail trebuie să fie introduse.");
 $langmsg['personal'][11] = x("Setări actualizare.");
 $langmsg['personal'][12] = x("Parolele nu se potrivesc.");
+$langmsg['personal'][13] = x("Activează editor WYSIWYG?");
 
 $langmsg['login'][0] = x("Vă rugăm să Autentificare");
 $langmsg['login'][1] = x("Nume:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favorite Citat:");
 $langmsg['profile'][12] = x("Masculin");
 $langmsg['profile'][13] = x("Feminin");
 $langmsg['profile'][14] = x("Profil actualizat.");
+$langmsg['profile'][15] = x("Nici unul");
 
 $langmsg['accounts'][0] = x("Accounts");
 $langmsg['accounts'][1] = x("Conturi.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Afişează numărul curent al paginii.");
 $langmsg['templates'][131] = x("Afişează numărul paginii anterioare.");
 $langmsg['templates'][132] = x("Afişează pagina următoare numărul.");
 $langmsg['templates'][133] = x("Afişează titlul prietenos de articol de ştiri.");
+$langmsg['templates'][134] = x("Formular de cautare");
+$langmsg['templates'][135] = x("Rezultatele căutării");
+$langmsg['templates'][136] = x("Încărcat fişiere");
 
 
 $langmsg['uploadedfiles'][0] = x("File Upload");
@@ -806,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nume");
 $langmsg['news'][48] = x("Email-ul / URL");
 $langmsg['news'][49] = x("Mesaj");
+$langmsg['news'][50] = x("Introduceţi un titlu articol");
+$langmsg['news'][51] = x("Rezumat");
+$langmsg['news'][52] = x("Nu categorii");
+$langmsg['news'][53] = x("Data");
+$langmsg['news'][54] = x("Data acest articol a fost postat");
+$langmsg['news'][55] = x("Arhivă");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Feb");

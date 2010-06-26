@@ -19,9 +19,9 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-$_GET['vcode'] = (empty($_GET['vcode'])) ? '' : $_GET['vcode'];
-$_POST['S1'] = (empty($_POST['S1'])) ? '' : $_POST['S1'];
-$_POST['email'] = (empty($_POST['email'])) ? '' : $_POST['email'];
+$_GET['vcode']	= (empty($_GET['vcode'])) ? '' : $_GET['vcode'];
+$_POST['S1']	= (empty($_POST['S1'])) ? '' : $_POST['S1'];
+$_POST['email']	= (empty($_POST['email'])) ? '' : $_POST['email'];
 
 if(!$_GET['vcode']){
 	echo "<span class=header>".$langmsg['recover'][0]."</span></div><br />";
@@ -30,11 +30,11 @@ if(!$_GET['vcode']){
 	if(!$_POST['S1']){
 		echo "<form method=post action=\"?action=recoverpass\">";
 		echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"565\">\n";
-		echo "<tr><td>".$langmsg['recover'][2]." <input type=text name=email>&nbsp;<input type=submit name=\"S1\" value=\"".$langmsg['submitfield'][9]."\"></td></tr>";
+		echo "<tr><td style=\"text-align: left\">".$langmsg['recover'][2]." <input type=text name=email>&nbsp;<input type=submit name=\"S1\" value=\"".$langmsg['submitfield'][9]."\"></td></tr>";
 		echo "</table>";
 		echo "</form>";
 	}else{
-		echo "<table width=\"685\"><tr><td>";
+		echo "<table width=\"685\"><tr><td style=\"text-align: left\">";
 		$email		= $_POST['email'];
 		$userexists	= DataAccess::fetch("SELECT uid, vcode FROM " . NEWS_USERS . " WHERE email = ?", $email);
 		if(count($userexists) >= 1){
@@ -71,7 +71,7 @@ if(!$_GET['vcode']){
 				}
 		}else{
 			echo "<div align=right>";
-			echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"565\"><tr><td>\n";
+			echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"565\"><tr><td style=\"text-align: left\">\n";
 			echo "<div class=error>".$langmsg['recover'][6]."</div>";
 			echo "</td></tr></table>";
 			echo "</div>";
@@ -113,7 +113,7 @@ if(!$_GET['vcode']){
 			}elseif($_POST['T1'] == $_POST['T2']){
 				$pass = $_POST['T1'];
 				$pass = md5(SALT . $pass);
-				DataAccess::put("UPDATE " . NEWS_USERS . " SET pass = ?, newpass = ?, vcode = ? WHERE email = ? AND vcode = ?", "", $pass, "", $email, $vcode);
+				DataAccess::put(sprintf("UPDATE %s SET pass = ?, newpass = ?, vcode = ? WHERE email = ? AND vcode = ?", NEWS_USERS), "", $pass, "", $email, $vcode);
 				echo "<div align=right><table width=\"81%\"><tr><td><div class=success>".$langmsg['recover'][12]."</div><br><a href=\"?\">Login here!</a></td></tr></table></div>";
 			}else{
 				echo "<div align=right><table width=\"81%\"><tr><td><div class=error>".$langmsg['recover'][11]."</div></td></tr></table></div>";

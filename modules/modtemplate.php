@@ -29,7 +29,7 @@ function templateform(){
 	if($_GET['edit'] == "new"){
 		echo "<div class=panel>".$langmsg['templates'][1]."</div><br>";
  		if(!$_POST['S1']){
-		 	$newstemplate = "{title} - Posted by [email]{author}[/email] - Posted on {date} {ip}\n<br>\n{story}\n<br>\n[comments]Comments {comments}[/comments] [profile]{author}'s profile[/profile]<br><br>";
+		 	$newstemplate = "{title} - Posted by [email]{author}[/email] - Posted on {date} {ip}\n<br>\n{article}\n<br>\n[comments]Comments {comments}[/comments] [profile]{author}'s profile[/profile]<br><br>";
 		 	$commentstemplate = "{message} {ip}\n<br>\nPosted by [email]{author}[/email] on {date}<br><br>";				 	
 			$commentsform = "<form method=\"POST\" id=\"commentsform\" name=\"commentsform\" action=\"\" onsubmit=\"return submitcomment(useajax='yes')\">\n";
 			$commentsform .= "<span style=\"font-family: Verdana; font-size: 14pt; color: #309ceb\">Add a comment</span><br />\n";
@@ -199,19 +199,16 @@ function templateform(){
 				$searchresults			= displayhtml($_POST['searchresults']);				
 		}	
  	}
+
 	echo "<form method=post action=\"\">";
 	echo "<table width=\"100%\">";
 	echo "<tr><td width=\"40\">".$langmsg['templates'][2]."</td><td><input type=text size=\"40\" name=\"templatename\" value=\"$templatename\"></td></tr>";
 	echo "<tr><td colspan=2><hr></td></tr>";
 	echo "</table>";
-	echo "<table class=\"collapsible\" border=\"0\" width=\"100%\">\n";
-	
+
 	// comments
-	echo "    <tr>\n";
-	echo "        <td class=\"row1\">".$langmsg['templates'][21]."</td>\n";
-	echo "    </tr>\n";
-	echo "    <tr>\n";
-	echo "        <td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('comments')\">".$langmsg['templates'][21]."</div>";
+	echo "<div id=\"section_comments\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";
 	echo $langmsg['templates'][22] . "<br><br>";
 	echo "<b>{author}</b> - " . $langmsg['templates'][23] . "<br>";
 	echo "<b>{avatar}</b> - " . $langmsg['templates'][25] . "<br>";
@@ -225,18 +222,18 @@ function templateform(){
 	echo "<b>{message}</b> - " . $langmsg['templates'][24] . "<br>";
 	echo "<b>{wordcount}</b> - " . $langmsg['templates'][114] . "<br />";
 	echo "<b>{oneortwo}</b> - " . $langmsg['templates'][129] . "<br />";
-	
-	echo "<br /><textarea style=\"width: 100%; height: 130px\" name=\"commentstemplate\">";
+	echo "<br /><textarea style=\"width: 98%; height: 130px\" name=\"commentstemplate\">";
 	echo $commentstemplate;
-	echo "</textarea></td>\n";
-	echo "    </tr>\n";
+	echo "</textarea>\n";
+	echo "<br style=\"clear: both\" />";
+	echo "</div>";
+
+	
+
 	
 	// comments form
-	echo "    <tr>\n";
-	echo "        <td class=\"row1\">".$langmsg['templates'][32]."</td>\n";
-	echo "    </tr>\n";
-	echo "    <tr>\n";
-	echo "        <td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('commentsform')\">".$langmsg['templates'][32]."</div>";
+	echo "<div id=\"section_commentsform\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][33] . "<br><br>";
 	echo "<b>{email}</b> - " . $langmsg['templates'][37] . "<br />";
 	echo "<b>{id}</b> - " . $langmsg['templates'][34] . "<br />";
@@ -244,17 +241,14 @@ function templateform(){
 	echo "<b>{name}</b> - " . $langmsg['templates'][36] . "<br />";
 	echo "<b>{recaptcha}</b> - " . $langmsg['templates'][116] . " <br />";
 	echo "<b>{smilies}</b> - " . $langmsg['templates'][39] . "<br />";
-	echo "<br><textarea style=\"width: 100%; height: 130px\" name=\"commentsform\">";
+	echo "<br><textarea style=\"width: 98%; height: 130px\" name=\"commentsform\">";
 	echo $commentsform;
-	echo "</textarea></td>\n";
-	echo "    </tr>\n";
+	echo "</textarea>";
+	echo "</div>";
 	
-	// comments pagintation
-	echo "    <tr>\n";
-	echo "        <td class=\"row1\">".$langmsg['templates'][44]."</td>\n";
-	echo "    </tr>\n";
-	echo "    <tr>\n";
-	echo "        <td><br />";
+	// comments pagintation	
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('commentspagintation')\">".$langmsg['templates'][44]."</div>";
+	echo "<div id=\"section_commentspagintation\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo "<b>[firstpage] & [/firstpage]</b> - " . $langmsg['templates'][112] ."<br />";
 	echo "<b>[lastpage] & [/lastpage]</b> - " . $langmsg['templates'][113] . "<br />";		
 	echo "<b>{pages}</b> - " . $langmsg['templates'][47] . "<br />";		
@@ -266,15 +260,16 @@ function templateform(){
 	echo "<b>{nextpage}</b> - " . $langmsg['templates'][132] . "<br />";
 	echo "<b>{pid}</b> - " . $langmsg['templates'][133] . "<br />";
 	echo "<b>{friendlytitle}</b> - " . $langmsg['templates'][133] . "<br />";
-		
-	echo "<br><textarea style=\"width: 100%; height: 130px\" name=\"commentspagintation\">";
+	echo "<br><textarea style=\"width: 98%; height: 130px\" name=\"commentspagintation\">";
 	echo $commentspagintation;
-	echo "</textarea></td>\n";
-	echo "    </tr>\n";	
+	echo "</textarea>\n";
+	echo "</div>";	
+	
+
 	
 	// comments structure
-	echo "<tr><td  class=\"row1\">".$langmsg['templates'][65]."</td></tr>";
-	echo "<tr><td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('commentsstructure')\">".$langmsg['templates'][65]."</div>";
+	echo "<div id=\"section_commentsstructure\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][66];
 	echo "<br /><br /><b>{news}</b> - " . $langmsg['templates'][67] . "<br />";
 	echo "<b>{commentforms}</b> - " . $langmsg['templates'][70] . "<br />";
@@ -283,26 +278,25 @@ function templateform(){
 	echo "<b>{loginform}</b> - " . $langmsg['templates'][118] . "<br />";
 	echo "<b>[loggedin] & [/loggedin]</b> - " . $langmsg['templates'][31] . "<br>";
 	echo "<b>{username}</b> - " . $langmsg['templates'][125] . "<br />";
-	echo "<br /><textarea style=\"width: 100%; height: 130px\" name=\"commentsstructure\">$commentsstructure</textarea>";                
-	echo "</td></tr>";	
+	echo "<br /><textarea style=\"width: 98%; height: 130px\" name=\"commentsstructure\">$commentsstructure</textarea>";  
+	echo "</div>";		
+
 	
 	// login form
-	echo "<tr><td class=\"row1\">" . $langmsg['templates'][119] . "</td></tr>";  
-	echo "<tr><td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('commentsloginform')\">".$langmsg['templates'][119]."</div>";
+	echo "<div id=\"section_commentsloginform\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][120];
 	echo "<br /><br />";
 	echo "<b>{loginerror}</b> - " . $langmsg['templates'][122] . "<br />";
 	echo "<b>{recaptcha}</b> - " . $langmsg['templates'][123] . "<br />";
 	echo "<b>{username}</b> - " . $langmsg['templates'][124] . "<br />";
-	echo "<br /><textarea style=\"width: 100%; height: 130px\" name=\"loginform\">$loginform</textarea>";				
-	echo "</td></tr>";				
+	echo "<br /><textarea style=\"width: 98%; height: 130px\" name=\"loginform\">$loginform</textarea>";
+	echo "</div>";	
+	
 
 	// news
-	echo "    <tr>\n";
-	echo "        <td class=\"row1\">".$langmsg['templates'][80]."</td>\n";
-	echo "        </tr>\n";
-	echo "    <tr>\n";
-	echo "        <td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('news')\">".$langmsg['templates'][80]."</div>";
+	echo "<div id=\"section_news\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][3] . "<br><br>";
 	echo "<b>{author}</b> - " . $langmsg['templates'][9] . "<br>";
 	echo "<b>{avatar}</b> - " . $langmsg['templates'][10] . "<br>";
@@ -323,25 +317,23 @@ function templateform(){
 	echo "<b>{ratingcount}</b> - " . $langmsg['templates'][95] . "<br>";
 	echo "<b>{ratingstars}</b> - " . $langmsg['templates'][93] . "<br>";
 	echo "<b>[readmore] & [/readmore]</b> - " . $langmsg['templates'][13] . "<br>";
-	echo "<b>{shortstory}</b> - " . $langmsg['templates'][5] . "<br>";
+	echo "<b>{summary}</b> - " . $langmsg['templates'][5] . "<br>";
 	echo "<b>{smileypath}</b> - " . $langmsg['templates'][20] . "<br>";
-	echo "<b>{story}</b> - " . $langmsg['templates'][6] . "<br>";
+	echo "<b>{article}</b> - " . $langmsg['templates'][6] . "<br>";
 	echo "<b>{title}</b> - " . $langmsg['templates'][4] . "<br>";
 	echo "<b>{viewcount}</b> - " . $langmsg['templates'][92] . "<br>";
 	echo "<b>{wordcount}</b> - " . $langmsg['templates'][114] . "<br />";
 	echo "<b>{oneortwo}</b> - " . $langmsg['templates'][129] . "<br />";
-	echo "<br /><textarea style=\"width: 100%; height: 130px\" name=\"newstemplate\">";
+	echo "<br /><textarea style=\"width: 98%; height: 130px\" name=\"newstemplate\">";
 	echo $newstemplate;
-	echo "</textarea></td>\n";
-	echo "    </tr>\n";
+	echo "</textarea>\n";
+	echo "</div>";		
+	
 	
 
 	// news pagintation
-	echo "    <tr>\n";
-	echo "        <td class=\"row1\">".$langmsg['templates'][40]."</td>\n";
-	echo "    </tr>\n";
-	echo "    <tr>\n";
-	echo "        <td><br />";	
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('newspagintation')\">".$langmsg['templates'][40]."</div>";
+	echo "<div id=\"section_newspagintation\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo "<b>[firstpage] & [/firstpage]</b> - " . $langmsg['templates'][112] ."<br />";
 	echo "<b>[lastpage] & [/lastpage]</b> - " . $langmsg['templates'][113] . "<br />";		
 	echo "<b>[prev-link] & [/prev-link]</b> - " . $langmsg['templates'][45] . "<br />";
@@ -353,23 +345,24 @@ function templateform(){
 	echo "<b>{nextpage}</b> - " . $langmsg['templates'][132] . "<br />";	
 	echo "<br><textarea style=\"width: 100%; height: 130px\" name=\"newspagintation\">";
 	echo $newspagintation;
-	echo "</textarea></td>\n";
-	echo "    </tr>\n";
+	echo "</textarea>\n";
+	echo "</div>";	
+
 
 	// news structure
-	echo "<tr><td class=\"row1\">".$langmsg['templates'][61]."</td></tr>";
-	echo "<tr><td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('newsstructure')\">".$langmsg['templates'][61]."</div>";
+	echo "<div id=\"section_newsstructure\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][62];
 	echo "<br /><br /><b>{news}</b> - " . $langmsg['templates'][63] . "<br />";
 	echo "<b>{pagintation}</b> - " . $langmsg['templates'][64] . "<br /><br />";
-	echo "<textarea style=\"width: 100%; height: 130px\" name=\"newsstructure\">$newsstructure</textarea></td></tr>";
+	echo "<textarea style=\"width: 100%; height: 130px\" name=\"newsstructure\">$newsstructure</textarea>";
+	echo "</div>";	
+	
+
 	
 	// profiles
-	echo "    <tr>\n";
-	echo "        <td class=\"row1\">".$langmsg['templates'][48]."</td>\n";
-	echo "    </tr>\n";
-	echo "    <tr>\n";
-	echo "        <td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('profiles')\">".$langmsg['templates'][48]."</div>";
+	echo "<div id=\"section_profiles\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][49] . "<br><br>";
 	echo "<b>{age}</b> - " . $langmsg['templates'][52] . "<br>";
 	echo "<b>{image}</b> - " . $langmsg['templates'][60] . "<br>";                				
@@ -384,12 +377,13 @@ function templateform(){
 	echo "<b>{username}</b> - " . $langmsg['templates'][50] . "<br>";
 	echo "<br><textarea style=\"width: 100%; height: 130px\" name=\"profiletemplate\">";
 	echo $profiletemplate;
-	echo "</textarea></td>\n";
-	echo "    </tr>\n";
+	echo "</textarea>\n";
+	echo "</div>";	
+	
 	
 	// registration form
-	echo "<tr><td class=\"row1\">".$langmsg['templates'][71]."</td></tr>";
-	echo "<tr><td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('registrationform')\">".$langmsg['templates'][71]."</div>";
+	echo "<div id=\"section_registrationform\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][72];
 	echo "<br /><br />";
 	echo "<b>{errormessage}</b> - " . $langmsg['templates'][75] . "<br />";
@@ -398,12 +392,13 @@ function templateform(){
 	echo "<b>{username}</b> - " . $langmsg['templates'][73] . "<br />";
 	echo "<br />";
 	echo "<textarea style=\"width: 100%; height: 130px\" name=\"registrationform\">$registrationform</textarea>";
-	echo "</td></tr>";
+	echo "</div>";
+	
 
 
 	// search form
-	echo "<tr><td class=\"row1\">Search Form</td></tr>";
-	echo "<tr><td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('searchform')\">".$langmsg['templates'][134]."</div>";
+	echo "<div id=\"section_searchform\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][126];
 	echo "<br /><br />";
 	echo "<b>[results] & [/results]</b> - " . "Anything placed between these tags only shows when there are search results" . "<br />";
@@ -411,12 +406,12 @@ function templateform(){
 	echo "<b>{totalresults}</b> - " . "Displays the number of search results" . "<br />";
 	echo "<br />";
 	echo "<textarea style=\"width: 100%; height: 130px\" name=\"searchform\">$searchform</textarea>";
-	echo "</td></tr>";
-	
+	echo "</div>";	
+
 
 	// search results
-	echo "<tr><td class=\"row1\">Search Results</td></tr>";
-	echo "<tr><td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('searchresults')\">".$langmsg['templates'][135]."</div>";
+	echo "<div id=\"section_searchresults\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][128];
 	echo "<br /><br />";
 	echo "<b>{author}</b> - " . $langmsg['templates'][9] . "<br>";
@@ -425,18 +420,19 @@ function templateform(){
 	echo "<b>{friendlytitle}</b> - " . $langmsg['templates'][115] . "<br>";
 	echo "<b>{id}</b> - " . $langmsg['templates'][11] . "<br>";
 	echo "<b>{numresult}</b> - " . $langmsg['templates'][127] . "<br />";
-	echo "<b>{shortstory}</b> - " . $langmsg['templates'][5] . "<br>";
-	echo "<b>{story}</b> - " . $langmsg['templates'][6] . "<br>";
+	echo "<b>{summary}</b> - " . $langmsg['templates'][5] . "<br>";
+	echo "<b>{article}</b> - " . $langmsg['templates'][6] . "<br>";
 	echo "<b>{title}</b> - " . $langmsg['templates'][4] . "<br>";
 	echo "<b>{oneortwo}</b> - " . $langmsg['templates'][129] . "<br />";
 	echo "<br />";
 	echo "<textarea style=\"width: 100%; height: 130px\" name=\"searchresults\">$searchresults</textarea>";
-	echo "</td></tr>";	
+	echo "</div>";		
+	
 	
 	
 	// uploaded files
-	echo "<tr><td class=\"row1\">".$langmsg['templates'][100]."</td></tr>";  
-	echo "<tr><td>";
+	echo "<div class=\"subheaders\" style=\"width: 555px\" onclick=\"toggle_section2('uploadedfiles')\">".$langmsg['templates'][136]."</div>";
+	echo "<div id=\"section_uploadedfiles\" class=\"subheaders_body\" style=\"width: 551px; display: none\">";	
 	echo $langmsg['templates'][101];
 	echo "<br /><br />";
 	echo "<b>{downloadcount}</b> - " . $langmsg['templates'][108] . "<br />";
@@ -447,18 +443,16 @@ function templateform(){
 	echo "<b>{url}</b> - " . $langmsg['templates'][106] . "<br />";
 	echo "<b>{uploader}</b> - " . $langmsg['templates'][107] . "<br />";
 	echo "<b>{oneortwo}</b> - " . $langmsg['templates'][129] . "<br />";
+	echo "<br /><textarea style=\"width: 100%; height: 130px\" name=\"uploadedfiles\">$uploadedfiles</textarea>";
+	echo "</div>";		
 	
-	echo "<br /><textarea style=\"width: 100%; height: 130px\" name=\"uploadedfiles\">$uploadedfiles</textarea>";				
-	echo "</td></tr>";				
-
 		
-
-					
+	echo "<table border=\"0\" width=\"100%\">\n";	
 	echo "    <tr>\n";
-	echo "    <td>\n";
-	echo "    <input type=\"submit\" value=\"Save\" class=\"nostyle\" name=\"S1\"></td>\n";
+	echo "    <td align=\"right\">\n";
+	echo "    <input type=\"submit\" value=\"Save\" class=\"nostyle\" style=\"margin-top: 5px; width: 100%\" name=\"S1\"></td>\n";
 	echo "    </tr>\n";
-	echo "</table>\n";
+	echo "</table><br />\n";
 }
 
 $_GET['edit'] = (empty($_GET['edit'])) ? '' : $_GET['edit'];

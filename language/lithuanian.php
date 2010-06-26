@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Lithuanian			                    #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("naujienas.");
 $langmsg['editnews'][22] = x("viso.");
 $langmsg['editnews'][23] = x("View Count nukrenta iki 0 ir pasirinktą straipsnio (-ių)");
 $langmsg['editnews'][24] = x("Reitingai Reset pasirinkto gaminio (-ių)");
+$langmsg['editnews'][25] = x("Filtruoti pagal kategoriją");
 
 $langmsg['newsform'][0] = x("Pridėti savo naujienas paštu žemiau.");
 $langmsg['newsform'][1] = x("Pavadinimas:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Niekada archyvas");
 $langmsg['newsform'][19] = x("Failo įkėlimas");
 $langmsg['newsform'][20] = x("Atsisiuntimai");
 $langmsg['newsform'][21] = x("Įkelta");
+$langmsg['newsform'][22] = x("Straipsnis");
+$langmsg['newsform'][23] = x("Įveskite vaizdo URL");
+$langmsg['newsform'][24] = x("Įterpti");
+$langmsg['newsform'][25] = x("Pasirinkite įkelta vaizdas");
 
 $langmsg['editcomments'][0] = x("Taisyti Pastabos");
 $langmsg['editcomments'][1] = x("Redaguoti komentarą žemiau.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Pakartokite slaptažodį:");
 $langmsg['personal'][10] = x("Pašto adresas turi būti įrašytas.");
 $langmsg['personal'][11] = x("Nustatymai atnaujinta.");
 $langmsg['personal'][12] = x("Slaptažodžiai nesutampa.");
+$langmsg['personal'][13] = x("Įtraukti WYSIWYG redaktorius?");
 
 $langmsg['login'][0] = x("Prašome Prisijungti");
 $langmsg['login'][1] = x("Vardas:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Mėgstami Citata:");
 $langmsg['profile'][12] = x("Vyras");
 $langmsg['profile'][13] = x("Moteris");
 $langmsg['profile'][14] = x("Profilis atnaujintas.");
+$langmsg['profile'][15] = x("Nė vienas");
 
 $langmsg['accounts'][0] = x("Sąskaitų");
 $langmsg['accounts'][1] = x("Sąskaitos.");
@@ -647,6 +654,9 @@ $langmsg['templates'][130] = x("Rodomas dabartinis puslapio numerį.");
 $langmsg['templates'][131] = x("Rodo ankstesnį puslapį.");
 $langmsg['templates'][132] = x("Rodo tolimesnis puslapis skaičių.");
 $langmsg['templates'][133] = x("Rodo draugiškas pavadinimas naujienų.");
+$langmsg['templates'][134] = x("Paieškos forma");
+$langmsg['templates'][135] = x("Paieškos rezultatai");
+$langmsg['templates'][136] = x("Įkelti failai");
 
 $langmsg['uploadedfiles'][0] = x("Failo įkėlimas");
 $langmsg['uploadedfiles'][1] = x("Įkelti naują failo");
@@ -806,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Pavadinimas");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Pranešimas");
+$langmsg['news'][50] = x("Įveskite straipsnio pavadinimą");
+$langmsg['news'][51] = x("Santrauka");
+$langmsg['news'][52] = x("Nr kategorijų");
+$langmsg['news'][53] = x("Data");
+$langmsg['news'][54] = x("Data Šis straipsnis buvo paskelbtas");
+$langmsg['news'][55] = x("Archyvas");
 
 $langmsg['shortmonths'][0] = x("Sau");
 $langmsg['shortmonths'][1] = x("Vasaris");

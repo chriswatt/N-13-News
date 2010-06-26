@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Ukrainian		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("новин.");
 $langmsg['editnews'][22] = x("в цілому.");
 $langmsg['editnews'][23] = x("Відкрити кол скидається в 0 для вибраного статтю (статті)");
 $langmsg['editnews'][24] = x("Оцінки для скидання вибраних статтю (статті)");
+$langmsg['editnews'][25] = x("Фільтр по категоріям");
 
 $langmsg['newsform'][0] = x("Додати новину пост нижче.");
 $langmsg['newsform'][1] = x("Назва:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Ніколи Архів");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Завантаження");
 $langmsg['newsform'][21] = x("Завантажено");
+$langmsg['newsform'][22] = x("Стаття");
+$langmsg['newsform'][23] = x("Введіть URL зображення");
+$langmsg['newsform'][24] = x("Вставити");
+$langmsg['newsform'][25] = x("Виберіть завантаженого зображення");
 
 $langmsg['editcomments'][0] = x("Змінити Коментарі");
 $langmsg['editcomments'][1] = x("Змінити коментар нижче.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Підтвердіть пароль:");
 $langmsg['personal'][10] = x("Адреса електронної пошти повинна бути введений.");
 $langmsg['personal'][11] = x("Налаштування оновлення.");
 $langmsg['personal'][12] = x("Паролі не збігаються.");
+$langmsg['personal'][13] = x("Включити WYSIWYG редактор?");
 
 $langmsg['login'][0] = x("Будь ласка, Увійти");
 $langmsg['login'][1] = x("Ім'я:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Улюблена Цитата:");
 $langmsg['profile'][12] = x("Чоловік");
 $langmsg['profile'][13] = x("Жінка");
 $langmsg['profile'][14] = x("Профіль оновлюється.");
+$langmsg['profile'][15] = x("Ніхто");
 
 $langmsg['accounts'][0] = x("Рахунки");
 $langmsg['accounts'][1] = x("Рахунками.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Відображає поточний номер
 $langmsg['templates'][131] = x("Відображає попередній номер сторінки.");
 $langmsg['templates'][132] = x("Відображає наступний номер сторінки.");
 $langmsg['templates'][133] = x("Відображає дружніх назва нашої статті.");
+$langmsg['templates'][134] = x("Форма пошуку");
+$langmsg['templates'][135] = x("Результати пошуку");
+$langmsg['templates'][136] = x("Завантажені файли");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Завантажити новий файл");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Ім'я");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Повідомлення");
+$langmsg['news'][50] = x("Введіть назву статті");
+$langmsg['news'][51] = x("Резюме");
+$langmsg['news'][52] = x("Немає категорій");
+$langmsg['news'][53] = x("День");
+$langmsg['news'][54] = x("Дата ця стаття була розміщена");
+$langmsg['news'][55] = x("Архів");
 
 $langmsg['shortmonths'][0] = x("Січень");
 $langmsg['shortmonths'][1] = x("Лютий");

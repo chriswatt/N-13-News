@@ -114,7 +114,7 @@ function bannedipform(){
 	global $langmsg;
 	echo "<form method=\"post\" action=\"?action=options&mod=banned\">"; 				
 	echo "<br /><div class=panel>".$langmsg['bannedips'][5]."</div>";
-	echo "<br><textarea name=\"T2\" style=\"width: 100%\" rows=5>" . BANNEDMSG . "</textarea>";
+	echo "<br><textarea name=\"T2\" style=\"width: 99%\" rows=5>" . BANNEDMSG . "</textarea>";
 	echo "<div align=right><input type=\"submit\" value=\"".$langmsg['submitfield'][6]."\" class=\"nostyle\" name=\"S1\"></div>";
 	echo "</form>";
 	echo "</div>";

@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Korean                                  #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -118,6 +118,7 @@ $langmsg['editnews'][21] = x("뉴스 기사.");
 $langmsg['editnews'][22] = x("총했다.");
 $langmsg['editnews'][23] = x("선택한 문서 (S의 수를 0으로 재설정보기)");
 $langmsg['editnews'][24] = x("평점 선택 문서 (들)를 재설정");
+$langmsg['editnews'][25] = x("필터 카테고리별로");
 
 
 $langmsg['newsform'][0] = x("아래의 기사를 추가합니다.");
@@ -136,6 +137,10 @@ $langmsg['newsform'][18] = x("절대 아카이브");
 $langmsg['newsform'][19] = x("파일 업로드");
 $langmsg['newsform'][20] = x("다운로드");
 $langmsg['newsform'][21] = x("업로드");
+$langmsg['newsform'][22] = x("기사");
+$langmsg['newsform'][23] = x("이미지를 URL을 입력합니다");
+$langmsg['newsform'][24] = x("삽입");
+$langmsg['newsform'][25] = x("선택 업로드된 이미지");
 
 
 $langmsg['editcomments'][0] = x("코멘트 수정");
@@ -262,6 +267,7 @@ $langmsg['personal'][9] = x("비밀 번호 확인 :");
 $langmsg['personal'][10] = x("이메일 주소를 입력하셔야합니다.");
 $langmsg['personal'][11] = x("설정을 업데이 트됩니다.");
 $langmsg['personal'][12] = x("비밀 번호가 일치하지 않습니다.");
+$langmsg['personal'][13] = x("사용 WYSIWYG 편집기?");
 
 
 $langmsg['login'][0] = x("로그인하시기 바랍니다");
@@ -291,6 +297,7 @@ $langmsg['profile'][11] = x("즐겨찾기 견적 :");
 $langmsg['profile'][12] = x("남성");
 $langmsg['profile'][13] = x("여성");
 $langmsg['profile'][14] = x("프로필을 업데이 트됩니다.");
+$langmsg['profile'][15] = x("없음");
 
 
 $langmsg['accounts'][0] = x("계정");
@@ -669,6 +676,9 @@ $langmsg['templates'][130] = x("현재의 페이지 번호입니다.");
 $langmsg['templates'][131] = x("이전 페이지를 표시 번호입니다.");
 $langmsg['templates'][132] = x("표시합니다 다음 페이지를 참조하십시오.");
 $langmsg['templates'][133] = x("디스플레이 뉴스 기사의 친절 제목입니다.");
+$langmsg['templates'][134] = x("검색 양식");
+$langmsg['templates'][135] = x("검색 결과");
+$langmsg['templates'][136] = x("파일 올리기");
 
 
 $langmsg['uploadedfiles'][0] = x("파일 업로드");
@@ -833,6 +843,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("이름");
 $langmsg['news'][48] = x("이메일 / 홈페이지");
 $langmsg['news'][49] = x("메시지");
+$langmsg['news'][50] = x("입력 문서 제목");
+$langmsg['news'][51] = x("개요");
+$langmsg['news'][52] = x("상세 분류");
+$langmsg['news'][53] = x("날짜");
+$langmsg['news'][54] = x("날짜이 문서는 게시했습니다");
+$langmsg['news'][55] = x("아카이브");
 
 $langmsg['shortmonths'][0] = x("월");
 $langmsg['shortmonths'][1] = x("2월");

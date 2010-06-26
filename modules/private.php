@@ -140,7 +140,7 @@ if($_GET['todo'] == "new"){
 		newmsgform();
 	}elseif($_POST['S2'] == "Preview"){
 		echo "<div class=panel>".$langmsg['privmsgs'][15]."</div><br />";
-		$message = bbcode($_POST['message'],'0');
+		$message = bbcode($_POST['message'],'0','1');
 		echo $message;
 		echo "<br /><br />";	 	
 		newmsgform();
@@ -341,7 +341,7 @@ function handleStateChange() {
 		}
 		$title = displayhtml($row['title']);
 		echo "</td><td><div style=\"height: 17px; width: 230px; overflow: hidden\"><a href=\"#\" onclick=\"senddata('$row[uid]','$type'); toggle('$row[uid]')\">$title</a></div></td><td>$from</td><td>$date</td><td align=\"center\"><input type=\"checkbox\" value=\"$row[uid]\" id=\"selected[]\" name=\"selected[]\" /></tr>";
-		$message = bbcode($row['message'],'0');
+		$message = bbcode($row['message'],'0','1');
 		echo "<tr id=\"$row[uid]\" style=\"display: none\" bgcolor=\"\"><td></td><td colspan=4>$message<br /><br /><a href=\"?action=private&todo=new&user=$from&title=$title\"><u>Reply to this message</u></a></td></tr>";
 		$i++;					
 	}
@@ -359,4 +359,5 @@ function handleStateChange() {
 	echo "<div style=\"float: left\">$plink [ $pages] $nlink</div>";
 }
 echo "</td></tr></table>";
+echo "<div id=\"whichbox\" style=\"display: none\">message</div>";
 ?>

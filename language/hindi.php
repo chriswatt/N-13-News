@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Hindi			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("समाचार.");
 $langmsg['editnews'][22] = x("में कुल.");
 $langmsg['editnews'][23] = x("सारे चयनित लेख (नों के लिए गणना 0 से रीसेट)");
 $langmsg['editnews'][24] = x("रेटिंग चयनित लेख (नों के लिए रीसेट)");
+$langmsg['editnews'][25] = x("श्रेणी के आधार पर फ़िल्टर करें");
 
 $langmsg['newsform'][0] = x("नीचे अपनी खबर के बाद जोड़ें.");
 $langmsg['newsform'][1] = x("शीर्षक:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("कभी संग्रह");
 $langmsg['newsform'][19] = x("फाइल अपलोड");
 $langmsg['newsform'][20] = x("डाउनलोड");
 $langmsg['newsform'][21] = x("अपलोड की गई");
+$langmsg['newsform'][22] = x("लेख");
+$langmsg['newsform'][23] = x("एक छवि URL दर्ज करें");
+$langmsg['newsform'][24] = x("सम्मिलित करें");
+$langmsg['newsform'][25] = x("अपलोड एक छवि चुनें");
 
 $langmsg['editcomments'][0] = x("संपादित करें टिप्पणियाँ");
 $langmsg['editcomments'][1] = x("संपादित करें टिप्पणी के नीचे.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("पासवर्ड की पुष्टि क
 $langmsg['personal'][10] = x("एक ईमेल पता दर्ज होना चाहिए.");
 $langmsg['personal'][11] = x("सेटिंग्स अद्यतन.");
 $langmsg['personal'][12] = x("पासवर्ड मेल नहीं खाते.");
+$langmsg['personal'][13] = x("सक्षम WYSIWYG संपादक?");
 
 $langmsg['login'][0] = x("कृपया लॉगिन");
 $langmsg['login'][1] = x("नाम:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("पसंदीदा उद्धरण:");
 $langmsg['profile'][12] = x("नर");
 $langmsg['profile'][13] = x("मादा");
 $langmsg['profile'][14] = x("प्रोफाइल अद्यतन.");
+$langmsg['profile'][15] = x("कोई नहीं");
 
 $langmsg['accounts'][0] = x("लेखा");
 $langmsg['accounts'][1] = x("खातों.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("प्रदर्शित करता है 
 $langmsg['templates'][131] = x("पिछले पृष्ठ प्रदर्शित करता है संख्या.");
 $langmsg['templates'][132] = x("अगले पृष्ठ प्रदर्शित करता है संख्या.");
 $langmsg['templates'][133] = x("समाचार लेख के अनुकूल शीर्षक प्रदर्शित करता है.");
+$langmsg['templates'][134] = x("खोज फार्म");
+$langmsg['templates'][135] = x("खोज परिणाम");
+$langmsg['templates'][136] = x("अपलोड फ़ाइलें");
 
 $langmsg['uploadedfiles'][0] = x("फाइल अपलोड");
 $langmsg['uploadedfiles'][1] = x("एक नई फ़ाइल अपलोड करें");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("नाम");
 $langmsg['news'][48] = x("ईमेल के यूआरएल /");
 $langmsg['news'][49] = x("संदेश");
+$langmsg['news'][50] = x("दर्ज एक लेख का शीर्षक");
+$langmsg['news'][51] = x("सारांश");
+$langmsg['news'][52] = x("नहीं श्रेणियों");
+$langmsg['news'][53] = x("तिथि");
+$langmsg['news'][54] = x("दिनांक इस लेख पोस्ट किया गया");
+$langmsg['news'][55] = x("पुरालेख");
 
 $langmsg['shortmonths'][0] = x("जन");
 $langmsg['shortmonths'][1] = x("फ़रवरी");

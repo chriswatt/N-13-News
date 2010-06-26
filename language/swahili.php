@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Swahili			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("news stories.");
 $langmsg['editnews'][22] = x("katika jumla.");
 $langmsg['editnews'][23] = x("View count reset kwa ajili ya kuchaguliwa 0 article (s)");
 $langmsg['editnews'][24] = x("Ratings reset kwa kuchaguliwa article (s)");
+$langmsg['editnews'][25] = x("Chuja kwa jamii");
 
 $langmsg['newsform'][0] = x("Add your habari post chini.");
 $langmsg['newsform'][1] = x("Title:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Kamwe archive");
 $langmsg['newsform'][19] = x("Picha Uploads");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Makala");
+$langmsg['newsform'][23] = x("Kuingia sura URL");
+$langmsg['newsform'][24] = x("Insert");
+$langmsg['newsform'][25] = x("Chagua Uploaded image");
 
 $langmsg['editcomments'][0] = x("Edit Comments");
 $langmsg['editcomments'][1] = x("Edit ya comment hapo chini.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Confirm password:");
 $langmsg['personal'][10] = x("Anwani ya barua pepe lazima aliingia.");
 $langmsg['personal'][11] = x("Settings updated.");
 $langmsg['personal'][12] = x("Lösenord don't match.");
+$langmsg['personal'][13] = x("Kuwawezesha WYSIWYG mhariri?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Jina:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Mwanaume");
 $langmsg['profile'][13] = x("Kike");
 $langmsg['profile'][14] = x("Profile updated.");
+$langmsg['profile'][15] = x("Hakuna");
 
 $langmsg['accounts'][0] = x("Accounts");
 $langmsg['accounts'][1] = x("Accounts.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Maonyesho ya sasa Ukarasa idadi.");
 $langmsg['templates'][131] = x("Maonyesho ya awali Ukarasa idadi.");
 $langmsg['templates'][132] = x("Displays ijayo Ukarasa idadi.");
 $langmsg['templates'][133] = x("Displays cheo kirafiki ya makala ya habari.");
+$langmsg['templates'][134] = x("Search form");
+$langmsg['templates'][135] = x("Matokeo");
+$langmsg['templates'][136] = x("Uploaded files");
 
 $langmsg['uploadedfiles'][0] = x("Picha Uploads");
 $langmsg['uploadedfiles'][1] = x("Upload file mpya");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Jina");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Ujumbe");
+$langmsg['news'][50] = x("Kuingia makala title");
+$langmsg['news'][51] = x("Muhtasari");
+$langmsg['news'][52] = x("No categories");
+$langmsg['news'][53] = x("Date");
+$langmsg['news'][54] = x("Tarehe makala hii alikuwa posted");
+$langmsg['news'][55] = x("Archive");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Februari");

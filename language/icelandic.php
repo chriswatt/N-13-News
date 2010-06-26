@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Icelandic		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("fréttir.");
 $langmsg['editnews'][22] = x("í alls.");
 $langmsg['editnews'][23] = x("View Count endurstilla til 0 fyrir valinn grein (ar)");
 $langmsg['editnews'][24] = x("Ratings endurstilla fyrir valinn grein (ar)");
+$langmsg['editnews'][25] = x("Sía eftir flokk");
 
 $langmsg['newsform'][0] = x("Bæta við fréttum staða hér fyrir neðan.");
 $langmsg['newsform'][1] = x("Titill:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Aldrei Archive");
 $langmsg['newsform'][19] = x("Skrá Uploads");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Gr");
+$langmsg['newsform'][23] = x("Sláðu inn slóðina að myndinni");
+$langmsg['newsform'][24] = x("Settu");
+$langmsg['newsform'][25] = x("Veldu hlaðið mynd");
 
 $langmsg['editcomments'][0] = x("Edit Comments");
 $langmsg['editcomments'][1] = x("Breyta athugasemd hér fyrir neðan.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Staðfesta lykilorð:");
 $langmsg['personal'][10] = x("Netfang verður að vera inn.");
 $langmsg['personal'][11] = x("Stillingar updated.");
 $langmsg['personal'][12] = x("Lykilorð stemma ekki.");
+$langmsg['personal'][13] = x("Virkja WYSIWYG Editor?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Nafn:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Karlmaður");
 $langmsg['profile'][13] = x("Kvenmaður");
 $langmsg['profile'][14] = x("Profile updated.");
+$langmsg['profile'][15] = x("None");
 
 $langmsg['accounts'][0] = x("Reikningar");
 $langmsg['accounts'][1] = x("Reikningar.");
@@ -646,6 +653,10 @@ $langmsg['templates'][130] = x("Sýna núverandi síðu númer.");
 $langmsg['templates'][131] = x("Sýnir fyrri síða númer.");
 $langmsg['templates'][132] = x("Sýnir næstu síðu tala.");
 $langmsg['templates'][133] = x("Sýnir vingjarnlegur titill frétt.");
+$langmsg['templates'][134] = x("Leita mynd");
+$langmsg['templates'][135] = x("Leitarniðurstöður");
+$langmsg['templates'][136] = x("Uploaded skrá");
+
 
 $langmsg['uploadedfiles'][0] = x("Skrá Uploads");
 $langmsg['uploadedfiles'][1] = x("Senda nýtt");
@@ -805,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nafn");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Message");
+$langmsg['news'][50] = x("Sláðu inn titil greinarinnar");
+$langmsg['news'][51] = x("Yfirlit");
+$langmsg['news'][52] = x("Engir flokkar");
+$langmsg['news'][53] = x("Dagsetning");
+$langmsg['news'][54] = x("Dagsetningu þessa grein var staða");
+$langmsg['news'][55] = x("Skjalasafn");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Febrúar");

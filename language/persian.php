@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Persian			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("داستان ها اخبار است.");
 $langmsg['editnews'][22] = x("در کل.");
 $langmsg['editnews'][23] = x("تعداد دفعات مشاهده نمایش تنظیم مجدد به 0 برای انتخاب مقاله (ها)");
 $langmsg['editnews'][24] = x("رأی تنظیم مجدد برای انتخاب مقاله (ها)");
+$langmsg['editnews'][25] = x("فیلتر بر اساس طبقه بندی");
 
 $langmsg['newsform'][0] = x("اضافه کردن ارسال اخبار خود را در زیر.");
 $langmsg['newsform'][1] = x("عنوان :");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("هرگز آرشیو");
 $langmsg['newsform'][19] = x("ارسال فایل");
 $langmsg['newsform'][20] = x("دریافت فایل");
 $langmsg['newsform'][21] = x("ارسال");
+$langmsg['newsform'][22] = x("مقاله");
+$langmsg['newsform'][23] = x("آدرس تصویر را وارد کنید");
+$langmsg['newsform'][24] = x("درج");
+$langmsg['newsform'][25] = x("انتخاب آپلود عکس");
 
 $langmsg['editcomments'][0] = x("ویرایش نظرات");
 $langmsg['editcomments'][1] = x("ویرایش نظر زیر وارد نمایید.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("تکرار رمز عبور :");
 $langmsg['personal'][10] = x("آدرس ایمیل باید وارد شده باشد.");
 $langmsg['personal'][11] = x("به روز شده در تنظیمات.");
 $langmsg['personal'][12] = x("رمز عبور با هم مطابقت ندارند.");
+$langmsg['personal'][13] = x("فعال کردن ویرایشگر WYSIWYG؟");
 
 $langmsg['login'][0] = x("لطفا وارد شوید");
 $langmsg['login'][1] = x("نام :");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("نقل قول مورد علاقه :");
 $langmsg['profile'][12] = x("مرد");
 $langmsg['profile'][13] = x("زن");
 $langmsg['profile'][14] = x("به روز شده در اطلاعات عمومی.");
+$langmsg['profile'][15] = x("هیچ کدام");
 
 $langmsg['accounts'][0] = x("افتتاح حساب");
 $langmsg['accounts'][1] = x("تشکیل می دهد.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("نمایش شماره صفحه فعلی.");
 $langmsg['templates'][131] = x("نمایش تعداد صفحه قبل.");
 $langmsg['templates'][132] = x("نمایش تعداد صفحه بعد.");
 $langmsg['templates'][133] = x("نمایش دوستانه عنوان مقاله اخبار.");
+$langmsg['templates'][134] = x("فرم جستجو");
+$langmsg['templates'][135] = x("نتایج جستجو");
+$langmsg['templates'][136] = x("ارسال فایل");
 
 
 $langmsg['uploadedfiles'][0] = x("ارسال فایل");
@@ -806,6 +816,12 @@ $langmsg['news'][46] = x("{author} -- {date} -- {title}");
 $langmsg['news'][47] = x("نام");
 $langmsg['news'][48] = x("ایمیل / آدرس");
 $langmsg['news'][49] = x("پیام");
+$langmsg['news'][50] = x("را وارد کنید عنوان مطلب");
+$langmsg['news'][51] = x("خلاصه");
+$langmsg['news'][52] = x("هیچ دستهای پیدا نشد");
+$langmsg['news'][53] = x("تاریخ");
+$langmsg['news'][54] = x("تاریخ این مقاله ارسال شده بود");
+$langmsg['news'][55] = x("بایگانی");
 
 $langmsg['shortmonths'][0] = x("ژان");
 $langmsg['shortmonths'][1] = x("یدلایمخیرات فوریه");

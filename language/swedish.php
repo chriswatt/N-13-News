@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Swedish                                 #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -118,6 +118,7 @@ $langmsg['editnews'][21] = x("nyhetsartiklar.");
 $langmsg['editnews'][22] = x("totalt.");
 $langmsg['editnews'][23] = x("Visningantal återställas till 0 för den valda artikeln (s)");
 $langmsg['editnews'][24] = x("Betyg återställa för den valda artikeln (s)");
+$langmsg['editnews'][25] = x("Filtrera efter kategori");
 
 
 $langmsg['newsform'][0] = x("Lägg till din nyhetsläsare post nedan.");
@@ -136,6 +137,10 @@ $langmsg['newsform'][18] = x("Aldrig arkiv");
 $langmsg['newsform'][19] = x("Filuppladdning");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Artikel");
+$langmsg['newsform'][23] = x("Ange en bild-URL");
+$langmsg['newsform'][24] = x("Infoga");
+$langmsg['newsform'][25] = x("Välj en uppladdad bild");
 
 
 $langmsg['editcomments'][0] = x("Edit Comments");
@@ -262,6 +267,7 @@ $langmsg['personal'][9] = x("Bekräfta lösenord:");
 $langmsg['personal'][10] = x("En e-postadress skall anges.");
 $langmsg['personal'][11] = x("Inställningar uppdateras.");
 $langmsg['personal'][12] = x("Lösenorden matchar inte.");
+$langmsg['personal'][13] = x("Aktivera WYSIWYG editor?");
 
 
 $langmsg['login'][0] = x("Vänligen Logga");
@@ -291,6 +297,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Manlig");
 $langmsg['profile'][13] = x("Kvinna");
 $langmsg['profile'][14] = x("Profil uppdaterad.");
+$langmsg['profile'][15] = x("Ingen");
 
 
 $langmsg['accounts'][0] = x("Konton");
@@ -669,6 +676,9 @@ $langmsg['templates'][130] = x("Visar det aktuella sidnumret.");
 $langmsg['templates'][131] = x("Visar föregående sidnummer.");
 $langmsg['templates'][132] = x("Visar nästa sidnummer.");
 $langmsg['templates'][133] = x("Visar den vänliga titel nyhetsartikel.");
+$langmsg['templates'][134] = x("Sökformulär");
+$langmsg['templates'][135] = x("Sökresultat");
+$langmsg['templates'][136] = x("Uppladdade filer");
 
 
 $langmsg['uploadedfiles'][0] = x("Filuppladdning");
@@ -834,6 +844,13 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Namn");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Meddelande");
+$langmsg['news'][50] = x("Skriv en artikel titel");
+$langmsg['news'][51] = x("Sammanfattning");
+$langmsg['news'][52] = x("Inga kategorier");
+$langmsg['news'][53] = x("Datum");
+$langmsg['news'][54] = x("Datum Denna artikel var postat");
+$langmsg['news'][55] = x("Arkiv");
+
 
 
 $langmsg['shortmonths'][0] = x("Jan");

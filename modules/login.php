@@ -22,6 +22,7 @@ if (!defined('ABSPATH')){ die(); }
 require_once(ABSPATH . '/language/' . $default_login_language . '.php');
 $submitbuttonvalue = $langmsg['login'][6];
 $loginerrormessage = $langmsg['login'][7];
+$_SESSION['language'] = $default_login_language;
 $la =  $langmsg['rss'][8];
 
 echo "<span class=header>".$langmsg['login'][0]."</span></div>";

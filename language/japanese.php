@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Japanese                                #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -118,6 +118,7 @@ $langmsg['editnews'][21] = x("ニュース。");
 $langmsg['editnews'][22] = x("合計です。");
 $langmsg['editnews'][23] = x("選択した記事（掲載を0にビューのカウントをリセット）");
 $langmsg['editnews'][24] = x("格付けは、選択した項目（複数可）をリセットする");
+$langmsg['editnews'][25] = x("フィルタカテゴリ別");
 
 
 $langmsg['newsform'][0] = x("以下のニュースのポストを追加します。");
@@ -136,6 +137,10 @@ $langmsg['newsform'][18] = x("決してアーカイブ");
 $langmsg['newsform'][19] = x("ファイルをアップロード");
 $langmsg['newsform'][20] = x("ダウンロード");
 $langmsg['newsform'][21] = x("アップロード");
+$langmsg['newsform'][22] = x("記事");
+$langmsg['newsform'][23] = x("画像URLを入力します");
+$langmsg['newsform'][24] = x("挿入");
+$langmsg['newsform'][25] = x("選択してアップロードした画像");
 
 
 $langmsg['editcomments'][0] = x("[編集]コメント");
@@ -262,6 +267,7 @@ $langmsg['personal'][9] = x("パスワードの確認：");
 $langmsg['personal'][10] = x("電子メールアドレスを入力する必要があります。");
 $langmsg['personal'][11] = x("設定を更新しました。");
 $langmsg['personal'][12] = x("パスワードが一致しません。");
+$langmsg['personal'][13] = x("有効にするWYSIWYGエディタ？");
 
 
 $langmsg['login'][0] = x("ログインしてください");
@@ -291,6 +297,7 @@ $langmsg['profile'][11] = x("お気に入りの引用：");
 $langmsg['profile'][12] = x("男性");
 $langmsg['profile'][13] = x("女性");
 $langmsg['profile'][14] = x("プロフィールを更新しました。");
+$langmsg['profile'][15] = x("なし");
 
 
 $langmsg['accounts'][0] = x("アカウント");
@@ -668,6 +675,9 @@ $langmsg['templates'][130] = x("が表示されます現在のページ番号で
 $langmsg['templates'][131] = x("表示前のページ番号です。");
 $langmsg['templates'][132] = x("表示次のページ番号です。");
 $langmsg['templates'][133] = x("が表示されますニュース記事の友好タイトル。");
+$langmsg['templates'][134] = x("検索フォーム");
+$langmsg['templates'][135] = x("検索結果");
+$langmsg['templates'][136] = x("アップロードファイルの");
 
 
 $langmsg['uploadedfiles'][0] = x("ファイルをアップロード");
@@ -832,6 +842,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("名");
 $langmsg['news'][48] = x("Eメール/ URLは");
 $langmsg['news'][49] = x("メッセージ");
+$langmsg['news'][50] = x("入力してください記事のタイトル");
+$langmsg['news'][51] = x("要約");
+$langmsg['news'][52] = x("カテゴリーなし");
+$langmsg['news'][53] = x("日付");
+$langmsg['news'][54] = x("日付この記事は、投稿されました");
+$langmsg['news'][55] = x("アーカイブ");
 
 
 $langmsg['shortmonths'][0] = x("09年01月");

@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Finnish                                 #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -118,6 +118,7 @@ $langmsg['editnews'][21] = x("uutisia.");
 $langmsg['editnews'][22] = x("yhteens‰.");
 $langmsg['editnews'][23] = x("View Count palautuvat 0 valittua artikla (t)");
 $langmsg['editnews'][24] = x("Ratings palauttaa valitun artikla (t)");
+$langmsg['editnews'][25] = x("Suodata luokan");
 
 
 $langmsg['newsform'][0] = x("Lis‰‰ uutisia postitse alla.");
@@ -136,6 +137,11 @@ $langmsg['newsform'][18] = x("Koskaan arkisto");
 $langmsg['newsform'][19] = x("Tiedostolautausten");
 $langmsg['newsform'][20] = x("Ladattavat");
 $langmsg['newsform'][21] = x("L‰hett‰nyt");
+$langmsg['newsform'][22] = x("Artikkeli");
+$langmsg['newsform'][23] = x("Kirjoita kuvan URL-osoite");
+$langmsg['newsform'][24] = x("Lis‰t‰");
+$langmsg['newsform'][25] = x("Valitse ladattu kuva");
+
 
 
 $langmsg['editcomments'][0] = x("Muokkaus Kommentit");
@@ -262,6 +268,7 @@ $langmsg['personal'][9] = x("Vahvista salasana:");
 $langmsg['personal'][10] = x("S‰hkˆpostiosoite on merkitt‰v‰.");
 $langmsg['personal'][11] = x("Asetukset p‰ivitetty.");
 $langmsg['personal'][12] = x("Salasanat eiv‰t t‰sm‰‰.");
+$langmsg['personal'][13] = x("Ota WYSIWYG editori?");
 
 
 $langmsg['login'][0] = x("Please Login");
@@ -291,6 +298,7 @@ $langmsg['profile'][11] = x("Suosikkilevy Quote:");
 $langmsg['profile'][12] = x("Mies");
 $langmsg['profile'][13] = x("Nainen");
 $langmsg['profile'][14] = x("Profiili p‰ivitetty.");
+$langmsg['profile'][15] = x("Ei mit‰‰n");
 
 
 $langmsg['accounts'][0] = x("Tilinpidon");
@@ -668,6 +676,9 @@ $langmsg['templates'][130] = x("N‰ytt‰‰ nykyisen sivun numero.");
 $langmsg['templates'][131] = x("N‰ytt‰‰ edellisen sivun numero.");
 $langmsg['templates'][132] = x("N‰ytt‰‰ seuraavan sivun numero.");
 $langmsg['templates'][133] = x("N‰ytt‰‰ yst‰v‰llinen otsikko uutisartikkeli.");
+$langmsg['templates'][134] = x("Hakulomake");
+$langmsg['templates'][135] = x("Hakutulokset");
+$langmsg['templates'][136] = x("Ladatut tiedostot");
 
 
 $langmsg['uploadedfiles'][0] = x("Tiedostolautausten");
@@ -833,6 +844,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nimi");
 $langmsg['news'][48] = x("S‰hkˆposti / URL");
 $langmsg['news'][49] = x("Viesti");
+$langmsg['news'][50] = x("Anna artikkelin otsikko");
+$langmsg['news'][51] = x("Yhteenveto");
+$langmsg['news'][52] = x("Ei aiheita");
+$langmsg['news'][53] = x("P‰iv‰m‰‰r‰");
+$langmsg['news'][54] = x("P‰iv‰ T‰m‰ artikkeli on l‰hetetty");
+$langmsg['news'][55] = x("Arkisto");
 
 
 $langmsg['shortmonths'][0] = x("Tam");

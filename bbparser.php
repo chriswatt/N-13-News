@@ -45,9 +45,9 @@ function resizeimg($str,$caption,$oldformat){
 					$new_height = $height;			
 				}
 				if($image_clickable == 1){
-					return "<a href=\"$str\"><img class=\"fullnewsimage\" alt=\"" . $caption . "\" src=\"" . $adminpath . "?action=options&mod=imageuploads&width=$new_width&height=$new_height&thumb=$str\" /></a>";
+					return "<a href=\"$str\"><img class=\"fullnewsimage\" alt=\"" . $caption . "\" src=\"" . ADMINPATH . "?action=options&mod=imageuploads&width=$new_width&height=$new_height&thumb=$str\" /></a>";
 				}else{
-					return "<img class=\"fullnewsimage\" alt=\"" . $caption . "\" src=\"" . $adminpath . "?action=options&mod=imageuploads&width=$new_width&height=$new_height&thumb=$str\" />";
+					return "<img class=\"fullnewsimage\" alt=\"" . $caption . "\" src=\"" . ADMINPATH . "?action=options&mod=imageuploads&width=$new_width&height=$new_height&thumb=$str\" />";
 				}				
 			}else{
 					return "<img src=\"$str\" class=\"fullnewsimage\" alt=\"" . $caption . "\" />";
@@ -72,58 +72,63 @@ function linkfy($str){
 	return $newstr;
 }
 
-function bb2html($str,$usehtml) {
-	global $langmsg, $smilies, $image_clickable;
-	$bb2html = $str;                                  
-	if($usehtml == "0"){
-		$bb2html = htmlentities($bb2html, ENT_NOQUOTES, 'utf-8');
-	}
+function bb2html($str,$usehtml = '1', $style) {
 
-    foreach(unserialize(SMILIES) AS $smiley){
-        $bb2html = str_replace($smiley['keycode'], "<img src=\"" . $smiley['path'] . "\" alt=\"" . $smiley['keycode'] . "\" />", $bb2html);
-    }
-	$bb2html = str_replace("\r",'<br />', $bb2html); 
-	$bb2html = preg_replace("#\[url\](.*?)\[\/url\]#se", "'' . linkfy(\"$1\") . ''", $bb2html);
-	$bb2html = str_replace('[left]', '<div align="left">', $bb2html);
-	$bb2html = str_replace('[/left]', '</div>', $bb2html);
-	$bb2html = str_replace('[center]', '<div align="center">', $bb2html);
-	$bb2html = str_replace('[/center]', '</div>', $bb2html);
-	$bb2html = str_replace('[right]', '<div align="right">', $bb2html);
-	$bb2html = str_replace('[/right]', '</div>', $bb2html);
-	$bb2html = str_replace('[b]', '<strong>', $bb2html);
-	$bb2html = str_replace('[/b]', '</strong>', $bb2html);
-	$bb2html = str_replace('[i]', '<em>', $bb2html);
-	$bb2html = str_replace('[/i]', '</em>', $bb2html);
-	$bb2html = str_replace('[u]', '<u>', $bb2html);
-	$bb2html = str_replace('[/u]', '</u>', $bb2html);
-	$bb2html = str_replace('[*]', '<li>', $bb2html);
-	$bb2html = str_replace('[/*]', '</li>', $bb2html);
-	$bb2html = str_replace('[ul]', '<ul>', $bb2html);
-	$bb2html = str_replace('[/ul]', '</ul>', $bb2html);
-	$bb2html = str_replace('[list]', '<ul>', $bb2html);
-	$bb2html = str_replace('[/list]', '</ul>', $bb2html);
-	$bb2html = str_replace('[ol]', '<ol>', $bb2html);
-	$bb2html = str_replace('[/ol]', '</ol>', $bb2html);
-	$bb2html = str_replace('</li><br />', '</li>', $bb2html);
-	$bb2html = str_replace('<ul><br />', '<ul>', $bb2html);
-	$bb2html = str_replace('</ul><br />', '</ul>', $bb2html);
-	$bb2html = str_replace('<ol><br />', '<ol>', $bb2html);
-	$bb2html = str_replace('</ol><br />', '</ol>', $bb2html);
-	$bb2html = str_replace('[/img]<br />', '[/img]', $bb2html);
-	$bb2html = str_replace('[quote]', "<div class=\"quote\">", $bb2html);
-	$bb2html = str_replace('[/quote]', '</div>', $bb2html);
-	$bb2html = preg_replace("/\[size=(\W?)(.*?)(\W?)\](.*?)\[\/size\]/", '<font style="font-size: $2">$4</font>', $bb2html);
-	$bb2html = preg_replace("/\[email=(\W?)(.*?)(\W?)\](.*?)\[\/email\]/i", '<a href="mailto:$2">$4</a>', $bb2html);
-	$bb2html = preg_replace("/\[url=(\W?)(.*?)(\W?)\](.*?)\[\/url\]/", '<a href="$2">$4</a>', $bb2html);
-	$match = array('#\[img=(\W?)(.*?)(\W?)\](.*?)\[\/img\]#se');
-	$replace = array("'' . resizeimg('$2','$4','') . ''");
-	$bb2html = preg_replace($match, $replace, $bb2html);	
-	##oldformat [img]http://[/img]
-	$match = array('#\[img\]http://(.*?)\[\/img\]#se');
-	$replace = array("'' . resizeimg('http://$1','','true') . ''");
-	$bb2html = preg_replace($match, $replace, $bb2html);    
-	$bb2html = preg_replace('/\[color\=(.+?)\](.+?)\[\/color\]/is', "<span style=\"color:$1\">$2<!--color--></span>", $bb2html);
-	
-	return $bb2html;
+	if($style == "0"){
+		return $str;
+	}else{
+		global $langmsg, $smilies, $image_clickable;
+		$bb2html = $str;                                  
+		if($usehtml == "0"){
+			$bb2html = htmlentities($bb2html, ENT_NOQUOTES, 'utf-8');
+		}
+
+		foreach(unserialize(SMILIES) AS $smiley){
+			$bb2html = str_replace($smiley['keycode'], "<img src=\"" . $smiley['path'] . "\" alt=\"" . $smiley['keycode'] . "\" />", $bb2html);
+		}
+		$bb2html = str_replace("\r",'<br />', $bb2html); 
+		$bb2html = preg_replace("#\[url\](.*?)\[\/url\]#se", "'' . linkfy(\"$1\") . ''", $bb2html);
+		$bb2html = str_replace('[left]', '<div align="left">', $bb2html);
+		$bb2html = str_replace('[/left]', '</div>', $bb2html);
+		$bb2html = str_replace('[center]', '<div align="center">', $bb2html);
+		$bb2html = str_replace('[/center]', '</div>', $bb2html);
+		$bb2html = str_replace('[right]', '<div align="right">', $bb2html);
+		$bb2html = str_replace('[/right]', '</div>', $bb2html);
+		$bb2html = str_replace('[b]', '<strong>', $bb2html);
+		$bb2html = str_replace('[/b]', '</strong>', $bb2html);
+		$bb2html = str_replace('[i]', '<em>', $bb2html);
+		$bb2html = str_replace('[/i]', '</em>', $bb2html);
+		$bb2html = str_replace('[u]', '<u>', $bb2html);
+		$bb2html = str_replace('[/u]', '</u>', $bb2html);
+		$bb2html = str_replace('[*]', '<li>', $bb2html);
+		$bb2html = str_replace('[/*]', '</li>', $bb2html);
+		$bb2html = str_replace('[ul]', '<ul>', $bb2html);
+		$bb2html = str_replace('[/ul]', '</ul>', $bb2html);
+		$bb2html = str_replace('[list]', '<ul>', $bb2html);
+		$bb2html = str_replace('[/list]', '</ul>', $bb2html);
+		$bb2html = str_replace('[ol]', '<ol>', $bb2html);
+		$bb2html = str_replace('[/ol]', '</ol>', $bb2html);
+		$bb2html = str_replace('</li><br />', '</li>', $bb2html);
+		$bb2html = str_replace('<ul><br />', '<ul>', $bb2html);
+		$bb2html = str_replace('</ul><br />', '</ul>', $bb2html);
+		$bb2html = str_replace('<ol><br />', '<ol>', $bb2html);
+		$bb2html = str_replace('</ol><br />', '</ol>', $bb2html);
+		$bb2html = str_replace('[/img]<br />', '[/img]', $bb2html);
+		$bb2html = str_replace('[quote]', "<div class=\"quote\">", $bb2html);
+		$bb2html = str_replace('[/quote]', '</div>', $bb2html);
+		$bb2html = preg_replace("/\[size=(\W?)(.*?)(\W?)\](.*?)\[\/size\]/", '<font style="font-size: $2">$4</font>', $bb2html);
+		$bb2html = preg_replace("/\[email=(\W?)(.*?)(\W?)\](.*?)\[\/email\]/i", '<a href="mailto:$2">$4</a>', $bb2html);
+		$bb2html = preg_replace("/\[url=(\W?)(.*?)(\W?)\](.*?)\[\/url\]/", '<a href="$2">$4</a>', $bb2html);
+		$match = array('#\[img=(\W?)(.*?)(\W?)\](.*?)\[\/img\]#se');
+		$replace = array("'' . resizeimg('$2','$4','') . ''");
+		$bb2html = preg_replace($match, $replace, $bb2html);	
+		##oldformat [img]http://[/img]
+		$match = array('#\[img\]http://(.*?)\[\/img\]#se');
+		$replace = array("'' . resizeimg('http://$1','','true') . ''");
+		$bb2html = preg_replace($match, $replace, $bb2html);    
+		$bb2html = preg_replace('/\[color\=(.+?)\](.+?)\[\/color\]/is', "<span style=\"color:$1\">$2<!--color--></span>", $bb2html);
+		
+		return $bb2html;
+	}
 }
 ?>

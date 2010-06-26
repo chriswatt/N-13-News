@@ -60,7 +60,7 @@ if(!$_POST['B1']){
 	echo "<tr><td colspan=2><hr></td></tr>";
 	echo "<tr><td>".$langmsg['profile'][6]."</td><td>";
 	echo "<select name=\"profile_image\">";
-	
+	echo "<option value=\"0\">" . $langmsg['profile'][15] ."</option>";
 	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);
 	$allowedcats = $allowedcats['0']['cats'];
 	$d = '';	
@@ -86,10 +86,8 @@ if(!$_POST['B1']){
 	$sql3 = "SELECT * FROM " . NEWS_IMAGES . " $y ORDER BY uid DESC";
 	$allcats = DataAccess::fetch($sql3);
 	foreach($allcats AS $row3){
-		echo "<option value=\"$row3[file]\"";
-		$hh = $row['profile_image'];
-		$hh = str_replace($dd,"",$hh);
-		if($hh == $row3['file']){
+		echo "<option value=\"$row3[uid]\"";
+		if($row['profile_image'] == $row3['uid']){
 			echo " selected=\"selected\"";
 		}
 		echo ">$row3[file]</option>";
@@ -109,12 +107,11 @@ if(!$_POST['B1']){
 	foreach($allcats2 AS $rowx){		            	
 		$i = 0;
 		$h = "";
-		$gg = DataAccess::fetch("SELECT *, " . NEWS_IMAGES . ".file AS filename FROM " . NEWS_GROUPCATS . " INNER JOIN " . NEWS_IMAGES . " ON " . NEWS_GROUPCATS . ".storyid = " . NEWS_IMAGES . ".uid WHERE type = ? AND catid = ?", "image", $rowx['id']);
+		$gg = DataAccess::fetch("SELECT *, " . NEWS_IMAGES . ".uid AS imageuid, "  . NEWS_IMAGES . ".file AS filename FROM " . NEWS_GROUPCATS . " INNER JOIN " . NEWS_IMAGES . " ON " . NEWS_GROUPCATS . ".storyid = " . NEWS_IMAGES . ".uid WHERE type = ? AND catid = ?", "image", $rowx['id']);
 		foreach($gg AS $row2){
-			$h .= "<option";
+			$h .= "<option value=\"$row2[uid]\" ";
 			$hh = $row['profile_image'];
-			$hh = str_replace($dd,"",$hh);
-			if($hh == $row2['filename']){
+			if($row['profile_image'] == $row2['imageuid']){
 				$h .= " selected=\"selected\"";
 			}																			
 			$h .= ">$row2[filename]</option>";
@@ -129,6 +126,81 @@ if(!$_POST['B1']){
 	echo "</select>";
 	echo "</tr>";
 	echo "<tr><td colspan=2><hr></td></tr>";
+	
+	
+
+	echo "<tr><td>".$langmsg['personal'][3]."</td><td>";
+	echo "<select name=\"avatar\">";
+	echo "<option value=\"0\">" . $langmsg['profile'][15] ."</option>";
+	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);
+	$allowedcats = $allowedcats['0']['cats'];
+	$d = '';	
+	if($allowedcats !== "all"){
+		$a = explode(",",$allowedcats);
+		foreach($a as $c){
+			$d .= "catid LIKE '$c' OR ";
+		}
+		$d = substr($d,0,(strlen($d) - 3));
+		$d = "WHERE type = 'image' AND (" . $d . ")";			            
+	}else{
+		$d = "WHERE type = 'image'";
+	}
+	$y = '';
+	$newcats = DataAccess::fetch("SELECT * FROM " . NEWS_GROUPCATS . " $d");
+	foreach($newcats AS $row4){
+		$y .= "uid != '$row4[storyid]' AND ";
+	}	
+	$y = substr($y,0,(strlen($y) - 5));	
+	if($y){
+		$y = "WHERE " . $y;
+	}
+	$sql3 = "SELECT * FROM " . NEWS_IMAGES . " $y ORDER BY uid DESC";
+	$allcats = DataAccess::fetch($sql3);
+	foreach($allcats AS $row3){
+		echo "<option value=\"$row3[uid]\"";
+		$hh = $row['avatar'];
+		if($hh == $row3['uid']){
+			echo " selected=\"selected\"";
+		}
+		echo ">$row3[file]</option>";
+	}
+	
+	$e = '';
+	if($allowedcats !== "all"){
+		$a = explode(",",$allowedcats);
+		foreach($a as $c){
+			$e .= "id LIKE '$c' OR ";
+		}
+		$e = substr($e,0,(strlen($e) - 3));
+		$e = "WHERE " . $e;			            
+	}
+	$sql = "SELECT * FROM " . NEWS_CATS . " $e ORDER BY name";
+	$allcats2 = DataAccess::fetch($sql);
+	foreach($allcats2 AS $rowx){		            	
+		$i = 0;
+		$h = "";
+		$gg = DataAccess::fetch("SELECT *, " . NEWS_IMAGES . ".uid AS imageuid, " . NEWS_IMAGES . ".file AS filename FROM " . NEWS_GROUPCATS . " INNER JOIN " . NEWS_IMAGES . " ON " . NEWS_GROUPCATS . ".storyid = " . NEWS_IMAGES . ".uid WHERE type = ? AND catid = ?", "image", $rowx['id']);
+		foreach($gg AS $row2){
+			$h .= "<option value=\"$row2[uid]\" ";
+			$hh = $row['avatar'];
+			if($hh == $row2['imageuid']){
+				$h .= " selected=\"selected\"";
+			}																			
+			$h .= ">$row2[filename]</option>";
+			$i++;	
+		}
+		if($i > 0){
+			echo "<optgroup label=\"$rowx[name]\">";
+			echo $h;
+			echo "</optgroup>";
+		}
+	}
+	echo "</select>";
+	echo "</tr>";
+	echo "<tr><td colspan=2><hr></td></tr>";	
+	
+	
+	
 	echo "    <tr>\n";
 	echo "      <td width=\"21%\" valign=top>".$langmsg['profile'][7]."</td>\n";
 	echo "      <td width=\"79%\"><input type=\"text\" value=\"";
@@ -157,6 +229,7 @@ if(!$_POST['B1']){
 	echo "  </table>\n";
 	echo "</form></div></td></tr></table>\n";
 }else{
+	$avatar 			= $_POST['avatar'];
 	$profile_name		= $_POST['T1'];
 	$profile_age		= $_POST['T2'];
 	$profile_age		= substr($profile_age,0,3);
@@ -169,12 +242,8 @@ if(!$_POST['B1']){
 	$profile_hobbies	= $_POST['S2'];
 	$profile_occupation	= $_POST['S3'];
 	$profile_quote		= $_POST['S4'];
-	$_POST['profile_image'] = (empty($_POST['profile_image'])) ? '' : $_POST['profile_image'];
-	if($_POST['profile_image']){
-		$profile_image = SCRIPTPATH . "uploads/" . basename($_POST['profile_image']);
-	}else{
-		$profile_image = '';
-	}		
+	$profile_image		= $_POST['profile_image'];
+	
 	$sql = "UPDATE " . NEWS_USERS . " SET
 	profile_name = ?,
 	profile_age = ?,
@@ -185,8 +254,9 @@ if(!$_POST['B1']){
 	profile_hobbies = ?,
 	profile_occupation = ?,
 	profile_quote = ?,
+	avatar = ?,
 	profile_image = ? WHERE user = ?";
-	DataAccess::put($sql, $profile_name, $profile_age, $profile_location, $profile_sex, $profile_homepage, $profile_interests, $profile_hobbies, $profile_occupation, $profile_quote, $profile_image, $_SESSION['name']);
+	DataAccess::put($sql, $profile_name, $profile_age, $profile_location, $profile_sex, $profile_homepage, $profile_interests, $profile_hobbies, $profile_occupation, $profile_quote, $avatar, $profile_image, $_SESSION['name']);
 	echo "<td></tr><tr><td></td><td><div class=success>".$langmsg['profile'][14]."</div></td></tr></table>";
 }
 ?>

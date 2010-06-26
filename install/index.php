@@ -126,9 +126,16 @@ if($_POST['install'] == "true"){
 		DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET template = '$templateid' WHERE 1");	
 		$querycount++;
 		
+		// delete the old catid column
+		DataAccess::put("ALTER TABLE " . NEWS_ARTICLES . " DROP catid");
+		
+		echo "sqlchanges36.txt~~" . $querycount . "~~OK~~sqlchanges37.txt";
+	}elseif($_POST['next'] == "sqlchanges37.txt"){
+		sqldump(ABSPATH . 'update/sqlchanges37.txt');
+		
 		require_once(ABSPATH . '/langmsg.php');
 		$finishmessage = $langmsg['install'][24] . " <a href=\"../admin.php\">" . $langmsg['install'][25] . "</a><hr />";
-		echo "sqlchanges36.txt~~" . $querycount . "~~OK~~finished~~" . $finishmessage;
+		echo "sqlchanges37.txt~~" . $querycount . "~~OK~~finished~~" . $finishmessage;		
 	}
 	die();
 }
@@ -143,7 +150,7 @@ $majorversion = $phpversion['0'];
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../style.css" rel="stylesheet" type="text/css" />
-<title>N-13 News 3.6</title>
+<title>N-13 News 3.7</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 
 <script language="javascript">
@@ -497,5 +504,5 @@ $majorversion = $phpversion['0'];
 
 <br />
 
-<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 3.6</a> &copy; 2010</span>
+<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 3.7</a> &copy; 2010</span>
 </div>

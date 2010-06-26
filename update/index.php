@@ -81,7 +81,7 @@ $version			= $_POST['version'];
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../style.css" rel="stylesheet" type="text/css" />
-<title>N-13 News 3.6</title>
+<title>N-13 News 3.7</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 </head>
 <body style="padding: 0px; margin: 0px; background-color: #15497c; background-image: url('../images/bgrepeat.png'); background-repeat: repeat-x"><strong></strong>
@@ -115,7 +115,7 @@ $version			= $_POST['version'];
 		<div style="margin-left: 200px; background-color: #FFFFFF">				
 			
 <?php
-if($version < "3.6" && $installedversion < "3.6"){
+if($version < "3.7" && $installedversion < "3.7"){
 	if(!$_POST['S1'] || !$_POST['version']){
 		versionform();
 	}else{
@@ -126,26 +126,34 @@ if($version < "3.6" && $installedversion < "3.6"){
             sqldump(ABSPATH . "update/sqlchanges34.txt");
 			sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
+			sqldump(ABSPATH . "update/sqlchanges37.txt");
 		}elseif($_POST['version'] == "3.1"){
 			sqldump(ABSPATH . "update/sqlchanges32.txt");
             sqldump(ABSPATH . "update/sqlchanges33.txt");
 			sqldump(ABSPATH . "update/sqlchanges34.txt");
 			sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
+			sqldump(ABSPATH . "update/sqlchanges37.txt");
 		}elseif($_POST['version'] == "3.2"){
 			sqldump(ABSPATH . "update/sqlchanges33.txt");
 			sqldump(ABSPATH . "update/sqlchanges34.txt");
             sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
+			sqldump(ABSPATH . "update/sqlchanges37.txt");
 		}elseif($_POST['version'] == "3.3"){
             sqldump(ABSPATH . "update/sqlchanges34.txt");
 			sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
+			sqldump(ABSPATH . "update/sqlchanges37.txt");
         }elseif($_POST['version'] == "3.4"){
 			sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
+			sqldump(ABSPATH . "update/sqlchanges37.txt");
 		}elseif($_POST['version'] == "3.5"){
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
+			sqldump(ABSPATH . "update/sqlchanges37.txt");
+		}elseif($_POST['version'] == "3.6"){
+			sqldump(ABSPATH . "update/sqlchanges37.txt");
 		}
 		
 		if($_POST['version'] < "3.3"){
@@ -168,10 +176,11 @@ if($version < "3.6" && $installedversion < "3.6"){
 			}
 		}
 		
-		// delete catid column
-		DataAccess::put("ALTER TABLE " . NEWS_ARTICLES . " DROP catid");
-		
-		echo "N-13 News updated to version 3.6. <span style=\"color: #FF0000\">Please delete this file immediately</span>";
+		if($_POST['version'] < "3.6"){
+			// delete catid column
+			DataAccess::put("ALTER TABLE " . NEWS_ARTICLES . " DROP catid");
+		}
+		echo "N-13 News updated to version 3.7. <span style=\"color: #FF0000\">Please delete this file immediately</span>";
 	}
 }else{
 	echo "You already have the latest version installed.";
@@ -200,5 +209,5 @@ if($version < "3.6" && $installedversion < "3.6"){
 
 <br />
 
-<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 3.6</a> &copy; 2010</span>
+<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 3.7</a> &copy; 2010</span>
 </div>

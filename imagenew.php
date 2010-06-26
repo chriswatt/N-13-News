@@ -40,7 +40,7 @@ class CaptchaSecurityImages {
       return $code;
    }
  
-   function CaptchaSecurityImages($width='120',$height='40',$characters='6',SALT) {
+   function CaptchaSecurityImages($width='120',$height='40',$characters='6') {
  
       $code = $this->generateCode($characters);
       /* font size will be 75% of the image height */

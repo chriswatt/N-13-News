@@ -27,11 +27,15 @@ $default_login_language = 'english';
 $default_index_language = 'english';
 
 // Default options for the add news form
-$newsform_options['toggle_archive']		= 0; // 0 = Hide archive options, 1 = Show the archive options
+$newsform_options['toggle_archive']		= 0; // 0 = Collapse archive options, 1 = Expand archive options
+$newsform_options['toggle_date']		= 0; // 0 = Collapse date options, 1 = Expand date options
+$newsform_options['toggle_summary']		= 0; // 0 = Collapse summary textbox, 1 = Expand summary textbox
+$newsform_options['toggle_comments']	= 0; // 0 = Collapse comments options, 1 = Expand comments options
+$newsform_options['toggle_categories']	= 0; // 0 = Collapse category options, 1 = Expand category options
+$newsform_options['toggle_article']		= 1; // 0 = Collapse article textbox, 1 = Expand article textbox
 $newsform_options['never_archive']		= 1; // 0 = Never archive is not selected, 1 = Never archive is selected
-$newsform_options['toggle_date']		= 0; // 0 = Hide date options, 1 = Date options are shown
-$newsform_options['short_story']		= 0; // 0 = Hide short story, 1 = Short story section is shown by default
 $newsform_options['allow_comments']		= 1; // Default comment options. 0 = No, 1 = Yes, 2 = Needs approval
+
 
 // Enable or disable automatic creation of thumbnails when viewing uploaded images
 // If you're having trouble viewing the thumbnails change this to 0
@@ -114,8 +118,13 @@ define('PREFIX',		$alloptions['0']['furlprefix']);
 define('IMAGEPATH',		$alloptions['0']['scriptpath'] . "images/");
 define('ADMINPATH',		$alloptions['0']['scriptpath'] . "admin.php");
 define('SCRIPTPATH',	$alloptions['0']['scriptpath']);
+
 $version		= $alloptions['0']['version'];
-$url 			= explode("/",$_SERVER['REQUEST_URI']);
+
+$url 			= explode("-",$_SERVER['REQUEST_URI']);
+$g				= explode("/", $url['0']);
+$g['2']			= (empty($g['2'])) ? '' : $g['2'];
+$url['0']		= $g['2'];
 $imageuploaddir = 'uploads/'; #slash at the end is important!
 unset($alloptions);
 

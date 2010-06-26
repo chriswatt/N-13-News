@@ -57,11 +57,16 @@ $_SESSION['language'] = str_replace(".php", "", $default_index_language);
 $archives = (empty($archives)) ? '0' : '1';
 
 $url['1']		= (empty($url['1'])) ? '' : $url['1'];
+$url['1']		= (empty($url['1'])) ? '' : $url['1'];
 $url['2']		= (empty($url['2'])) ? '' : $url['2'];
-$url['3']		= (empty($url['3'])) ? '' : $url['3'];
 $url['4']		= (empty($url['4'])) ? '' : $url['4'];
 
-$friendlytitle			= (empty($url['4'])) ? '' : $url['4'];
+$url2 = $url;
+array_shift($url2);
+array_shift($url2);
+$url2 = implode('-', $url2);
+$friendlytitle			= (empty($url2)) ? '' : $url2;
+
 $_GET['id']				= (empty($_GET['id'])) ? '' : $_GET['id'];
 $_GET['goto']			= (empty($_GET['goto'])) ? '' : $_GET['goto'];
 $_GET['deletecomment']	= (empty($_GET['deletecomment'])) ? '' : $_GET['deletecomment'];
@@ -77,9 +82,9 @@ if(FRIENDLY){
 	if($_POST['ajax'] == "true"){
 		if(!defined('ID')){ define('ID', $_POST['id']); }
 	}else{
-		if(!defined('ID')){ define('ID', $url['2']); }
+		if(!defined('ID')){ define('ID', $url['0']); }
 	}
-	$goto = $url['2'];
+	$goto = $url['0'];
 }else{
 	if($_POST['ajax'] == "true"){
 		if(!defined('ID')){ define('ID', $_POST['id']); }
@@ -91,7 +96,6 @@ if(FRIENDLY){
 if($goto == "download"){
 	getdownload();
 }
-
 
 $showstats = (empty($showstats)) ? '' : $showstats;
 // show news stats
@@ -165,7 +169,7 @@ unset($_SESSION['langtype']);
 if($_POST['ajax'] !== "true" || ID == ""){
 	if(!$static){
 ?>		<script type="text/javascript">
-		//<![cdata[
+		/* <![CDATA[ */
 		function createXMLHttpRequest(){
 			if (window.ActiveXObject){
 				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
@@ -258,7 +262,7 @@ if($_POST['ajax'] !== "true" || ID == ""){
 				}
 			}
 		}
-		//]>
+		/* ]]> */
 		</script>
 		
 
@@ -310,17 +314,20 @@ if($goto == "search" || $search == true){
 	}
 }elseif($goto == "profile"){
 	if(FRIENDLY){
-		$user = $url['3'];
+		$user = $url['1'];
 	}else{
 		$user = $_GET['user'];
 	}
 	$row = DataAccess::fetch("SELECT user,pass,email,vcode,avatar,profile_image,profile_quote,profile_occupation,profile_hobbies,profile_interests,profile_homepage,profile_sex,profile_location,profile_age,profile_name,alertmsg,access,uid FROM " . NEWS_USERS . " WHERE user = ?" , $user);
 	if(count($row) == 1){
 		$profiletemplate = str_replace("{username}",$row['0']['user'],$profiletemplate);
-		if(!$row['0']['profile_image']){
+		if(!$row['0']['profile_image'] || $row['0']['profile_image'] == "0"){
 			$profiletemplate = str_replace("{image}","",$profiletemplate);
 		}else{
-			$profiletemplate = str_replace("{image}","<img src=\"" . $row['0']['profile_image'] . "\" alt=\"Profile picture for " . $row['0']['user'] . "\">",$profiletemplate);
+			$profile_image = DataAccess::fetch("SELECT file FROM " . NEWS_IMAGES . " WHERE uid = ?", $row['0']['profile_image']);
+			$profile_image = $profile_image['0']['file'];
+			$profile_image = UPLOADPATH . $profile_image;
+			$profiletemplate = str_replace("{image}","<img src=\"" . $profile_image . "\" alt=\"Profile picture for " . $row['0']['user'] . "\">",$profiletemplate);
 		}
 		$profiletemplate = str_replace("{name}",$row['0']['profile_name'],$profiletemplate);
 		$profiletemplate = str_replace("{age}",$row['0']['profile_age'],$profiletemplate);
@@ -418,9 +425,8 @@ if($goto == "search" || $search == true){
 		$cppage = CPPAGE;
 	}
 
-
 	if(FRIENDLY){
-		$page = $url['3'];
+		$page = $url['1'];
 	}else{
 		$page = $_GET['page'];
 	}
@@ -460,7 +466,7 @@ if($goto == "search" || $search == true){
 
 
 	if(FRIENDLY){
-		$page = $url['3'];
+		$page = $url['1'];
 	}else{
 		$page = $_GET['page'];
 	}
@@ -481,17 +487,19 @@ if($goto == "search" || $search == true){
 			$start = $page * $amounttoshow - $amounttoshow;
 		}	
 	}							
-
+	if($static == "true"){
+		$start = 0;
+	}
 
 	// Grab all news posts
 	$sql = "SELECT 
 	(SELECT COUNT(uid) FROM " . NEWS_GROUPCATS . " WHERE storyid = " . NEWS_ARTICLES . ".id AND type = 'news') AS catcount,
 	(SELECT COUNT(uid) FROM " . NEWS_LINKEDFILES . " WHERE storyid = " . NEWS_ARTICLES . ".id) AS amountoffiles,
 	(SELECT COUNT(uid) FROM " . NEWS_RATING . " WHERE storyid = " . NEWS_ARTICLES . ".id) AS ratingcount,
-	" . NEWS_ACCESS . ".usehtml AS usehtml,title,story,shortstory,author,commentcount,origauthor,ip,timestamp,allowcomments,short,approved,viewcount,rating,archivedate,neverarchive,archived,id, " . NEWS_USERS . ".user, " . NEWS_ACCESS . ".name AS accessname, " . NEWS_USERS . ".profile_image, " . NEWS_USERS . ".email
+	" . NEWS_ACCESS . ".usehtml AS usehtml,old,title,story,shortstory,author,commentcount,origauthor,ip,timestamp,allowcomments,short,approved,viewcount,rating,archivedate,neverarchive,archived,id, " . NEWS_USERS . ".user, " . NEWS_USERS . ".avatar AS useravatar, " . NEWS_ACCESS . ".name AS accessname, " . NEWS_USERS . ".profile_image, " . NEWS_USERS . ".email
 	FROM " . NEWS_ARTICLES . " 
 	LEFT JOIN " . NEWS_USERS . " ON " . NEWS_ARTICLES . ".author = " . NEWS_USERS . ".uid 
-	LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE approved = '1' $f $u AND archived = '" . $archives . "' ORDER BY $orderby $newsorder LIMIT $start, $amounttoshow";
+	LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE approved = '1' $f $u AND archived = '" . $archives . "' AND timestamp <= '" . time() . "' ORDER BY $orderby $newsorder LIMIT $start, $amounttoshow";
 
 	$newsdata = DataAccess::fetch($sql);
 	if(ID == "" || ID == "0" || $static){
@@ -533,7 +541,7 @@ if($goto == "search" || $search == true){
 		$row = DataAccess::fetch("SELECT 
 		(SELECT COUNT(uid) FROM " . NEWS_LINKEDFILES . " WHERE storyid = " . NEWS_ARTICLES . ".id) AS amountoffiles,
 		(SELECT COUNT(uid) FROM " . NEWS_RATING . " WHERE storyid = " . NEWS_ARTICLES . ".id) AS ratingcount,
-		" . NEWS_ACCESS . ".usehtml AS usehtml,title,story,shortstory,author,origauthor,ip,timestamp,allowcomments,short,approved,viewcount,rating,archivedate,neverarchive,commentcount,archived,id, " . NEWS_USERS . ".user, " . NEWS_USERS . ".profile_image, " . NEWS_USERS . ".avatar AS useravatar, " . NEWS_ACCESS . ".name AS accessname, " . NEWS_USERS . ".email 
+		" . NEWS_ACCESS . ".usehtml AS usehtml,old,title,story,shortstory,author,origauthor,ip,timestamp,allowcomments,short,approved,viewcount,rating,archivedate,neverarchive,commentcount,archived,id, " . NEWS_USERS . ".user, " . NEWS_USERS . ".profile_image, " . NEWS_USERS . ".avatar AS useravatar, " . NEWS_ACCESS . ".name AS accessname, " . NEWS_USERS . ".email 
 		FROM " . NEWS_ARTICLES . "
 			LEFT JOIN " . NEWS_USERS . " ON " . NEWS_ARTICLES . ".author = " . NEWS_USERS . ".uid
 			LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid
@@ -607,7 +615,7 @@ if($goto == "search" || $search == true){
 
 			#$page = slash2($_GET['page']);
 			if(FRIENDLY){
-				$page = $url['3'];
+				$page = $url['1'];
 			}else{
 				$page = $_GET['page'];
 			}
@@ -699,5 +707,5 @@ if($_POST['ajax'] !== "true"){
 		echo "</div>";
 	}
 }
-unset($ratingsform,$sendtoform,$search,$allnews,$singlenews,$i,$cat,$author,$nppage,$orderby,$newsorder,$catids,$j,$e,$f,$u,$s,$v,$k,$w,$image_maxwidth,$image_maxheight,$width,$height,$static,$templateid,$template,$template2,$template5,$templateid,$commentstemplate,$commentstemplate2,$commentstemplate5,$commentsform,$allcommentsform,$h,$show,$pages,$cpages,$allcomments,$archives,$catids,$storyids,$userids,$image_clickable,$invalid,$register);
+unset($g,$ratingsform,$sendtoform,$search,$allnews,$singlenews,$i,$cat,$author,$nppage,$orderby,$newsorder,$catids,$j,$e,$f,$u,$s,$v,$k,$w,$image_maxwidth,$image_maxheight,$width,$height,$static,$templateid,$template,$template2,$template5,$templateid,$commentstemplate,$commentstemplate2,$commentstemplate5,$commentsform,$allcommentsform,$h,$show,$pages,$cpages,$allcomments,$archives,$catids,$storyids,$userids,$image_clickable,$invalid,$register);
 ?>

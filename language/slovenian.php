@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Slovenian		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("novice.");
 $langmsg['editnews'][22] = x("skupaj.");
 $langmsg['editnews'][23] = x("View count reset na 0 za izbrano izdelku (-ih)");
 $langmsg['editnews'][24] = x("Ratings reset za izbrano izdelku (-ih)");
+$langmsg['editnews'][25] = x("Filter po kategorijah");
 
 $langmsg['newsform'][0] = x("Dodajte svoje novic post spodaj.");
 $langmsg['newsform'][1] = x("Naslov:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Nikoli arhiv");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Člen");
+$langmsg['newsform'][23] = x("Vnesite URL slike");
+$langmsg['newsform'][24] = x("Vstavi");
+$langmsg['newsform'][25] = x("Izberite uploaded image");
 
 $langmsg['editcomments'][0] = x("Edit Comments");
 $langmsg['editcomments'][1] = x("Uredi komentar spodaj.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Potrdi geslo:");
 $langmsg['personal'][10] = x("E-poštni naslov je treba vpisati.");
 $langmsg['personal'][11] = x("Nastavitve posodobljene.");
 $langmsg['personal'][12] = x("Gesli se ne ujemajo.");
+$langmsg['personal'][13] = x("Omogoči WYSIWYG urejevalnik?");
 
 $langmsg['login'][0] = x("Prosim Prijava");
 $langmsg['login'][1] = x("Ime:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Priljubljene Quote:");
 $langmsg['profile'][12] = x("Moški");
 $langmsg['profile'][13] = x("Ženska");
 $langmsg['profile'][14] = x("Profil posodobljen.");
+$langmsg['profile'][15] = x("Noben");
 
 $langmsg['accounts'][0] = x("Računi");
 $langmsg['accounts'][1] = x("Računi.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Prikazuje trenutno številko strani.");
 $langmsg['templates'][131] = x("Prikaže prejšnjo stran številko.");
 $langmsg['templates'][132] = x("Prikaže naslednjo številko strani.");
 $langmsg['templates'][133] = x("Prikaže prijazno naslov časopisni članek.");
+$langmsg['templates'][134] = x("Obrazec za iskanje");
+$langmsg['templates'][135] = x("Rezultati iskanja");
+$langmsg['templates'][136] = x("Naložene datoteke");
 
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
@@ -806,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Ime");
 $langmsg['news'][48] = x("E-pošta / URL");
 $langmsg['news'][49] = x("Sporočilo");
+$langmsg['news'][50] = x("Vnesite naslov članka");
+$langmsg['news'][51] = x("Povzetek");
+$langmsg['news'][52] = x("Št kategorij");
+$langmsg['news'][53] = x("Datum");
+$langmsg['news'][54] = x("Datum ta članek je bil objavljen");
+$langmsg['news'][55] = x("Arhiv");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Februar");

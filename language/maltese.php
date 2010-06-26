@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Maltese			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("aħbarijiet stories.");
 $langmsg['editnews'][22] = x("b'kollox.");
 $langmsg['editnews'][23] = x("View count reset għal 0 għall-oġġett (i) magħżula");
 $langmsg['editnews'][24] = x("Ratings reset għall-oġġett (i) magħżula");
+$langmsg['editnews'][25] = x("Iffiltra bil-kategorija");
 
 $langmsg['newsform'][0] = x("Żid aħbarijiet post tiegħek hawn taħt.");
 $langmsg['newsform'][1] = x("Titolu:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Qatt arkivju");
 $langmsg['newsform'][19] = x("File Uploads");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Artikolu");
+$langmsg['newsform'][23] = x("Ikteb immaġini URL");
+$langmsg['newsform'][24] = x("Daħħal");
+$langmsg['newsform'][25] = x("Agħżel immaġini uploaded");
 
 $langmsg['editcomments'][0] = x("Edit Kummenti");
 $langmsg['editcomments'][1] = x("Edit-kumment hawn taħt.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Ikkonferma password:");
 $langmsg['personal'][10] = x("Email address għandu jiddaħħal.");
 $langmsg['personal'][11] = x("Settings aġġornata.");
 $langmsg['personal'][12] = x("Passwords ma jaqblux.");
+$langmsg['personal'][13] = x("Jippermettu editur WYSIWYG?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Isem:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Maskili");
 $langmsg['profile'][13] = x("Femminili");
 $langmsg['profile'][14] = x("Profile aġġornata.");
+$langmsg['profile'][15] = x("Xejn");
 
 $langmsg['accounts'][0] = x("Accounts");
 $langmsg['accounts'][1] = x("Kontijiet.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Turi l-għadd attwali paġna.");
 $langmsg['templates'][131] = x("Turi l-għadd ta 'qabel il-paġna.");
 $langmsg['templates'][132] = x("Turi l-għadd li jmiss paġna.");
 $langmsg['templates'][133] = x("Displays it-titolu favur ta 'l-aħbarijiet artikolu.");
+$langmsg['templates'][134] = x("forma Fittex");
+$langmsg['templates'][135] = x("Riżultati tat-tfittxija");
+$langmsg['templates'][136] = x("Uploaded fajls");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Tella 'fajl ġdid");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Isem");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Messaġġ");
+$langmsg['news'][50] = x("Ikteb artiklu titolu");
+$langmsg['news'][51] = x("Sommarju");
+$langmsg['news'][52] = x("Nru kategoriji");
+$langmsg['news'][53] = x("Data");
+$langmsg['news'][54] = x("Data dan l-artikolu ġie assenjat");
+$langmsg['news'][55] = x("Arkivju");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Frar");

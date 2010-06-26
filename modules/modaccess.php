@@ -52,7 +52,6 @@ function accesslevelform(){
 			$access				= '';
 			$autoapproved		= '';
 			$canapprove			= '';
-			$usehtml			= '';
 			$nocat				= '';
 			$fileimages			= '';
 			$viewips			= '';			
@@ -80,7 +79,6 @@ function accesslevelform(){
 			$access				= (empty($_POST['access'])) ? '' : $_POST['access'];
 			$autoapproved		= (empty($_POST['autoapproved'])) ? '' : $_POST['autoapproved'];
 			$canapprove			= (empty($_POST['canapprove'])) ? '' : $_POST['canapprove'];
-			$usehtml			= (empty($_POST['usehtml'])) ? '' : $_POST['usehtml'];
 			$nocat				= (empty($_POST['nocat'])) ? '' : $_POST['nocat'];
 			$fileimages			= (empty($_POST['fileimages'])) ? '' : $_POST['fileimages'];
 			$viewips			= (empty($_POST['viewips'])) ? '' : $_POST['viewips'];
@@ -115,7 +113,6 @@ function accesslevelform(){
 				$access				= $all['accesslevel'];
 				$autoapproved		= $all['autoapproved'];
 				$canapprove			= $all['canapprove'];
-				$usehtml			= $all['usehtml'];
 				$nocat				= $all['nocat'];
 				$viewips			= $all['viewips'];
 				$fileimages			= $all['fileimages'];
@@ -147,7 +144,6 @@ function accesslevelform(){
 			$access				= (empty($_POST['access'])) ? '' : $_POST['access'];
 			$autoapproved		= (empty($_POST['autoapproved'])) ? '' : $_POST['autoapproved'];
 			$canapprove			= (empty($_POST['canapprove'])) ? '' : $_POST['canapprove'];
-			$usehtml			= (empty($_POST['usehtml'])) ? '' : $_POST['usehtml'];
 			$nocat				= (empty($_POST['nocat'])) ? '' : $_POST['nocat'];
 			$fileimages			= (empty($_POST['fileimages'])) ? '' : $_POST['fileimages'];
 			$viewips			= (empty($_POST['viewips'])) ? '' : $_POST['viewips'];
@@ -156,10 +152,16 @@ function accesslevelform(){
 	echo "<form method=\"post\" action=\"\">";
 	echo "<div class=panel>".$langmsg['access'][1]."</div>";			 
 	echo "<br />";
-	echo "<div style=\"padding-left: 15px; width: 150px; float: left\">".$langmsg['access'][2]."</div><div><input type=\"text\" value=\"$accessname\" name=\"accessname\" /></div><br />";
-	echo "<span class=\"accessquestion\">" . $langmsg['access'][44] . "</span><br /><br />";
-		echo "<table style=\"padding-left: 15px\" cellspacing=\"0\" cellpadding=\"1\">";
-		echo "<tr class=\"row1\">";
+	echo "<div class=\"subheaders\" style=\"width: 552px\">" .$langmsg['access'][2] . "</div>";
+	echo "<div class=\"subheaders_body\" style=\"width: 548px; height: 30px\">";
+	echo "<input type=\"text\" value=\"$accessname\" style=\"width: 40%\" name=\"accessname\" />";
+	echo "</div>";
+	echo "<div class=\"subheaders\" style=\"width: 552px\">" .$langmsg['access'][44]	 . "</div>";
+	
+
+	echo "<div class=\"subheaders_body\" style=\"display: table; width: 548px; height: 30px\">";
+		echo "<table style=\"\" cellspacing=\"0\" cellpadding=\"1\">";
+		echo "<tr class=\"\">";
 		echo "<td style=\"width: 350px\">".$langmsg['access'][22]."</td>";
 		echo "<td>";
 		echo "<select name=\"access\">";
@@ -180,7 +182,7 @@ function accesslevelform(){
 		echo "</tr>";
 		
 		echo "</tr>";
-		echo "<tr class=\"row1\">";
+		echo "<tr class=\"\">";
 		echo "<td>".$langmsg['access'][26]."</td>";
 		echo "<td>";
 		echo "<select name=\"autoapproved\">";
@@ -200,18 +202,9 @@ function accesslevelform(){
 		echo "</td>";
 		echo "</tr>";
 		
-		echo "<tr class=\"row1\">";
-		echo "<td style=\"\">".$langmsg['access'][28]."</td>";
-		echo "<td>";
-		echo "<select name=\"usehtml\">";
-		echo "<option value=\"1\" "; if($usehtml == "1"){ echo "selected=\"selected\""; } echo ">".$langmsg['selectfield'][1]."</option>";
-		echo "<option value=\"0\" "; if($usehtml == "0"){ echo "selected=\"selected\""; } echo ">".$langmsg['selectfield'][2]."</option>";
-		echo "</select>";			
-		echo "</td>";
-		echo "</tr>";
 		
-		echo "<tr>";
-		echo "<td style=\"\">".$langmsg['access'][29]."</td>";
+		echo "<tr class=\"\">";
+		echo "<td>".$langmsg['access'][29]."</td>";
 		echo "<td>";
 		echo "<select name=\"nocat\">";
 		echo "<option value=\"1\" "; if($nocat == "1"){ echo "selected=\"selected\""; } echo ">".$langmsg['selectfield'][1]."</option>";
@@ -220,7 +213,7 @@ function accesslevelform(){
 		echo "</td>";
 		echo "</tr>";
 
-		echo "<tr class=\"row1\">";
+		echo "<tr class=\"\">";
 		echo "<td style=\"\">" . $langmsg['access'][50] . "</td>";
 		echo "<td>";
 		echo "<select name=\"viewips\">";
@@ -230,13 +223,19 @@ function accesslevelform(){
 		echo "</td>";
 		echo "</tr>";			
 	echo "</table><br />";
+	echo "</div>";
 
+	
+	
 	echo "<table style=\"width: 100%\">";
 	echo "<tr>";
 	echo "<td style=\"width: 50%\">";
 	
+	echo "<div class=\"subheaders\" style=\"width: 262px\">" .$langmsg['access'][3] . "</div>";
+	echo "<div class=\"subheaders_body\" style=\"display: table; width: 258px; height: 30px\">";
+	
 
-	echo "<span class=\"accessquestion\">".$langmsg['access'][3]."</span><br /><br />";
+	
 	echo "<div style=\"width: 150px; float: left; padding-left: 15px;\"><label for=\"accounts\">".$langmsg['access'][4]."</label></div><div><input value=\"1\" "; if($accounts){ echo "checked=checked"; } echo " type=\"checkbox\" id=\"accounts\" name=\"accounts\"></div>";
 	echo "<div style=\"width: 150px; float: left; padding-left: 15px;\"><label for=\"accesslevels\">".$langmsg['access'][5]."</div><div><input value=\"1\" "; if($accesslevels){ echo "checked=checked"; } echo " type=\"checkbox\" id=\"accesslevels\" name=\"accesslevels\"></div>";
 	echo "<div style=\"width: 150px; float: left; padding-left: 15px;\"><label for=\"bannedips\">".$langmsg['access'][6]."</div><div><input value=\"1\""; if($bannedips){ echo "checked=checked"; } echo " type=\"checkbox\" id=\"bannedips\" name=\"bannedips\"></div>";
@@ -271,9 +270,12 @@ function accesslevelform(){
 	}
 	</script>
 	<?php
+	echo "</div>";
 	echo "</td><td valign=\"top\">";
 
-	echo "<span class=\"accessquestion\">".$langmsg['access'][20]."</span><br /><br />";
+	echo "<div class=\"subheaders\" style=\"width: 262px\">" .$langmsg['access'][20] . "</div>";
+	echo "<div class=\"subheaders_body\" style=\"display: table; width: 258px; height: 30px\">";	
+	
 	echo "<div style=\"width: 150px; float: left; padding-left: 15px;\"><label for=\"catall\">".$langmsg['access'][21]."</a></div><div><input value=\"1\" id=\"catall\" name=\"catall\" "; 			 
 	if($catall == "1"){
 		echo "checked=\"checked\" ";
@@ -296,7 +298,8 @@ function accesslevelform(){
 	}
 
 	echo "<br />";			  	
-	echo "</div>";			
+	echo "</div>";	
+	echo "</div>";
 	
 	echo "</td>";
 	echo "</tr>";
@@ -305,8 +308,17 @@ function accesslevelform(){
 
  	
 
+	echo "<div style=\"text-align: center\">";
+	echo "<input type=\"submit\" name=\"S1\" style=\"width: 98%\" value=\"";
 	
-	echo "<div style=\"width: 300px; float: left\">&nbsp;</div><input type=\"submit\" name=\"S1\" class=\"nostyle\" value=\"".$langmsg['submitfield'][5]."\" />";			 			 			 			 			 			 			              
+		if($_GET['do'] == "new"){
+			echo $langmsg['submitfield'][5];
+		}else{
+			echo $langmsg['submitfield'][3];
+		}
+	
+	echo "\" />";
+	echo "</div>";
 	echo "<br />";
 	echo "</form>";
 }            
@@ -364,9 +376,6 @@ if($_GET['do'] == "new"){
 	}elseif($_POST['canapprove'] == ""){
 		echo "<span class=\"error\">".$langmsg['access'][38]."</span>";
 		accesslevelform();
-	}elseif($_POST['usehtml'] == ""){
-		echo "<span class=\"error\">".$langmsg['access'][39]."</span>";
-		accesslevelform();
 	}elseif($_POST['nocat'] == ""){
 		echo "<span class=\"error\">".$langmsg['access'][40]."</span>";
 		accesslevelform();			
@@ -387,7 +396,6 @@ if($_GET['do'] == "new"){
 		$profile			= (empty($_POST['profile'])) ? '0' : $_POST['profile'];
 		$autoapproved		= $_POST['autoapproved'];
 		$canapprove			= $_POST['canapprove'];
-		$usehtml			= $_POST['usehtml'];
 		$imageuploads		= (empty($_POST['imageuploads'])) ? '0' : $_POST['imageuploads'];
 		$fileuploads		= (empty($_POST['fileuploads'])) ? '0' : $_POST['fileuploads'];
 		$news				= (empty($_POST['news'])) ? '0' : $_POST['news'];
@@ -415,10 +423,10 @@ if($_GET['do'] == "new"){
 			accesslevelform();
 		}else{
 			$sql = "INSERT INTO " . NEWS_ACCESS . "
-					(name,accounts,accesslevels,sysconfig,newscats,templates,smilies,wordfilters,bannedips,accesslevel,rss,personaloptions,privatemsgs,profile,autoapproved,canapprove,usehtml,cats,imageuploads,news,comments,help,nocat,fileuploads,viewips,fileimages)
+					(name,accounts,accesslevels,sysconfig,newscats,templates,smilies,wordfilters,bannedips,accesslevel,rss,personaloptions,privatemsgs,profile,autoapproved,canapprove,cats,imageuploads,news,comments,help,nocat,fileuploads,viewips,fileimages)
 					VALUES
-					(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			DataAccess::put($sql, $name, $accounts, $accesslevels, $sysconfig, $cats, $templates, $smilies, $filters, $bannedips, $access, $rss, $personaloptions, $privatemsgs, $profile, $autoapproved, $canapprove, $usehtml, $selectedcats, $imageuploads, $news, $comments, $help, $nocat, $fileuploads, $viewips, $fileimages);
+					(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			DataAccess::put($sql, $name, $accounts, $accesslevels, $sysconfig, $cats, $templates, $smilies, $filters, $bannedips, $access, $rss, $personaloptions, $privatemsgs, $profile, $autoapproved, $canapprove, $selectedcats, $imageuploads, $news, $comments, $help, $nocat, $fileuploads, $viewips, $fileimages);
 			echo "<span class=\"success\">".$langmsg['access'][41]."</span>"; 
 		}	
 	}
@@ -443,7 +451,6 @@ if($_GET['do'] == "new"){
 		$profile			= (empty($_POST['profile'])) ? '0' : $_POST['profile'];
 		$autoapproved		= $_POST['autoapproved'];
 		$canapprove			= $_POST['canapprove'];
-		$usehtml			= $_POST['usehtml'];
 		$imageuploads		= (empty($_POST['imageuploads'])) ? '0' : $_POST['imageuploads'];
 		$fileuploads		= (empty($_POST['fileuploads'])) ? '0' : $_POST['fileuploads'];
 		$news				= (empty($_POST['news'])) ? '0' : $_POST['news'];
@@ -482,7 +489,6 @@ if($_GET['do'] == "new"){
 				profile = ?,
 				autoapproved = ?,
 				canapprove = ?,
-				usehtml = ?,
 				imageuploads = ?,
 				news = ?,
 				cats = ?,
@@ -499,7 +505,7 @@ if($_GET['do'] == "new"){
 		}elseif($num > 0){
 			$_SESSION['origaccessname']	= (empty($_SESSION['origaccessname'])) ? '' : $_SESSION['origaccessname'];
 			if($_SESSION['origaccessname'] == $_POST['accessname']){
-                DataAccess::put($sql, $name, $accounts, $accesslevels, $sysconfig, $cats, $templates, $smilies, $filters, $bannedips, $access, $personaloptions, $privatemsgs, $rss, $profile, $autoapproved, $canapprove, $usehtml, $imageuploads, $news, $selectedcats, $comments, $help, $nocat, $fileuploads, $viewips, $fileimages, $uid);
+                DataAccess::put($sql, $name, $accounts, $accesslevels, $sysconfig, $cats, $templates, $smilies, $filters, $bannedips, $access, $personaloptions, $privatemsgs, $rss, $profile, $autoapproved, $canapprove, $imageuploads, $news, $selectedcats, $comments, $help, $nocat, $fileuploads, $viewips, $fileimages, $uid);
 				echo "<div class=\"success\">".$langmsg['access'][34]."</div>";
 				unset($_SESSION['origaccessname']);
 			}else{
@@ -507,7 +513,7 @@ if($_GET['do'] == "new"){
 				accesslevelform();				     
 			}
 		}else{
-			DataAccess::put($sql, $name, $accounts, $accesslevels, $sysconfig, $cats, $templates, $smilies, $filters, $bannedips, $access, $personaloptions, $privatemsgs, $rss, $profile, $autoapproved, $canapprove, $usehtml, $imageuploads, $news, $selectedcats, $comments, $help, $nocat, $fileuploads, $viewips, $fileimages, $uid);
+			DataAccess::put($sql, $name, $accounts, $accesslevels, $sysconfig, $cats, $templates, $smilies, $filters, $bannedips, $access, $personaloptions, $privatemsgs, $rss, $profile, $autoapproved, $canapprove, $imageuploads, $news, $selectedcats, $comments, $help, $nocat, $fileuploads, $viewips, $fileimages, $uid);
 			echo "<div class=\"success\">".$langmsg['access'][34]."</div>";
 			unset($_SESSION['origaccessname']);
 		}	

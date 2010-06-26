@@ -26,12 +26,17 @@ if($_GET['archives']){
 }
 echo "</span></div>";
 echo "<table width=\"685px\"><tr>";
-echo "<td width=\"17%\" align=center valign=top><br />";
-echo "<img src=\"images/news_1.png\" alt=\"Edit News\"></td><td>";
+$_GET['id'] = (empty($_GET['id'])) ? '' : $_GET['id'];
+if(!$_GET['id']){
+	echo "<td width=\"17%\" align=center valign=top><br />";
+	echo "<img src=\"images/news_1.png\" alt=\"Edit News\"></td><td>";
+}
 $_GET['added'] = (empty($_GET['added'])) ? '' : $_GET['added'];
 if($_GET['added'] == "true"){
 	echo "<div style=\"text-align: left\" class=success>".$langmsg['editnews'][16]."</div>";
-}           
+}elseif($_GET['added'] == "edit"){
+	echo "<div style=\"text-align: left\" class=success>".$langmsg['editnews'][19]."</div>";
+}
 #selected files being posted from edit news table
 $_POST['action'] = (empty($_POST['action'])) ? '' : $_POST['action'];
 if($_POST['action']){
@@ -108,10 +113,11 @@ if($_GET['id']){
 		newsform("editnews");
 	}elseif($_POST['S1'] == "Preview"){
 		echo "<br /><div class=panel>News Preview</div><br />";
+		$style = '0';
 		$usehtml = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".usehtml FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);
 		$usehtml = $usehtml['0']['usehtml'];
-		$story = bbcode($_POST['story'],$usehtml);
-		$shortstory = bbcode($_POST['shortstory'],$usehtml);
+		$story = bbcode($_POST['story'],$usehtml,$style);
+		$shortstory = displayhtml($_POST['shortstory']);
 		$_POST['toggleshortstory'] = (empty($_POST['toggleshortstory'])) ? '' : $_POST['toggleshortstory'];
 		if($_POST['toggleshortstory']){
 			echo $shortstory;
@@ -146,7 +152,7 @@ if($_GET['id']){
 			$neverarchive = "0";
 		}
 
-		DataAccess::put("UPDATE " . NEWS_ARTICLES . " SET short = ?, title = ?, story = ?, shortstory = ?, allowcomments = ?, timestamp = ?, archivedate = ?, neverarchive = ? WHERE id = ?", $short, $title, $story, $shortstory, $allowcomments, $timestamp, $archivedate, $neverarchive, $id);
+		DataAccess::put("UPDATE " . NEWS_ARTICLES . " SET old = ?, short = ?, title = ?, story = ?, shortstory = ?, allowcomments = ?, timestamp = ?, archivedate = ?, neverarchive = ? WHERE id = ?", '0', $short, $title, $story, $shortstory, $allowcomments, $timestamp, $archivedate, $neverarchive, $id);
 		#####files
 		$o = $_GET['id'];
 		DataAccess::put("DELETE FROM " . NEWS_LINKEDFILES . " WHERE storyid = ?", $o);
@@ -167,8 +173,9 @@ if($_GET['id']){
 				DataAccess::put("INSERT INTO " . NEWS_GROUPCATS . " (storyid, catid, type) VALUES (?, ?, ?)", $id, $cat, "news");
 			}
 		}
-		echo "<div class=success>".$langmsg['editnews'][19]."</div>";
+		#echo "<div class=success>".$langmsg['editnews'][19]."</div>";
 		$shownews = true;
+		echo "<script language=\"javascript\">window.location = '?action=editnews&added=edit';</script>";
 	}					
 }
 

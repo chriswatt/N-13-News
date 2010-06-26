@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Chinese Simplified                      #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -118,6 +118,7 @@ $langmsg['editnews'][21] = x("新闻故事。");
 $langmsg['editnews'][22] = x("总数。");
 $langmsg['editnews'][23] = x("查看计数重置为0的选择（各）条");
 $langmsg['editnews'][24] = x("评级为选定的重置（各）条");
+$langmsg['editnews'][25] = x("过滤器类");
 
 
 $langmsg['newsform'][0] = x("下面添加您的新闻发布。");
@@ -136,6 +137,10 @@ $langmsg['newsform'][18] = x("从来没有存档");
 $langmsg['newsform'][19] = x("文件上传");
 $langmsg['newsform'][20] = x("下载");
 $langmsg['newsform'][21] = x("上传");
+$langmsg['newsform'][22] = x("文章");
+$langmsg['newsform'][23] = x("输入图片的网址");
+$langmsg['newsform'][24] = x("插入");
+$langmsg['newsform'][25] = x("选择上传的图像");
 
 
 $langmsg['editcomments'][0] = x("编辑评论");
@@ -262,6 +267,7 @@ $langmsg['personal'][9] = x("确认密码：");
 $langmsg['personal'][10] = x("电子邮件地址必须输入。");
 $langmsg['personal'][11] = x("设置更新。");
 $langmsg['personal'][12] = x("密码不匹配。");
+$langmsg['personal'][13] = x("启用所见即所得的编辑器？");
 
 
 $langmsg['login'][0] = x("请登录");
@@ -291,6 +297,7 @@ $langmsg['profile'][11] = x("最喜爱的报价：");
 $langmsg['profile'][12] = x("男性");
 $langmsg['profile'][13] = x("女性");
 $langmsg['profile'][14] = x("资料更新。");
+$langmsg['profile'][15] = x("无");
 
 
 $langmsg['accounts'][0] = x("帐户");
@@ -669,6 +676,9 @@ $langmsg['templates'][130] = x("显示当前的页码。");
 $langmsg['templates'][131] = x("显示以前的页码。");
 $langmsg['templates'][132] = x("显示下一个页码。");
 $langmsg['templates'][133] = x("显示友好的新闻文章的标题。");
+$langmsg['templates'][134] = x("搜索表单");
+$langmsg['templates'][135] = x("搜索结果");
+$langmsg['templates'][136] = x("上传文件");
 
 
 $langmsg['uploadedfiles'][0] = x("文件上传");
@@ -834,6 +844,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("名称");
 $langmsg['news'][48] = x("电子邮件/网址");
 $langmsg['news'][49] = x("信息");
+$langmsg['news'][50] = x("输入文章标题");
+$langmsg['news'][51] = x("摘要");
+$langmsg['news'][52] = x("未分类");
+$langmsg['news'][53] = x("日期");
+$langmsg['news'][54] = x("这篇文章被张贴日期");
+$langmsg['news'][55] = x("存档");
 
 
 $langmsg['shortmonths'][0] = x("2008年1月");

@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Irish			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("scéalta nuachta.");
 $langmsg['editnews'][22] = x("san iomlán.");
 $langmsg['editnews'][23] = x("Reset count View chun 0 chun an t-alt roghnaithe (s)");
 $langmsg['editnews'][24] = x("Rátálacha a athshocrú chun an t-alt roghnaithe (s)");
+$langmsg['editnews'][25] = x("Scag de réir catagóir");
 
 $langmsg['newsform'][0] = x("Cuir do phost nuachta thíos.");
 $langmsg['newsform'][1] = x("Teideal:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Riamh Cartlann");
 $langmsg['newsform'][19] = x("Comhad Uasluchtuithe");
 $langmsg['newsform'][20] = x("Íoslódálacha");
 $langmsg['newsform'][21] = x("Uaslódáilte");
+$langmsg['newsform'][22] = x("Airteagal");
+$langmsg['newsform'][23] = x("Cuir isteach an íomhá a URL");
+$langmsg['newsform'][24] = x("Ionsáigh");
+$langmsg['newsform'][25] = x("Roghnaigh an íomhá a uaslódáil");
 
 $langmsg['editcomments'][0] = x("Cuir Comments");
 $langmsg['editcomments'][1] = x("Cuir an nóta thíos.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Dearbhaigh an focal faire:");
 $langmsg['personal'][10] = x("Ní mór seoladh r-phoist a chur isteach.");
 $langmsg['personal'][11] = x("Socruithe cothrom le dáta.");
 $langmsg['personal'][12] = x("Nach bhfuil na focail fhaire.");
+$langmsg['personal'][13] = x("Cumasaigh WYSIWYG eagarthóir?");
 
 $langmsg['login'][0] = x("Logáil isteach le do thoil");
 $langmsg['login'][1] = x("Ainm:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Ansa Tosach:");
 $langmsg['profile'][12] = x("Fireann");
 $langmsg['profile'][13] = x("Baineann");
 $langmsg['profile'][14] = x("Próifíl cothrom le dáta.");
+$langmsg['profile'][15] = x("None");
 
 $langmsg['accounts'][0] = x("Cuntais");
 $langmsg['accounts'][1] = x("Cuntais.");
@@ -647,6 +654,9 @@ $langmsg['templates'][130] = x("Taispeáin an uimhir leathanach reatha.");
 $langmsg['templates'][131] = x("Taispeáin an uimhir leathanach roimhe seo.");
 $langmsg['templates'][132] = x("Taispeáin an uimhir an gcéad leathanach eile.");
 $langmsg['templates'][133] = x("Taispeáin an teideal cairdiúil an ailt nuachta.");
+$langmsg['templates'][134] = x("Cuardach bhfoirm");
+$langmsg['templates'][135] = x("Torthaí an chuardaigh");
+$langmsg['templates'][136] = x("Comhaid a uaslódáil");
 
 $langmsg['uploadedfiles'][0] = x("Comhad Uasluchtuithe");
 $langmsg['uploadedfiles'][1] = x("Uaslódáil comhad nua");
@@ -806,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Ainm");
 $langmsg['news'][48] = x("Ríomhphost / URL");
 $langmsg['news'][49] = x("Teachtaireacht");
+$langmsg['news'][50] = x("Iontráil alt teideal");
+$langmsg['news'][51] = x("Achoimre");
+$langmsg['news'][52] = x("Uimh Catagóirí");
+$langmsg['news'][53] = x("Dáta");
+$langmsg['news'][54] = x("cuireadh i bpost Dáta alt seo");
+$langmsg['news'][55] = x("Cartlann");
 
 $langmsg['shortmonths'][0] = x("Ean");
 $langmsg['shortmonths'][1] = x("Feabhra");

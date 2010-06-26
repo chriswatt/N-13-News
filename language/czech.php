@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Czech                                   #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("news stories.");
 $langmsg['editnews'][22] = x("celkem.");
 $langmsg['editnews'][23] = x("Počet zobrazení nastaven na 0 pro zvolený předmět (y)");
 $langmsg['editnews'][24] = x("Hodnocení reset pro zvolený předmět (y)");
+$langmsg['editnews'][25] = x("Filtr podle kategorie");
 
 $langmsg['newsform'][0] = x("Přidejte svůj post zpravodajství níže.");
 $langmsg['newsform'][1] = x("Název:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Nikdy archiv");
 $langmsg['newsform'][19] = x("Soubor Souborů");
 $langmsg['newsform'][20] = x("Ke stažení");
 $langmsg['newsform'][21] = x("Nahrál");
+$langmsg['newsform'][22] = x("Článek");
+$langmsg['newsform'][23] = x("Zadejte URL obrázku");
+$langmsg['newsform'][24] = x("Vložit");
+$langmsg['newsform'][25] = x("Vyberte obrázku");
 
 $langmsg['editcomments'][0] = x("Upravit komentáře");
 $langmsg['editcomments'][1] = x("Upravit komentář níže.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Potvrzení hesla:");
 $langmsg['personal'][10] = x("E-mailová adresa musí být zadána.");
 $langmsg['personal'][11] = x("Nastavení aktualizace.");
 $langmsg['personal'][12] = x("Hesla se neshodují.");
+$langmsg['personal'][13] = x("Povolit WYSIWYG editor?");
 
 $langmsg['login'][0] = x("Prosím Přihlásit");
 $langmsg['login'][1] = x("Jméno:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Oblíbená Quote:");
 $langmsg['profile'][12] = x("Muž");
 $langmsg['profile'][13] = x("Žena");
 $langmsg['profile'][14] = x("Profil aktualizován.");
+$langmsg['profile'][15] = x("Žádný");
 
 $langmsg['accounts'][0] = x("Účty");
 $langmsg['accounts'][1] = x("Účty.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Zobrazuje číslo aktuální stránky.");
 $langmsg['templates'][131] = x("Zobrazuje předchozí stránku číslo.");
 $langmsg['templates'][132] = x("Zobrazí další číslo stránky.");
 $langmsg['templates'][133] = x("Zobrazuje přátelské názvu zpravodajský článek.");
+$langmsg['templates'][134] = x("Formulář pro vyhledávání");
+$langmsg['templates'][135] = x("Výsledky hledání");
+$langmsg['templates'][136] = x("Nahrané soubory");
 
 $langmsg['uploadedfiles'][0] = x("Soubor Souborů");
 $langmsg['uploadedfiles'][1] = x("Nahrát nový soubor");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Jméno");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Zpráva");
+$langmsg['news'][50] = x("Zadejte název článku");
+$langmsg['news'][51] = x("Přehled");
+$langmsg['news'][52] = x("Žádné kategorie");
+$langmsg['news'][53] = x("Datum");
+$langmsg['news'][54] = x("Datum tohoto článku byl zaslán");
+$langmsg['news'][55] = x("Archiv");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Únor");

@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Greek			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("ειδήσεις.");
 $langmsg['editnews'][22] = x("στο σύνολο.");
 $langmsg['editnews'][23] = x("Προβολή επαναφορά μετράνε για 0 για το επιλεγμένο άρθρο (ες)");
 $langmsg['editnews'][24] = x("Βαθμολογίες επαναφορά για τον επιλεγμένο άρθρο (ες)");
+$langmsg['editnews'][25] = x("Φίλτρο ανά κατηγορία");
 
 $langmsg['newsform'][0] = x("Προσθέστε στείλτε τις ειδήσεις σας παρακάτω.");
 $langmsg['newsform'][1] = x("Τίτλος:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Δεν archive");
 $langmsg['newsform'][19] = x("Αρχείων");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Άρθρο");
+$langmsg['newsform'][23] = x("Εισάγετε ένα URL εικόνας");
+$langmsg['newsform'][24] = x("Τοποθετήστε");
+$langmsg['newsform'][25] = x("Επιλέξτε μια εικόνα που αποστέλετε");
 
 $langmsg['editcomments'][0] = x("Επεξεργασία Σχόλια");
 $langmsg['editcomments'][1] = x("Επεξεργαστείτε το σχόλιο παρακάτω.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Επιβεβαίωση κωδικού:");
 $langmsg['personal'][10] = x("Μια διεύθυνση ηλεκτρονικού ταχυδρομείου πρέπει να αναγράφεται.");
 $langmsg['personal'][11] = x("Ρυθμίσεις ενημέρωση.");
 $langmsg['personal'][12] = x("Οι κωδικοί πρόσβασης δεν ταιριάζουν.");
+$langmsg['personal'][13] = x("Ενεργοποίηση WYSIWYG editor;");
 
 $langmsg['login'][0] = x("Παρακαλώ Σύνδεση");
 $langmsg['login'][1] = x("Όνομα:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Παράθεση:");
 $langmsg['profile'][12] = x("Αρσενικό");
 $langmsg['profile'][13] = x("Θηλυκό");
 $langmsg['profile'][14] = x("Updated προφίλ.");
+$langmsg['profile'][15] = x("Κανένας");
 
 $langmsg['accounts'][0] = x("Λογαριασμών");
 $langmsg['accounts'][1] = x("Λογαριασμοί.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Εμφανίζει τον αριθμό της τ
 $langmsg['templates'][131] = x("Εμφανίζει τον προηγούμενο αριθμό σελίδας.");
 $langmsg['templates'][132] = x("Εμφανίζει τον επόμενο αριθμό σελίδας.");
 $langmsg['templates'][133] = x("Εμφανίζει το φιλικό τίτλος του άρθρου ειδήσεων.");
+$langmsg['templates'][134] = x("Εντύπου αναζήτησης");
+$langmsg['templates'][135] = x("Αποτελέσματα αναζήτησης");
+$langmsg['templates'][136] = x("Αρχείων που έχουν αποσταλεί");
 
 $langmsg['uploadedfiles'][0] = x("Αρχείων");
 $langmsg['uploadedfiles'][1] = x("Φορτώστε ένα νέο αρχείο");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Όνομα");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Μήνυμα");
+$langmsg['news'][50] = x("Εισάγετε ένα άρθρο τίτλος");
+$langmsg['news'][51] = x("Περίληψη");
+$langmsg['news'][52] = x("Δεν κατηγορίες");
+$langmsg['news'][53] = x("Ημερομηνία");
+$langmsg['news'][54] = x("Ημερομηνία αυτό το άρθρο αυτό δημοσιεύτηκε");
+$langmsg['news'][55] = x("Αρχείο");
 
 $langmsg['shortmonths'][0] = x("Ιαν");
 $langmsg['shortmonths'][1] = x("Φεβρουάριος");

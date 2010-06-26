@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Danish                                  #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("nyheder.");
 $langmsg['editnews'][22] = x("i alt.");
 $langmsg['editnews'][23] = x("Vis tæller nulstillet til 0 for den valgte genstand (e)");
 $langmsg['editnews'][24] = x("Karakterer nulstille for den valgte genstand (e)");
+$langmsg['editnews'][25] = x("Filtrer efter kategori");
 
 $langmsg['newsform'][0] = x("Tilføj dit nyheder lavere stilling.");
 $langmsg['newsform'][1] = x("Titel:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Aldrig arkiv");
 $langmsg['newsform'][19] = x("Filupload");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Artikel");
+$langmsg['newsform'][23] = x("Indtast et billede URL");
+$langmsg['newsform'][24] = x("Indsæt");
+$langmsg['newsform'][25] = x("Vælg et uploadet billede");
 
 $langmsg['editcomments'][0] = x("Rediger Kommentarer");
 $langmsg['editcomments'][1] = x("Redigere kommentar nedenfor.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Bekræft password:");
 $langmsg['personal'][10] = x("En e-mail-adressen skal indtastes.");
 $langmsg['personal'][11] = x("Indstillingerne blev opdateret.");
 $langmsg['personal'][12] = x("Adgangskoder er ikke ens.");
+$langmsg['personal'][13] = x("Aktiver WYSIWYG editor?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Navn:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Hankøn");
 $langmsg['profile'][13] = x("Hunkøn");
 $langmsg['profile'][14] = x("Profil opdateret.");
+$langmsg['profile'][15] = x("Ingen");
 
 $langmsg['accounts'][0] = x("Konti");
 $langmsg['accounts'][1] = x("Konti.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Viser det aktuelle sidetal.");
 $langmsg['templates'][131] = x("Viser det forrige side nummer.");
 $langmsg['templates'][132] = x("Viser den næste side nummer.");
 $langmsg['templates'][133] = x("Viser den venlige titel nyhedsartikel.");
+$langmsg['templates'][134] = x("Søg form");
+$langmsg['templates'][135] = x("Søgeresultater");
+$langmsg['templates'][136] = x("Uploadede filer");
 
 $langmsg['uploadedfiles'][0] = x("Filupload");
 $langmsg['uploadedfiles'][1] = x("Upload en ny fil");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Navn");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Besked");
+$langmsg['news'][50] = x("Indtast en artikel titel");
+$langmsg['news'][51] = x("Resumé");
+$langmsg['news'][52] = x("Ingen kategorier");
+$langmsg['news'][53] = x("Dato");
+$langmsg['news'][54] = x("Dato, hvor denne artikel blev indsendt");
+$langmsg['news'][55] = x("Arkiv");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Februar");

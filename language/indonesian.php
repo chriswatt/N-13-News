@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Indonesian		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("berita.");
 $langmsg['editnews'][22] = x("total.");
 $langmsg['editnews'][23] = x("View count reset ke 0 untuk artikel yang dipilih (s)");
 $langmsg['editnews'][24] = x("Tinjauan ulang artikel yang dipilih (s)");
+$langmsg['editnews'][25] = x("Filter menurut kategori");
 
 $langmsg['newsform'][0] = x("Tambahkan posting berita Anda di bawah ini.");
 $langmsg['newsform'][1] = x("Judul:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Pernah arsip");
 $langmsg['newsform'][19] = x("Upload file");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Upload");
+$langmsg['newsform'][22] = x("Artikel");
+$langmsg['newsform'][23] = x("Masukkan URL gambar");
+$langmsg['newsform'][24] = x("Memasukkan");
+$langmsg['newsform'][25] = x("Pilih gambar upload");
 
 $langmsg['editcomments'][0] = x("Edit Komentar");
 $langmsg['editcomments'][1] = x("Edit komentar di bawah ini.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Konfirmasi password:");
 $langmsg['personal'][10] = x("Alamat email harus dimasukkan.");
 $langmsg['personal'][11] = x("Pengaturan diperbarui.");
 $langmsg['personal'][12] = x("Password tidak cocok.");
+$langmsg['personal'][13] = x("Aktifkan editor WYSIWYG?");
 
 $langmsg['login'][0] = x("Silahkan Login");
 $langmsg['login'][1] = x("Nama:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Laki-laki");
 $langmsg['profile'][13] = x("Perempuan");
 $langmsg['profile'][14] = x("Profil diupdate.");
+$langmsg['profile'][15] = x("Tidak ada");
 
 $langmsg['accounts'][0] = x("Account");
 $langmsg['accounts'][1] = x("Account.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Menampilkan nomor halaman saat ini.");
 $langmsg['templates'][131] = x("Menampilkan nomor halaman sebelumnya.");
 $langmsg['templates'][132] = x("Menampilkan nomor halaman berikutnya.");
 $langmsg['templates'][133] = x("Menampilkan ramah judul artikel berita.");
+$langmsg['templates'][134] = x("Formulir pencarian");
+$langmsg['templates'][135] = x("Hasil pencarian");
+$langmsg['templates'][136] = x("Upload file");
 
 $langmsg['uploadedfiles'][0] = x("Upload file");
 $langmsg['uploadedfiles'][1] = x("Upload file baru");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nama");
 $langmsg['news'][48] = x("Email / URL");
 $langmsg['news'][49] = x("Pesan");
+$langmsg['news'][50] = x("Masukkan judul artikel");
+$langmsg['news'][51] = x("Ringkasan");
+$langmsg['news'][52] = x("Tidak ada kategori");
+$langmsg['news'][53] = x("Tanggal");
+$langmsg['news'][54] = x("Tanggal artikel ini telah diposting");
+$langmsg['news'][55] = x("Arsip");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Februari");

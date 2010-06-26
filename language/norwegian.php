@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Norwegian		                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("nyhetsartikler.");
 $langmsg['editnews'][22] = x("totalt.");
 $langmsg['editnews'][23] = x("Se teller tilbakestilt til 0 for den valgte artikkelen (e)");
 $langmsg['editnews'][24] = x("Ratings restarte for den valgte artikkelen (e)");
+$langmsg['editnews'][25] = x("Filtrer etter kategori");
 
 $langmsg['newsform'][0] = x("Legg inn din nyheter innlegget nedenfor.");
 $langmsg['newsform'][1] = x("Tittel:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Aldri arkiv");
 $langmsg['newsform'][19] = x("Filopplastninger");
 $langmsg['newsform'][20] = x("Nedlastinger");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Artikkel");
+$langmsg['newsform'][23] = x("Skriv inn et bilde URL");
+$langmsg['newsform'][24] = x("Sett inn");
+$langmsg['newsform'][25] = x("Velg et opplastet bilde");
 
 $langmsg['editcomments'][0] = x("Edit Comments");
 $langmsg['editcomments'][1] = x("Rediger kommentar nedenfor.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Bekreft passord:");
 $langmsg['personal'][10] = x("En e-postadresse må oppgis.");
 $langmsg['personal'][11] = x("Innstillinger oppdatert.");
 $langmsg['personal'][12] = x("Passordene samsvarer ikke.");
+$langmsg['personal'][13] = x("Aktiver WYSIWYG editor?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Navn:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favoritt sitat:");
 $langmsg['profile'][12] = x("Mann");
 $langmsg['profile'][13] = x("Kvinne");
 $langmsg['profile'][14] = x("Profil oppdatert.");
+$langmsg['profile'][15] = x("Ingen");
 
 $langmsg['accounts'][0] = x("Kontoer");
 $langmsg['accounts'][1] = x("Kontoer.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Viser gjeldende sidetall.");
 $langmsg['templates'][131] = x("Viser den forrige sidetallet.");
 $langmsg['templates'][132] = x("Viser neste side nummer.");
 $langmsg['templates'][133] = x("Viser den vennlige tittelen på nyhetsartikkelen.");
+$langmsg['templates'][134] = x("Søkeskjema");
+$langmsg['templates'][135] = x("Søkeresultater");
+$langmsg['templates'][136] = x("Opplastede filer");
 
 $langmsg['uploadedfiles'][0] = x("Filopplastninger");
 $langmsg['uploadedfiles'][1] = x("Last opp en ny fil");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Navn");
 $langmsg['news'][48] = x("E-post / URL");
 $langmsg['news'][49] = x("Melding");
+$langmsg['news'][50] = x("Skriv en artikkel tittel");
+$langmsg['news'][51] = x("Sammendrag");
+$langmsg['news'][52] = x("Ingen kategorier");
+$langmsg['news'][53] = x("Dato");
+$langmsg['news'][54] = x("Dato denne artikkelen ble lagt ut");
+$langmsg['news'][55] = x("Arkiv");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Februar");

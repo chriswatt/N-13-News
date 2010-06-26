@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Polish			                        #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("news stories.");
 $langmsg['editnews'][22] = x("w sumie.");
 $langmsg['editnews'][23] = x("Reset Ilość wyświetleń do 0 dla wybranego artykułu (s)");
 $langmsg['editnews'][24] = x("Oceny reset dla wybranego artykułu (s)");
+$langmsg['editnews'][25] = x("Filtruj według kategorii");
 
 $langmsg['newsform'][0] = x("Dodaj swój post wiadomości poniżej.");
 $langmsg['newsform'][1] = x("Tytuł:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Nigdy archiwum");
 $langmsg['newsform'][19] = x("Wysyłanie plików");
 $langmsg['newsform'][20] = x("Pliki do pobrania");
 $langmsg['newsform'][21] = x("Uploaded");
+$langmsg['newsform'][22] = x("Artykuł");
+$langmsg['newsform'][23] = x("Wpisz adres obrazka");
+$langmsg['newsform'][24] = x("Wstawić");
+$langmsg['newsform'][25] = x("Wybierz wysłał obraz");
 
 $langmsg['editcomments'][0] = x("Edycja Komentarze");
 $langmsg['editcomments'][1] = x("Edycja komentarz poniżej.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Potwierdzenie hasła:");
 $langmsg['personal'][10] = x("Adres e-mail należy wpisać.");
 $langmsg['personal'][11] = x("Ustawienia aktualizacji.");
 $langmsg['personal'][12] = x("Hasła nie pasują do siebie.");
+$langmsg['personal'][13] = x("Włącz edytor WYSIWYG?");
 
 $langmsg['login'][0] = x("Proszę zaloguj");
 $langmsg['login'][1] = x("Imię i nazwisko:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Ulubione Cytat:");
 $langmsg['profile'][12] = x("Męski");
 $langmsg['profile'][13] = x("Żeński");
 $langmsg['profile'][14] = x("Profil zaktualizowany.");
+$langmsg['profile'][15] = x("Żaden");
 
 $langmsg['accounts'][0] = x("Konta");
 $langmsg['accounts'][1] = x("Konta.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Wyświetla aktualny numer strony.");
 $langmsg['templates'][131] = x("Wyświetla poprzedni numer strony.");
 $langmsg['templates'][132] = x("Wyświetla następny numer strony.");
 $langmsg['templates'][133] = x("Wyświetla przyjazne tytuł artykułu wiadomości.");
+$langmsg['templates'][134] = x("Wyszukaj");
+$langmsg['templates'][135] = x("Wyniki wyszukiwania");
+$langmsg['templates'][136] = x("Przesłane pliki");
 
 $langmsg['uploadedfiles'][0] = x("Wysyłanie plików");
 $langmsg['uploadedfiles'][1] = x("Prześlij nowy plik");
@@ -805,6 +815,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Nazwa");
 $langmsg['news'][48] = x("E-mail / URL");
 $langmsg['news'][49] = x("Wiadomość");
+$langmsg['news'][50] = x("Wpisz tytuł artykułu");
+$langmsg['news'][51] = x("Streszczenie");
+$langmsg['news'][52] = x("Bez kategorii");
+$langmsg['news'][53] = x("Data");
+$langmsg['news'][54] = x("Data tego artykułu została wysłana");
+$langmsg['news'][55] = x("Archiwum");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Luty");

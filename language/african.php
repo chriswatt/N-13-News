@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Afrikaans                               #
-#   VERSION     3.6                                     #
+#   VERSION     3.7                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -115,6 +115,7 @@ $langmsg['editnews'][21] = x("nuusberigte.");
 $langmsg['editnews'][22] = x("in totaal.");
 $langmsg['editnews'][23] = x("View reken weer in te stel na 0 vir die geselekteerde artikel (s)");
 $langmsg['editnews'][24] = x("Waardering weer in te stel vir die geselekteerde artikel (s)");
+$langmsg['editnews'][25] = x("Filter op kategorie");
 
 $langmsg['newsform'][0] = x("Voeg jou nuus berig hieronder.");
 $langmsg['newsform'][1] = x("Titel:");
@@ -132,6 +133,10 @@ $langmsg['newsform'][18] = x("Nooit argief");
 $langmsg['newsform'][19] = x("File uploads");
 $langmsg['newsform'][20] = x("Downloads");
 $langmsg['newsform'][21] = x("Opgelaai nie");
+$langmsg['newsform'][22] = x("Artikel");
+$langmsg['newsform'][23] = x("Voer 'n beeld URL");
+$langmsg['newsform'][24] = x("Plaas");
+$langmsg['newsform'][25] = x("Kies 'n opgelaaide prentjie");
 
 $langmsg['editcomments'][0] = x("Wysig Kommentaar");
 $langmsg['editcomments'][1] = x("Verander die kommentaar hieronder.");
@@ -251,6 +256,7 @@ $langmsg['personal'][9] = x("Bevestig wagwoord:");
 $langmsg['personal'][10] = x("'N e-pos adres moet verskaf word.");
 $langmsg['personal'][11] = x("Stellings opgedateer.");
 $langmsg['personal'][12] = x("Wagwoorde kom nie ooreen nie.");
+$langmsg['personal'][13] = x("Skakel WYSIWYG-editor?");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Naam:");
@@ -278,6 +284,7 @@ $langmsg['profile'][11] = x("Favourite Quote:");
 $langmsg['profile'][12] = x("Manlik");
 $langmsg['profile'][13] = x("Vroulik");
 $langmsg['profile'][14] = x("Profiel is opgedateer.");
+$langmsg['profile'][15] = x("Geen");
 
 $langmsg['accounts'][0] = x("Rekeninge");
 $langmsg['accounts'][1] = x("Rekeninge.");
@@ -646,6 +653,9 @@ $langmsg['templates'][130] = x("Gee die huidige bladsy nommer.");
 $langmsg['templates'][131] = x("Gee die vorige bladsy nommer.");
 $langmsg['templates'][132] = x("Gee die volgende bladsy nommer.");
 $langmsg['templates'][133] = x("Gee die vriendelike titel van die nuwe artikel.");
+$langmsg['templates'][134] = x("Soek vorm");
+$langmsg['templates'][135] = x("Soek resultate");
+$langmsg['templates'][136] = x("Opgelaaide lêers");
 
 
 $langmsg['uploadedfiles'][0] = x("File uploads");
@@ -806,6 +816,12 @@ $langmsg['news'][46] = x("{author} - {date} - {title}");
 $langmsg['news'][47] = x("Naam");
 $langmsg['news'][48] = x("E-pos / URL");
 $langmsg['news'][49] = x("Boodskap");
+$langmsg['news'][50] = x("Voer 'n artikel titel");
+$langmsg['news'][51] = x("Opsomming");
+$langmsg['news'][52] = x("Geen kategorieë");
+$langmsg['news'][53] = x("Datum");
+$langmsg['news'][54] = x("Datum hierdie artikel is gepos");
+$langmsg['news'][55] = x("Argief");
 
 $langmsg['shortmonths'][0] = x("Jan");
 $langmsg['shortmonths'][1] = x("Februarie");
