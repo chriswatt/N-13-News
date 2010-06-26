@@ -2485,6 +2485,7 @@ function newsform($type){
 					}elseif($_GET['action'] == "editnews"){
 						if(!$_POST['S1']){		            
 							$catids = DataAccess::fetch("SELECT catid FROM " . NEWS_GROUPCATS . " WHERE type = 'news' AND storyid = ?", $_GET['id']);
+							$cats = array();
 							foreach($catids AS $row2){
 								$cats[] = $row2['catid'];
 							}
