@@ -781,7 +781,7 @@ function formatcomments($str,$row){
 	global $friendlytitle, $linkprefix, $oneortwo;
     
 	$str = str_replace("{oneortwo}", $oneortwo, $str);
-	$accessdata = unserialize($_SESSION['accessdata']);
+	
 	$stampzone = $row['timestamp'] + TIMEZONE;
 	$avatar = $row['useravatar'];
 	if($avatar){
@@ -815,8 +815,13 @@ function formatcomments($str,$row){
     
 	$str = str_replace("{message}",$message,$str);
 
-	if($accessdata['0']['viewips'] == "1"){
-		$str = str_replace("{ip}",$row['ip'],$str);
+	if(isloggedin()){
+		$accessdata = unserialize($_SESSION['accessdata']);
+		if($accessdata['0']['viewips'] == "1"){
+			$str = str_replace("{ip}",$row['ip'],$str);
+		}else{
+			$str = str_replace("{ip}","",$str);
+		}
 	}else{
 		$str = str_replace("{ip}","",$str);
 	}
