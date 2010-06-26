@@ -1994,7 +1994,7 @@ function newsform($type){
 	echo "<hr />";
 	
 	
-	
+	$b = 0;
 	echo "<div style=\"height: 225px; width: 580px; overflow: auto\">";
 			
 			
@@ -2083,6 +2083,7 @@ function newsform($type){
 			}
 		}else{
 			$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name ASC");
+			$totalfilesize = 0;
 			foreach($allcats AS $xrow){
 				echo "<div id=\"imagecat_$f\" class=\"noshow\">";
 				$catgroupimages = DataAccess::fetch("SELECT storyid, catid, type, uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'image'", $xrow['id']);
