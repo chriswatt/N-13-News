@@ -6,7 +6,8 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 CKEDITOR.editorConfig = function( config )
 {
    // Define changes to default configuration here. For example:
-   // config.language = 'fr';
+
+   
    // config.skin = 'office2003';
    //config.removePlugins =  'elementspath,enterkey,entities,forms,pastefromword,htmldataprocessor,specialchar' ;
 //   config.removePlugins =  'elementspath,enterkey,entities,forms,pastefromword,htmldataprocessor,specialchar,horizontalrule,wsc' ;
@@ -14,7 +15,10 @@ CKEDITOR.editorConfig = function( config )
    //config.toolbar = 'Basic';
 //var instance = CKEDITOR.instances['story'];
 
-
+   CKEDITOR.instances['story'].config.language = 'en';
+   CKEDITOR.instances['shortstory'].config.language = 'en';
+   
+   
 	CKEDITOR.instances['story'].config.extraPlugins = 'customimage,customsmiley,customfiles';
 	CKEDITOR.instances['story'].config.resize_maxWidth = 750;
 	CKEDITOR.instances['story'].config.resize_minHeight = 100;
