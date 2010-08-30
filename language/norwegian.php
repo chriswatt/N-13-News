@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("uleste meldinger.");
 $langmsg['privmsgs'][22] = x("meldinger totalt.");
 
 $langmsg['options'][0] = x("Valg");
+$langmsg['options'][1] = x("Ny");
+$langmsg['options'][2] = x("Rediger");
 
 $langmsg['bannedips'][0] = x("Banned IPs");
 $langmsg['bannedips'][1] = x("Sperret IP.");

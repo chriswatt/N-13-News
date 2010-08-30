@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("olvasatlan üzeneteket.");
 $langmsg['privmsgs'][22] = x("üzenetek összesen.");
 
 $langmsg['options'][0] = x("Opciókat");
+$langmsg['options'][1] = x("Új");
+$langmsg['options'][2] = x("Edit");
 
 $langmsg['bannedips'][0] = x("Banned IPs");
 $langmsg['bannedips'][1] = x("Banned IPs.");

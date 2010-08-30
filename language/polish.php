@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("nieprzeczytane wiadomości.");
 $langmsg['privmsgs'][22] = x("Wiadomości w sumie.");
 
 $langmsg['options'][0] = x("Opcje");
+$langmsg['options'][1] = x("Nowy");
+$langmsg['options'][2] = x("Edytuj");
 
 $langmsg['bannedips'][0] = x("Banned IPs");
 $langmsg['bannedips'][1] = x("Banned IP.");

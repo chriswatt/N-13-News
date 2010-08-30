@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("neprebrana sporočila.");
 $langmsg['privmsgs'][22] = x("sporočila v celoti.");
 
 $langmsg['options'][0] = x("Možnosti");
+$langmsg['options'][1] = x("New");
+$langmsg['options'][2] = x("Uredi");
 
 $langmsg['bannedips'][0] = x("Prepovedani IP");
 $langmsg['bannedips'][1] = x("Prepovedani IP.");

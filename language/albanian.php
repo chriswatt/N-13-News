@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("mesazhe të palexuar.");
 $langmsg['privmsgs'][22] = x("mesazhet në total.");
 
 $langmsg['options'][0] = x("Options");
+$langmsg['options'][1] = x("I ri");
+$langmsg['options'][2] = x("Redaktoj");
 
 $langmsg['bannedips'][0] = x("Banned SPI");
 $langmsg['bannedips'][1] = x("SPI Banned.");

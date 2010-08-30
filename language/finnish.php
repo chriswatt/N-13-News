@@ -188,6 +188,8 @@ $langmsg['privmsgs'][22] = x("viestejä yhteensä.");
 
 
 $langmsg['options'][0] = x("Valinnat");
+$langmsg['options'][1] = x("Uusi");
+$langmsg['options'][2] = x("Muokata");
 
 
 $langmsg['bannedips'][0] = x("Banned IP");

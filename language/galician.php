@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("mensaxes sen ler.");
 $langmsg['privmsgs'][22] = x("Blogs en total.");
 
 $langmsg['options'][0] = x("Opcións");
+$langmsg['options'][1] = x("Novo");
+$langmsg['options'][2] = x("Editar");
 
 $langmsg['bannedips'][0] = x("Banned IP");
 $langmsg['bannedips'][1] = x("IP prohibidos.");

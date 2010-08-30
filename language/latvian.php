@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("nelasītas ziņas.");
 $langmsg['privmsgs'][22] = x("ziņojumus kopā.");
 
 $langmsg['options'][0] = x("Options");
+$langmsg['options'][1] = x("Jauns");
+$langmsg['options'][2] = x("Rediģēt");
 
 $langmsg['bannedips'][0] = x("Banned IP");
 $langmsg['bannedips'][1] = x("Banned IP.");

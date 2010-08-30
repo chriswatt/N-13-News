@@ -187,6 +187,8 @@ $langmsg['privmsgs'][22] = x("Einträge insgesamt.");
 
 
 $langmsg['options'][0] = x("Optionen");
+$langmsg['options'][1] = x("Neu");
+$langmsg['options'][2] = x("Bearbeiten");
 
 
 $langmsg['bannedips'][0] = x("Banned IPs");

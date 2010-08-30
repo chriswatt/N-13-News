@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("pesan yang belum dibaca.");
 $langmsg['privmsgs'][22] = x("pesan secara total.");
 
 $langmsg['options'][0] = x("Pilihan");
+$langmsg['options'][1] = x("Baru");
+$langmsg['options'][2] = x("Edit");
 
 $langmsg['bannedips'][0] = x("IP Banned");
 $langmsg['bannedips'][1] = x("Banned IP.");

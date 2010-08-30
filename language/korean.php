@@ -187,6 +187,8 @@ $langmsg['privmsgs'][22] = x("총 메시지가없습니다.");
 
 
 $langmsg['options'][0] = x("옵션");
+$langmsg['options'][1] = x("새로운");
+$langmsg['options'][2] = x("편집");
 
 
 $langmsg['bannedips'][0] = x("금지된 IP를");

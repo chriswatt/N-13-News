@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("mesaj lu.");
 $langmsg['privmsgs'][22] = x("mesaj nan total.");
 
 $langmsg['options'][0] = x("Opsyon");
+$langmsg['options'][1] = x("New");
+$langmsg['options'][2] = x("Edit");
 
 $langmsg['bannedips'][0] = x("Entèdi ip");
 $langmsg['bannedips'][1] = x("Entèdi ip.");

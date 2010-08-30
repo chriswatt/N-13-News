@@ -187,6 +187,8 @@ $langmsg['privmsgs'][22] = x("رسائل في مجموعه.");
 
 
 $langmsg['options'][0] = x("خيارات");
+$langmsg['options'][1] = x("جديد");
+$langmsg['options'][2] = x("عدل");
 
 
 $langmsg['bannedips'][0] = x("منعت الشرطة العراقية");

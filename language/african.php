@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("ongelees boodskappe.");
 $langmsg['privmsgs'][22] = x("boodskappe in totaal.");
 
 $langmsg['options'][0] = x("Opsies");
+$langmsg['options'][1] = x("Nuwe");
+$langmsg['options'][2] = x("Wysig");
 
 $langmsg['bannedips'][0] = x("Verbode IPs");
 $langmsg['bannedips'][1] = x("Verbode IPs.");

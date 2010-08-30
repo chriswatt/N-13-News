@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("negeseuon heb eu darllen.");
 $langmsg['privmsgs'][22] = x("negeseuon yn y cyfanswm.");
 
 $langmsg['options'][0] = x("Dewisiadau");
+$langmsg['options'][1] = x("Newydd");
+$langmsg['options'][2] = x("Golygu");
 
 $langmsg['bannedips'][0] = x("Wahardd IPS");
 $langmsg['bannedips'][1] = x("IPS gwahardd.");

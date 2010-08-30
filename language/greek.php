@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("αναγνωσμένα μηνύματα.");
 $langmsg['privmsgs'][22] = x("μηνύματα συνολικά.");
 
 $langmsg['options'][0] = x("Επιλογές");
+$langmsg['options'][1] = x("Νέος");
+$langmsg['options'][2] = x("Επεξεργασία");
 
 $langmsg['bannedips'][0] = x("Banned IPs");
 $langmsg['bannedips'][1] = x("Banned ΠΕ.");

@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("پیامهای خوانده نشده.");
 $langmsg['privmsgs'][22] = x("پیامها در کل.");
 
 $langmsg['options'][0] = x("گزینه ها");
+$langmsg['options'][1] = x("جدید");
+$langmsg['options'][2] = x("ویرایش");
 
 $langmsg['bannedips'][0] = x("توقیف پلیس عراقی");
 $langmsg['bannedips'][1] = x("توقیف پلیس عراقی.");

@@ -187,6 +187,8 @@ $langmsg['privmsgs'][22] = x("邮件总数。");
 
 
 $langmsg['options'][0] = x("选项");
+$langmsg['options'][1] = x("新");
+$langmsg['options'][2] = x("编辑");
 
 
 $langmsg['bannedips'][0] = x("禁止IP地址");

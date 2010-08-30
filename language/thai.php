@@ -187,7 +187,8 @@ $langmsg['privmsgs'][22] = x("ข้อความในทั้งหมด."
 
 
 $langmsg['options'][0] = x("Options");
-
+$langmsg['options'][1] = x("ใหม่");
+$langmsg['options'][2] = x("Edit");
 
 $langmsg['bannedips'][0] = x("IP ที่ถูกแบน");
 $langmsg['bannedips'][1] = x("ห้าม IPs.");

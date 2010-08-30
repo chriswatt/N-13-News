@@ -181,6 +181,8 @@ $langmsg['privmsgs'][21] = x("chưa đọc tin nhắn.");
 $langmsg['privmsgs'][22] = x("thư trong tổng số.");
 
 $langmsg['options'][0] = x("Tùy chọn");
+$langmsg['options'][1] = x("New");
+$langmsg['options'][2] = x("Chỉnh sửa");
 
 $langmsg['bannedips'][0] = x("IP bị cấm");
 $langmsg['bannedips'][1] = x("Cấm IP.");

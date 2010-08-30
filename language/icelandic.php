@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("ólesin skilaboð.");
 $langmsg['privmsgs'][22] = x("skilaboð í alls.");
 
 $langmsg['options'][0] = x("Options");
+$langmsg['options'][1] = x("New");
+$langmsg['options'][2] = x("Breyta");
 
 $langmsg['bannedips'][0] = x("Banned IPs");
 $langmsg['bannedips'][1] = x("Banned IP-tölum.");

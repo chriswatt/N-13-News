@@ -188,6 +188,8 @@ $langmsg['privmsgs'][22] = x("blogs no total.");
 
 #-----OPTIONS MODULE
 $langmsg['options'][0] = x("Opções");
+$langmsg['options'][1] = x("Novo");
+$langmsg['options'][2] = x("Editar");
 
 #-----BANNED IPS MODULE
 $langmsg['bannedips'][0] = x("IPs Banidos");

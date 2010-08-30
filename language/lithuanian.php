@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("neperskaitytas žinutes.");
 $langmsg['privmsgs'][22] = x("laiškus iš viso.");
 
 $langmsg['options'][0] = x("Funkcijos");
+$langmsg['options'][1] = x("Naujas");
+$langmsg['options'][2] = x("Redaguoti");
 
 $langmsg['bannedips'][0] = x("Banned IP");
 $langmsg['bannedips'][1] = x("Banned IPs.");

@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("teachtaireachtaí neamhléite.");
 $langmsg['privmsgs'][22] = x("teachtaireachtaí san iomlán.");
 
 $langmsg['options'][0] = x("Roghanna");
+$langmsg['options'][1] = x("Nua");
+$langmsg['options'][2] = x("Eagar");
 
 $langmsg['bannedips'][0] = x("Toirmeasc IPs");
 $langmsg['bannedips'][1] = x("IPs toirmeasc.");

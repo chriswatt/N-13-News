@@ -180,6 +180,9 @@ $langmsg['privmsgs'][21] = x("hindi pa nababasang mensahe.");
 $langmsg['privmsgs'][22] = x("mga mensahe sa kabuuan.");
 
 $langmsg['options'][0] = x("Ang Opsyon");
+$langmsg['options'][1] = x("Bago");
+$langmsg['options'][2] = x("I-edit ang");
+
 
 $langmsg['bannedips'][0] = x("Pinagbawalan IPs");
 $langmsg['bannedips'][1] = x("Pinagbawalan IP.");

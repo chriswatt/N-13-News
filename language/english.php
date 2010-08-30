@@ -191,7 +191,6 @@ $langmsg['options'][0] = x("Options");
 $langmsg['options'][1] = x("New");
 $langmsg['options'][2] = x("Edit");
 
-
 #-----BANNED IPS MODULE
 $langmsg['bannedips'][0] = x("Banned IPs");
 $langmsg['bannedips'][1] = x("Banned IPs.");

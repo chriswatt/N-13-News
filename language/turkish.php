@@ -190,6 +190,8 @@ $langmsg['privmsgs'][22] = x("adet okunmamis mesajiniz var.");
 
 #-----OPTIONS MODULE
 $langmsg['options'][0] = x("Ayarlar");
+$langmsg['options'][1] = x("Yeni");
+$langmsg['options'][2] = x("Düzenle");
 
 #-----BANNED IPS MODULE
 $langmsg['bannedips'][0] = x("Yasakli IPler");

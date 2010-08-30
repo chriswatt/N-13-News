@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("unread ujumbe.");
 $langmsg['privmsgs'][22] = x("ujumbe katika jumla.");
 
 $langmsg['options'][0] = x("Options");
+$langmsg['options'][1] = x("Mpya");
+$langmsg['options'][2] = x("Edit");
 
 $langmsg['bannedips'][0] = x("Marufuku IPS");
 $langmsg['bannedips'][1] = x("Marufuku IPS.");

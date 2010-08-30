@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("אַנרעד אַרטיקלען.");
 $langmsg['privmsgs'][22] = x("אַרטיקלען אין גאַנץ.");
 
 $langmsg['options'][0] = x("אָפּציעס");
+$langmsg['options'][1] = x("נייַ");
+$langmsg['options'][2] = x("ויסרעדאַגירן");
 
 $langmsg['bannedips'][0] = x("באַנד יפּס");
 $langmsg['bannedips'][1] = x("באַנד יפּס.");

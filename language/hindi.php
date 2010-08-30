@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("अपठित संदेश.");
 $langmsg['privmsgs'][22] = x("कुल में संदेश.");
 
 $langmsg['options'][0] = x("विकल्प");
+$langmsg['options'][1] = x("नया");
+$langmsg['options'][2] = x("संपादित करें");
 
 $langmsg['bannedips'][0] = x("प्रतिबंधित आईपी");
 $langmsg['bannedips'][1] = x("आईपी पर प्रतिबंध लगा दिया.");

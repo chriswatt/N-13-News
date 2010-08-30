@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("messaġġi unread.");
 $langmsg['privmsgs'][22] = x("messaġġi b'kollox.");
 
 $langmsg['options'][0] = x("Options");
+$langmsg['options'][1] = x("Ġdid");
+$langmsg['options'][2] = x("Edit");
 
 $langmsg['bannedips'][0] = x("Pprojbiti IPs");
 $langmsg['bannedips'][1] = x("IPs Pprojbiti.");

@@ -180,6 +180,8 @@ $langmsg['privmsgs'][21] = x("lugemata sõnumeid.");
 $langmsg['privmsgs'][22] = x("sõnumit kokku.");
 
 $langmsg['options'][0] = x("Valikud");
+$langmsg['options'][1] = x("Uus");
+$langmsg['options'][2] = x("Edit");
 
 $langmsg['bannedips'][0] = x("Keelatud IP");
 $langmsg['bannedips'][1] = x("Keelatud IP-aadressidelt.");
