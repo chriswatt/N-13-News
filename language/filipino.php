@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Filipino		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Hindi mo maaaring tanggalin ang iyong sariling acc
 $langmsg['accounts'][23] = x("(Iwanang blangko upang mapanatili ang kasalukuyang)");
 $langmsg['accounts'][24] = x("Ang isang account ay naka-gamit na email address, pumili ng isa pa.");
 $langmsg['accounts'][25] = x("Mangyaring magpasok ng isang pangalan ng account");
+$langmsg['accounts'][26] = x("Mga file");
+$langmsg['accounts'][27] = x("Mga imahe");
 
 $langmsg['access'][0] = x("Access Levels");
 $langmsg['access'][1] = x("Lumikha ng isang bagong antas ng access.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Lahat ng mga salita sa ibaba ay nasala mula sa lahat
 $langmsg['filters'][4] = x("Sinala Salita");
 $langmsg['filters'][5] = x("Palitan ang Gamit");
 $langmsg['filters'][6] = x("Tanggalin");
+$langmsg['filters'][7] = x("Magdagdag ng isang bagong filter");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("I-edit ang iyong mga RSS feed ng mga setting sa ibaba");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Sigurado ka bang gusto mong burahin ang mga napiling mga
 $langmsg['js'][30] = x("Getting Smilies ... Mangyaring maghintay.");
 $langmsg['js'][31] = x("Sigurado ka bang gusto mong burahin ang mga napiling file (s)?");
 $langmsg['js'][32] = x("Sigurado ka bang gusto mong burahin ang mga napiling Smilies?");
+$langmsg['js'][33] = x("Sigurado ka bang gusto mong burahin ang napiling mga filter (s)?");
 
 $langmsg['news'][0] = x("Mangyaring ipasok ang isang pangalan.");
 $langmsg['news'][1] = x("Mangyaring magpasok ng isang mensahe.");

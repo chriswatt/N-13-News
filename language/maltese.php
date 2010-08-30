@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Maltese			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Inti ma tistax tħassar-kont tiegħek.");
 $langmsg['accounts'][23] = x("(Ħalli vojt li jżomm kurrenti)");
 $langmsg['accounts'][24] = x("L-kont tkun diġà jużaw dak l-indirizz elettroniku, jekk jogħġbok agħżel.");
 $langmsg['accounts'][25] = x("Jekk jogħġbok ikteb l-isem kont");
+$langmsg['accounts'][26] = x("Fajls");
+$langmsg['accounts'][27] = x("Images");
 
 $langmsg['access'][0] = x("Livelli Aċċess");
 $langmsg['access'][1] = x("Oħloq livell ġdida ta 'aċċess.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Il-kliem kollha hawn taħt se tkun filtrata mill-kum
 $langmsg['filters'][4] = x("Word iffiltrata");
 $langmsg['filters'][5] = x("Issostitwixxi Bil");
 $langmsg['filters'][6] = x("Ħassar");
+$langmsg['filters'][7] = x("Żid filtru ġdid");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("RSS Edit tiegħek għalf settings hawn taħt");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Inti żgur li trid tneħħi l-kategoriji selezzjonati?")
 $langmsg['js'][30] = x("Smilies Getting ... Jekk jogħġbok stenna.");
 $langmsg['js'][31] = x("Inti żgur li trid tneħħi l-fajl magħżul (i)?");
 $langmsg['js'][32] = x("Inti żgur li trid tneħħi l-Smilies magħżula?");
+$langmsg['js'][33] = x("Inti żgur li int tixtieq li jitħassar il-filtru (i) magħżula?");
 
 $langmsg['news'][0] = x("Jekk jogħġbok ikteb l-isem.");
 $langmsg['news'][1] = x("Jekk joghgbok ikteb messaġġ.");

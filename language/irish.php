@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Irish			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Ní féidir leat a scriosadh do chuntas féin.");
 $langmsg['accounts'][23] = x("(Saoire bán a choimeád faoi láthair)");
 $langmsg['accounts'][24] = x("Tá úsáid á baint as san áireamh cheana féin go bhfuil seoladh ríomhphoist, le do thoil eile a roghnú.");
 $langmsg['accounts'][25] = x("Cuir isteach an t-ainm cuntas");
+$langmsg['accounts'][26] = x("Comhaid");
+$langmsg['accounts'][27] = x("Íomhánna");
 
 $langmsg['access'][0] = x("Leibhéil Rochtain");
 $langmsg['access'][1] = x("Cruthaigh leibhéal rochtana nua.");
@@ -385,6 +387,7 @@ $langmsg['filters'][3] = x("Beidh gach focail thíos a scagtha ó na barúlacha.
 $langmsg['filters'][4] = x("Word Scagtha");
 $langmsg['filters'][5] = x("Le Ionadaigh");
 $langmsg['filters'][6] = x("Scrios");
+$langmsg['filters'][7] = x("Cuir scagaire nua");
 
 $langmsg['rss'][0] = x("Fotha RSS");
 $langmsg['rss'][1] = x("Cuir beatha do RSS socruithe thíos");
@@ -766,6 +769,7 @@ $langmsg['js'][29] = x("An bhfuil tú cinnte gur mian leat é a scrios an chatag
 $langmsg['js'][30] = x("Smilies Getting ... Fan go fóill.");
 $langmsg['js'][31] = x("An bhfuil tú cinnte gur mian leat a scriosadh na comhaid roghnaithe (s)?");
 $langmsg['js'][32] = x("An bhfuil tú cinnte gur mian leat a scriosadh smilies roghnaithe?");
+$langmsg['js'][33] = x("An bhfuil tú cinnte gur mian leat a scriosadh an scagaire roghnaithe (s)?");
 
 $langmsg['news'][0] = x("Cuir isteach ainm.");
 $langmsg['news'][1] = x("Cuir isteach teachtaireacht.");

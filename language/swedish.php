@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Swedish                                 #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -326,6 +326,8 @@ $langmsg['accounts'][22] = x("Du kan inte radera ditt eget konto.");
 $langmsg['accounts'][23] = x("(Lämna tomt för att behålla nuvarande)");
 $langmsg['accounts'][24] = x("Ett konto är redan använder den e-postadress, välj en annan.");
 $langmsg['accounts'][25] = x("Ange ett kontonamn");
+$langmsg['accounts'][26] = x("Filer");
+$langmsg['accounts'][27] = x("Bilder");
 
 
 $langmsg['access'][0] = x("Åtkomstnivåer");
@@ -402,6 +404,7 @@ $langmsg['filters'][3] = x("Alla ord nedan kommer att filtreras bort från alla k
 $langmsg['filters'][4] = x("Filtrerat Word");
 $langmsg['filters'][5] = x("Ersätt med");
 $langmsg['filters'][6] = x("Ta bort");
+$langmsg['filters'][7] = x("Lägg till ett nytt filter");
 
 
 $langmsg['rss'][0] = x("RSS-feed");
@@ -793,6 +796,7 @@ $langmsg['js'][29] = x("Är du säker på att du vill ta bort den valda kategorin?"
 $langmsg['js'][30] = x("Getting smilies ... Please wait.");
 $langmsg['js'][31] = x("Är du säker på att du vill ta bort markerad fil (er)?");
 $langmsg['js'][32] = x("Är du säker på att du vill ta bort den valda smilies?");
+$langmsg['js'][33] = x("Är du säker på att du vill radera det valda filtret (er)?");
 
 
 $langmsg['news'][0] = x("Ange ett namn.");

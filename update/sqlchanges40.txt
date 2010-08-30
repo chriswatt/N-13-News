@@ -1,0 +1,2 @@
+UPDATE `news30_options` SET `version` = '4.0' WHERE 1;
+ALTER TABLE news30_smilies ADD position INT(11) AFTER showhide;

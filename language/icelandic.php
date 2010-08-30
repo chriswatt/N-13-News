@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Icelandic		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Þú getur ekki eytt eigin reikning þinn.");
 $langmsg['accounts'][23] = x("(Skildu eftir autt til að halda núverandi)");
 $langmsg['accounts'][24] = x("Óákveðinn greinir í ensku reikningur er nú þegar að nota það netfang, vinsamlegast veldu annað.");
 $langmsg['accounts'][25] = x("Vinsamlegast sláðu inn á reikning nafn");
+$langmsg['accounts'][26] = x("Skrá");
+$langmsg['accounts'][27] = x("Myndir");
 
 $langmsg['access'][0] = x("Aðgangsstigi");
 $langmsg['access'][1] = x("Búa til nýjan aðgangsstigi.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Öll orð hér verður síað frá öllum athugasemd
 $langmsg['filters'][4] = x("Síað Word");
 $langmsg['filters'][5] = x("Skipta með");
 $langmsg['filters'][6] = x("Eyða");
+$langmsg['filters'][7] = x("Bæta við nýja síu");
 
 $langmsg['rss'][0] = x("RSS");
 $langmsg['rss'][1] = x("Breyta RSS þinn fæða stillingar hér");
@@ -766,6 +769,7 @@ $langmsg['js'][29] = x("Ertu viss um að þú viljir eyða völdum flokkum?");
 $langmsg['js'][30] = x("Getting Smilies ... Vinsamlegast bíðið.");
 $langmsg['js'][31] = x("Ertu viss um að þú viljir eyða völdu skrána (s)?");
 $langmsg['js'][32] = x("Ertu viss um að þú viljir eyða völdum broskalla?");
+$langmsg['js'][33] = x("Ertu viss um að þú viljir eyða völdum síu (r)?");
 
 $langmsg['news'][0] = x("Vinsamlegast sláðu inn nafn.");
 $langmsg['news'][1] = x("Vinsamlegast sláðu inn skilaboð.");

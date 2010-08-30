@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Catalan                                 #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("No es pot eliminar la seva pròpia compte.");
 $langmsg['accounts'][23] = x("(Deixa en blanc per mantenir actualitzada)");
 $langmsg['accounts'][24] = x("Un compte de que ja està utilitzant l'adreça de correu electrònic, si us plau, escolliu una altra.");
 $langmsg['accounts'][25] = x("Introduïu un nom de compte");
+$langmsg['accounts'][26] = x("Arxius");
+$langmsg['accounts'][27] = x("Imatges");
 
 $langmsg['access'][0] = x("Nivells d'Accés");
 $langmsg['access'][1] = x("Crear un nou nivell d'accés.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Totes les paraules a continuació es filtra de tots 
 $langmsg['filters'][4] = x("Word filtrada");
 $langmsg['filters'][5] = x("Reemplaça");
 $langmsg['filters'][6] = x("Esborrar");
+$langmsg['filters'][7] = x("Afegir un nou filtre");
 
 $langmsg['rss'][0] = x("Feeds RSS");
 $langmsg['rss'][1] = x("Edita les teves fonts RSS configuració sota de la");
@@ -766,6 +769,7 @@ $langmsg['js'][29] = x("Segur que vols eliminar les categories seleccionades?");
 $langmsg['js'][30] = x("Smilies Com ... Si us plau, espereu.");
 $langmsg['js'][31] = x("Estàs segur que voleu esborrar el fitxer seleccionat (s)?");
 $langmsg['js'][32] = x("Segur que vols eliminar les caretes seleccionat?");
+$langmsg['js'][33] = x("Esteu segur de voler esborrar el filtre seleccionat (s)?");
 
 $langmsg['news'][0] = x("Introduïu un nom.");
 $langmsg['news'][1] = x("Introduïu un missatge.");

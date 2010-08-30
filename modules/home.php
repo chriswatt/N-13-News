@@ -47,10 +47,18 @@ $unreadmessages	= DataAccess::fetch("SELECT COUNT(uid) AS unread FROM " . NEWS_P
 $unreadmessages	= $unreadmessages['0']['unread'];
 $f = '';
 $f = $f . " (" . $unreadmessages . ")";
-echo "<span class=header>" . $langmsg['home'][1] . " $_SESSION[name]</span></div><table width=\"685px\"><tr><td align=\"center\" valign=top width=\"17%\"><img src=\"images/n13newslogo.png\" alt=\"N-13 News 3.1\" /><br />N-13 News<br />$version</td><br />";        
-echo "<td valign=top align=top>";
+
+
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+echo "<div id=\"headerBox\">".$langmsg['home'][1]." " . $_SESSION['name'] . "</div>";
+
 if(ini_get("register_globals")){
-	echo "<div style=\"padding: 5px; background-color: #fff97b; border: 1px solid #c8c11f\">";
+	echo "<div class=\"error-warning\">";
 	echo $langmsg['home'][3];
 	echo "</div><br />";
 }            
@@ -59,7 +67,7 @@ if(file_exists(ABSPATH . "install/index.php")){
 	function deleteinstall(){
 		global $langmsg;
 		echo "<form method=\"post\" action=\"?\">";
-		echo "<div style=\"padding: 5px; background-color: #fff97b; border: 1px solid #c8c11f\">";
+		echo "<div class=\"error-warning\">";
 		echo $langmsg['home'][4] . "<br /><br />" . $langmsg['home'][21];
 		echo " <input type=\"submit\" value=\"".$langmsg['submitfield'][8]."\" name=\"Delete\" />
 		</div></form><br />";
@@ -77,62 +85,64 @@ if(file_exists(ABSPATH . "install/index.php")){
 }
 
 echo "<div class=panel><span style=\"float: right; margin-right: 0px\">" . $langmsg['home'][20] . $f ."</span>".$langmsg['home'][0] . "</div>";
-echo "<br><div align=\"right\">";
+echo "<br>";
 echo "<table border=\"0\" cellpadding=\"0\" style=\"text-align: left; border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 echo "  <tr>\n";
-echo "    <td width=\"24%\">\n";
+echo "    <td>\n";
 echo "    " . $langmsg['home'][6] . "</td>\n";
-echo "    <td width=\"24%\">\n";
-echo "    <div class=success>$totalnews</div></td>\n";
-echo "    <td width=\"27%\">\n";
+echo "    <td>\n";
+echo "    <div class=\"ok\">$totalnews</div></td>\n";
+echo "    <td>\n";
 echo "    " . $langmsg['home'][23] . "</td>\n";
-echo "    <td width=\"25%\">\n";
-echo "    <div class=success>$totalimages</div></td>\n";
+echo "    <td>\n";
+echo "    <div class=\"ok\">$totalimages</div></td>\n";
 echo "  </tr>\n";
 echo "  <tr>\n";
-echo "    <td width=\"24%\">\n";
+echo "    <td>\n";
 echo "    " . $langmsg['home'][7] . "</td>\n";
-echo "    <td width=\"24%\">\n";
-echo "    <div class=success>$totalcomments</div></td>\n";
-echo "    <td width=\"27%\">\n";
+echo "    <td>\n";
+echo "    <div class=\"ok\">$totalcomments</div></td>\n";
+echo "    <td>\n";
 echo "    " . $langmsg['home'][24] . "</td>\n";
-echo "    <td width=\"25%\">\n";
+echo "    <td>\n";
 
 
 
-echo "<div class=success>$totalfiles</div></td>\n";
+echo "<div class=ok>$totalfiles</div></td>\n";
 echo "  </tr>\n";
 echo "  <tr>\n";
-echo "    <td width=\"20%\">" . $langmsg['home'][8] . "</td>\n";
-echo "    <td width=\"24%\"><div class=success>$totalusers</div></td>\n";
-echo "    <td width=\"27%\">" . $langmsg['home'][25] . "</td>\n";
-echo "    <td width=\"25%\"><div class=success>$totalrss</div></td>\n";
+echo "    <td>" . $langmsg['home'][8] . "</td>\n";
+echo "    <td><div class=ok>$totalusers</div></td>\n";
+echo "    <td>" . $langmsg['home'][25] . "</td>\n";
+echo "    <td><div class=ok>$totalrss</div></td>\n";
 echo "  </tr>\n";
 echo "<tr>\n";
-echo "<td width=\"24%\">" . $langmsg['home'][9] . "</td>\n";
-echo "<td width=\"24%\"><div class=success>$totalsmilies</div></td>\n";
-echo "<td>". $langmsg['home'][16] . "</td><td><span class=success>$version</span></td>";
+echo "<td>" . $langmsg['home'][9] . "</td>\n";
+echo "<td><div class=ok>$totalsmilies</div></td>\n";
+echo "<td>". $langmsg['home'][16] . "</td><td><span class=ok>$version</span></td>";
 echo "</tr>";
 echo "<tr>";
-echo "<td width=\"24%\">" . $langmsg['home'][10] . "</td>\n";
-echo "<td width=\"24%\"><div class=success>$totalfilters</div></td>\n";
+echo "<td>" . $langmsg['home'][10] . "</td>\n";
+echo "<td><div class=ok>$totalfilters</div></td>\n";
 echo "<td>". $langmsg['home'][17] . "</td><td id=\"latestversion\">Checking for updates</td>";
 echo "</tr>";
 echo "<tr>";
-echo "<td width=\"24%\">" . $langmsg['home'][11] . "</td>\n";
-echo "<td width=\"24%\"><div class=success>$totalcats</div></td>\n";
+echo "<td>" . $langmsg['home'][11] . "</td>\n";
+echo "<td><div class=ok>$totalcats</div></td>\n";
 echo "<td colspan=\"2\" id=\"messagebox\"></td>";
 echo "</tr>";
 echo "<tr>";
-echo "<td width=\"24%\">" . $langmsg['home'][12] . "</td>\n";
-echo "<td width=\"24%\"><div class=success>$totaltemplates</div></td>\n";
+echo "<td>" . $langmsg['home'][12] . "</td>\n";
+echo "<td><div class=ok>$totaltemplates</div></td>\n";
 echo "</tr>";
 echo "<tr>";
-echo "<td width=\"24%\">" . $langmsg['home'][13] . "</td>\n";
-echo "<td width=\"24%\"><div class=success>$numaccess</div></td>\n";
+echo "<td>" . $langmsg['home'][13] . "</td>\n";
+echo "<td><div class=ok>$numaccess</div></td>\n";
 echo "<td><a href=\"?action=accesslogs\">" . $langmsg['home'][18] . "</a></td><td></td>";
 echo "</tr>";            
-echo "</table>\n</td></tr></table>";
+echo "</table>\n";
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 $_SESSION['beenalerted'] = (empty($_SESSION['beenalerted'])) ? '' : $_SESSION['beenalerted'];
 if($_SESSION['beenalerted'] == false){
 	$_SESSION['beenalerted'] = true;

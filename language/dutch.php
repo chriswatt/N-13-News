@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Netherlands / Dutch                     #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      Ronald                                  #
 #                                                       #
 #   Alle worden tussen deze{ } tekens,                  #
@@ -327,6 +327,8 @@ $langmsg['accounts'][22] = x("Je kan dit account niet verwijderen.");
 $langmsg['accounts'][23] = x("(Leeg laten om te behouden)");
 $langmsg['accounts'][24] = x("Een gebruikersnaam gebruikt dit email adres al, kies een andere.");
 $langmsg['accounts'][25] = x("Vul een gebruikersnaam in.");
+$langmsg['accounts'][26] = x("Archief");
+$langmsg['accounts'][27] = x("Afbeeldingen");
 
 #----ACCESS MODULE
 $langmsg['access'][0] = x("Toegangsniveaus");
@@ -402,6 +404,7 @@ $langmsg['filters'][3] = x("Alle woorden hieronder worden gefilterd");
 $langmsg['filters'][4] = x("Gefilterd woord");
 $langmsg['filters'][5] = x("Vervang door");
 $langmsg['filters'][6] = x("Verwijder");
+$langmsg['filters'][7] = x("Voeg een nieuw filter");
 
 #-----RSS MODULE
 $langmsg['rss'][0] = x("RSS Feeds");
@@ -793,6 +796,7 @@ $langmsg['js'][29] = x("Weet u zeker dat u de geselecteerde categorieën wilt ver
 $langmsg['js'][30] = x("Binnen halen van de smilies, even geduld.");
 $langmsg['js'][31] = x("Weet u zeker dat u de geselecteerde bestanden wilt verwijderen?");
 $langmsg['js'][32] = x("Weet u zeker dat u de geselecteerde smilies wilt verwijderen?");
+$langmsg['js'][33] = x("Weet u zeker dat u de geselecteerde filter (s) te verwijderen?");
 
 
 $langmsg['news'][0] = x("Geef een naam.");

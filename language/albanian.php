@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Albanian                                #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Ju nuk mund të fshini llogarinë tuaj.");
 $langmsg['accounts'][23] = x("(Lini bosh të mbajnë aktuale)");
 $langmsg['accounts'][24] = x("Një llogari është tashmë duke përdorur atë adresë e-mail, ju lutem zgjidhni një tjetër.");
 $langmsg['accounts'][25] = x("Ju lutem shkruani një emër llogari");
+$langmsg['accounts'][26] = x("Files");
+$langmsg['accounts'][27] = x("Images");
 
 $langmsg['access'][0] = x("Qasja Nivelet");
 $langmsg['access'][1] = x("Krijo një nivel të ri të aksesit.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Të gjitha fjalët më poshtë do të filtruara nga 
 $langmsg['filters'][4] = x("Word Filter");
 $langmsg['filters'][5] = x("Replace Me");
 $langmsg['filters'][6] = x("Fshij");
+$langmsg['filters'][7] = x("Shto një filtër të ri");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("RSS Edit tuaj feed settings poshtë");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("A jeni i sigurt se doni te fshini kategori të përzgjed
 $langmsg['js'][30] = x("Smilies Getting ... Ju lutem prisni.");
 $langmsg['js'][31] = x("A jeni i sigurt se doni te fshini file të zgjedhur (s)?");
 $langmsg['js'][32] = x("A jeni i sigurt se doni te fshini smilies zgjedhur?");
+$langmsg['js'][33] = x("A jeni i sigurt se doni te fshini filtër (t)?");
 
 $langmsg['news'][0] = x("Ju lutem shkruani një emër.");
 $langmsg['news'][1] = x("Ju lutem shkruani një mesazh.");

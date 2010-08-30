@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Slovenian		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Ne morete zbrisati svoj račun.");
 $langmsg['accounts'][23] = x("(Pustite prazno za ohranitev sedanjega)");
 $langmsg['accounts'][24] = x("Račun se že uporablja, da e-poštni naslov, izberite drugo.");
 $langmsg['accounts'][25] = x("Vnesite ime računa");
+$langmsg['accounts'][26] = x("Datoteke");
+$langmsg['accounts'][27] = x("Slike");
 
 $langmsg['access'][0] = x("Ravni dostopa");
 $langmsg['access'][1] = x("Ustvari novo raven dostopa.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Vse besede, spodaj bodo izločeni iz vseh komentarje
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Zamenjaj z");
 $langmsg['filters'][6] = x("Izbrisati");
+$langmsg['filters'][7] = x("Dodaj nov filter");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Uredite svoj RSS nastavitve spodaj");
@@ -766,6 +769,7 @@ $langmsg['js'][29] = x("Ali ste prepričani, da želite izbrisati izbrane katego
 $langmsg['js'][30] = x("Getting smilies ... Prosimo, počakajte.");
 $langmsg['js'][31] = x("Ali ste prepričani, da želite izbrisati izbrano datoteko (e)?");
 $langmsg['js'][32] = x("Ali ste prepričani, da želite izbrisati izbrane smilies?");
+$langmsg['js'][33] = x("Ali ste prepričani, da želite izbrisati izbrani filter (s)?");
 
 $langmsg['news'][0] = x("Prosimo, vnesite ime.");
 $langmsg['news'][1] = x("Prosimo, vnesite sporočilo.");

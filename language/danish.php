@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Danish                                  #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Du kan ikke slette din egen konto.");
 $langmsg['accounts'][23] = x("(Leave blank for at holde nuværende)");
 $langmsg['accounts'][24] = x("En konto er allerede ved hjælp af denne e-mail-adresse, skal du vælge en anden.");
 $langmsg['accounts'][25] = x("Angiv et kontonavn");
+$langmsg['accounts'][26] = x("Filer");
+$langmsg['accounts'][27] = x("Billeder");
 
 $langmsg['access'][0] = x("Adgang Niveauer");
 $langmsg['access'][1] = x("Opret en ny adgang niveau.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Alle ord nedenfor, vil blive filtreret fra alle komm
 $langmsg['filters'][4] = x("Filtreret Word");
 $langmsg['filters'][5] = x("Erstat Med");
 $langmsg['filters'][6] = x("Slet");
+$langmsg['filters'][7] = x("Tilføj et nyt filter");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Rediger dine RSS-feed indstillinger nedenfor");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Er du sikker på du vil slette de valgte kategorier?");
 $langmsg['js'][30] = x("Kom smilies ... Vent venligst.");
 $langmsg['js'][31] = x("Er du sikker på du vil slette den valgte fil (er)?");
 $langmsg['js'][32] = x("Er du sikker på du vil slette de valgte smilies?");
+$langmsg['js'][33] = x("Er du sikker på du vil slette den valgte filter (r)?");
 
 $langmsg['news'][0] = x("Angiv et navn.");
 $langmsg['news'][1] = x("Indtast en besked.");

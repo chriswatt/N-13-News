@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    French                                  #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -326,6 +326,8 @@ $langmsg['accounts'][22] = x("Vous ne pouvez pas supprimer votre propre compte."
 $langmsg['accounts'][23] = x("(Laissez vide pour se tenir au courant)");
 $langmsg['accounts'][24] = x("Un compte est déjà utiliser cette adresse e-mail, s'il vous plaît choisir un autre.");
 $langmsg['accounts'][25] = x("S'il vous plaît entrer un nom de compte");
+$langmsg['accounts'][26] = x("Fichiers");
+$langmsg['accounts'][27] = x("Images");
 
 
 $langmsg['access'][0] = x("Niveaux d'accès");
@@ -401,6 +403,7 @@ $langmsg['filters'][3] = x("Tous les mots ci-dessous seront filtrées à partir de
 $langmsg['filters'][4] = x("Filtré Word");
 $langmsg['filters'][5] = x("Remplacer");
 $langmsg['filters'][6] = x("Supprimer");
+$langmsg['filters'][7] = x("Ajouter un nouveau filtre");
 
 
 $langmsg['rss'][0] = x("Fils RSS");
@@ -792,6 +795,7 @@ $langmsg['js'][29] = x("Etes-vous sûr de vouloir supprimer les catégories sélect
 $langmsg['js'][30] = x("Obtenir les smiles ... S'il vous plaît attendre.");
 $langmsg['js'][31] = x("Etes-vous sûr de vouloir supprimer le fichier sélectionné (s)?");
 $langmsg['js'][32] = x("Etes-vous sûr de vouloir supprimer les smileys sélectionnés?");
+$langmsg['js'][33] = x("Etes-vous sûr de vouloir supprimer le filtre sélectionné (s)?");
 
 
 $langmsg['news'][0] = x("S'il vous plaît entrer un nom.");

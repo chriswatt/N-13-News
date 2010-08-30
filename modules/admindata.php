@@ -19,117 +19,117 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-$noaccessmsg = "<br />" . NOACCESSMSG . "</div>";
+$noaccessmsg = "<br />" . NOACCESSMSG . "";
 if(isloggedin()){
     if(!$_GET['action']){
-        include 'modules/home.php';          
+        require_once('modules/home.php');         
 	}elseif($_GET['action'] == "addnews"){
     	if(getaccess("news")){
-    		include 'modules/addnews.php';
+    		require_once( 'modules/addnews.php');
     	}else{
     		echo "<span class=header>".$langmsg['admindata'][1]."</span>";
     		echo $noaccessmsg;
     	}
     }elseif($_GET['action'] == "private"){
     	if(getaccess("privatemsgs")){			
-    		include 'modules/private.php';
+    		require_once('modules/private.php');
     	}else{
     		echo "<span class=header>".$langmsg['admindata'][2]."</span>";
     		echo $noaccessmsg;
     	}	
     }elseif($_GET['action'] == "editnews"){
     	if(getaccess("news")){
-    		include 'modules/editnews.php';		
+    		require_once('modules/editnews.php');		
     	}else{
     		echo "<span class=header>".$langmsg['admindata'][3]."</span>";
     		echo $noaccessmsg;
     	}
     }elseif($_GET['action'] == "editcomments"){
     	if(getaccess("comments")){
-    		include 'modules/editcomments.php';
+    		require_once( 'modules/editcomments.php');
     	}else{
     		echo "<span class=header>".$langmsg['admindata'][4]."</span>";
     		echo $noaccessmsg;
     	}
     }elseif($_GET['action'] == "accesslogs"){
-    	include 'modules/modaccesslog.php';        
+    	require_once( 'modules/modaccesslog.php');        
     }elseif($_GET['action'] == "options"){
-        echo "<span class=header>".$langmsg['options'][0]."</span>";
+        #echo "<span class=header>".$langmsg['options'][0]."</span>";
     		if($_GET['mod'] == "rss"){
     			if(getaccess("rss")){
-    				include 'modules/modrss.php';	   	
+    				require_once( 'modules/modrss.php');	   	
     			}else{				 
     				echo $noaccessmsg;
     			}
     		}elseif($_GET['mod'] == "access"){
     			if(getaccess("accesslevels")){	
-    				include 'modules/modaccess.php';
+    				require_once( 'modules/modaccess.php');
     			}else{
     			 	echo $noaccessmsg;
     			}            
     		}elseif($_GET['mod'] == "profile"){
     			if(getaccess("profile")){
-    				include 'modules/modprofile.php';
+    				require_once( 'modules/modprofile.php');
     			}else{
     				echo $noaccessmsg;
     			}		
     		}elseif($_GET['mod'] == "template"){
     			if(getaccess("templates")){	
-    				include 'modules/modtemplate.php';
+    				require_once( 'modules/modtemplate.php');
     			}else{
     			 	echo $noaccessmsg;
     			}              
     		}elseif($_GET['mod'] == "system"){
     			if(getaccess("sysconfig")){	
-    				include 'modules/modsystem.php';
+    				require_once( 'modules/modsystem.php');
     			}else{
     			 	echo $noaccessmsg;
     			}
     		}elseif($_GET['mod'] == "banned"){
     			if(getaccess("bannedips")){
-    				include 'modules/modbanned.php';
+    				require_once( 'modules/modbanned.php');
     			}else{
     			 	echo $noaccessmsg;
     			}
     		}elseif($_GET['mod'] == "categories"){
     			if(getaccess("newscats")){
-    				include 'modules/modcategories.php';
+    				require_once( 'modules/modcategories.php');
     			}else{
     			 	echo $noaccessmsg;
     			}	
     		}elseif($_GET['mod'] == "accounts"){
     			if(getaccess("accounts")){
-    				include 'modules/modaccounts.php';
+    				require_once( 'modules/modaccounts.php');
     			}else{
     			 	echo $noaccessmsg;
     			}
     		}elseif($_GET['mod'] == "filter"){
     			if(getaccess("wordfilters")){
-    				include 'modules/modfilter.php';
+    				require_once( 'modules/modfilter.php');
     			}else{
     			 	echo $noaccessmsg;
     			}
     		}elseif($_GET['mod'] == "personal"){
     			if(getaccess("personaloptions")){
-    				include 'modules/modpersonal.php';
+    				require_once( 'modules/modpersonal.php');
     			}else{
     				echo $noaccessmsg;
     			}
     		}elseif($_GET['mod'] == "smilies"){
     			if(getaccess("smilies")){
-    				include 'modules/modsmilies.php';
+    				require_once( 'modules/modsmilies.php');
     			}else{
     			 	echo $noaccessmsg;
     			}
     		}elseif($_GET['mod'] == "imageuploads"){
     			if(getaccess("imageuploads")){
-    				include 'modules/modimageuploads.php';
+    				require_once( 'modules/modimageuploads.php');
     			}else{
     				echo $noaccessmsg;
     			}
     		}elseif($_GET['mod'] == "fileuploads"){
     			if(getaccess("fileuploads")){
-    				include 'modules/modfileuploads.php';
+    				require_once( 'modules/modfileuploads.php');
     			}else{
     				echo $noaccessmsg;
     			}
@@ -143,9 +143,9 @@ if(isloggedin()){
 	if($_GET['action'] == "logout"){
 		echo "Logged out<br><br>";
 	}elseif($_GET['action'] == "recoverpass"){
-		include 'modules/recoverpassword.php';
+		require_once( 'modules/recoverpassword.php');
 	}else{
-		include 'modules/login.php';
+		require_once( 'modules/login.php');
 	}
 }
 ?>

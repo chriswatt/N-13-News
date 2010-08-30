@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Malay			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Anda tidak boleh memadam akaun anda sendiri.");
 $langmsg['accounts'][23] = x("(Biarkan kosong untuk tetap sekarang)");
 $langmsg['accounts'][24] = x("Account sudah menggunakan alamat email, silakan pilih yang lain.");
 $langmsg['accounts'][25] = x("Sila masukkan nama akaun");
+$langmsg['accounts'][26] = x("Gambar");
+$langmsg['accounts'][27] = x("Foto");
 
 $langmsg['access'][0] = x("Tingkat akses");
 $langmsg['access'][1] = x("Membuat tingkat akses baru.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Semua Perkataan di bawah ini akan disaring daripada 
 $langmsg['filters'][4] = x("Disaring Word");
 $langmsg['filters'][5] = x("TUKAR Dengan");
 $langmsg['filters'][6] = x("Menghapus");
+$langmsg['filters'][7] = x("Tambah penapis baru");
 
 $langmsg['rss'][0] = x("RSS Feed");
 $langmsg['rss'][1] = x("RSS feed Edit tatacara di bawah ini");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Adakah anda pasti hendak memadam kategori yang dipilih?"
 $langmsg['js'][30] = x("Mendapatkan smilies ... Sila tunggu.");
 $langmsg['js'][31] = x("Adakah anda pasti hendak memadam fail yang dipilih (s)?");
 $langmsg['js'][32] = x("Apakah anda yakin ingin memadam smilies yang dipilih?");
+$langmsg['js'][33] = x("Adakah anda pasti hendak memadam penapis yang dipilih (s)?");
 
 $langmsg['news'][0] = x("Sila masukkan sebuah nama.");
 $langmsg['news'][1] = x("Sila masukkan mesej.");

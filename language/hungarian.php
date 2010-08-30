@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Hungarian		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Nem törölheti a saját fiókjába.");
 $langmsg['accounts'][23] = x("(Hagyja üresen, hogy naprakész)");
 $langmsg['accounts'][24] = x("Számla már használja az e-mail címét, válasszon egy másik.");
 $langmsg['accounts'][25] = x("Kérjük, adja meg a fiók nevét");
+$langmsg['accounts'][26] = x("Kép");
+$langmsg['accounts'][27] = x("Képek");
 
 $langmsg['access'][0] = x("Hozzáférési szintek");
 $langmsg['access'][1] = x("Hozzon létre egy új hozzáférési szintet.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Minden szó az alábbiakban kerül szűrni minden ma
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Helyettesíteni");
 $langmsg['filters'][6] = x("Töröl");
+$langmsg['filters'][7] = x("Új szűrő");
 
 $langmsg['rss'][0] = x("RSS-hírcsatornák");
 $langmsg['rss'][1] = x("Szerkesztheti RSS feed alábbi beállítások");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Biztos benne, hogy törli a kiválasztott kategóriák?"
 $langmsg['js'][30] = x("Getting smilies ... Kérem, várjon.");
 $langmsg['js'][31] = x("Biztos benne, hogy törli a kijelölt fájl (ok)?");
 $langmsg['js'][32] = x("Biztos benne, hogy törölni kívánja a kiválasztott Smilies?");
+$langmsg['js'][33] = x("Biztos benne, hogy törölni szeretné a kiválasztott szűrő (k)?");
 
 $langmsg['news'][0] = x("Adjon meg egy nevet.");
 $langmsg['news'][1] = x("Írjon be egy üzenetet.");

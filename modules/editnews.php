@@ -19,17 +19,23 @@
 
 if (!defined('ABSPATH')){ die(); }
 
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+
 echo "<span class=header>".$langmsg['editnews'][0]."</span>";
 $_GET['archives'] = (empty($_GET['archives'])) ? '' : $_GET['archives'];
 if($_GET['archives']){
 	echo "<span class=\"header\">" . $langmsg['menu'][2] . "</span>";
 }
-echo "</span></div>";
+
 echo "<table width=\"685px\"><tr>";
 $_GET['id'] = (empty($_GET['id'])) ? '' : $_GET['id'];
 if(!$_GET['id']){
-	echo "<td width=\"17%\" align=center valign=top><br />";
-	echo "<img src=\"images/news_1.png\" alt=\"Edit News\"></td><td>";
+	
 }
 $_GET['added'] = (empty($_GET['added'])) ? '' : $_GET['added'];
 if($_GET['added'] == "true"){
@@ -200,4 +206,7 @@ echo "document.getElementById('showcats_' + newposts[num]).style.display = ''; "
 echo "} ";
 echo "}";
 echo "</script>";
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

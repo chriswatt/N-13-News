@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Turkish                                  #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -81,6 +81,7 @@ $langmsg['home'][17] = x("Son versiyon:");
 $langmsg['home'][18] = x("Giris kayitlarini incele");
 $langmsg['home'][19] = x("Sorgu süresi:");
 $langmsg['home'][20] = x("Okunmamis mesajlar");
+$langmsg['home'][21] = x("otomatik olarak bu dizini silmek deneyin?");
 $langmsg['home'][22] = x(" Bu dosyay? otomatik olarak silmeyi dene?");
 $langmsg['home'][22] = x("saniye");
 $langmsg['home'][23] = x("Toplam Resim");
@@ -328,6 +329,8 @@ $langmsg['accounts'][22] = x("Kendi hesabinizi silemezsiniz.");
 $langmsg['accounts'][23] = x("(Ayni kalmasini istiyorsaniz bos birakin)");
 $langmsg['accounts'][24] = x("Bir hesap bu eposta adresini kullaniyor. Lütfen farkli bir eposta adresi ile deneyiniz.");
 $langmsg['accounts'][25] = x("Lütfen bir hesap adi giriniz");
+$langmsg['accounts'][26] = x("Dosyalar");
+$langmsg['accounts'][27] = x("Görüntüler");
 
 #----ACCESS MODULE
 $langmsg['access'][0] = x("Giris Seviyeleri");
@@ -403,6 +406,7 @@ $langmsg['filters'][3] = x("Asagidaki tüm kelimeler tüm yorumlarda filtrelenecek
 $langmsg['filters'][4] = x("Filtrelenen Kelime");
 $langmsg['filters'][5] = x("Sununla Degistir");
 $langmsg['filters'][6] = x("Sil");
+$langmsg['filters'][7] = x("Yeni bir filtre ekleyin");
 
 #-----RSS MODULE
 $langmsg['rss'][0] = x("RSS Beslemeleri");
@@ -795,6 +799,7 @@ $langmsg['js'][29] = x("Seçili kategorileri silmek istedi?inize emin misiniz?");
 $langmsg['js'][30] = x("?fadeler yükleniyor... Lütfen bekleyiniz.");
 $langmsg['js'][31] = x("Seçili dosyalar? silmek istedi?inize emin misiniz?");
 $langmsg['js'][32] = x("Seçili ifadeleri silmek istedi?inize emin misiniz?");
+$langmsg['js'][33] = x("Are sen) seçilen filtre (s silmek istediginizden emin misiniz?");
 
 #-----NEWS
 $langmsg['news'][0] = x("Lütfen bir isim yaziniz.");

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Chinese Traditional                     #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -327,6 +327,8 @@ $langmsg['accounts'][22] = x("您不能刪除自己的帳戶。");
 $langmsg['accounts'][23] = x("（保留空白以維持電流）");
 $langmsg['accounts'][24] = x("一個帳戶已經在使用該電子郵件地址，請選擇另一個。");
 $langmsg['accounts'][25] = x("請輸入一個帳戶名");
+$langmsg['accounts'][26] = x("檔");
+$langmsg['accounts'][27] = x("圖片");
 
 
 $langmsg['access'][0] = x("訪問級別");
@@ -402,6 +404,7 @@ $langmsg['filters'][3] = x("所有的話下面會過濾掉所有評論。");
 $langmsg['filters'][4] = x("篩選字");
 $langmsg['filters'][5] = x("替換為");
 $langmsg['filters'][6] = x("刪除");
+$langmsg['filters'][7] = x("添加新的過濾器");
 
 
 $langmsg['rss'][0] = x("RSS訂閱");
@@ -793,6 +796,7 @@ $langmsg['js'][29] = x("您確定要刪除選定的類別？");
 $langmsg['js'][30] = x("使用表情符號...請稍候。");
 $langmsg['js'][31] = x("您確定要刪除選定的文件（擰）？");
 $langmsg['js'][32] = x("您確定要刪除選定的笑臉？");
+$langmsg['js'][33] = x("你確定要刪除選定的過濾器（縣）？");
 
 
 $langmsg['news'][0] = x("請輸入一個名稱。");

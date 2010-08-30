@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Portuguese                              #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -327,6 +327,8 @@ $langmsg['accounts'][22] = x("Você não pode apagar a sua própria conta.");
 $langmsg['accounts'][23] = x("(Deixe em branco para manter actualizada)");
 $langmsg['accounts'][24] = x("Um cliente já está usando esse email address, escolhe por favor outro.");
 $langmsg['accounts'][25] = x("Dê entrada com por favor um nome do cliente");
+$langmsg['accounts'][26] = x("Arquivos");
+$langmsg['accounts'][27] = x("Imagens");
 
 #----ACCESS MODULE
 $langmsg['access'][0] = x("Níveis de Acesso");
@@ -402,6 +404,7 @@ $langmsg['filters'][3] = x("Todas as palavras abaixo serão filtradas de todos os
 $langmsg['filters'][4] = x("Palavra filtrada");
 $langmsg['filters'][5] = x("Substituir com");
 $langmsg['filters'][6] = x("Apagar");
+$langmsg['filters'][7] = x("Adicionar um novo filtro");
 
 #-----RSS MODULE
 $langmsg['rss'][0] = x("RSS");
@@ -793,6 +796,7 @@ $langmsg['js'][29] = x("É você certo você quer suprimir das categorias seleciona
 $langmsg['js'][30] = x("Começ smilies… Espere por favor.");
 $langmsg['js'][31] = x("É você certo você quer suprimir das limas selecionadas?");
 $langmsg['js'][32] = x("É você certo você quer suprimir dos smilies selecionados?");
+$langmsg['js'][33] = x("Tem certeza que quer apagar o filtro selecionado (s)?");
 
 
 $langmsg['news'][0] = x("Por favor, digite um nome.");

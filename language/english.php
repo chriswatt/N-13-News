@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    English                                 #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -399,11 +399,12 @@ $langmsg['accesslogs'][7] = x("Usuccessful");
 #-----FILTERS MODULE
 $langmsg['filters'][0] = x("Word Filters");
 $langmsg['filters'][1] = x("Filter added.");
-$langmsg['filters'][2] = x("Filter removed.");
+$langmsg['filters'][2] = x("Filters removed.");
 $langmsg['filters'][3] = x("All words below will be filtered from all comments.");
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Replace With");
 $langmsg['filters'][6] = x("Delete");
+$langmsg['filters'][7] = x("Add a new filter");
 
 #-----RSS MODULE
 $langmsg['rss'][0] = x("RSS Feeds");
@@ -797,6 +798,7 @@ $langmsg['js'][29] = x("Are you sure you want to delete the selected categories?
 $langmsg['js'][30] = x("Getting smilies... Please wait.");
 $langmsg['js'][31] = x("Are you sure you want to delete the selected file(s)?");
 $langmsg['js'][32] = x("Are you sure you want to delete the selected smilies?");
+$langmsg['js'][33] = x("Are you sure you want to delete the selected filter(s)?");
 
 #-----NEWS
 $langmsg['news'][0] = x("Please enter a name.");

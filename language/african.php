@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Afrikaans                               #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Jy kan jou eie rekening te verwyder nie.");
 $langmsg['accounts'][23] = x("(Leë Laat te hou huidige)");
 $langmsg['accounts'][24] = x("'N rekening is reeds gebruik maak van die e-pos adres, kies' n ander.");
 $langmsg['accounts'][25] = x("Gee 'n rekening naam");
+$langmsg['accounts'][26] = x("Lêers");
+$langmsg['accounts'][27] = x("Foto's");
 
 $langmsg['access'][0] = x("Toegang Vlakke");
 $langmsg['access'][1] = x("Skep 'n nuwe toegang vlak.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Alle woorde hieronder sal uit alle kommentaar gefilt
 $langmsg['filters'][4] = x("Gefiltreer Woord");
 $langmsg['filters'][5] = x("Vervang Met");
 $langmsg['filters'][6] = x("Skrap");
+$langmsg['filters'][7] = x("Voeg 'n nuwe filter");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Verander jou RSS feed instellings hieronder");
@@ -766,6 +769,7 @@ $langmsg['js'][29] = x("Is jy seker jy wil verwyder die geselekteerde kategorie�
 $langmsg['js'][30] = x("Aan die smilies ... Please wait.");
 $langmsg['js'][31] = x("Is jy seker jy wil verwyder die geselekteerde lêer (s)?");
 $langmsg['js'][32] = x("Is jy seker jy wil verwyder die geselekteerde smileys?");
+$langmsg['js'][33] = x("Is jy seker jy wil die gekose filter (s te verwyder)?");
 
 $langmsg['news'][0] = x("Gee 'n naam.");
 $langmsg['news'][1] = x("Gee 'n boodskap.");

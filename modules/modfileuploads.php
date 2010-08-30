@@ -19,10 +19,17 @@
 
 if (!defined('ABSPATH')){ die(); }
 
+
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
 $uploaddir = $imageuploaddir;
 $currentpath = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $currentpath = "http://" . $currentpath;
-echo "<span class=header>".$langmsg['uploadedfiles'][0]."</span></div><table width=\"685px\"><tr><td align=\"center\" valign=top width=\"17%\"><img src=\"images/fileuploads.png\" /></td><br />";        
+echo "<table width=\"100%\"><tr>";        
 echo "<td valign=top align=top>";
 	
 $_GET['file']			= (empty($_GET['file'])) ? '' : $_GET['file'];
@@ -100,13 +107,19 @@ global $uploaddir, $currentpath, $langmsg;
 		$url		= $x[0] . $uploaddir;
 		$filename	= str_replace($url,"",$all['url']);
 		$title		= $all['title'];
-		echo "<div class=\"panel\">".$langmsg['uploadedfiles'][14]. "</div>";
-		echo "<br /><table width=\"100%\">";
-		echo "<tr><td>".$langmsg['uploadedfiles'][12] . "</td><td><span class=\"success\">$filename</span></td></tr>";
+		echo "<div class=\"subheaders\">".$langmsg['uploadedfiles'][14]. "</div>";
+		echo "<div class=\"subheaders_body displaytable\"><table width=\"100%\">";
+		echo "<form action=\"\" method=\"POST\">\n";
+		echo "<tr><td>".$langmsg['uploadedfiles'][12] . "</td><td><span class=\"ok\">$filename</span></td></tr>";
+		echo "<tr><td valign=top>";
+		echo $langmsg['uploadedfiles'][23];
+		echo "<td>";
+		echo "<input type=\"text\" value=\"$title\" name=\"file_title\" style=\"width: 300px\" />";	
+		echo "</td>";
 		echo "<tr><td valign=top width=\"120\">";
 		echo $langmsg['uploadedfiles'][13];
 		echo "</td><td valign=top>";
-		echo "<form action=\"\" method=\"POST\">\n";
+		
 		
 		$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);
 		$allowedcats = $allowedcats['0']['cats'];
@@ -145,18 +158,15 @@ global $uploaddir, $currentpath, $langmsg;
 		echo "</td></tr>";
 		#echo "<tr><td>".$langmsg['uploadedfiles'][15]."</td><td><input type=\"text\" name=\"image_title\" value=\"$title\" style=\"width: 300px\" /></td></tr>";
 		#echo "<tr><td valign=top>".$langmsg['uploadedfiles'][16]."</td><td><textarea name=\"image_description\" style=\"height: 150px; width: 400px\">$description</textarea></td></tr>";	
-		echo "<tr><td valign=top>";
-		echo $langmsg['uploadedfiles'][23];
-		echo "<td>";
-		echo "<input type=\"text\" value=\"$title\" name=\"file_title\" style=\"width: 300px\" />";	
-		echo "</td>";
 		echo "<tr><td>".$langmsg['uploadedfiles'][31]."</td><td><input style=\"margin-left: 1px;\" type=\"checkbox\" name=\"resetdownloads\" /></td></tr>";
+
+		
 		echo "</tr>";
 		echo "<td>";
 		echo "<tr><td></td><td><input type=\"submit\" name=\"S1\" value=\"".$langmsg['uploadedfiles'][17]. "\"><br />\n";
 		echo "</form>";
 		echo "</td></tr>";
-		echo "</table>";
+		echo "</table></div>";
 	}else{
 		echo $langmsg['uploadedfiles'][18];
 	}
@@ -165,8 +175,8 @@ global $uploaddir, $currentpath, $langmsg;
 function fileuploadform(){
 	global $langmsg;
 
-	echo "<div class=\"panel\">".$langmsg['uploadedfiles'][1]."</div>";
-	echo "<br /><table width=\"100%\"><tr><td valign=top width=\"120\">";
+	echo "<div class=\"subheaders\">".$langmsg['uploadedfiles'][1]."</div>";
+	echo "<div class=\"subheaders_body displaytable\"><table width=\"100%\"><tr><td valign=top width=\"120\">";
 	echo $langmsg['uploadedfiles'][13];
 	echo "</td><td valign=top>";
 	echo "<form enctype=\"multipart/form-data\" action=\"\" method=\"POST\">\n";
@@ -206,6 +216,7 @@ function fileuploadform(){
 	echo "</form>";
 	echo "</td></tr>";
 	echo "</table>";
+	echo "</div>";
 }
 
 $uploaddir = $imageuploaddir;
@@ -237,11 +248,11 @@ if(!$_GET['fileuid']){
 
 				#check if a file already exists with that name
 				if(file_exists($uploaddir . $filename)){
-					echo " " . $filename . " - <span class=\"error\">" . $langmsg['uploadedfiles'][30]."</span><br />";
+					echo " <span class=\"error\">" . $filename . " - " . $langmsg['uploadedfiles'][30]."</span>";
 				}elseif(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 					$filesize		= filesize($uploaddir . $filename);
 					$filesize		= ($filesize / 1000);
-					echo " " . $filename . " - <span class=\"success\">" . $langmsg['uploadedfiles'][6]."</span><br />";
+					echo " <span class=\"success\">" . $filename . " - " . $langmsg['uploadedfiles'][6]."</span>";
 					$title			= $_POST['file_title'];
 					$file			= basename($filename);
 					$uploader		= $_SESSION['uid'];
@@ -258,10 +269,10 @@ if(!$_GET['fileuid']){
 						}
 					}
 				}else{
-					echo " " . $filename . " - <span class=\"leftnavmain error\">".  $langmsg['uploadedfiles'][7]."</span><br />";
+					echo " <span class=\"leftnavmain error\">" . $filename . " - ".  $langmsg['uploadedfiles'][7]."</span>";
 				}
 			}else{
-				echo " " . $filename ." - <span class=\"leftnavmain error\">" . $langmsg['uploadedfiles'][8]."</span><br />";
+				echo " <span class=\"leftnavmain error\">" . $filename ." - " . $langmsg['uploadedfiles'][8]."</span>";
 			}
 			$j++;
 			$e++;
@@ -280,6 +291,7 @@ if(!$_GET['fileuid']){
 			DataAccess::put("UPDATE " . NEWS_FILES . " SET downloadcount = ? WHERE uid = ?", "0", $fileuid);
 		}
 		DataAccess::put("DELETE FROM " . NEWS_GROUPCATS . " WHERE type = ? AND storyid = ?", "file", $fileuid);
+		$_POST['cats'] = (empty($_POST['cats'])) ? array() : $_POST['cats'];
 		if(count($_POST['cats']) !== 0){		
 			foreach($_POST['cats'] as $catuid){
 				$type = 'file';
@@ -330,11 +342,11 @@ foreach($allcats AS $row){
 }
 
 echo "</select></span>";
-echo $langmsg['uploadedfiles'][21];
+
 echo "</div>";
 echo "<hr />";
 echo "<form method=\"post\" id=\"fileform\" name=\"fileform\" action=\"?action=options&mod=fileuploads\">";
-
+echo "<br />";
 $catid = $_GET['catid'];
 #check if the default cat exists
 $b = 1;
@@ -342,8 +354,8 @@ $dir = $uploaddir;
 $cc = 0;
 $groupcats = DataAccess::fetch("SELECT * FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = ?", $catid, "file");
 
-$accessdata = unserialize($_SESSION['accessdata']);
-if($accessdata['0']['fileimages'] == "1"){
+$accessdatax = unserialize($_SESSION['accessdata']);
+if($accessdatax['0']['fileimages'] == "1"){
 	$restrict = '';
 }else{
 	$restrict = "AND author = '" . $_SESSION['uid'] . "'";
@@ -380,6 +392,7 @@ if(!$catid){
 	if($y){
 		$y = "WHERE " . $y;
 	}
+	if(!$y){ $restrict = str_replace("AND", "WHERE", $restrict); }
 	$sql = "SELECT * FROM " . NEWS_FILES . " $y $restrict ORDER BY uid DESC";
 	$allfiles = DataAccess::fetch($sql);
 }elseif($catid == "-1"){
@@ -389,6 +402,7 @@ if(!$catid){
 	$sql	= "SELECT * FROM " . NEWS_FILES . " WHERE uid NOT IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE type = 'file') $restrict ";		
 	$sql	.= " UNION ";		
 	#now grab all iamges that are assigned to cats and join them
+	$restrict = str_replace("AND", "WHERE", $restrict);
 	$sql	.= " SELECT * FROM " . NEWS_FILES . " " . $hh . " $restrict ORDER BY uid DESC";		
 	#echo $sql;				
 	$allfiles = DataAccess::fetch($sql);
@@ -403,9 +417,8 @@ if(!$catid){
 }
 
 
-
 echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
-echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">".$langmsg['uploadedfiles'][33]."</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">" . $langmsg['uploadedfiles'][34] . "</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td><input onclick=\"selectall()\" id=\"allcheck\" type=\"checkbox\"></td></tr>";
+echo "<tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][33]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">" . $langmsg['uploadedfiles'][34] . "</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td class=\"tableshead\"><input onclick=\"selectall()\" id=\"allcheck\" type=\"checkbox\"></td></tr>";
 
 $d = 1;
 $tmpcolor = 1;
@@ -437,7 +450,7 @@ if(count($allfiles) > 0){
 			}
 			$filesize = round($row['filesize'],1) . " KB";
 			$uploaded = date("j-m-y",$row['timestamp']);
-		echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td><a href=\"?action=options&mod=fileuploads&catid=" . $_GET['catid'] . "&view=" . $_GET['view'] . "&fileuid=" . $row['uid'] . "\">$file</a></td><td>$filename</td><td>$row[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" name=\"selectedfiles[]\"></td></tr>";
+		echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=fileuploads&catid=" . $_GET['catid'] . "&view=" . $_GET['view'] . "&fileuid=" . $row['uid'] . "\"><img alt=\"Edit\" title=\"Edit\" src=\"images/icons/pencil.png\" /></a></a></td><td class=\"tablebody tablerightborder\">$file</td><td class=\"tablebody tablerightborder\">$filename</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\">$row[downloadcount]<td style=\"text-align: right\" class=\"tablebody tablerightborder\">$filesize</td><td class=\"tablebody tablerightborder\">$uploaded</td><td class=\"tablebody tablerightborder\">$uploader</td><td class=\"tablebody\"><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" name=\"selectedfiles[]\"></td></tr>";
 		$d++;
 	}
 }
@@ -470,4 +483,6 @@ foreach($groupcats AS $row){
 echo "</select>";
 echo "&nbsp;<input type=\"button\" name=\"fileforms1\" onclick=\"deletefiles()\" value=\"".$langmsg['submitfield'][0]."\" /></div></form>";
 echo "</td></tr></table>";
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

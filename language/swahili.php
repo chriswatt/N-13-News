@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Swahili			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Huwezi kufuta akaunti yako mwenyewe.");
 $langmsg['accounts'][23] = x("(Leave blank kushika sasa)");
 $langmsg['accounts'][24] = x("Akaunti tayari kutumia anwani ya barua pepe, tafadhali kuchagua mwingine.");
 $langmsg['accounts'][25] = x("Tafadhali ingiza jina akaunti");
+$langmsg['accounts'][26] = x("Files");
+$langmsg['accounts'][27] = x("Picha");
 
 $langmsg['access'][0] = x("Access Levels");
 $langmsg['access'][1] = x("Create a new kufikia kiwango.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Maneno yote itakuwa chini Filtered kutoka kila comme
 $langmsg['filters'][4] = x("Filtered Neno");
 $langmsg['filters'][5] = x("Replace Kwa");
 $langmsg['filters'][6] = x("Futa");
+$langmsg['filters'][7] = x("Kuongeza filter mwezi");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Edit your RSS feed settings chini");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Una uhakika unataka kufuta categories ya kuchaguliwa?");
 $langmsg['js'][30] = x("Kupotea smilies ... Please wait.");
 $langmsg['js'][31] = x("Una uhakika unataka kufuta ya selected file (s)?");
 $langmsg['js'][32] = x("Una uhakika unataka kufuta smilies ya kuchaguliwa?");
+$langmsg['js'][33] = x("Una uhakika unataka kufuta filter ut (s)?");
 
 $langmsg['news'][0] = x("Tafadhali ingiza jina.");
 $langmsg['news'][1] = x("Tafadhali ingiza ujumbe.");

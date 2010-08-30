@@ -60,6 +60,33 @@ function resizeimg($str,$caption,$oldformat){
 	}
 }
 
+function resizeimg2($img){
+	require_once(ABSPATH . '/simple_html_dom.php');
+	// $html = str_get_html('<img alt="Image" src="http://dev.network-13.com/news/uploads/34ui9ry3498r34dd_pen.jpg" style="width: 205px; height: 153px;" title="Image" />');
+
+	$img = stripslashes($img);
+	$img = "<img" . $img . " />";
+	
+	$img2 = str_get_html($img);
+	$final = array();
+	foreach($img2->find('img') as $element){
+		$style	= explode(";", $element->style);
+		$title	= $element->title;
+		$alt	= $element->alt;
+		$src	= $element->src;
+		foreach($style AS $styles){
+			$attribs = explode(":", $styles);
+			if(trim($attribs['0']) == "height"){
+				$final['height'] = str_replace("px", "", trim($attribs['1']));
+			}
+			if(trim($attribs['0']) == "width"){
+				$final['width'] = str_replace("px", "", trim($attribs['1']));
+			}
+		}
+	}
+	return $alt;
+}
+
 #on-the-fly links
 function linkfy($str){
 	$d = explode("\n",$str);
@@ -75,6 +102,10 @@ function linkfy($str){
 function bb2html($str,$usehtml = '1', $style) {
 
 	if($style == "0"){
+		$match = array('#\<img(.*?)\/\>#se');
+		$replace = array("'' . resizeimg2('$1') . ''");
+		$str = preg_replace($match, $replace, $str);    
+		
 		return $str;
 	}else{
 		global $langmsg, $smilies, $image_clickable;

@@ -19,9 +19,17 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['system'][0]."</span></div><br />";
-echo "<table width=\"685px\"><td width=\"17%\" align=center valign=top><img src=\"images/news_10.png\" alt=\"System Configuration\"></td><td>";
-echo "<div class=panel>".$langmsg['system'][1]."</div><br />";
+echo "<style>.subheaders { margin-top: 10px; } #headerBox { margin-bottom: 0px; }</style>";
+
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+echo "<div id=\"headerBox\">".$langmsg['system'][0] . "</div>";
+
+echo "<table width=\"512px\"><tr><td>";
 
 echo "<style>table { text-align: left; } </style>";
 
@@ -75,8 +83,8 @@ function systemsettingsform(){
 	
 
 	// comments
-	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('comments')\">" . $langmsg['system'][11] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_comments\" style=\"display: none; width: 548px\">";
+	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('comments')\">" . $langmsg['system'][11] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_comments\" style=\"display: none; width: 518px\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 
 	echo "  <tr class=\"\">\n";
@@ -167,8 +175,8 @@ function systemsettingsform(){
 	
 	// friendly urls
 
-	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('friendlyurls')\">" . $langmsg['system'][23] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_friendlyurls\" style=\"display: none; width: 548px\">";
+	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('friendlyurls')\">" . $langmsg['system'][23] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_friendlyurls\" style=\"display: none; width: 518px\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	
 	echo "<tr class=\"\"><td>".$langmsg['system'][24]."</td><td><select name=\"furlenabled\"><option ";
@@ -184,8 +192,8 @@ function systemsettingsform(){
 
 
 	// news
-	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('news')\">" . $langmsg['system'][2] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_news\" style=\"display: none; width: 548px\">";
+	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('news')\">" . $langmsg['system'][2] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_news\" style=\"display: none; width: 518px\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	
 	echo "  <tr class=\"\">\n";
@@ -224,8 +232,8 @@ function systemsettingsform(){
 
 
 	// notifications
-	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('notifications')\">" . $langmsg['system'][38] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_notifications\" style=\"display: none; width: 548px\">";
+	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('notifications')\">" . $langmsg['system'][38] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_notifications\" style=\"display: none; width: 518px\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	
 	echo "  <tr class=\"\">\n";
@@ -264,8 +272,8 @@ function systemsettingsform(){
 	
 	
 	// recaptcha
-	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('recaptcha')\">reCAPTCHA</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_recaptcha\" style=\"display: none; width: 548px\">";
+	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('recaptcha')\">reCAPTCHA</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_recaptcha\" style=\"display: none; width: 518px\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";	
 	echo "  <tr class=\"\">\n";
 	echo "    <td>" . $langmsg['system'][45] . "</td>\n";
@@ -282,8 +290,8 @@ function systemsettingsform(){
 	echo "</table></div>";
 
 	// registration
-	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('registration')\">".$langmsg['system'][28]."</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_registration\" style=\"display: none; width: 548px\">";
+	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('registration')\">".$langmsg['system'][28]."</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_registration\" style=\"display: none; width: 518px\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";	
 	
 	echo "<tr><td class=\"\">".$langmsg['system'][29]."</td><td class=\"\">";
@@ -323,8 +331,8 @@ function systemsettingsform(){
 	
 
 	// login
-	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('login')\">" . $langmsg['login'][6] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_login\" style=\"display: none; width: 548px\">";
+	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('login')\">" . $langmsg['login'][6] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_login\" style=\"display: none; width: 518px\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";		
 	echo "  <tr class=\"\">\n";
 	echo "    <td>" . $langmsg['system'][49] . "</td>\n";
@@ -342,8 +350,8 @@ function systemsettingsform(){
 	
 	
 	// other
-	echo "<div class=\"subheaders\" style=\"width: 552px\" onclick=\"toggle_section2('other')\">" . $langmsg['system'][31] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_other\" style=\"display: none; width: 548px\">";
+	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('other')\">" . $langmsg['system'][31] . "</div>";
+	echo "<div class=\"subheaders_body\" id=\"section_other\" style=\"display: none; width: 518px\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";		
 	
 	echo "  <tr>\n";
@@ -393,7 +401,7 @@ function systemsettingsform(){
 	echo "  </tr>\n";
 	echo "</table>\n";
 	echo "</div>\n";
-	echo "<br /><input type=\"submit\" value=\"".$langmsg['submitfield'][3]."\" style=\"width: 100%\" name=\"B1\">";
+	echo "<br /><input type=\"submit\" value=\"".$langmsg['submitfield'][3]."\" style=\"width: 532px\" name=\"B1\">";
 	echo "</form>\n";
 	echo "</td></tr></table>";
 	
@@ -511,4 +519,7 @@ if(!$_POST['B1']){
 	systemsettingsform();	
 	echo "</td></tr></table>";
 }
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

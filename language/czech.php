@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Czech                                   #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Nemůžete smazat svůj vlastní účet.");
 $langmsg['accounts'][23] = x("(Nechte prázdné, aby proud)");
 $langmsg['accounts'][24] = x("Účet je, že již používáte e-mailovou adresu, vyberte prosím jiné.");
 $langmsg['accounts'][25] = x("Prosím, zadejte název účtu");
+$langmsg['accounts'][26] = x("Soubory");
+$langmsg['accounts'][27] = x("Obrázky");
 
 $langmsg['access'][0] = x("Úrovně přístupu");
 $langmsg['access'][1] = x("Vytvořit novou úroveň přístupu.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Všechna slova níže bude filtrován ze všech při
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Nahradit S");
 $langmsg['filters'][6] = x("Odstranit");
+$langmsg['filters'][7] = x("Přidat nový filtr");
 
 $langmsg['rss'][0] = x("Zdroje RSS");
 $langmsg['rss'][1] = x("Upravte svůj RSS feed nastavení níže");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Jste si jisti, že chcete smazat vybranou kategorii?");
 $langmsg['js'][30] = x("Getting smajlíky ... Prosím čekejte.");
 $langmsg['js'][31] = x("Jste si jisti, že chcete smazat vybraný soubor (y)?");
 $langmsg['js'][32] = x("Jste si jisti, že chcete smazat vybrané smajlíky?");
+$langmsg['js'][33] = x("Jste si jisti, že chcete smazat vybraný filtr (y)?");
 
 $langmsg['news'][0] = x("Prosím, zadejte název.");
 $langmsg['news'][1] = x("Prosím, zadejte zprávu.");

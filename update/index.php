@@ -81,7 +81,7 @@ $version			= $_POST['version'];
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../style.css" rel="stylesheet" type="text/css" />
-<title>N-13 News 3.7</title>
+<title>N-13 News 4.0</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 </head>
 <body style="padding: 0px; margin: 0px; background-color: #15497c; background-image: url('../images/bgrepeat.png'); background-repeat: repeat-x"><strong></strong>
@@ -115,7 +115,7 @@ $version			= $_POST['version'];
 		<div style="margin-left: 200px; background-color: #FFFFFF">				
 			
 <?php
-if($version < "3.7" && $installedversion < "3.7"){
+if($version < "4.0" && $installedversion < "4.0"){
 	if(!$_POST['S1'] || !$_POST['version']){
 		versionform();
 	}else{
@@ -127,6 +127,7 @@ if($version < "3.7" && $installedversion < "3.7"){
 			sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
 			sqldump(ABSPATH . "update/sqlchanges37.txt");
+			sqldump(ABSPATH . "update/sqlchanges40.txt");
 		}elseif($_POST['version'] == "3.1"){
 			sqldump(ABSPATH . "update/sqlchanges32.txt");
             sqldump(ABSPATH . "update/sqlchanges33.txt");
@@ -134,26 +135,34 @@ if($version < "3.7" && $installedversion < "3.7"){
 			sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
 			sqldump(ABSPATH . "update/sqlchanges37.txt");
+			sqldump(ABSPATH . "update/sqlchanges40.txt");
 		}elseif($_POST['version'] == "3.2"){
 			sqldump(ABSPATH . "update/sqlchanges33.txt");
 			sqldump(ABSPATH . "update/sqlchanges34.txt");
             sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
 			sqldump(ABSPATH . "update/sqlchanges37.txt");
+			sqldump(ABSPATH . "update/sqlchanges40.txt");
 		}elseif($_POST['version'] == "3.3"){
             sqldump(ABSPATH . "update/sqlchanges34.txt");
 			sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
 			sqldump(ABSPATH . "update/sqlchanges37.txt");
+			sqldump(ABSPATH . "update/sqlchanges40.txt");
         }elseif($_POST['version'] == "3.4"){
 			sqldump(ABSPATH . "update/sqlchanges35.txt");
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
 			sqldump(ABSPATH . "update/sqlchanges37.txt");
+			sqldump(ABSPATH . "update/sqlchanges40.txt");
 		}elseif($_POST['version'] == "3.5"){
 			sqldump(ABSPATH . "update/sqlchanges36.txt");
 			sqldump(ABSPATH . "update/sqlchanges37.txt");
+			sqldump(ABSPATH . "update/sqlchanges40.txt");
 		}elseif($_POST['version'] == "3.6"){
 			sqldump(ABSPATH . "update/sqlchanges37.txt");
+			sqldump(ABSPATH . "update/sqlchanges40.txt");
+		}elseif($_POST['version'] == "3.7"){
+			sqldump(ABSPATH . "update/sqlchanges40.txt");
 		}
 		
 		if($_POST['version'] < "3.3"){
@@ -180,7 +189,20 @@ if($version < "3.7" && $installedversion < "3.7"){
 			// delete catid column
 			DataAccess::put("ALTER TABLE " . NEWS_ARTICLES . " DROP catid");
 		}
-		echo "N-13 News updated to version 3.7. <span style=\"color: #FF0000\">Please delete this file immediately</span>";
+		
+		if($_POST['version'] < "4.0"){
+			//update the position of each smiley. added in 4.0
+			$smiliesupdated = DataAccess::fetch(sprintf("SELECT position, id FROM %s", NEWS_SMILIES));
+			if($smiliesupdated['0']['position'] == ""){
+				//smilies haven't been updated, do it here
+				$i = 0;
+				foreach($smiliesupdated AS $smiley){
+					DataAccess::put(sprintf("UPDATE %s SET position = ? WHERE id = ?", NEWS_SMILIES), $i, $smiley['id']);
+					$i++;
+				}
+			}	
+		}
+		echo "N-13 News updated to version 4.0. <span style=\"color: #FF0000\">Please delete this file immediately</span>";
 	}
 }else{
 	echo "You already have the latest version installed.";
@@ -209,5 +231,5 @@ if($version < "3.7" && $installedversion < "3.7"){
 
 <br />
 
-<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 3.7</a> &copy; 2010</span>
+<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 4.0</a> &copy; 2010</span>
 </div>

@@ -19,7 +19,13 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['accounts'][0]."</span></div><table width=\"685px\"><tr><td width=\"17%\" align=center valign=top><br /><img src=\"images/accesslevels.png\" alt=\"Manage Accounts\"></td><td><br />";
+
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
 function accountform(){
 	global $langmsg;
 	if($_GET['create'] == "new"){
@@ -57,7 +63,8 @@ function accountform(){
 		}
 	}	
 	
-	echo "<div class=\"panel\">".$langmsg['accounts'][13]."</div><br>";
+	echo "<div class=\"subheaders\">".$langmsg['accounts'][13]."</div>";
+	echo "<div class=\"subheaders_body displaytable\">";
 	echo "<form method=\"POST\" action=\"\">\n";
 	echo "    <table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	echo "    <tr>\n";
@@ -66,7 +73,7 @@ function accountform(){
 		if($_GET['create'] == "new"){
 			echo "<input type=\"text\" name=\"accountname\" value=\"$accountname\" size=\"24\" />";
 		}else{
-			echo "<div class=success>$accountname</div>";
+			echo "<div class=\"\">$accountname</div>";
 		}
 	echo "</td>\n";
 	echo "    </tr>\n";
@@ -99,7 +106,8 @@ function accountform(){
 	echo "      <td width=\"28%\">&nbsp;</td>\n";
 	echo "      <td width=\"72%\"><input type=\"submit\" value=\"".$langmsg['submitfield'][3]."\" class=\"nostyle\" name=\"S1\"></td>\n";
 	echo "    </tr>\n";
-	echo "  </table>\n";	
+	echo "  </table>\n";
+	echo "</div>";
 	echo "</form>\n";
 }
 $_GET['create'] = (empty($_GET['create'])) ? '' : $_GET['create'];
@@ -128,7 +136,7 @@ if($_GET['create'] == "new"){
 		$accountpassword	= md5(SALT . $_POST['accountpassword1']);
 		$accountaccesslevel	= $_POST['accountaccesslevel'];
 		DataAccess::put("INSERT INTO " . NEWS_USERS . " (user, newpass, email, access) VALUES (?, ?, ?, ?)", $accountname, $accountpassword, $accountemail, $accountaccesslevel);
-		echo "<div class=success>".$langmsg['accounts'][20]."</div>";	
+		echo "<div class=\"success\">".$langmsg['accounts'][20]."</div>";	
 	}else{
 		echo "<div class=error>".$langmsg['accounts'][16]."</div>";
 		accountform();	
@@ -145,7 +153,7 @@ if($_GET['create'] == "new"){
 			$accountaccesslevel = $_POST['accountaccesslevel'];
 			$accountuid = $_GET['uid'];
             DataAccess::put("UPDATE " . NEWS_USERS . " SET access = ? WHERE uid = ?", $accountaccesslevel, $accountuid);
-			echo "<div class=success>".$langmsg['accounts'][15]."</div>";
+			echo "<div class=\"success\">".$langmsg['accounts'][15]."</div>";
 			unset($_SESSION['origemail']);
 		}else{
             if(count(DataAccess::fetch("SELECT uid FROM " . NEWS_USERS . " WHERE email = ?", $_POST['accountemail'])) > 0){
@@ -155,7 +163,7 @@ if($_GET['create'] == "new"){
 				$accountaccesslevel = $_POST['accountaccesslevel'];
 				$accountuid = $_GET['uid'];
                 DataAccess::put("UPDATE " . NEWS_USERS . " SET access = ? WHERE uid = ?", $accountaccesslevel, $accountuid);
-				echo "<div class=success>".$langmsg['accounts'][15]."</div>";
+				echo "<div class=\"success\">".$langmsg['accounts'][15]."</div>";
 				unset($_SESSION['origemail']);
 			}			
 		}
@@ -166,7 +174,7 @@ if($_GET['create'] == "new"){
 				$accountemail		= $_POST['accountemail'];
 				$accountuid			= $_GET['uid'];
                 DataAccess::put("UPDATE " . NEWS_USERS . " SET newpass = ? WHERE uid = ?", $accountpassword, $accountuid);
-				echo "<div class=success>".$langmsg['accounts'][15]."</div>";
+				echo "<div class=\"success\">".$langmsg['accounts'][15]."</div>";
 				unset($_SESSION['origemail']);
 			}else{
                 if(count(DataAccess::fetch("SELECT uid FROM " . NEWS_USERS . " WHERE email = ?", $_POST['accountemail'])) > 0){				    
@@ -177,7 +185,7 @@ if($_GET['create'] == "new"){
 					$accountaccesslevel = $_POST['accountaccesslevel'];
 					$accountuid = $_GET['uid'];
                     DataAccess::put("UPDATE " . NEWS_USERS . " SET newpass = ?, access = ? WHERE uid = ?", $accountpassword, $accountaccesslevel, $accountuid);
-					echo "<div class=success>".$langmsg['accounts'][15]."</div>";
+					echo "<div class=\"success\">".$langmsg['accounts'][15]."</div>";
 					unset($_SESSION['origemail']);
 				}	
 			}
@@ -210,7 +218,7 @@ if($_POST['accountoption'] == "delete"){
 		}
 
 		if($i > 0){
-			echo "<span class=success>".$langmsg['accounts'][21]."</span> <br />$deleted";
+			echo "<span class=\"success\">".$langmsg['accounts'][21]." <br />$deleted</span> <br />";
 		}
 
 		if($ownaccount == 1){
@@ -226,9 +234,10 @@ $totalaccounts = count($totalaccounts);
 $f = $langmsg['accounts'][1];
 $f = "<b>$totalaccounts</b> " . $f;
 echo "<div class=panel>$f</div><br>";
+echo "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" ><tr><td>";
 echo "<form id=\"accounteditform\" method=\"POST\" action=\"?action=options&mod=accounts\">";
-echo "<table id=\"rows\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\" width=\"100%\">\n";
-echo "<tr><td width=\"30%\">".$langmsg['accounts'][2]."</td><td width=\"25%\">".$langmsg['accounts'][3]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts'][4]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts'][5]."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts']['26']."</td><td width=\"11%\" align=\"center\">".$langmsg['accounts']['27']."</td><td><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\"></td></tr>";
+echo "<table id=\"rows\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">\n";
+echo "<tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"30%\">".$langmsg['accounts'][2]."</td><td class=\"tableshead tablerightborder\" width=\"25%\">".$langmsg['accounts'][3]."</td><td class=\"tableshead tablerightborder\" width=\"11%\" align=\"center\">".$langmsg['accounts'][4]."</td><td class=\"tableshead tablerightborder\" width=\"11%\" align=\"center\">".$langmsg['accounts'][5]."</td><td class=\"tableshead tablerightborder\" width=\"11%\" align=\"center\">".$langmsg['accounts'][26]."</td><td class=\"tableshead\" width=\"11%\" align=\"center\">".$langmsg['accounts']['27']."</td><td  class=\"tableshead tableleftborder\"><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\"></td></tr>";
 $d = 1;
 $sql = "SELECT user, " . NEWS_USERS . ".uid as useruid, name FROM " . NEWS_USERS . "
 		LEFT JOIN " . NEWS_ACCESS . "
@@ -251,7 +260,7 @@ foreach($g AS $row){
 		$class = "row2";
 		$tmpcolor = "1";
 	}
-	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td><a href=\"?action=options&mod=accounts&create=edit&uid=$row[useruid]\">$row[user]</a></td><td>$row[name]</td><td align=\"center\">$numposts</td><td align=\"center\">$numcomments</td><td align=\"center\">$numfiles</td><td align=\"center\">$numimages</td><td><input name=\"selectedaccounts[]\" value=\"$row[useruid]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" type=\"checkbox\"></td></tr>\n";
+	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" class=\"$class\" onmouseout=\"unmarkfield('$d')\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=accounts&create=edit&uid=$row[useruid]\"><img alt=\"Edit\" title=\"Edit\" src=\"images/icons/pencil.png\" /></a></td><td class=\"tablebody tablerightborder\">$row[user]</td><td class=\"tablebody tablerightborder\">$row[name]</td><td class=\"tablebody tablerightborder\" style=\"text-align: right\" >$numposts</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\">$numcomments</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\" >$numfiles</td><td style=\"text-align: right\" class=\"tablebody\">$numimages</td><td class=\"tablebody tableleftborder\" class=\"tablebody\"><input name=\"selectedaccounts[]\" value=\"$row[useruid]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" type=\"checkbox\"></td></tr>\n";
 	$d++;
 }
 
@@ -263,4 +272,7 @@ echo "<option value=\"delete\">".$langmsg['selectfield'][3]."</option>";
 echo "</select>&nbsp;<input type=\"button\" class=\"nostyle\" onclick=\"accountaction()\" value=\"".$langmsg['submitfield'][0]."\" /></div>";
 echo "<u><a href=\"?action=options&mod=accounts&create=new\">".$langmsg['accounts'][6]."</u>";
 echo "</td></tr></table>";
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

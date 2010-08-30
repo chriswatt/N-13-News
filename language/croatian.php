@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Croatian                                #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Ne možete izbrisati svoj račun.");
 $langmsg['accounts'][23] = x("(Ostavite prazno kako bi struja)");
 $langmsg['accounts'][24] = x("Račun već se koristi taj e-mail adresu, molimo odaberite drugi.");
 $langmsg['accounts'][25] = x("Molimo unesite naziv računa");
+$langmsg['accounts'][26] = x("Datoteka");
+$langmsg['accounts'][27] = x("Slike");
 
 $langmsg['access'][0] = x("Razine pristupa");
 $langmsg['access'][1] = x("Kreiraj novu razinu pristupa.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Sve riječi u nastavku će biti filtrirani od svih k
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Zamijeni sa");
 $langmsg['filters'][6] = x("Izbrisati");
+$langmsg['filters'][7] = x("Dodaj novi filter");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Uredite vaš RSS feed postavke ispod");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Jeste li sigurni da želite izbrisati odabrane kategorij
 $langmsg['js'][30] = x("Getting smajlići ... Molimo pričekajte.");
 $langmsg['js'][31] = x("Jeste li sigurni da želite izbrisati odabrane file (s)?");
 $langmsg['js'][32] = x("Jeste li sigurni da želite izbrisati odabrane Smilies?");
+$langmsg['js'][33] = x("Jeste li sigurni da želite izbrisati odabrane filter (e)?");
 
 $langmsg['news'][0] = x("Molimo unesite ime.");
 $langmsg['news'][1] = x("Molimo upišite poruku.");

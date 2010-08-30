@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Romanian		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Nu puteţi şterge contul propriu.");
 $langmsg['accounts'][23] = x("(Lăsaţi gol pentru a păstra curente)");
 $langmsg['accounts'][24] = x("Un cont este deja că folosind adresa de e-mail, vă rugăm să alegeţi un alt.");
 $langmsg['accounts'][25] = x("Vă rugăm să introduceţi un nume de cont");
+$langmsg['accounts'][26] = x("Fişiere");
+$langmsg['accounts'][27] = x("Imagini");
 
 $langmsg['access'][0] = x("Nivele de acces");
 $langmsg['access'][1] = x("Creaţi un nou nivel de acces.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Toate cuvintele de mai jos vor fi filtrate de la toa
 $langmsg['filters'][4] = x("Cuvântul filtrate");
 $langmsg['filters'][5] = x("Înlocuiţi cu");
 $langmsg['filters'][6] = x("Şterge");
+$langmsg['filters'][7] = x("Adauga un nou filtru");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Feed-uri RSS dvs. Editaţi Setările de mai jos");
@@ -766,6 +769,7 @@ $langmsg['js'][29] = x("Sunteţi sigur că doriţi să ştergeţi categoriile se
 $langmsg['js'][30] = x("Smilies Noţiuni de bază ... Vă rugăm să aşteptaţi.");
 $langmsg['js'][31] = x("Sunteţi sigur că doriţi să ştergeţi fişierul selectat (e)?");
 $langmsg['js'][32] = x("Sunteţi sigur că doriţi să ştergeţi smilies selectate?");
+$langmsg['js'][33] = x("Sunteţi sigur că doriţi să ştergeţi filtrul (ele) selectate?");
 
 $langmsg['news'][0] = x("Vă rugăm să introduceţi un nume.");
 $langmsg['news'][1] = x("Vă rugăm să introduceţi un mesaj.");

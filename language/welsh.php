@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Welsh			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Ni chewch ddileu eich cyfrif eich hun.");
 $langmsg['accounts'][23] = x("(Gadewch yn wag i gadw ar hyn o bryd)");
 $langmsg['accounts'][24] = x("Mae cyfrif eisoes yn defnyddio y cyfeiriad e-bost, rhowch ddewis arall.");
 $langmsg['accounts'][25] = x("Rhowch enw cyfrif");
+$langmsg['accounts'][26] = x("Ffeiliau");
+$langmsg['accounts'][27] = x("Delweddau");
 
 $langmsg['access'][0] = x("Lefel Mynediad");
 $langmsg['access'][1] = x("Creu lefel mynediad newydd.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Bydd yr holl eiriau isod hidlo o bob sylwadau.");
 $langmsg['filters'][4] = x("Hidlwyd Word");
 $langmsg['filters'][5] = x("Amnewid Gyda");
 $langmsg['filters'][6] = x("Dileu");
+$langmsg['filters'][7] = x("Ychwanegu hidlydd newydd");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Golygu eich RSS feed gosodiadau isod");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("A ydych yn sicr eich bod am ddileu y categorïau a ddewi
 $langmsg['js'][30] = x("Smilies Cael ... Arhoswch.");
 $langmsg['js'][31] = x("A ydych yn sicr eich bod am ddileu y ffeil ddewiswyd (au)?");
 $langmsg['js'][32] = x("A ydych yn sicr eich bod am ddileu y smilies a ddewiswyd?");
+$langmsg['js'][33] = x("A ydych yn siŵr eich bod eisiau dileu y hidlo dethol (au)?");
 
 $langmsg['news'][0] = x("Rhowch enw.");
 $langmsg['news'][1] = x("Rhowch neges.");

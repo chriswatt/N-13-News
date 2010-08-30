@@ -32,7 +32,6 @@ if(get_magic_quotes_gpc()){
 	}
 }
 
-
 // some variables 
 $linkprefix = (empty($linkprefix)) ? '' : $linkprefix;
 $_SESSION['lastmsg'] = (empty($_SESSION['lastmsg'])) ? '' : $_SESSION['lastmsg'];
@@ -55,6 +54,12 @@ $_SESSION['language'] = str_replace(".php", "", $default_index_language);
 
 // 1 = show archived news articles, defaults 0
 $archives = (empty($archives)) ? '0' : '1';
+
+//
+$news_layout		= (empty($news_layout)) ? '0' : $news_layout;
+$comments_layout	= (empty($comments_layout)) ? '0' : $comments_layout;
+$newstimeformat 	= (empty($newstimeformat)) ? NEWSTIME : $newstimeformat;
+$commentstimeformat	= (empty($commentstimeformat)) ? COMMENTSTIME : $commentstimeformat;
 
 $url['1']		= (empty($url['1'])) ? '' : $url['1'];
 $url['1']		= (empty($url['1'])) ? '' : $url['1'];
@@ -707,5 +712,5 @@ if($_POST['ajax'] !== "true"){
 		echo "</div>";
 	}
 }
-unset($g,$ratingsform,$sendtoform,$search,$allnews,$singlenews,$i,$cat,$author,$nppage,$orderby,$newsorder,$catids,$j,$e,$f,$u,$s,$v,$k,$w,$image_maxwidth,$image_maxheight,$width,$height,$static,$templateid,$template,$template2,$template5,$templateid,$commentstemplate,$commentstemplate2,$commentstemplate5,$commentsform,$allcommentsform,$h,$show,$pages,$cpages,$allcomments,$archives,$catids,$storyids,$userids,$image_clickable,$invalid,$register);
+unset($commentstimeformat,$newstimeformat,$news,$comments,$g,$ratingsform,$sendtoform,$search,$allnews,$singlenews,$i,$cat,$author,$nppage,$orderby,$newsorder,$catids,$j,$e,$f,$u,$s,$v,$k,$w,$image_maxwidth,$image_maxheight,$width,$height,$static,$templateid,$template,$template2,$template5,$templateid,$commentstemplate,$commentstemplate2,$commentstemplate5,$commentsform,$allcommentsform,$h,$show,$pages,$cpages,$allcomments,$archives,$catids,$storyids,$userids,$image_clickable,$invalid,$register);
 ?>

@@ -19,15 +19,23 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<style>optgroup { font-weight: none; font-style: normal; }</style>";
-echo "<span class=header>".$langmsg['profile'][0]."</span></div><table width=\"685px\"><tr><td width=\"17%\" align=center valign=top><br><img src=\"images/news_4.png\"></td>";
-echo "<td><br /><div class=panel>".$langmsg['profile'][1]."</div><br>\n";
-echo "<style>table { text-align: left; } </style>";
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+
 $dd = str_replace("admin.php","uploads/", ADMINPATH);
 $_POST['B1'] = (empty($_POST['B1'])) ? '' : $_POST['B1'];
-if(!$_POST['B1']){
+function editprofile(){
+	global $langmsg;
 	$profiledata = DataAccess::fetch("SELECT * FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
 	$row = $profiledata['0'];
+	echo "<style>optgroup { font-weight: none; font-style: normal; }</style>";
+	echo "<div class=subheaders>".$langmsg['profile'][1]."</div>\n";
+	echo "<div class=\"subheaders_body displaytable\">";
+	echo "<style>table { text-align: left; } </style>";
 	echo "<div align=right><form method=\"POST\" name=\"form\" action=\"?action=options&mod=profile\">\n";
 	echo "<table border=\"0\" cellspacing=\"0\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	echo "    <tr>\n";
@@ -228,6 +236,10 @@ if(!$_POST['B1']){
 	echo "    </tr>\n";
 	echo "  </table>\n";
 	echo "</form></div></td></tr></table>\n";
+	echo "</div>";
+}
+if(!$_POST['B1']){
+	editprofile();
 }else{
 	$avatar 			= $_POST['avatar'];
 	$profile_name		= $_POST['T1'];
@@ -257,6 +269,10 @@ if(!$_POST['B1']){
 	avatar = ?,
 	profile_image = ? WHERE user = ?";
 	DataAccess::put($sql, $profile_name, $profile_age, $profile_location, $profile_sex, $profile_homepage, $profile_interests, $profile_hobbies, $profile_occupation, $profile_quote, $avatar, $profile_image, $_SESSION['name']);
-	echo "<td></tr><tr><td></td><td><div class=success>".$langmsg['profile'][14]."</div></td></tr></table>";
+	echo "<div class=success>".$langmsg['profile'][14]."</div>";
+	editprofile();
 }
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

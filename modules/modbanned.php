@@ -19,21 +19,36 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['bannedips'][0]."</span></div>";
-echo "<table width=\"685px\"><tr><td width=\"17%\" valign=top align=center><br><img src=\"images/news_11.png\" alt=\"Banned IPs\"></td><td>";
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+echo "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">";
 $_GET['new'] = (empty($_GET['new'])) ? '' : $_GET['new'];
 $_POST['S1'] = (empty($_POST['S1'])) ? '' : $_POST['S1'];
 $_POST['ip'] = (empty($_POST['ip'])) ? '' : $_POST['ip'];
+
+if($_POST['S1']){
+	if(!$_GET['new']){
+		$bannedmsg = $_POST['T2'];
+		DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET bannedmsg = ? WHERE 1", $bannedmsg);
+		echo "<div class=success>".$langmsg['bannedips'][11]."</div>";
+	}
+}
+
 if($_GET['new'] == "true"){
 	function newbannedipform(){
 		global $langmsg;
-		echo "<br /><div class=panel>".$langmsg['bannedips'][4]."</div>";
+		echo "<div class=subheaders>".$langmsg['bannedips'][4]."</div>";
+		echo "<div class=\"subheaders_body displaytable\">";
 		echo "<form method=\"post\" action=\"?action=options&mod=banned&new=true\">";
-		echo "<br />";
 		$ip = htmlspecialchars($_POST['ip']);
-		echo "<div style=\"width: 100px; float: left\">".$langmsg['bannedips'][6]."</div><div><input type=\"text\" name=\"ip\" value=\"$ip\">";
+		echo "<div style=\"width: 100px; float: left; font-family: Arial; font-size: 12px;\">".$langmsg['bannedips'][6]."</div><input type=\"text\" name=\"ip\" value=\"$ip\">";
 		echo "<div style=\"padding-top: 2px\"><div style=\"width: 100px; float: left\">&nbsp;</div><div><input type=\"submit\" name=\"S1\" value=\"".$langmsg['submitfield'][7]."\"></div>";
-		
+		echo "</form>";
+		echo "</div>";
+		echo "</div>";
 	}
 	if(!$_POST['S1']){
 		newbannedipform();
@@ -62,7 +77,7 @@ if($_POST['bannedipaction'] == "delete"){
 		}
 		$f = $langmsg['bannedips'][9];
 		$f = "<b>$i</b> " . $f;
-		echo "<br /><span class=\"success\">$f</span><br />";
+		echo "<span class=\"success\">$f</span>";
 	}
 }elseif($_POST['bannedipaction'] == "reset"){
 	if(count($_POST['selectedips']) !== 0){
@@ -82,10 +97,10 @@ $total = DataAccess::fetch("SELECT COUNT(*) as total FROM " . NEWS_BANNED);
 $total = $total['0']['total'];
 $f = $langmsg['bannedips'][1];
 $f = "<b>$total</b>" . " " . $f;
-echo "<br><div class=panel>$f</div><br>";
+echo "<div class=panel>$f</div><br>";
 echo "<form method=\"post\" id=\"bannedform\" action=\"?action=options&mod=banned\">";
-echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"1\">";
-echo "<tr><td width=\"50%\">".$langmsg['bannedips'][2]."</td><td width=\"50%\">".$langmsg['bannedips'][3]."</td><td><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></td></tr>";
+echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">";
+echo "<tr><td class=\"tableshead tablerightborder\" width=\"50%\">".$langmsg['bannedips'][2]."</td><td align=\"center\" class=\"tableshead tablerightborder\" width=\"50%\">".$langmsg['bannedips'][3]."</td><td class=\"tableshead\"><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></td></tr>";
 $d = 1;
 $allbanned = DataAccess::fetch("SELECT * FROM " . NEWS_BANNED);
 $x = false;
@@ -97,7 +112,7 @@ foreach($allbanned AS $row){
 		$class = "row1";
 		$x = true;   
 	}				
-	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td>$row[ip]</td><td>$row[blocked]</td><td><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" value=\"$row[id]\" name=\"selectedips[]\" />";
+	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\">$row[ip]</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\">$row[blocked]</td><td class=\"tablebody\"><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" value=\"$row[id]\" name=\"selectedips[]\" />";
 	$d++;
 }
 echo "</table>";
@@ -122,12 +137,10 @@ function bannedipform(){
 if(!$_POST['S1']){
 	bannedipform();
 }else{
-	if(!$_GET['new']){
-		$bannedmsg = $_POST['T2'];
-		DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET bannedmsg = ? WHERE 1", $bannedmsg);
-		echo "<br /><br /><div class=success>".$langmsg['bannedips'][11]."</div><br />";
-	}
-bannedipform();
+	bannedipform();
 }    
 echo "</td></tr></table>";
+
+echo "		<!--rightside-->
+	</div><!--pageCont-->";
 ?>

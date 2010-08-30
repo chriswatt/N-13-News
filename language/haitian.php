@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Haitian			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Ou pa delete kont pwòp ou.");
 $langmsg['accounts'][23] = x("(Kite vid kenbe aktyèl)");
 $langmsg['accounts'][24] = x("Yon kont deja itilize ke adrès imel tanpri chwazi lòt.");
 $langmsg['accounts'][25] = x("Tanpri ekri non kont");
+$langmsg['accounts'][26] = x("Dosye");
+$langmsg['accounts'][27] = x("Images");
 
 $langmsg['access'][0] = x("Aksè nivo");
 $langmsg['access'][1] = x("Kreye yon nivo aksè nouvo.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Tout mo anba pwal filtre tout kòmantè.");
 $langmsg['filters'][4] = x("Pawòl filtre");
 $langmsg['filters'][5] = x("Ranplase Avèk");
 $langmsg['filters'][6] = x("Delete");
+$langmsg['filters'][7] = x("Ajoute yon filtè nouvo");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Editusergroup RSS abiyaj nouri ou anba");
@@ -766,6 +769,7 @@ $langmsg['js'][29] = x("Ou asire ou vle delete kategori yo seleksyone?");
 $langmsg['js'][30] = x("Jwenn smie ... Tanpri tann.");
 $langmsg['js'][31] = x("Ou asire ou vle delete dosye lan seleksyone (s)?");
 $langmsg['js'][32] = x("Ou asire ou vle delete smie yo seleksyone?");
+$langmsg['js'][33] = x("Èske ou sèten ou vle efase filtè an chwazi (yo)?");
 
 $langmsg['news'][0] = x("Tanpri antre yon non.");
 $langmsg['news'][1] = x("Tanpri antre yon mesaj.");

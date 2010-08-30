@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Polish			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Nie można usunąć własnego konta.");
 $langmsg['accounts'][23] = x("(Pozostaw puste, aby utrzymać obecny)");
 $langmsg['accounts'][24] = x("Konto jest już przy użyciu tego adresu e-mail, wybierz inną.");
 $langmsg['accounts'][25] = x("Proszę podać nazwę konta");
+$langmsg['accounts'][26] = x("Akta");
+$langmsg['accounts'][27] = x("Zdjęć");
 
 $langmsg['access'][0] = x("Poziomy dostępu");
 $langmsg['access'][1] = x("Tworzenie nowego poziomu dostępu.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Wszystkie poniższe słowa będą wykluczane z wszel
 $langmsg['filters'][4] = x("Filtrowany Word");
 $langmsg['filters'][5] = x("Zamień na");
 $langmsg['filters'][6] = x("Usunąć");
+$langmsg['filters'][7] = x("Dodaj nowy filtr");
 
 $langmsg['rss'][0] = x("Kanały RSS");
 $langmsg['rss'][1] = x("Edycja RSS ustawieniami");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Czy na pewno chcesz usunąć wybrane kategorie?");
 $langmsg['js'][30] = x("Emotikony Pierwsze ... Proszę czekać.");
 $langmsg['js'][31] = x("Czy na pewno chcesz usunąć wybrany plik (i)?");
 $langmsg['js'][32] = x("Czy na pewno chcesz usunąć wybrane uśmieszków?");
+$langmsg['js'][33] = x("Czy na pewno chcesz usunąć wybrany filtr (y)?");
 
 $langmsg['news'][0] = x("Podaj nazwę.");
 $langmsg['news'][1] = x("Wprowadź wiadomość.");

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Slovak			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Nemôžete zmazať svoj vlastný účet.");
 $langmsg['accounts'][23] = x("(Nechajte prázdne, aby prúd)");
 $langmsg['accounts'][24] = x("Účet je, že už používate e-mailovú adresu, vyberte prosím iné.");
 $langmsg['accounts'][25] = x("Prosím, zadajte názov účtu");
+$langmsg['accounts'][26] = x("Súbory");
+$langmsg['accounts'][27] = x("Obrázky");
 
 $langmsg['access'][0] = x("Úrovne prístupu");
 $langmsg['access'][1] = x("Vytvoriť novú úroveň prístupu.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Všetky slová nižšie bude filtrovaný zo všetký
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Nahradiť S");
 $langmsg['filters'][6] = x("Odstrániť");
+$langmsg['filters'][7] = x("Pridať nový filter");
 
 $langmsg['rss'][0] = x("Zdroje RSS");
 $langmsg['rss'][1] = x("Upravte svoj RSS feed nastavenia nižšie");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Ste si istí, že chcete zmazať vybranú kategóriu?");
 $langmsg['js'][30] = x("Getting smajlíky ... Prosím čakajte.");
 $langmsg['js'][31] = x("Ste si istí, že chcete zmazať vybraný súbor (y)?");
 $langmsg['js'][32] = x("Ste si istí, že chcete zmazať vybrané smajlíky?");
+$langmsg['js'][33] = x("Ste si istí, že chcete zmazať vybraný filter (y)?");
 
 $langmsg['news'][0] = x("Prosím, zadajte názov.");
 $langmsg['news'][1] = x("Prosím, zadajte správu.");

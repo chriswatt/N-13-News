@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Latvian			                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Jūs nevarat izdzēst savu kontu.");
 $langmsg['accounts'][23] = x("(Atstāj tukšu, lai saglabātu current)");
 $langmsg['accounts'][24] = x("Konts jau ir, izmantojot šo e-pasta adresi, lūdzu, izvēlieties citu.");
 $langmsg['accounts'][25] = x("Lūdzu, ievadiet konta nosaukumu");
+$langmsg['accounts'][26] = x("Faili");
+$langmsg['accounts'][27] = x("Attēli");
 
 $langmsg['access'][0] = x("Piekļuves līmeņus");
 $langmsg['access'][1] = x("Izveidot jaunu piekļuves līmeni.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Visus vārdus turpmāk tiks izņemti no visiem komen
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Jāaizstāj ar");
 $langmsg['filters'][6] = x("Dzēst");
+$langmsg['filters'][7] = x("Pievienot jaunu filtru");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("Rediģēt jūsu RSS feed iestatījumus");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Vai tiešām vēlaties dzēst izvēlēto kategoriju?");
 $langmsg['js'][30] = x("Getting Smilies ... Please wait.");
 $langmsg['js'][31] = x("Vai tiešām vēlaties dzēst izvēlēto failu (s)?");
 $langmsg['js'][32] = x("Vai tiešām vēlaties dzēst izvēlēto emocijas?");
+$langmsg['js'][33] = x("Vai tiešām vēlaties dzēst izvēlēto filtru (s)?");
 
 $langmsg['news'][0] = x("Lūdzu, ievadiet nosaukumu.");
 $langmsg['news'][1] = x("Lūdzu, ievadiet ziņu.");

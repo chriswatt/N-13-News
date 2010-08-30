@@ -25,23 +25,43 @@ $loginerrormessage = $langmsg['login'][7];
 $_SESSION['language'] = $default_login_language;
 $la =  $langmsg['rss'][8];
 
-echo "<span class=header>".$langmsg['login'][0]."</span></div>";
-echo "<br><br>";
-echo "            <form method=\"POST\" style=\"padding: 0px; margin: 0px\" action=\"\">\n";
-echo "            <div style=\"margin-left: 160px\"><table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"100%\">\n";
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+$_POST['B3'] = (empty($_POST['B3'])) ? '' : $_POST['B3'];
+if($_POST['B3']){
+	#echo "<div style=\"padding-left: 50px; margin: 0px\">";
+	if($image_verification == "1"){
+		if(md5(SALT . $_POST['key']) !== $_SESSION['image_random_value']){
+			echo "<span class=\"error\">". $loginerrormessage . "</span>";			
+		}
+	}	
+	echo "<span class=\"error\">".$_SESSION['loginerror']."</span>";
+	#echo "</div>";
+}
+
+echo "<div id=\"headerBox\">".$langmsg['login'][0]."</div>";
+
+
+
+echo "            <form method=\"POST\" style=\"padding-left: 50px; margin: 0px\" action=\"\">\n";
+echo "            <table style=\"padding-top: 20px\" border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"100%\">\n";
 echo "              <tr>\n";
 echo "                <td width=\"100\">".$langmsg['login'][1]." </td>\n";
 echo "                <td width=\"\">\n";
-echo "              <input type=\"text\" name=\"name\" value=\"Username\" tabindex=\"1\" style=\"color: #A6A6A6\" id=\"name\" ";
-echo "onfocus=\"if(this.value=='Username'){this.style.color='#000000'; this.value='';}\" onblur=\"if(this.value==''){this.style.color='#A6A6A6'; this.value='Username';}\"";
+echo "              <input type=\"text\" name=\"name\" value=\"Username\" tabindex=\"1\" style=\"width: 150px; color: #a1a1a1\" id=\"name\" ";
+echo "onfocus=\"if(this.value=='Username'){this.style.color='#000000'; this.value='';}\" onblur=\"if(this.value==''){this.style.color='#a1a1a1'; this.value='Username';}\"";
 echo "size=\"20\"> <a href=\"?action=recoverpass\">".$langmsg['login'][3]."</a><br>\n</td>\n";
 echo "              </tr>\n";
 echo "              <tr>\n";
 echo "                <td width=\"100\" valign=\"top\">".$langmsg['login'][2]." </td>\n";
 echo "                <td width=\"\">\n";
-echo "              <input type=\"password\" style=\"color: #A6A6A6\" tabindex=\"2\" value=\"Password\" ";
-echo "onfocus=\"if(this.value=='Password'){this.style.color='#000000'; this.value='';}\" onblur=\"if(this.value==''){this.style.color='#A6A6A6'; this.value='Password';}\""; 
-echo "name=\"pass\" size=\"20\"> <input tabindex=\"3\" type=\"checkbox\" style=\"margin-left: 0px; margin-right: 0px; width: 15px\" name=\"rememberme\" id=\"rememberme\" /> <label for=\"rememberme\" style=\"vertical-align: text-top;\">".$langmsg['login'][4]."</label> ";
+echo "              <input type=\"password\" style=\"width: 150px; color: #a1a1a1\" tabindex=\"2\" value=\"Password\" ";
+echo "onfocus=\"if(this.value=='Password'){this.style.color='#000000'; this.value='';}\" onblur=\"if(this.value==''){this.style.color='#a1a1a1'; this.value='Password';}\""; 
+echo "name=\"pass\" size=\"20\"> <input tabindex=\"3\" type=\"checkbox\" style=\"width: 150px; margin-left: 0px; margin-right: 0px; width: 15px\" name=\"rememberme\" id=\"rememberme\" /> <label for=\"rememberme\" style=\"vertical-align: text-top;\">".$langmsg['login'][4]."</label> ";
 echo "              </td>";
 if($image_verification == 1){
 	echo "                <tr>";
@@ -73,24 +93,18 @@ if($i <= 1){
 }
 
 echo "<td>$la</td><td>";
-echo "\n<select tabindex=\"5\" name=\"n13language\" style=\"width: 150px\">";
+echo "\n<select tabindex=\"5\" name=\"n13language\" style=\"width: 157px\">";
 echo $languages;
 echo "</select>";
 echo "</td></tr>";
 echo "<tr><td></td><td>";
-echo "<input type=\"submit\" name=\"B3\" style=\"width:150px;\" tabindex=\"5\" id=\"login\" value='" . $submitbuttonvalue . "'>";
-$_POST['B3'] = (empty($_POST['B3'])) ? '' : $_POST['B3'];
-if($_POST['B3']){
-	echo "<br />";
-	if($image_verification == "1"){
-		if(md5(SALT . $_POST['key']) !== $_SESSION['image_random_value']){
-			echo "<span class=\"error\">". $loginerrormessage . "</span>";			
-		}
-	}	
-	echo "<span class=\"error\">".$_SESSION['loginerror']."</span>";
-}
+echo "<input type=\"submit\" name=\"B3\" style=\"width:157px\" tabindex=\"5\" id=\"login\" value='" . $submitbuttonvalue . "'>";
+
 echo "</td>\n";
 echo "</tr>\n";
-echo "</table></div>\n";
+echo "</table>\n";
 echo "</form>\n";
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

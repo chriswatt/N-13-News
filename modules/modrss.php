@@ -19,10 +19,11 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['rss'][0]."</span></div><table width=\"685px\">";
-echo "<tr>";
-echo "<td width=\"17%\" align=center valign=top><br><img src=\"images/rss.png\" /></td>";
-echo "<td valign=top>";
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
 
 function rssform(){
 	global $langmsg;
@@ -107,7 +108,8 @@ function rssform(){
 			}						
 		}
 	}
-	echo "<br /><div class=panel>".$langmsg['rss'][1]."</div><br />";									
+	echo "<div class=subheaders>".$langmsg['rss'][1]."</div>";
+	echo "<div class=\"subheaders_body displaytable\">";
 	echo $langmsg['rss'][2]."<br /><br />";
 	if($_GET['new'] == "true"){
 		echo "<form method=\"post\" action=\"?action=options&mod=rss&new=true\">";
@@ -180,6 +182,8 @@ function rssform(){
 	}
 	echo "</table>";
 	echo "</form>";
+	echo "</div>";
+	
 }
 $_GET['edit'] = (empty($_GET['edit'])) ? '' : $_GET['edit'];
 $_POST['S1'] = (empty($_POST['S1'])) ? '' : $_POST['S1'];
@@ -353,7 +357,7 @@ foreach($allcats AS $row2){
 }
 $g = $langmsg['rss'][37];
 $g = "<b>$num</b> " . $g;
-echo "<br /><div class=panel>$g</div>";
+echo "<div class=panel>$g</div>";
 echo "<br />";
 
 $_POST['cataction'] = (empty($_POST['cataction'])) ? '' : $_POST['cataction'];
@@ -370,8 +374,8 @@ if($_POST['cataction'] == "delete"){
 }
 
 echo "<form method=\"post\" id=\"catform\" action=\"?action=options&mod=rss\">";
-echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"1\">";
-echo "<tr><td width=\"20%\">".$langmsg['rss'][39]."</td><td width=\"50%\">".$langmsg['rss'][40]."</td><td width=\"30%\">".$langmsg['rss'][41]."</td><td><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></tr>";
+echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">";
+echo "<tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['rss'][39]."</td><td class=\"tableshead tablerightborder\" width=\"50%\">".$langmsg['rss'][40]."</td><td class=\"tableshead tablerightborder\" width=\"30%\">".$langmsg['rss'][41]."</td><td class=\"tableshead\"><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></tr>";
 $d = 1;
 $allfeeds = DataAccess::fetch("SELECT * FROM " . NEWS_FEEDS . " ORDER BY name");
 $x = false;
@@ -395,14 +399,14 @@ foreach($allfeeds AS $row){
 		}
 	}
 	$dcats = substr($dcats,0,strlen($dcats) - 2);					
-	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td><a href=\"?action=options&mod=rss&edit=true&id=$row[feedid]\">$row[name]</a></td><td>$dcats</td><td><a href=\"rss.php?feed=$row[name]\">rss.php?feed=$row[name]</a></td><td><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" value=\"$row[feedid]\" name=\"selectedfeeds[]\" /></td></tr>";
+	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=rss&edit=true&id=$row[feedid]\"><img alt=\"Edit\" title=\"Edit\" src=\"images/icons/pencil.png\" /></a></td><td class=\"tablebody tablerightborder\">$row[name]</td><td class=\"tablebody tablerightborder\">$dcats</td><td class=\"tablebody tablerightborder\"><a href=\"rss.php?feed=$row[name]\">rss.php?feed=$row[name]</a></td><td class=\"tablebody\"><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" value=\"$row[feedid]\" name=\"selectedfeeds[]\" /></td></tr>";
 	$d++;
 }		
 echo "</table>";
-echo "</div>";
 echo "<table width=\"100%\"><tr><td align=\"right\"><select name=\"cataction\" id=\"cataction\"><option value=\"\">".$langmsg['selectfield'][0]."</option><option value=\"delete\">".$langmsg['selectfield'][3]."</option></select>&nbsp;<input type=\"button\" onclick=\"deletecat()\" value=\"".$langmsg['submitfield'][0]."\" /></td></tr></table>";
 echo "<a href=\"?action=options&mod=rss&new=true\">".$langmsg['rss'][42]."</a>";
 echo "</form>";
-echo "</td>";
-echo "</tr></table>";
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

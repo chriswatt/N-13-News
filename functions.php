@@ -77,7 +77,7 @@ function esc($str){
 function get_include_contents($filename) {
     if (is_file($filename)) {
         ob_start();
-        include $filename;
+        require($filename);
         $contents = ob_get_contents();
         ob_end_clean();
         return $contents;
@@ -549,10 +549,12 @@ function redirect($url){
 }
 
 function formatnews($str,$type,$row){
-	global $uploadedfilestemplate, $linkprefix, $newstimeformat,$stampzone, $templateid, $commentspop, $image_clickable, $catcutoff, $oneortwo;
+	global $uploadedfilestemplate, $linkprefix, $newstimeformat,$stampzone, $templateid, $commentspop, $image_clickable, $catcutoff, $oneortwo, $news_layout, $comments_layout;
 	$newsorder		= (empty($newsorder)) ? '' : $newsorder;
     $numcomments	= $row['commentcount'];
-
+	
+	$newstime = $newstimeformat;
+	
 	$str = str_replace("{oneortwo}", $oneortwo, $str);
 	$usehtml = $row['usehtml'];
 	$str = str_replace("{title}",bbcode($row['title'],$usehtml, $row['old']),$str); 
@@ -570,39 +572,88 @@ function formatnews($str,$type,$row){
     }
 	$categories = substr($categories,0,strlen($categories) - $catcutoff);
 	$str = str_replace("{categories}",$categories,$str);
-	if($type == 0){		
-		if($row['shortstory']){
+	
+	if($type == 0){
+		if($news_layout == "0"){
+			if($row['shortstory']){
+				$str = str_replace("{shortstory}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
+				$str = str_replace("{summary}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
+				$str = str_replace("{story}","",$str);
+				$str = str_replace("{article}","",$str);
+				if(FRIENDLY){
+					$str = str_replace("[readmore]", sprintf("<a href=\"%s%s-0-%s\">", PREFIX, $row['id'], makefriendly($row['title'])),$str);
+				}else{
+					$str = str_replace("[readmore]", sprintf("<a href=\"?%s" . "id=%s\">", $linkprefix, $row['id']),$str);
+				}
+				$str = str_replace("[/readmore]","</a>",$str);            
+			}else{
+				$str = str_replace("{shortstory}","",$str);
+				$str = str_replace("{summary}","",$str);
+				$str = str_replace("{story}",bbcode($row['story'],$usehtml, $row['old']),$str);	
+				$str = str_replace("{article}",bbcode($row['story'],$usehtml, $row['old']),$str);	
+				$str = preg_replace('#\[readmore\](.*?)\[\/readmore\]#se', '', $str);
+			}        
+		}elseif($news_layout == "1"){			
 			$str = str_replace("{shortstory}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
 			$str = str_replace("{summary}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
 			$str = str_replace("{story}","",$str);
-			$str = str_replace("{article}","",$str);
-        	if(FRIENDLY){
-        		$str = str_replace("[readmore]", sprintf("<a href=\"%s%s-0-%s\">", PREFIX, $row['id'], makefriendly($row['title'])),$str);
-        	}else{
-        		$str = str_replace("[readmore]", sprintf("<a href=\"?%s" . "id=%s\">", $linkprefix, $row['id']),$str);
-        	}
-        	$str = str_replace("[/readmore]","</a>",$str);            
-		}else{
+			$str = str_replace("{article}","",$str);			if(FRIENDLY){
+			$str = str_replace("[readmore]", sprintf("<a href=\"%s%s-0-%s\">", PREFIX, $row['id'], makefriendly($row['title'])),$str);
+			}else{
+				$str = str_replace("[readmore]", sprintf("<a href=\"?%s" . "id=%s\">", $linkprefix, $row['id']),$str);
+			}
+			$str = str_replace("[/readmore]","</a>",$str);            	
+		}elseif($news_layout == "2"){
 			$str = str_replace("{shortstory}","",$str);
 			$str = str_replace("{summary}","",$str);
 			$str = str_replace("{story}",bbcode($row['story'],$usehtml, $row['old']),$str);	
 			$str = str_replace("{article}",bbcode($row['story'],$usehtml, $row['old']),$str);	
-			$str = preg_replace('#\[readmore\](.*?)\[\/readmore\]#se', '', $str);
-		}        
-	}else{
-		if($row['shortstory']){
+			if(FRIENDLY){
+				$str = str_replace("[readmore]", sprintf("<a href=\"%s%s-0-%s\">", PREFIX, $row['id'], makefriendly($row['title'])),$str);
+			}else{
+				$str = str_replace("[readmore]", sprintf("<a href=\"?%s" . "id=%s\">", $linkprefix, $row['id']),$str);
+			}
+			$str = str_replace("[/readmore]","</a>",$str);
+		}elseif($news_layout == "3"){
 			$str = str_replace("{shortstory}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
 			$str = str_replace("{summary}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
 			$str = str_replace("{story}",bbcode($row['story'],$usehtml,$row['old']),$str);
 			$str = str_replace("{article}",bbcode($row['story'],$usehtml,$row['old']),$str);
-            $str = preg_replace('#\[readmore\](.*?)\[\/readmore\]#se', '', $str);
-		}else{
+			if(FRIENDLY){
+				$str = str_replace("[readmore]", sprintf("<a href=\"%s%s-0-%s\">", PREFIX, $row['id'], makefriendly($row['title'])),$str);
+			}else{
+				$str = str_replace("[readmore]", sprintf("<a href=\"?%s" . "id=%s\">", $linkprefix, $row['id']),$str);
+			}
+			$str = str_replace("[/readmore]","</a>",$str);		
+		}
+	}else{
+		if($comments_layout == "0"){
+			if($row['shortstory']){
+				$str = str_replace("{shortstory}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
+				$str = str_replace("{summary}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
+				$str = str_replace("{story}",bbcode($row['story'],$usehtml,$row['old']),$str);
+				$str = str_replace("{article}",bbcode($row['story'],$usehtml,$row['old']),$str);
+				$str = preg_replace('#\[readmore\](.*?)\[\/readmore\]#se', '', $str);
+			}else{
+				$str = str_replace("{shortstory}","",$str);
+				$str = str_replace("{summary}","",$str);
+				$str = str_replace("{story}",bbcode($row['story'],$usehtml, $row['old']),$str);
+				$str = str_replace("{article}",bbcode($row['story'],$usehtml, $row['old']),$str);
+				$str = preg_replace('#\[readmore\](.*?)\[\/readmore\]#se', '', $str);	
+			}
+		}elseif($comments_layout == "1"){
+			$str = str_replace("{shortstory}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
+			$str = str_replace("{summary}",bbcode($row['shortstory'],$usehtml,$row['old']),$str);
+			$str = str_replace("{story}","",$str);
+			$str = str_replace("{article}","",$str);
+			$str = preg_replace('#\[readmore\](.*?)\[\/readmore\]#se', '', $str);				
+		}elseif($comments_layout == "2"){
 			$str = str_replace("{shortstory}","",$str);
 			$str = str_replace("{summary}","",$str);
-			$str = str_replace("{story}",bbcode($row['story'],$usehtml, $row['old']),$str);
-			$str = str_replace("{article}",bbcode($row['story'],$usehtml, $row['old']),$str);
-			$str = preg_replace('#\[readmore\](.*?)\[\/readmore\]#se', '', $str);	
-		}        	
+			$str = str_replace("{story}",bbcode($row['story'],$usehtml,$row['old']),$str);
+			$str = str_replace("{article}",bbcode($row['story'],$usehtml,$row['old']),$str);
+			$str = preg_replace('#\[readmore\](.*?)\[\/readmore\]#se', '', $str);						
+		}
 	}
 	if(isloggedin()){
 		$str = preg_replace('#\[loggedin\](.*?)\[\/loggedin\]#se', '$1', $str);
@@ -612,11 +663,11 @@ function formatnews($str,$type,$row){
 	$str = str_replace("{image}","<img src=\"" . $row['profile_image'] . "\" alt=\"" . $row['user'] . "\" />",$str);
 	if(!$row['user']){
 		$str = str_replace("{author}","<span class=\"" . $row['accessname'] . "\">" . $row['origauthor'] . "</span>",$str);		
-	}else{
+		}else{
 		$str = str_replace("{author}","<span class=\"" . $row['accessname'] . "\">" . $row['user'] . "</span>",$str);	
 	}
 	$stampzone	= $row['timestamp'] + TIMEZONE;
-	$str		= str_replace("{date}",strftime(NEWSTIME,$stampzone),$str);
+	$str		= str_replace("{date}",strftime($newstime,$stampzone),$str);
 	$str		= str_replace("{id}",$row['id'],$str);
 	$str		= str_replace("{viewcount}",$row['viewcount'],$str);
     $wordcount	= count(explode(" ", $row['story'] . $row['shortstory']));
@@ -778,9 +829,11 @@ function updatecommentcount($newsid){
 	DataAccess::put("UPDATE " . NEWS_ARTICLES . " SET commentcount = (SELECT COUNT(id) FROM " . NEWS_COMMENTS . " WHERE " . NEWS_COMMENTS . ".pid = news30_story.id AND approved = '1') WHERE " . NEWS_ARTICLES . ".id = ?", $newsid);
 }
 function formatcomments($str,$row){
-	global $friendlytitle, $linkprefix, $oneortwo;
+	global $friendlytitle, $linkprefix, $oneortwo, $commentstimeformat;
     
 	$str = str_replace("{oneortwo}", $oneortwo, $str);
+	
+	$commentstime = $commentstimeformat;
 	
 	$stampzone = $row['timestamp'] + TIMEZONE;
 	$avatar = $row['useravatar'];
@@ -791,7 +844,7 @@ function formatcomments($str,$row){
     }
 	
 	$str = str_replace("{avatar}",$avatar,$str);	
-	$str = str_replace("{date}",strftime(COMMENTSTIME,$stampzone),$str);
+	$str = str_replace("{date}",strftime($commentstime,$stampzone),$str);
     
     unset($message);
 	$message = displayhtml($row['message']);
@@ -1470,8 +1523,8 @@ function allnews(){
 	}else{
 		$showarchives = '0';			
 	}
+	$_GET['filtercat'] = (empty($_GET['filtercat'])) ? '' : $_GET['filtercat'];
 	if($access == "3"){
-		$_GET['filtercat'] = (empty($_GET['filtercat'])) ? '' : $_GET['filtercat'];
 		if($_GET['filtercat']){
 			$sql = "SELECT DISTINCT " . NEWS_ARTICLES . ".id FROM " . NEWS_ARTICLES . " 
 			LEFT JOIN " . NEWS_GROUPCATS . " ON " . NEWS_ARTICLES . ".id = " . NEWS_GROUPCATS . ".storyid
@@ -1843,7 +1896,7 @@ function allnews(){
 }
 
 function newsform($type){
-	global $imageuploaddir,$newsform_options, $langmsg;
+	global $imageuploaddir,$newsform_options, $langmsg, $imageupload_thumbnails;
 	$uploaddir = $imageuploaddir;
 
 	if(!$_POST['S1']){
@@ -1978,7 +2031,7 @@ function newsform($type){
 	}
 		
 	$g = 2;
-		foreach($allcats AS $row){			
+	foreach($allcats AS $row){			
 		echo "<option value=\"$g\"";
 		$_GET['catid'] = (empty($_GET['catid'])) ? '' : $_GET['catid'];
 		if(in_array($_GET['catid'], $allcats)){
@@ -2030,9 +2083,13 @@ function newsform($type){
 		echo '<div style="text-align: left">';
 		
 		echo '</div>';
-		echo "<img onclick=\"insertimage(document.getElementById('whichbox').innerHTML,'";				
-		echo UPLOADPATH . $file;				
-		echo "'); bbcode('image','')\" width=\"$new_width\" height=\"$new_height\" style=\"background-color: #FFFFFF; border: 1px solid #DDDDDD\" src=\"?action=options&mod=imageuploads&thumb=" . $imageuploaddir . $file . "&height=$new_height&width=$new_width\" />";
+		if($imageupload_thumbnails == "1"){
+			echo "<img onclick=\"insertimage(document.getElementById('whichbox').innerHTML,'";				
+			echo UPLOADPATH . $file;				
+			echo "'); bbcode('image','')\" width=\"$new_width\" height=\"$new_height\" style=\"background-color: #FFFFFF; border: 1px solid #DDDDDD\" src=\"?action=options&mod=imageuploads&thumb=" . $imageuploaddir . $file . "&height=$new_height&width=$new_width\" />";
+		}else{
+			echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';		
+		}
 		echo '</div></div>'; 		 	 		 	 		 
  		$b++;
 	}									
@@ -2042,95 +2099,103 @@ function newsform($type){
 	##show images for all cats the user can access							
 	$d = '';
 	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);	
-		if($allowedcats['0']['cats'] !== "all"){
-			$a = explode(",",$allowedcats['0']['cats']);
-			foreach($a as $c){
-				echo "<div id=\"imagecat_$f\" class=\"noshow\">";
-				$catgroupimages = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'image'", $c);
-				foreach($catgroupimages AS $row){
-					$catimages = DataAccess::fetch("SELECT file,filesize,uploader,height,width,uid FROM " . NEWS_IMAGES . " WHERE uid = ?",$row['storyid']);
-					foreach($catimages AS $row2){
-						$file = $row2['file'];
-						list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
-						if($width > 80 || $height > 80){
-							$new_width	= $width;
-							$new_height	= $height;
-							$percent = 0.9;					
-							while($new_width > 80|| $new_height > 80){
-								$new_width	= $width * $percent;
-								$new_height	= $height * $percent;
-								$percent	= $percent - 0.01;
-							}
-						}else{
-							$new_width	= $width;
-							$new_height	= $height;			
-						} 		  
-						$filesize = round(filesize($imageuploaddir . $file) / 1024,0);
-						$totalfilesize += $filesize;
-						$filesize .= " KB";
-						$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-						$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
-
-						echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
-						echo '<div style="text-align: left">';
-						echo '</div>';
-						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="?action=options&mod=imageuploads&thumb='.$imageuploaddir.$file.'&height='.$new_height.'&width='.$new_width.'" />';
-						echo '</div></div>'; 						
-					}
-				}
-				echo "</div>";
-				$f++;
-			}
-		}else{
-			$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name ASC");
-			$totalfilesize = 0;
-			foreach($allcats AS $xrow){
-				echo "<div id=\"imagecat_$f\" class=\"noshow\">";
-				$catgroupimages = DataAccess::fetch("SELECT storyid, catid, type, uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'image'", $xrow['id']);
-				foreach($catgroupimages AS $row){
-					$catimages = DataAccess::fetch("SELECT file, filesize, uploader, height, width, uid FROM " . NEWS_IMAGES . " WHERE uid = ?", $row['storyid']);
-					foreach($catimages AS $row2){
-						$file = $row2['file'];
-						list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
-							if($width > 80 || $height > 80){
-								$new_width = $width;
-								$new_height = $height;
-								$percent = 0.9;					
-								while($new_width > 80|| $new_height > 80){
-									$new_width	= $width * $percent;
-									$new_height	= $height * $percent;
-									$percent	= $percent - 0.01;
-								}
-							}else{
-								$new_width	= $width;
-								$new_height	= $height;			
-							} 		 
-
-							$filesize = round(filesize($imageuploaddir. $file) / 1024,0);
-							$totalfilesize += $filesize;
-							$filesize .= " KB";
-							$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-							$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
-								
-							echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
-							echo '<div style="text-align: left">';
-							echo '</div>';
-							echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="?action=options&mod=imageuploads&thumb='.$imageuploaddir.$file.'&height='.$new_height.'&width='.$new_width.'" />';
-							echo '</div></div>'; 						
+	if($allowedcats['0']['cats'] !== "all"){
+		$a = explode(",",$allowedcats['0']['cats']);
+		foreach($a as $c){
+			echo "<div id=\"imagecat_$f\" class=\"noshow\">";
+			$catgroupimages = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'image'", $c);
+			foreach($catgroupimages AS $row){
+				$catimages = DataAccess::fetch("SELECT file,filesize,uploader,height,width,uid FROM " . NEWS_IMAGES . " WHERE uid = ?",$row['storyid']);
+				foreach($catimages AS $row2){
+					$file = $row2['file'];
+					list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
+					if($width > 80 || $height > 80){
+						$new_width	= $width;
+						$new_height	= $height;
+						$percent = 0.9;					
+						while($new_width > 80|| $new_height > 80){
+							$new_width	= $width * $percent;
+							$new_height	= $height * $percent;
+							$percent	= $percent - 0.01;
 						}
+					}else{
+						$new_width	= $width;
+						$new_height	= $height;			
+					} 		  
+					$filesize = round(filesize($imageuploaddir . $file) / 1024,0);
+					$totalfilesize += $filesize;
+					$filesize .= " KB";
+					$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+					$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
+
+					echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
+					echo '<div style="text-align: left">';
+					echo '</div>';
+					if($imageupload_thumbnails == "1"){
+						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="?action=options&mod=imageuploads&thumb='.$imageuploaddir.$file.'&height='.$new_height.'&width='.$new_width.'" />';
+					}else{
+						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';
 					}
-					echo "</div>";
-					$f++;
+					echo '</div></div>'; 						
 				}
 			}
-			
-			#used to let javascript count how many cat sections are shown.
-			$f--;
-			echo "<span style=\"display: none\" id=\"totalfilecatgroups\">$f</span>";
-			
+			echo "</div>";
+			$f++;
+		}
+	}else{
+		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name ASC");
+		$totalfilesize = 0;
+		foreach($allcats AS $xrow){
+			echo "<div id=\"imagecat_$f\" class=\"noshow\">";
+			$catgroupimages = DataAccess::fetch("SELECT storyid, catid, type, uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'image'", $xrow['id']);
+			foreach($catgroupimages AS $row){
+				$catimages = DataAccess::fetch("SELECT file, filesize, uploader, height, width, uid FROM " . NEWS_IMAGES . " WHERE uid = ?", $row['storyid']);
+				foreach($catimages AS $row2){
+					$file = $row2['file'];
+					list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
+					if($width > 80 || $height > 80){
+						$new_width = $width;
+						$new_height = $height;
+						$percent = 0.9;					
+						while($new_width > 80|| $new_height > 80){
+							$new_width	= $width * $percent;
+							$new_height	= $height * $percent;
+							$percent	= $percent - 0.01;
+						}
+					}else{
+						$new_width	= $width;
+						$new_height	= $height;			
+					} 		 
 
-			echo '</div></div>'; 		   
-			 		   
+					$filesize = round(filesize($imageuploaddir. $file) / 1024,0);
+					$totalfilesize += $filesize;
+					$filesize .= " KB";
+					$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+					$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
+						
+					echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
+					echo '<div style="text-align: left">';
+					echo '</div>';
+					if($imageupload_thumbnails == "1"){
+						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="?action=options&mod=imageuploads&thumb='.$imageuploaddir.$file.'&height='.$new_height.'&width='.$new_width.'" />';
+					}else{
+						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';
+					}
+					echo '</div></div>'; 						
+				}
+			}
+			echo "</div>";
+			$f++;
+		}
+	}
+		
+	#used to let javascript count how many cat sections are shown.
+	$f--;
+	echo "<span style=\"display: none\" id=\"totalfilecatgroups\">$f</span>";
+	
+
+	echo '</div></div>'; 		   
+				   
 
 
 
@@ -2138,38 +2203,38 @@ function newsform($type){
 	echo "</div>";
 	echo "</div>";
 	
-    
+	
    
 
 
-    
+	
 	echo "<tr>";
 	echo "<td>";
 
 
 
-    #echo "  <hr style=\"clear: both\" />";
-    
-    		
+	#echo "  <hr style=\"clear: both\" />";
+	
+			
 	
 
 
 	if($_GET['action'] == "addnews"){
 		if($_POST['S1']){
 			$_POST['selectedfiles'] = (empty($_POST['selectedfiles'])) ? '' : $_POST['selectedfiles'];
-            $selectedfiles	= array();
+			$selectedfiles	= array();
 			$selectedfiles	= $_POST['selectedfiles'];	
 		}	
 	}else{
 		if(!$_POST['S1']){
 			$id					= $_GET['id'];
-            $allselectedfiles	= DataAccess::fetch("SELECT fileid FROM " . NEWS_LINKEDFILES . " WHERE storyid = ?", $id);
-            $selectedfiles		= array();
-            foreach($allselectedfiles AS $row){
+			$allselectedfiles	= DataAccess::fetch("SELECT fileid FROM " . NEWS_LINKEDFILES . " WHERE storyid = ?", $id);
+			$selectedfiles		= array();
+			foreach($allselectedfiles AS $row){
 				$selectedfiles[] = $row['fileid'];	
 			}
 		}else{
-		    $selectedfiles = array();
+			$selectedfiles = array();
 			$_POST['selectedfiles'] = (empty($_POST['selectedfiles'])) ? array() : $_POST['selectedfiles'];
 			$selectedfiles = $_POST['selectedfiles'];
 		}
@@ -2181,227 +2246,227 @@ function newsform($type){
 	echo "\n\n\n<div style=\"position: absolute; width: 580px; left: 50%; display: none; z-index: 10001\" id=\"filebox\">";
 	echo "<div style=\"width:580px; height: 340px; background-color: #FFFFFF; padding: 10px; border: 1px solid #AAAAAA; position: absolute; left: -190px\">";
 	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"bbcode('files','story')\">[close]</a>";
-					
-			
-			echo "<br />";
-			echo "<br />";
-			
-			echo "<span style=\"float: right\">";
-			echo "<select name=\"news_selectcat\" onchange=\"newsfilechangecatgroup();\" id=\"news_fileselectcat\">";
-			echo "<option value=\"1\"></option>";
+				
+	
+	echo "<br />";
+	echo "<br />";
+	
+	echo "<span style=\"float: right\">";
+	echo "<select name=\"news_selectcat\" onchange=\"newsfilechangecatgroup();\" id=\"news_fileselectcat\">";
+	echo "<option value=\"1\"></option>";
 
-			$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);	
-            $allowedcats = $allowedcats['0']['cats'];   														
-				if($allowedcats !== "all"){
-					$e = $allowedcats;
-					if(!$e){ $e = ''; }else{ $e = "WHERE id IN ($e)"; }
-                    $selectedcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " $e ORDER BY name");			            
-			    }else{
-                    $selectedcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name");
-                }
-                
-				$g = 2;
-                foreach($selectedcats AS $row){		            	
-			    		echo "<option value=\"$g\"";
-						if($_GET['catid'] == $row['id']){
-							echo " selected=\"selected\"";							
-						}
-						echo ">" . $row['name'] . "</option>";
-						$g++;
-				}
+	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);	
+	$allowedcats = $allowedcats['0']['cats'];   														
+	if($allowedcats !== "all"){
+		$e = $allowedcats;
+		if(!$e){ $e = ''; }else{ $e = "WHERE id IN ($e)"; }
+		$selectedcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " $e ORDER BY name");			            
+	}else{
+		$selectedcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name");
+	}
+		
+	$g = 2;
+	foreach($selectedcats AS $row){		            	
+			echo "<option value=\"$g\"";
+			if($_GET['catid'] == $row['id']){
+				echo " selected=\"selected\"";							
+			}
+			echo ">" . $row['name'] . "</option>";
+			$g++;
+	}
 
-			
-			echo "</select>";
-			echo "</span>";
-			echo "<span class=\"header\" style=\"padding-left: 0px\">".$langmsg['newsform'][19]."</span>";
-			echo "<hr />";
-			
-			
-			
-			echo "<div style=\"height: 250px; width: 580px; overflow: auto\">";
-  			
-			
+	
+	echo "</select>";
+	echo "</span>";
+	echo "<span class=\"header\" style=\"padding-left: 0px\">".$langmsg['newsform'][19]."</span>";
+	echo "<hr />";
+	
+	
+	
+	echo "<div style=\"height: 250px; width: 580px; overflow: auto\">";
+	
+	
 
-			#get all files not assigned to cats
-			echo "<div id=\"filecat_1\" class=\"show\" style=\"width: 100%\">";
+	#get all files not assigned to cats
+	echo "<div id=\"filecat_1\" class=\"show\" style=\"width: 100%\">";
+	echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
+	echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">".$langmsg['newsform'][20]."</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">".$langmsg['newsform'][21]."</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
+	$currentpath	= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	$currentpath	= "http://" . $currentpath;
+	$g				= $currentpath;
+	$x				= explode("admin.php",$g);
+	$url			= $x[0] . $uploaddir;
+	$tmpcolor		= 1;
+	$d				= 1;													
+	$nocatfiles		= DataAccess::fetch("SELECT title,url,filesize,downloadcount,author,timestamp," . NEWS_FILES . ".uid," . NEWS_USERS . ".user FROM " . NEWS_FILES . " 
+					LEFT JOIN " . NEWS_USERS . " ON " . NEWS_FILES . ".author = " . NEWS_USERS . ".uid
+					WHERE " . NEWS_FILES . ".uid NOT IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE type = 'file') ORDER BY " . NEWS_FILES . ".uid DESC");
+	foreach($nocatfiles AS $row){
+		$file = $row['title'];
+		if($tmpcolor == "1"){
+			$class		= "row1";
+			$tmpcolor	= "2";
+		}else{
+			$class		= "row2";
+			$tmpcolor	= "1";
+		}
+		$uploader = $row['user'];
+		$uploaded = date("j-m-y",$row['timestamp']);
+		$filename = basename($row['url']);
+		$filesize = round($row['filesize'],1) . " KB";
+		echo "<tr id=\"x$d\" onmouseover=\"markfield('x$d')\" onmouseout=\"unmarkfield('x$d')\" class=\"$class";
+		if(count($selectedfiles) > 0){
+			if(in_array($row['uid'],$selectedfiles)){
+				echo " rowhighlight";
+			}
+		}                   
+		echo "\"><td>$file</td><td>$filename</td><td>$row[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\"";
+		$selectedfiles = (empty($selectedfiles)) ? array() : $selectedfiles;
+		if(count($selectedfiles) > 0){
+			if(in_array($row['uid'],$selectedfiles)){
+				echo "checked=\"checked\" ";	
+			}
+		}
+		echo " name=\"selectedfiles[]\"></td></tr>";
+
+	$d++;
+	}
+	echo "</table>";									
+	echo "</div>";
+							
+	$f = 2;													
+	##show files for all cats the user can access							
+	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);
+	$allowedcats = $allowedcats['0']['cats'];
+	if($allowedcats !== "all"){
+		$a = explode(",",$allowedcats);
+		foreach($a as $c){
+			echo "<div id=\"filecat_$f\" class=\"noshow\" style=\"width: 100%\">";
 			echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
-			echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">".$langmsg['newsform'][20]."</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">".$langmsg['newsform'][21]."</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
-			$currentpath	= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-			$currentpath	= "http://" . $currentpath;
-			$g				= $currentpath;
-			$x				= explode("admin.php",$g);
-			$url			= $x[0] . $uploaddir;
-			$tmpcolor		= 1;
-			$d				= 1;													
-            $nocatfiles		= DataAccess::fetch("SELECT title,url,filesize,downloadcount,author,timestamp," . NEWS_FILES . ".uid," . NEWS_USERS . ".user FROM " . NEWS_FILES . " 
-							LEFT JOIN " . NEWS_USERS . " ON " . NEWS_FILES . ".author = " . NEWS_USERS . ".uid
-							WHERE " . NEWS_FILES . ".uid NOT IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE type = 'file') ORDER BY " . NEWS_FILES . ".uid DESC");
-			foreach($nocatfiles AS $row){
-				$file = $row['title'];
-                    if($tmpcolor == "1"){
-                        $class		= "row1";
-                        $tmpcolor	= "2";
-                    }else{
-                        $class		= "row2";
-                        $tmpcolor	= "1";
-                    }
-                $uploader = $row['user'];
-				$uploaded = date("j-m-y",$row['timestamp']);
-				$filename = basename($row['url']);
-                $filesize = round($row['filesize'],1) . " KB";
-				echo "<tr id=\"x$d\" onmouseover=\"markfield('x$d')\" onmouseout=\"unmarkfield('x$d')\" class=\"$class";
-				    if(count($selectedfiles) > 0){
-                        if(in_array($row['uid'],$selectedfiles)){
+			echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">Downloads</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">Uploaded</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
+			$filecats = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'file'", $c);					
+			foreach($filecats AS $row){
+				$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+				$url = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir,$x);
+				$tmpcolor = 1;
+				#$selectedfiles = DataAccess::fetch("SELECT title,url,filesize,downloadcount,author,timestamp,uid FROM " . NEWS_FILES . " WHERE uid = ?", $row['storyid']);																			
+				$catfiles = DataAccess::fetch("SELECT title,url,filesize,downloadcount,author,timestamp," . NEWS_USERS . ".user," . NEWS_FILES . ".uid FROM " . NEWS_FILES . " 
+				LEFT JOIN " . NEWS_USERS . " ON " . NEWS_FILES . ".author = " . NEWS_USERS . ".uid
+				WHERE " . NEWS_FILES . ".uid IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE storyid = ? AND type = 'file')", $row['storyid']);
+				foreach($catfiles AS $row2){ 
+					$file = $row2['title'];
+					if($tmpcolor == "1"){
+						$class		= "row1";
+						$tmpcolor	= "2";
+					} else {
+						$class		= "row2";
+						$tmpcolor	= "1";
+					}
+					$filesize = round($row2['filesize'],1) . " KB";
+					$uploader = $row2['user'];
+					$uploaded = date("j-m-y",$row2['timestamp']);  								
+					$filename = basename($row2['url']);
+					echo "<tr id=\"x$d\" onmouseover=\"markfield('x$d')\" onmouseout=\"unmarkfield('x$d')\" class=\"$class";
+					if(count($selectedfiles) > 0){
+						if(in_array($row2['uid'],$selectedfiles)){
 							echo " rowhighlight";
 						}
-                    }                   
-				echo "\"><td>$file</td><td>$filename</td><td>$row[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\"";
-				$selectedfiles = (empty($selectedfiles)) ? array() : $selectedfiles;
-				if(count($selectedfiles) > 0){
-                    if(in_array($row['uid'],$selectedfiles)){
-						echo "checked=\"checked\" ";	
-					}
-                }
-				echo " name=\"selectedfiles[]\"></td></tr>";
-
-			$d++;
-			}
-			echo "</table>";									
-			echo "</div>";
-									
-			$f = 2;													
-			##show files for all cats the user can access							
-			$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);
-            $allowedcats = $allowedcats['0']['cats'];
-			if($allowedcats !== "all"){
-		    	$a = explode(",",$allowedcats);
-		    	foreach($a as $c){
-		    		echo "<div id=\"filecat_$f\" class=\"noshow\" style=\"width: 100%\">";
-					echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
-					echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">Downloads</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">Uploaded</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
-                    $filecats = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'file'", $c);					
-                    foreach($filecats AS $row){
-						$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-						$url = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir,$x);
-						$tmpcolor = 1;
-                        #$selectedfiles = DataAccess::fetch("SELECT title,url,filesize,downloadcount,author,timestamp,uid FROM " . NEWS_FILES . " WHERE uid = ?", $row['storyid']);																			
-						$catfiles = DataAccess::fetch("SELECT title,url,filesize,downloadcount,author,timestamp," . NEWS_USERS . ".user," . NEWS_FILES . ".uid FROM " . NEWS_FILES . " 
-						LEFT JOIN " . NEWS_USERS . " ON " . NEWS_FILES . ".author = " . NEWS_USERS . ".uid
-						WHERE " . NEWS_FILES . ".uid IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE storyid = ? AND type = 'file')", $row['storyid']);
-						foreach($catfiles AS $row2){ 
-							$file = $row2['title'];
-                            if($tmpcolor == "1"){
-                                $class		= "row1";
-                                $tmpcolor	= "2";
-                            } else {
-                                $class		= "row2";
-                                $tmpcolor	= "1";
-                            }
-                            $filesize = round($row2['filesize'],1) . " KB";
-                            $uploader = $row2['user'];
-							$uploaded = date("j-m-y",$row2['timestamp']);  								
-							$filename = basename($row2['url']);
-							echo "<tr id=\"x$d\" onmouseover=\"markfield('x$d')\" onmouseout=\"unmarkfield('x$d')\" class=\"$class";
-							if(count($selectedfiles) > 0){
-                                if(in_array($row2['uid'],$selectedfiles)){
-									echo " rowhighlight";
-								}
-                            }											
-							echo "\"><td>$file</td><td>$filename</td><td>$row2[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row2[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\" ";
-							if(count($selectedfiles) > 0){
-                                if(in_array($row2['uid'],$selectedfiles)){
-									echo "checked=\"checked\" ";	
-								}
-                            }											
-							echo "name=\"selectedfiles[]\"></td></tr>";
-
-						$d++;
+					}											
+					echo "\"><td>$file</td><td>$filename</td><td>$row2[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row2[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\" ";
+					if(count($selectedfiles) > 0){
+						if(in_array($row2['uid'],$selectedfiles)){
+							echo "checked=\"checked\" ";	
 						}
-						
-					}
-					echo "</table>";
-				echo "</div>";
-				$f++;
-		        }
-        
-		    }else{
-                $allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name ASC");
-                foreach($allcats AS $xrow){
-		    		echo "<div id=\"filecat_$f\" class=\"noshow\" style=\"width: 100%\">";
-				    echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
-					echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">Downloads</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">Uploaded</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
-                    $filecats = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'file'", $xrow['id']);
-                    foreach($filecats AS $row){
-                        $x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-						$url = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir,$x);
-						$tmpcolor = 1;
-                        $catfiles = DataAccess::fetch("SELECT title,url,filesize,downloadcount,author,timestamp," . NEWS_USERS . ".user," . NEWS_FILES . ".uid FROM " . NEWS_FILES . " 
-						LEFT JOIN " . NEWS_USERS . " ON " . NEWS_FILES . ".author = " . NEWS_USERS . ".uid
-						WHERE " . NEWS_FILES . ".uid IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE storyid = ? AND type = 'file')", $row['storyid']);
-                        foreach($catfiles AS $row2){                        													
-							$file = $row2['title'];
-                            if($tmpcolor == "1"){
-                                $class		= "row1";
-                                $tmpcolor	= "2";
-                            } else {
-                                $class		= "row2";
-                                $tmpcolor	= "1";
-                            }
-                            $filesize = round($row2['filesize'],1) . " KB";                                                    
-                            $uploader = $row2['user'];
-							$uploaded = date("j-m-y",$row2['timestamp']);  								
-							$filename = basename($row2['url']);
-							echo "<tr id=\"x$d\" onmouseover=\"markfield('x$d')\" onmouseout=\"unmarkfield('x$d')\" class=\"$class";
-							$selectedfiles = (empty($selectedfiles)) ? array() : $selectedfiles;
-							if(count($selectedfiles)){
-                                if(in_array($row2['uid'],$selectedfiles)){
-									echo " rowhighlight";
-								}
-                            }											
-							echo "\"><td>$file</td><td>$filename</td><td>$row2[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row2[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\" ";
-							  if(count($selectedfiles) > 0){
-                                 if(in_array($row2['uid'],$selectedfiles)){
-									echo "checked=\"checked\" ";	
-								}
-                              }											
-							echo "name=\"selectedfiles[]\"></td></tr>";
-							$d++;
-						}
-						
-					}
-					echo "</table>";
-					echo "</div>";
-					$f++;
+					}											
+					echo "name=\"selectedfiles[]\"></td></tr>";
+
+				$d++;
 				}
-		    
-		    }
+				
+			}
+			echo "</table>";
+			echo "</div>";
+			$f++;
+		}
 
-#							echo $sql;						
-			
-			
-			#used to let javascript count how many cat sections are shown.
-			$f--;
-			echo "<span style=\"display: none\" id=\"totalcatgroups\">$f</span>";
-			
-		
-			echo '</div>';
-			echo "<div style=\"float: right\"><input type=\"button\" value=\"Select\" onclick=\"bbcode('files','story')\" /></div>";
-			echo '</div>'; 		   
-			 		   
+	}else{
+		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name ASC");
+		foreach($allcats AS $xrow){
+			echo "<div id=\"filecat_$f\" class=\"noshow\" style=\"width: 100%\">";
+			echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
+			echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">Downloads</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">Uploaded</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
+			$filecats = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'file'", $xrow['id']);
+			foreach($filecats AS $row){
+				$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+				$url = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir,$x);
+				$tmpcolor = 1;
+				$catfiles = DataAccess::fetch("SELECT title,url,filesize,downloadcount,author,timestamp," . NEWS_USERS . ".user," . NEWS_FILES . ".uid FROM " . NEWS_FILES . " 
+				LEFT JOIN " . NEWS_USERS . " ON " . NEWS_FILES . ".author = " . NEWS_USERS . ".uid
+				WHERE " . NEWS_FILES . ".uid IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE storyid = ? AND type = 'file')", $row['storyid']);
+				foreach($catfiles AS $row2){                        													
+					$file = $row2['title'];
+					if($tmpcolor == "1"){
+						$class		= "row1";
+						$tmpcolor	= "2";
+					} else {
+						$class		= "row2";
+						$tmpcolor	= "1";
+					}
+					$filesize = round($row2['filesize'],1) . " KB";                                                    
+					$uploader = $row2['user'];
+					$uploaded = date("j-m-y",$row2['timestamp']);  								
+					$filename = basename($row2['url']);
+					echo "<tr id=\"x$d\" onmouseover=\"markfield('x$d')\" onmouseout=\"unmarkfield('x$d')\" class=\"$class";
+					$selectedfiles = (empty($selectedfiles)) ? array() : $selectedfiles;
+					if(count($selectedfiles)){
+						if(in_array($row2['uid'],$selectedfiles)){
+							echo " rowhighlight";
+						}
+					}											
+					echo "\"><td>$file</td><td>$filename</td><td>$row2[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row2[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\" ";
+					  if(count($selectedfiles) > 0){
+						 if(in_array($row2['uid'],$selectedfiles)){
+							echo "checked=\"checked\" ";	
+						}
+					  }											
+					echo "name=\"selectedfiles[]\"></td></tr>";
+					$d++;
+				}
+				
+			}
+			echo "</table>";
+			echo "</div>";
+			$f++;
+		}
+	
+	}
+
+	#		echo $sql;						
+	
+	
+	#used to let javascript count how many cat sections are shown.
+	$f--;
+	echo "<span style=\"display: none\" id=\"totalcatgroups\">$f</span>";
+	
+
+	echo '</div>';
+	echo "<div style=\"float: right\"><input type=\"button\" value=\"Select\" onclick=\"bbcode('files','story')\" /></div>";
+	echo '</div>'; 		   
+			   
 
 
 
 
 
-		            
+				
 	echo "</td></tr>\n";
-    echo "<div id=\"smileybox\" style=\"z-index: 10001; width: 150px; background-color: #FFFFFF; border: 1px solid #AAAAAA; padding: 5px; margin-left: 470px; margin-top: 40px; display: none; position: absolute\">";
-    echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"document.getElementById('smileybox').style.display = 'none'; document.getElementById('fade').style.display = 'none';\">[close]</a><span class=\"header\" style=\"padding-left: 0px\">Smilies</span><hr />";
+	echo "<div id=\"smileybox\" style=\"z-index: 10001; width: 150px; background-color: #FFFFFF; border: 1px solid #AAAAAA; padding: 5px; margin-left: 470px; margin-top: 40px; display: none; position: absolute\">";
+	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"document.getElementById('smileybox').style.display = 'none'; document.getElementById('fade').style.display = 'none';\">[close]</a><span class=\"header\" style=\"padding-left: 0px\">Smilies</span><hr />";
 	echo "<div id=\"storysmilies\">";
-    $smilies = DataAccess::fetch("SELECT path, keycode FROM " . NEWS_SMILIES . "");
-    foreach($smilies AS $row){
-     	echo "<img style=\"cursor: pointer\" onclick=\"insertsmiley('$row[keycode]', '$row[path]', 'shortstory') \" src=\"$row[path]\" /> ";
-    }
+	$smilies = DataAccess::fetch("SELECT path, keycode FROM " . NEWS_SMILIES . "");
+	foreach($smilies AS $row){
+		echo "<img style=\"cursor: pointer\" onclick=\"insertsmiley('$row[keycode]', '$row[path]', 'shortstory') \" src=\"$row[path]\" /> ";
+	}
 	echo "</div>";
 	
 	echo "</div>";
@@ -2412,10 +2477,10 @@ function newsform($type){
 	$f = str_replace('{2}','storysmilies',$f);
 	#echo $f;							            
 	echo "<tr><d>$f</td></tr>";
-    echo "</tr>\n";
-    		            
+	echo "</tr>\n";
+						
 	echo "  <tr>\n";
-    echo "    <td valign=\"top\">\n";
+	echo "    <td valign=\"top\">\n";
 	echo "<div class=\"subheaders\" style=\"width: 682px\" onclick=\"toggle_section('article')\">" . $langmsg['newsform'][22] . "</div>";
 	$enablewysiwyg = DataAccess::fetch("SELECT enablewysiwyg FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
 	$enablewysiwyg =  $enablewysiwyg['0']['enablewysiwyg'];
@@ -2424,14 +2489,14 @@ function newsform($type){
 	}else{
 		$useck = '';
 	}
-	
+
 	echo "<div id=\"section_article\"";
 	if($newsform_options['toggle_article'] == "0"){
 		echo " style=\"display: none\"";
 	}
 	echo ">";
-    echo "  <textarea class=\"$useck\" id=\"story\" class=\"story\" name=\"story\" style=\"width: 100%; height: 250px;\">$story</textarea>\n";
-    echo "</div>";
+	echo "  <textarea class=\"$useck\" id=\"story\" class=\"story\" name=\"story\" style=\"width: 100%; height: 250px;\">$story</textarea>\n";
+	echo "</div>";
 	echo "</td></tr><tr><td>";
 	
 	echo "<div class=\"subheaders\" style=\"width: 682px\" onclick=\"toggle_section('summary')\">" . $langmsg['news'][51] . "</div>";
@@ -2461,261 +2526,258 @@ function newsform($type){
 	}else{
 		echo "style=\"text-align: left; width: 328px\">";
 	}
-				$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']); 														
-				if($allowedcats['0']['cats'] !== "all"){
-					$e = $allowedcats['0']['cats'];
-					if(!$e){ $e = ''; }else{ $e = "WHERE id IN ($e)"; }		
-					$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " $e ORDER BY name");
-					$num = count($allcats);        	            
-				}else{
-					$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name");
-					$num = count($allcats);
-				}	
-				if($num < 1){
-					echo "<i>" . $langmsg['news'][52] . "</i>";
-				}
-				foreach($allcats AS $row){
-					#if($catid == $row['id']){ echo "selected=selected"; } 
-					echo "<div style=\"float: left\"><input type=\"checkbox\" ";
-					if($_GET['action'] == "addnews"){
-						if($_POST){
-							$_POST['cats'] = (empty($_POST['cats'])) ? '' : $_POST['cats'];
-							if(is_array($_POST['cats'])){
-								if(count($_POST['cats']) > 0){
-									if(in_array($row['id'], $_POST['cats'])) {
-										echo "checked=\"checked\" ";
-									}
-								}
-							}
-						}
-					}elseif($_GET['action'] == "editnews"){
-						if(!$_POST['S1']){		            
-							$catids = DataAccess::fetch("SELECT catid FROM " . NEWS_GROUPCATS . " WHERE type = 'news' AND storyid = ?", $_GET['id']);
-							$cats = array();
-							foreach($catids AS $row2){
-								$cats[] = $row2['catid'];
-							}
-							if(count($cats) > 0){
-								if(in_array($row['id'], $cats)) {
-									echo "checked=\"checked\" ";
-								}
-							}
-						}else{
-							$_POST['cats'] = (empty($_POST['cats'])) ? '' : $_POST['cats'];
-							if(is_array($_POST['cats'])){			
-								if(count($_POST['cats']) > 0){
-									if(in_array($row['id'], $_POST['cats'])) {
-										echo "checked=\"checked\" ";
-									}
-								}
-							}
+	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']); 														
+	if($allowedcats['0']['cats'] !== "all"){
+		$e = $allowedcats['0']['cats'];
+		if(!$e){ $e = ''; }else{ $e = "WHERE id IN ($e)"; }		
+		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " $e ORDER BY name");
+		$num = count($allcats);        	            
+	}else{
+		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name");
+		$num = count($allcats);
+	}	
+	if($num < 1){
+		echo "<i>" . $langmsg['news'][52] . "</i>";
+	}
+	foreach($allcats AS $row){
+		#if($catid == $row['id']){ echo "selected=selected"; } 
+		echo "<div style=\"float: left\"><input type=\"checkbox\" ";
+		if($_GET['action'] == "addnews"){
+			if($_POST){
+				$_POST['cats'] = (empty($_POST['cats'])) ? '' : $_POST['cats'];
+				if(is_array($_POST['cats'])){
+					if(count($_POST['cats']) > 0){
+						if(in_array($row['id'], $_POST['cats'])) {
+							echo "checked=\"checked\" ";
 						}
 					}
-					
-					echo "style=\"margin-right: 1px; width: 15px; padding-left: 0px; margin-left: 0px\" name=\"cats[]\" value=\"$row[id]\" id=\"cat_$row[id]\"><label for=\"cat_$row[id]\" style=\"vertical-align: text-top; margin-left: 1px; padding-right: 20px\">$row[name]</label></div>";
 				}
-		echo "<br style=\"clear: both\" />";
-		echo "</div>";
-
-			
-		echo "</td>";
-		echo "<td valign=\"top\" align=\"right\">";
-		
-			echo "<div class=\"subheaders\" style=\"text-align: left; width: 332px\" onclick=\"toggle_section('comments')\">" . $langmsg['newsform'][7] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
-			echo "<div class=\"subheaders_body\" ";
-			if($newsform_options['toggle_comments'] == "0"){
-				echo " style=\"display: none; width: 328px; text-align: left\" ";
-			}else{
-				echo " style=\"width: 328px; text-align: left\" ";
 			}
-			
-			echo "id=\"section_comments\">";
-			echo "<span>Allow comments for this article</span><br /><br />";
-			echo "<select name=\"allowcomments\">";
-			echo "<option value=\"\">".$langmsg['selectfield'][0]."</option>";
-			echo "<option";
-			if($allowcomments == "1"){ echo " selected=selected"; }
-			echo " value=\"1\">".$langmsg['selectfield'][1]."</option>";
-			
-			echo "<option";
-			if($allowcomments == "0"){ echo " selected=selected"; }
-			echo " value=\"0\">".$langmsg['selectfield'][2]."</option>";
-			
-			echo "<option";
-			if($allowcomments == "2"){ echo " selected=selected"; }
-			echo " value=\"2\">".$langmsg['selectfield'][4]."</option>";
-			
-			echo "</select>";
-
-		echo "</td>";
-		echo "</tr>";
-		echo "<tr>";
-		echo "<td valign=\"top\">";
+		}elseif($_GET['action'] == "editnews"){
+			if(!$_POST['S1']){		            
+				$catids = DataAccess::fetch("SELECT catid FROM " . NEWS_GROUPCATS . " WHERE type = 'news' AND storyid = ?", $_GET['id']);
+				$cats = array();
+				foreach($catids AS $row2){
+					$cats[] = $row2['catid'];
+				}
+				if(count($cats) > 0){
+					if(in_array($row['id'], $cats)) {
+						echo "checked=\"checked\" ";
+					}
+				}
+			}else{
+				$_POST['cats'] = (empty($_POST['cats'])) ? '' : $_POST['cats'];
+				if(is_array($_POST['cats'])){			
+					if(count($_POST['cats']) > 0){
+						if(in_array($row['id'], $_POST['cats'])) {
+							echo "checked=\"checked\" ";
+						}
+					}
+				}
+			}
+		}
+		
+		echo "style=\"margin-right: 1px; width: 15px; padding-left: 0px; margin-left: 0px\" name=\"cats[]\" value=\"$row[id]\" id=\"cat_$row[id]\"><label for=\"cat_$row[id]\" style=\"vertical-align: text-top; margin-left: 1px; padding-right: 20px\">$row[name]</label></div>";
+	}
+	echo "<br style=\"clear: both\" />";
+	echo "</div>";
 
 		
+	echo "</td>";
+	echo "<td valign=\"top\" align=\"right\">";
+	
+	echo "<div class=\"subheaders\" style=\"text-align: left; width: 332px\" onclick=\"toggle_section('comments')\">" . $langmsg['newsform'][7] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
+	echo "<div class=\"subheaders_body\" ";
+	if($newsform_options['toggle_comments'] == "0"){
+		echo " style=\"display: none; width: 328px; text-align: left\" ";
+	}else{
+		echo " style=\"width: 328px; text-align: left\" ";
+	}
+	
+	echo "id=\"section_comments\">";
+	echo "<span>Allow comments for this article</span><br /><br />";
+	echo "<select name=\"allowcomments\">";
+	echo "<option value=\"\">".$langmsg['selectfield'][0]."</option>";
+	echo "<option";
+	if($allowcomments == "1"){ echo " selected=selected"; }
+	echo " value=\"1\">".$langmsg['selectfield'][1]."</option>";
+	
+	echo "<option";
+	if($allowcomments == "0"){ echo " selected=selected"; }
+	echo " value=\"0\">".$langmsg['selectfield'][2]."</option>";
+	
+	echo "<option";
+	if($allowcomments == "2"){ echo " selected=selected"; }
+	echo " value=\"2\">".$langmsg['selectfield'][4]."</option>";
+	
+	echo "</select>";
+
+	echo "</td>";
+	echo "</tr>";
+	echo "<tr>";
+	echo "<td valign=\"top\">";
+
+	
 	echo "<div class=\"subheaders\" style=\"width: 332px\" onclick=\"toggle_section('date')\">" . $langmsg['news'][53] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
 	echo "<div class=\"subheaders_body\" id=\"section_date\" ";
-		if($newsform_options['toggle_date'] == "0"){
-			echo "style=\"display: none; width: 328px\">";
-		}else{
-			echo "style=\"width: 328px\">";
-		}
-		
-		echo "<span>" . $langmsg['news'][54] . "</span><br /><br />";
-		echo "<select name=\"day\">";
-		$i = 01;
-		while($i <= 31){
-			$i = sprintf("%02d",$i);
-			echo "<option value=\"$i\" "; if($day == $i){ echo " selected=\"selected\"";} echo ">$i</option>";
-			$i++;
-		}
-		echo "</select>";
-		
-		echo " <select name=\"month\">";
-		
-		$months = array('January','February','March','April','May','June','July','August','September','October','November','December');
-		$months_short = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
-		$i = 0;
-		while($i < count($months)){
-			echo "<option value=\"" . $months[$i] . "\""; if($month == $months[$i]){ echo "selected=\"selected\""; } echo ">" . $months_short[$i] . "</option>";
+	if($newsform_options['toggle_date'] == "0"){
+		echo "style=\"display: none; width: 328px\">";
+	}else{
+		echo "style=\"width: 328px\">";
+	}
+	
+	echo "<span>" . $langmsg['news'][54] . "</span><br /><br />";
+	echo "<select name=\"day\">";
+	$i = 01;
+	while($i <= 31){
+		$i = sprintf("%02d",$i);
+		echo "<option value=\"$i\" "; if($day == $i){ echo " selected=\"selected\"";} echo ">$i</option>";
 		$i++;
-		}
-		echo "</select>";
-		
-		$i = "1970";
-		echo " <select name=\"year\">";
-		while($i <= 2037){
-			echo "<option value=\"$i\""; if($year == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
+	}
+	echo "</select>";
+	
+	echo " <select name=\"month\">";
+	
+	$months = array('January','February','March','April','May','June','July','August','September','October','November','December');
+	$months_short = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
+	$i = 0;
+	while($i < count($months)){
+		echo "<option value=\"" . $months[$i] . "\""; if($month == $months[$i]){ echo "selected=\"selected\""; } echo ">" . $months_short[$i] . "</option>";
 		$i++;
-		}
-		echo "</select>";
-		
-		$i = 0;
-		echo " <select name=\"hour\">";
-		while($i <= 23){
-			$i = sprintf("%02d",$i);
-			echo "<option value=\"$i\""; if($hour == $i){ echo "selected=\"selected\"";} echo ">$i</option>";
+	}
+	echo "</select>";
+	
+	$i = "1970";
+	echo " <select name=\"year\">";
+	while($i <= 2037){
+		echo "<option value=\"$i\""; if($year == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
 		$i++;
-		}
-		echo "</select>";
-		
+	}
+	echo "</select>";
+	
+	$i = 0;
+	echo " <select name=\"hour\">";
+	while($i <= 23){
+		$i = sprintf("%02d",$i);
+		echo "<option value=\"$i\""; if($hour == $i){ echo "selected=\"selected\"";} echo ">$i</option>";
+		$i++;
+	}
+	echo "</select>";
+	
 
-		$i = 0;
-		echo " <select name=\"minute\">";
-		while($i <= 59){
-			$i = sprintf("%02d",$i);
-			echo "<option value=\"$i\" "; if($minute == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
+	$i = 0;
+	echo " <select name=\"minute\">";
+	while($i <= 59){
+		$i = sprintf("%02d",$i);
+		echo "<option value=\"$i\" "; if($minute == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
 		$i++;
-		}
-		echo "</select>";
-		
-		$i = 0;
-		echo " <select name=\"second\">";
-		while($i <= 59){
-			$i = sprintf("%02d",$i);
-			echo "<option value=\"$i\" "; if($second == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
+	}
+	echo "</select>";
+	
+	$i = 0;
+	echo " <select name=\"second\">";
+	while($i <= 59){
+		$i = sprintf("%02d",$i);
+		echo "<option value=\"$i\" "; if($second == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
 		$i++;					
-		}
-		echo "</select>";	
+	}
+	echo "</select>";	
 
-		
-		echo "</td>";
-		echo "<td valign=\"top\" align=\"right\">";
+	
+	echo "</td>";
+	echo "<td valign=\"top\" align=\"right\">";
 
 
 
 	echo "<div class=\"subheaders\" style=\"width: 332px; text-align: left;\" onclick=\"toggle_section('archive')\">" . $langmsg['news'][55] . "</div>";
 	echo "<div class=\"subheaders_body\" id=\"section_archive\"";
-		if($newsform_options['toggle_archive'] == "0"){
-			echo " style=\"display: none; width: 328px; text-align: left;\" ";
-		}else{
-			echo " style=\"width: 328px; text-align: left;\" ";
-		}
+	if($newsform_options['toggle_archive'] == "0"){
+		echo " style=\"display: none; width: 328px; text-align: left;\" ";
+	}else{
+		echo " style=\"width: 328px; text-align: left;\" ";
+	}
 	echo ">";
-	
-			echo "<span style=\"\"><input id=\"neverarchive\" ";
-				if($neverarchive){
-					echo "checked=\"checked\" ";
-				}
-			echo "name=\"neverarchive\" type=\"checkbox\"><label for=\"neverarchive\">".$langmsg['newsform'][18]."</label></span><br /><br />";
-			echo "<select name=\"archive_day\">";
-			$i = 01;
-			while($i <= 31){
-				$i = sprintf("%02d",$i);
-				echo "<option value=\"$i\" "; if($archive_day == $i){ echo " selected=\"selected\"";} echo ">$i</option>";
-				$i++;
-			}
-			echo "</select>";
-			
-			echo " <select name=\"archive_month\">";
-			
-			$months = array('January','February','March','April','May','June','July','August','September','October','November','December');
-			$months_short = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
-			$i = 0;
-			while($i < count($months)){
-				echo "<option value=\"" . $months[$i] . "\""; if($archive_month == $months[$i]){ echo "selected=\"selected\""; } echo ">" . $months_short[$i] . "</option>";
-			$i++;
-			}
-			echo "</select>";
-			
-			$i = "1970";
-			echo " <select name=\"archive_year\">";
-			while($i <= 2037){
-				echo "<option value=\"$i\""; if($archive_year == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
-			$i++;
-			}
-			echo "</select>";
-			
-			$i = 0;
-			echo " <select name=\"archive_hour\">";
-			while($i <= 23){
-				$i = sprintf("%02d",$i);
-				echo "<option value=\"$i\""; if($archive_hour == $i){ echo "selected=\"selected\"";} echo ">$i</option>";
-			$i++;
-			}
-			echo "</select>";
-			
 
-			$i = 0;
-			echo " <select name=\"archive_minute\">";
-			while($i <= 59){
-				$i = sprintf("%02d",$i);
-				echo "<option value=\"$i\" "; if($archive_minute == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
-			$i++;
-			}
-			echo "</select>";
-			
-			$i = 0;
-			echo " <select name=\"archive_second\">";
-			while($i <= 59){
-				$i = sprintf("%02d",$i);
-				echo "<option value=\"$i\" "; if($archive_second == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
-			$i++;					
-			}
-			echo "</select>";
-				
+	echo "<span style=\"\"><input id=\"neverarchive\" ";
+		if($neverarchive){
+			echo "checked=\"checked\" ";
+		}
+	echo "name=\"neverarchive\" type=\"checkbox\"><label for=\"neverarchive\">".$langmsg['newsform'][18]."</label></span><br /><br />";
+	echo "<select name=\"archive_day\">";
+	$i = 01;
+	while($i <= 31){
+		$i = sprintf("%02d",$i);
+		echo "<option value=\"$i\" "; if($archive_day == $i){ echo " selected=\"selected\"";} echo ">$i</option>";
+		$i++;
+	}
+	echo "</select>";
 	
+	echo " <select name=\"archive_month\">";
 	
+	$months = array('January','February','March','April','May','June','July','August','September','October','November','December');
+	$months_short = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
+	$i = 0;
+	while($i < count($months)){
+		echo "<option value=\"" . $months[$i] . "\""; if($archive_month == $months[$i]){ echo "selected=\"selected\""; } echo ">" . $months_short[$i] . "</option>";
+		$i++;
+	}
+	echo "</select>";
+	
+	$i = "1970";
+	echo " <select name=\"archive_year\">";
+	while($i <= 2037){
+		echo "<option value=\"$i\""; if($archive_year == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
+		$i++;
+	}
+	echo "</select>";
+	
+	$i = 0;
+	echo " <select name=\"archive_hour\">";
+	while($i <= 23){
+		$i = sprintf("%02d",$i);
+		echo "<option value=\"$i\""; if($archive_hour == $i){ echo "selected=\"selected\"";} echo ">$i</option>";
+		$i++;
+	}
+	echo "</select>";
+	
+
+	$i = 0;
+	echo " <select name=\"archive_minute\">";
+	while($i <= 59){
+		$i = sprintf("%02d",$i);
+		echo "<option value=\"$i\" "; if($archive_minute == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
+		$i++;
+	}
+	echo "</select>";
+	
+	$i = 0;
+	echo " <select name=\"archive_second\">";
+	while($i <= 59){
+		$i = sprintf("%02d",$i);
+		echo "<option value=\"$i\" "; if($archive_second == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
+		$i++;					
+	}
+	echo "</select>";
+		
+
+
 	echo "</div>";
 		
 	echo "</td>";
 	echo "</tr>";
 	echo "<tr><td style=\"padding-top: 10px; padding-right: 4px;\">";
-	   echo "<button type=\"submit\" name=\"S1\" value=\"Preview\" style=\"width: 100%\">".$langmsg['submitfield'][1]."</button></td><td style=\"padding-top: 10px; padding-left: 4px\"><input style=\"width: 100%\" type=\"submit\" value=\"";
-	   if($_GET['action'] == "add"){
-			echo $langmsg['submitfield'][2];
-		}else{
-			echo $langmsg['submitfield'][3];
-		}
-	   
-	   echo "\" name=\"S1\">\n";
-	  echo "</td></tr>";
-	
-	
+	echo "<button type=\"submit\" name=\"S1\" value=\"Preview\" style=\"width: 100%\">".$langmsg['submitfield'][1]."</button></td><td style=\"padding-top: 10px; padding-left: 4px\"><input style=\"width: 100%\" type=\"submit\" value=\"";
+	if($_GET['action'] == "add"){
+		echo $langmsg['submitfield'][2];
+	}else{
+		echo $langmsg['submitfield'][3];
+	}
+   
+	echo "\" name=\"S1\">\n";
+	echo "</td></tr>";
 
-	
-    echo " </td> </tr>\n";
-    echo "</table>\n";
-    echo "</form>\n";			
+	echo " </td> </tr>\n";
+	echo "</table>\n";
+	echo "</form>\n";			
 }
 ?>

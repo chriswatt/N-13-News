@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Estonian		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Sa ei saa kustutada oma konto.");
 $langmsg['accounts'][23] = x("(Jäta tühjaks et hoida jooksevkonto)");
 $langmsg['accounts'][24] = x("Arvesse juba kasutab, et e-posti aadress, palun vali teine.");
 $langmsg['accounts'][25] = x("Palun sisestage konto nimi");
+$langmsg['accounts'][26] = x("Failid");
+$langmsg['accounts'][27] = x("Pildid");
 
 $langmsg['access'][0] = x("Juurdepääs Tase");
 $langmsg['access'][1] = x("Loo uus juurdepääsu tase.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Kõik sõnad Allpool filtreerida kõiki kommentaare.
 $langmsg['filters'][4] = x("Filtreeritud Word");
 $langmsg['filters'][5] = x("Asendada");
 $langmsg['filters'][6] = x("Kustutama");
+$langmsg['filters'][7] = x("Lisa uus filter");
 
 $langmsg['rss'][0] = x("RSS-kanalid");
 $langmsg['rss'][1] = x("Muuda oma RSS seaded all");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Kas soovite kindlasti kustutada valitud kategooria?");
 $langmsg['js'][30] = x("Kuidas Emotikonid ... Palun oota.");
 $langmsg['js'][31] = x("Kas soovite kindlasti kustutada valitud faili (d)?");
 $langmsg['js'][32] = x("Kas soovite kindlasti kustutada valitud emotikonid?");
+$langmsg['js'][33] = x("Kas soovite kindlasti kustutada valitud filtri (te)?");
 
 $langmsg['news'][0] = x("Palun sisesta nimi.");
 $langmsg['news'][1] = x("Palun sisestage sõnum.");

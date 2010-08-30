@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Lithuanian			                    #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Jūs negalite ištrinti savo sąskaitą.");
 $langmsg['accounts'][23] = x("(Palikite tuščią, jei norite išsaugoti esamą)");
 $langmsg['accounts'][24] = x("Į jau naudojamas, kad elektroninio pašto adreso, prašome pasirinkti kitą.");
 $langmsg['accounts'][25] = x("Įveskite sąskaitos pavadinimas");
+$langmsg['accounts'][26] = x("Failai");
+$langmsg['accounts'][27] = x("Nuotraukos");
 
 $langmsg['access'][0] = x("Prieigos lygiai");
 $langmsg['access'][1] = x("Sukurti naują prieigos lygį.");
@@ -385,6 +387,7 @@ $langmsg['filters'][3] = x("Visi žodžiai žemiau bus filtruojamas iš visų ko
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Pakeisti");
 $langmsg['filters'][6] = x("Ištrinti");
+$langmsg['filters'][7] = x("Pridėti naują filtrą");
 
 $langmsg['rss'][0] = x("RSS");
 $langmsg['rss'][1] = x("Keisti savo RSS parametrus žemiau");
@@ -766,6 +769,7 @@ $langmsg['js'][29] = x("Ar tikrai norite ištrinti pasirinktas kategorijas?");
 $langmsg['js'][30] = x("Pirmieji šypsenėlės ... Prašome palaukti.");
 $langmsg['js'][31] = x("Ar tikrai norite ištrinti pasirinktas failas (-ai)?");
 $langmsg['js'][32] = x("Ar tikrai norite ištrinti pasirinktą šypsenėlės?");
+$langmsg['js'][33] = x("Ar tikrai norite ištrinti pasirinktą filtrą (-us)?");
 
 $langmsg['news'][0] = x("Įveskite vardą.");
 $langmsg['news'][1] = x("Įveskite žinutę.");

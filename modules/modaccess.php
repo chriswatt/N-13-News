@@ -19,10 +19,12 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['access'][0]."</span></div><table width=\"685px\">";
-echo "<tr>";
-echo "<td width=\"17%\" align=center valign=top><br><img src=\"images/accesslevels.png\"></td>";
-echo "<td valign=top><br>";
+
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
 $_POST['S1'] = (empty($_POST['S1'])) ? '' : $_POST['S1'];
 function accesslevelform(){
 	global $langmsg;
@@ -152,15 +154,15 @@ function accesslevelform(){
 	echo "<form method=\"post\" action=\"\">";
 	echo "<div class=panel>".$langmsg['access'][1]."</div>";			 
 	echo "<br />";
-	echo "<div class=\"subheaders\" style=\"width: 552px\">" .$langmsg['access'][2] . "</div>";
-	echo "<div class=\"subheaders_body\" style=\"width: 548px; height: 30px\">";
-	echo "<input type=\"text\" value=\"$accessname\" style=\"width: 40%\" name=\"accessname\" />";
+	echo "<div class=\"subheaders\" style=\"\">" .$langmsg['access'][2] . "</div>";
+	echo "<div class=\"subheaders_body\" style=\"height: 30px\">";
+	echo "<input type=\"text\" value=\"$accessname\" style=\"\" name=\"accessname\" />";
 	echo "</div>";
-	echo "<div class=\"subheaders\" style=\"width: 552px\">" .$langmsg['access'][44]	 . "</div>";
+	echo "<div class=\"subheaders\" style=\"\">" .$langmsg['access'][44]	 . "</div>";
 	
 
-	echo "<div class=\"subheaders_body\" style=\"display: table; width: 548px; height: 30px\">";
-		echo "<table style=\"\" cellspacing=\"0\" cellpadding=\"1\">";
+	echo "<div class=\"subheaders_body\" style=\"display: table; height: 30px\">";
+		echo "<table style=\"width: 100%\" cellspacing=\"0\" cellpadding=\"1\">";
 		echo "<tr class=\"\">";
 		echo "<td style=\"width: 350px\">".$langmsg['access'][22]."</td>";
 		echo "<td>";
@@ -222,17 +224,17 @@ function accesslevelform(){
 		echo "</select>";			
 		echo "</td>";
 		echo "</tr>";			
-	echo "</table><br />";
+	echo "</table>";
 	echo "</div>";
 
 	
 	
-	echo "<table style=\"width: 100%\">";
+	echo "<table cellpadding=\"0\" cellspacing=\"0\" style=\"\">";
 	echo "<tr>";
-	echo "<td style=\"width: 50%\">";
+	echo "<td style=\"width: 45%\">";
 	
-	echo "<div class=\"subheaders\" style=\"width: 262px\">" .$langmsg['access'][3] . "</div>";
-	echo "<div class=\"subheaders_body\" style=\"display: table; width: 258px; height: 30px\">";
+	echo "<div class=\"subheaders\" style=\"width: 230px; margin-right: 6px;\">" .$langmsg['access'][3] . "</div>";
+	echo "<div class=\"subheaders_body\" style=\"display: table; width: 230px; height: 30px\">";
 	
 
 	
@@ -273,19 +275,19 @@ function accesslevelform(){
 	echo "</div>";
 	echo "</td><td valign=\"top\">";
 
-	echo "<div class=\"subheaders\" style=\"width: 262px\">" .$langmsg['access'][20] . "</div>";
-	echo "<div class=\"subheaders_body\" style=\"display: table; width: 258px; height: 30px\">";	
+	echo "<div class=\"subheaders\" style=\"width: 268px\">" .$langmsg['access'][20] . "</div>";
+	echo "<div class=\"subheaders_body\" style=\"display: table; width: 268px; height: 30px\">";	
 	
-	echo "<div style=\"width: 150px; float: left; padding-left: 15px;\"><label for=\"catall\">".$langmsg['access'][21]."</a></div><div><input value=\"1\" id=\"catall\" name=\"catall\" "; 			 
+	echo "<div style=\"width: 200px; float: left; padding-left: 15px;\"><label for=\"catall\">".$langmsg['access'][21]."</a></div><div><input value=\"1\" id=\"catall\" name=\"catall\" "; 			 
 	if($catall == "1"){
 		echo "checked=\"checked\" ";
 	} 
 	echo "onchange=\"uncheckcats()\" type=\"checkbox\" /></div>";
 	
-	echo "<div style=\"padding-left: 0px; text-align: center; width: 168px\"><hr style=\"margin-left: 15px; width: 168px; \" /></div>";	
+	echo "<div style=\"padding-left: 0px; text-align: center; width: 168px\"><hr style=\"margin-left: 15px; width: 220px; \" /></div>";	
 	$i = 0;
     foreach($allcats AS $row){
-		echo "<div style=\"width: 150px; float: left; padding-left: 15px;\"><label for=\"$row[id]\">$row[name]:</label></div><div><input onchange=\"uncheckall()\" id=\"$row[id]\" value=\"$row[id]\" ";	
+		echo "<div style=\"width: 200px; float: left; padding-left: 15px;\"><label for=\"$row[id]\">$row[name]:</label></div><div><input onchange=\"uncheckall()\" id=\"$row[id]\" value=\"$row[id]\" ";	
 		if(count($cat) > 0){
 			if(is_array($cat)){
 				if(in_array($row['id'],$cat)){
@@ -297,7 +299,7 @@ function accesslevelform(){
 		$i++;
 	}
 
-	echo "<br />";			  	
+	echo "";			  	
 	echo "</div>";	
 	echo "</div>";
 	
@@ -309,7 +311,7 @@ function accesslevelform(){
  	
 
 	echo "<div style=\"text-align: center\">";
-	echo "<input type=\"submit\" name=\"S1\" style=\"width: 98%\" value=\"";
+	echo "<input type=\"submit\" name=\"S1\" style=\"width: 100%\" value=\"";
 	
 		if($_GET['do'] == "new"){
 			echo $langmsg['submitfield'][5];
@@ -354,7 +356,7 @@ if($_POST['accessoption'] == "delete"){
 		}
 		$notdeleted = substr($notdeleted,0,strlen($notdeleted)-2);
 		$deleted = substr($deleted,0,strlen($deleted)-2);
-		echo "<span class=success>".$langmsg['access'][30]."</span> $deleted<br />";
+		echo "<span class=success>".$langmsg['access'][30]." $deleted</span>";
 		if($g > 0){
 			echo "<span class=error>".$langmsg['access'][31]."</span> $notdeleted";
 		}
@@ -525,9 +527,9 @@ $alltemplates = DataAccess::fetch("SELECT * FROM " . NEWS_ACCESS);
 $num = count($alltemplates);
 $g = $langmsg['access'][42];
 $g = "<b>$num</b> " . $g;
-echo "<div class=panel>".$g."</div><br>\n";
+echo "<div class=panel>".$g."</div><br />";
 echo "<form method=\"POST\" action=\"?action=options&mod=access\" id=\"accessform\">";
-echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"1\" ><tr><td width=\"33%\">".$langmsg['access'][43]."</td><td width=\"33%\">".$langmsg['access'][44]."</td><td width=\"33%\">".$langmsg['access'][45]."</td><td><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></td></tr>";
+echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"33%\">".$langmsg['access'][43]."</td><td class=\"tableshead tablerightborder\" width=\"33%\">".$langmsg['access'][44]."</td><td align=\"center\" class=\"tableshead tablerightborder\" width=\"33%\">".$langmsg['access'][45]."</td><td class=\"tableshead\"><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></td></tr>";
 $d = 1;
 $x = false;
 foreach($alltemplates AS $row){					
@@ -544,7 +546,7 @@ foreach($alltemplates AS $row){
 	if($access == 3){ $access = $langmsg['access'][48]; }
     $numaccounts = DataAccess::fetch("SELECT * FROM " . NEWS_USERS . " WHERE access = ?", $row['uid']);
     $numaccounts = count($numaccounts); 				
-	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td><a href=\"?action=options&mod=access&do=edit&id=$row[uid]\">$row[name]</a></td><td>$access</td><td>$numaccounts</td><td><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" name=\"selectedaccess[]\" value=\"$row[uid]\" /></td></tr>";
+	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=access&do=edit&id=$row[uid]\"><img alt=\"Edit\" title=\"Edit\" src=\"images/icons/pencil.png\" /></a></td><td class=\"tablebody tablerightborder\">$row[name]</td><td class=\"tablebody tablerightborder\">$access</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\">$numaccounts</td><td class=\"tablebody\"><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" name=\"selectedaccess[]\" value=\"$row[uid]\" /></td></tr>";
 	$d++;
 }
 echo "</table>";
@@ -558,4 +560,7 @@ echo "<a href=\"?action=options&mod=access&do=new\"><u>".$langmsg['access'][1]."
 echo "</td>";
 echo "</tr>";
 echo "</table>";
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

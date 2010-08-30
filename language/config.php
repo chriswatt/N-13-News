@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -63,7 +63,7 @@ $language_names['Maltese']				= x("Malti");
 $language_names['Norwegian']			= x("Norsk");
 $language_names['Persian']				= x("فارسی");
 $language_names['Polish']				= x("Polska");
-$language_names['Portuguese']			= x("Portugu&ecirc;s");
+$language_names['Portugues']			= x("Portugu&ecirc;s");
 $language_names['Romanian']				= x("Român");
 $language_names['Russian']				= x("Русский");
 $language_names['Serbian']				= x("Српски");

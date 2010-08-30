@@ -19,8 +19,13 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['img'][0]."</span></div><table width=\"685px\"><tr><td align=\"center\" valign=top width=\"17%\"><img src=\"images/image.png\" /></td><br />";        
-echo "<td valign=top align=top>";
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+
 $_GET['view'] = (empty($_GET['view'])) ? '' : $_GET['view'];
 $_GET['file'] = (empty($_GET['file'])) ? '' : $_GET['file'];
 $_GET['catid'] = (empty($_GET['catid'])) ? '' : $_GET['catid'];
@@ -90,9 +95,9 @@ function editimageform(){
 	if(count($imagedata) >= 1){
 		$all			= $imagedata['0'];
 		$filename		= $all['file'];
-		echo "<div class=\"panel\">".$langmsg['img'][14]. "</div>";
-		echo "<br /><table width=\"100%\">";
-		echo "<tr><td>".$langmsg['img'][12] . "</td><td><span class=\"success\">$filename</span></td></tr>";
+		echo "<div class=\"subheaders\">".$langmsg['img'][14]. "</div>";
+		echo "<div class=\"subheaders_body displaytable\"><table width=\"100%\">";
+		echo "<tr><td>".$langmsg['img'][12] . "</td><td><span class=\"ok\">$filename</span></td></tr>";
 		echo "<tr><td valign=top width=\"120\">";
 		echo $langmsg['img'][13];
 		echo "</td><td valign=top>";
@@ -134,16 +139,18 @@ function editimageform(){
 		echo "<input type=\"submit\" name=\"S1\" value=\"".$langmsg['img'][17]. "\"><br />\n";
 		echo "</form>";
 		echo "</td></tr>";
-		echo "</table>";	
+		echo "</table>";
+		echo "</div>";
 	}else{
 		echo $langmsg['img'][18];
 	}
+	
 }
 
 function imageuploadform(){
 	global $langmsg;
-	echo "<div class=\"panel\">".$langmsg['img'][1]."</div>";
-	echo "<br /><table width=\"100%\"><tr><td valign=top width=\"120\">";
+	echo "<div class=\"subheaders\">".$langmsg['img'][1]."</div>";
+	echo "<div class=\"subheaders_body displaytable\"><table width=\"100%\"><tr><td valign=top width=\"120\">";
 	echo $langmsg['img'][13];
 	echo "</td><td valign=top>";
 	echo "<form enctype=\"multipart/form-data\" action=\"\" method=\"POST\">\n";
@@ -185,6 +192,7 @@ function imageuploadform(){
 	echo "</form>";
 	echo "</td></tr>";
 	echo "</table>";
+	echo "</div>";
 }
 
 $uploaddir = $imageuploaddir;
@@ -228,16 +236,16 @@ if(!$_GET['imageuid']){
 						$target_path = $target_path . $filename;
 						#check if a file already exists with that name
 						if(file_exists($uploaddir . $filename)){
-							echo "$j. " . $filename . " - <span class=\"error\">" . $langmsg['img'][30]."</span><br />";
+							echo "<span class=\"error\">"  . "$j. " . $filename . " - " . $langmsg['img'][30]."</span>";
 						}elseif(move_uploaded_file($_FILES['uploadedfile']['tmp_name'][$e], $target_path)) {
 							$filesize = filesize($uploaddir . $filename);
 							$filesize = ($filesize / 1000);
 							list($width, $height, $type, $attr) = getimagesize($uploaddir . $filename);
 							if(!$height || !$width){
 								unlink($uploaddir . $filename);
-								echo "$j. " . $filename . "<span class=\"leftnavmain error\">" . $langmsg['img'][9]."</span><br />";
+								echo "<span class=\"leftnavmain error\">" . "$j. " . $filename . " - " . $langmsg['img'][9]."</span>";
 							}else{
-								echo "$j. " . $filename . " - <span class=\"success\">" . $langmsg['img'][6]."</span><br />";
+								echo "<span class=\"success\">" . $j . " " . $filename . " - " . $langmsg['img'][6]."</span>";
 								$file 		= basename($filename);
 								$uploader	= $_SESSION['uid'];
 								$title		= $_POST['image_title'];
@@ -256,10 +264,10 @@ if(!$_GET['imageuid']){
 								}
 							}
 						}else{
-							echo "$j. " . $filename . " - <span class=\"leftnavmain error\">".  $langmsg['img'][7]."</span><br />";
+							echo "<span class=\"leftnavmain error\">" . $j . " " . $filename .  " - " .  $langmsg['img'][7]."</span>";
 						}
 					}else{
-						echo "$j. " . $filename ." - <span class=\"leftnavmain error\">" . $langmsg['img'][8]."</span><br />";
+						echo "<span class=\"leftnavmain error\">" . $j . " " . $filename . " - " . $langmsg['img'][8]."</span>";
 					}
 					$j++;
 				}
@@ -288,8 +296,8 @@ if(!$_GET['imageuid']){
 	}
 }
 
-$accessdata = unserialize($_SESSION['accessdata']);
-if($accessdata['0']['fileimages'] == "1"){
+$accessdatax = unserialize($_SESSION['accessdata']);
+if($accessdatax['0']['fileimages'] == "1"){
 	$restrict = '';
 }else{
 	$restrict = "AND uploader = '" . $_SESSION['uid'] . "'";
@@ -300,10 +308,14 @@ $catid = $_GET['catid'];
 $num = DataAccess::fetch("SELECT COUNT(uid) AS num FROM " . NEWS_IMAGES . " $restrict2");
 $num = $num['0']['num'];             
 $f = $langmsg['img'][3];
-$f = "<b>$num</b> " . $f;
-$f = $f . "<b><span id=\"totalfilesize\"></span></b>&nbsp;";
+$f = "  <b>$num</b>&nbsp;" . $f;
+$f = $f . "&nbsp;<b><span id=\"totalfilesize\"></span></b>&nbsp;";
 echo "<div class=\"panel\">$f";
 echo "</div><br style=\"clear: both\" />";
+
+echo "<table width=\"100%\"><tr>";        
+echo "<td valign=top align=top>";
+
 echo "<div style=\"padding-bottom: 7px\">";
 echo "<span style=\"float: right\">".$langmsg['img'][22]." <select id=\"catchange\" onchange=\"window.location='?action=options&mod=imageuploads&catid=' + document.getElementById('catchange').value + '&view=$view';\" style=\"margin-top: 0px\" name=\"category_show\">";
 echo "<option value=\"-1\">".$langmsg['img'][31]."</option>";
@@ -314,7 +326,6 @@ if(!$_GET['catid']){
 	echo "selected=\"selected\""; 
 }
 echo "></option>";
-
 $allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);
 $allowedcats = $allowedcats['0']['cats'];
 $d = '';
@@ -345,7 +356,9 @@ if($view == "details"){
 	echo "<a href=\"?action=options&mod=imageuploads&view=details&catid=$catid\">".$langmsg['img'][21]."</a>";			
 }
 echo "</div>";
+echo "<br />";
 echo "<hr />";
+echo "<br />";
 echo "<form method=\"post\" id=\"imageform\" name=\"imageform\" action=\"?action=options&mod=imageuploads\">";
 $catid = $_GET['catid'];
 
@@ -427,7 +440,7 @@ if($view == "thumbnails"){
 				$filesize		.= " KB";
 				$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 				$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x);				 		   
-				echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail">';
+				echo '<div style="float: left; width: 105px; height: 130px"><div id="'.$b.'" class="thumbnail">';
 				echo '<div style="text-align: left">';
 				if($catid){
 					echo '<div style="float: right; margin-top: -3px" ><a href="#" class="delete" title="'.$langmsg['img'][28].'" onclick="removecat(\'' . $b . '\',\'' . $row['uid'] . '\',\'' . $catid . '\', \'' . $view . '\')">x</a></div>';
@@ -447,7 +460,7 @@ if($view == "thumbnails"){
 	}		
 }else{
 	echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
-	echo "<tr><td width=\"55%\">".$langmsg['img'][23]."</td><td width=\"20%\">".$langmsg['img'][24]."</td><td width=\"25%\">".$langmsg['img'][25]."</td><td><input onclick=\"selectall()\" id=\"allcheck\" type=\"checkbox\"></td></tr>";
+	echo "<tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"55%\">".$langmsg['img'][23]."</td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['img'][24]."</td><td class=\"tableshead tablerightborder\" width=\"25%\">".$langmsg['img'][25]."</td><td class=\"tableshead\"><input onclick=\"selectall()\" id=\"allcheck\" type=\"checkbox\"></td></tr>";
 	$d = 1;
 	$tmpcolor = 1;
 	$totalfilesize = 0;
@@ -496,7 +509,7 @@ if($view == "thumbnails"){
 				$filesize .= " KB";
 				$b++;
 			}
-			echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td><a href=\"?action=options&mod=imageuploads&catid=" . $_GET['catid'] . "&view=" . $_GET['view'] . "&imageuid=" . $row['uid'] . "\">$file</a></td><td>$filesize</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" name=\"selectedimages[]\"></td></tr>";
+			echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=imageuploads&catid=" . $_GET['catid'] . "&view=" . $_GET['view'] . "&imageuid=" . $row['uid'] . "\"><img src=\"images/icons/pencil.png\" alt=\"Edit\" title=\"Edit\" /></a></td><td class=\"tablebody tablerightborder\">$file</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\">$filesize</td><td class=\"tablebody tablerightborder\">$uploader</td><td class=\"tablebody\"><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" name=\"selectedimages[]\"></td></tr>";
 			$d++;
 		}	
 	}
@@ -543,4 +556,7 @@ foreach($allcats AS $row){
 echo "</select>";
 echo "&nbsp;<input type=\"button\" name=\"imageforms1\" onclick=\"deleteimages()\" value=\"".$langmsg['submitfield'][0]."\" /></div></form>";
 echo "</td></tr></table>";
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

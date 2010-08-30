@@ -114,6 +114,10 @@ if($_POST['install'] == "true"){
 		sqldump(ABSPATH . 'update/sqlchanges37.txt');
 		
 
+		echo "sqlchanges37.txt~~" . $querycount . "~~OK~~sqlchanges40.txt~~";
+	}elseif($_POST['next'] == "sqlchanges40.txt"){
+		sqldump(ABSPATH . 'update/sqlchanges40.txt');
+		
 		#make 3.7 Ajax Template the default.
 		$templateid = DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = '3.7 Ajax Template'");
 		$templateid = $templateid['0']['id'];
@@ -131,14 +135,23 @@ if($_POST['install'] == "true"){
 		DataAccess::put("UPDATE " . NEWS_SMILIES . " SET showhide = '0' WHERE id IN (1,4,6,8,11,13,18,22,24,26,27)");
 		$querycount++;
 
+		//update the position of each smiley. added in 4.0
+		$smiliesupdated = DataAccess::fetch(sprintf("SELECT position, id FROM %s", NEWS_SMILIES));
+		if($smiliesupdated['0']['position'] == ""){
+			//smilies haven't been updated, do it here
+			$i = 0;
+			foreach($smiliesupdated AS $smiley){
+				DataAccess::put(sprintf("UPDATE %s SET position = ? WHERE id = ?", NEWS_SMILIES), $i, $smiley['id']);
+				$i++;
+			}
+		}
+		
 		// set 3.7
 		DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET template = '$templateid' WHERE 1");	
 		$querycount++;
-
-
-
+	
 		require_once(ABSPATH . '/langmsg.php');
-		$finishmessage = $langmsg['install'][24] . " <a href=\"../admin.php\">" . $langmsg['install'][25] . "</a><hr />";
+		$finishmessage = $langmsg['install'][24] . " <a href=\"../admin.php\">" . $langmsg['install'][25] . "</a><hr />";	
 		echo "sqlchanges37.txt~~" . $querycount . "~~OK~~finished~~" . $finishmessage;		
 	}
 	die();
@@ -154,7 +167,7 @@ $majorversion = $phpversion['0'];
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../style.css" rel="stylesheet" type="text/css" />
-<title>N-13 News 3.7</title>
+<title>N-13 News 4.0</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 
 <script language="javascript">
@@ -508,5 +521,5 @@ $majorversion = $phpversion['0'];
 
 <br />
 
-<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 3.7</a> &copy; 2010</span>
+<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 4.0</a> &copy; 2010</span>
 </div>

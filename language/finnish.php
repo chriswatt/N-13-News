@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Finnish                                 #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -327,6 +327,8 @@ $langmsg['accounts'][22] = x("Et voi poistaa omia huomioon.");
 $langmsg['accounts'][23] = x("(Jätä tyhjäksi jos haluat säilyttää nykyisen)");
 $langmsg['accounts'][24] = x("Tili on jo käytössä, että sähköpostiosoitteesi, valitse toinen.");
 $langmsg['accounts'][25] = x("Anna tilin nimi");
+$langmsg['accounts'][26] = x("Tiedostot");
+$langmsg['accounts'][27] = x("Kuvat");
 
 
 $langmsg['access'][0] = x("Käyttöoikeustasoista");
@@ -402,6 +404,7 @@ $langmsg['filters'][3] = x("Kaikki sanat alla on suodattaa kaikki kommentit.");
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Korvata");
 $langmsg['filters'][6] = x("Poistaa");
+$langmsg['filters'][7] = x("Lisää uusi suodatin");
 
 
 $langmsg['rss'][0] = x("RSS-syötteet");
@@ -793,6 +796,7 @@ $langmsg['js'][29] = x("Oletko varma, että haluat poistaa valitut ryhmiin?");
 $langmsg['js'][30] = x("Getting hymiöt ... Odota.");
 $langmsg['js'][31] = x("Oletko varma, että haluat poistaa valitun tiedoston (t)?");
 $langmsg['js'][32] = x("Oletko varma, että haluat poistaa valitut hymiöt?");
+$langmsg['js'][33] = x("Oletko varma että haluat poistaa valitun suodattimen (t)?");
 
 
 $langmsg['news'][0] = x("Anna nimi.");

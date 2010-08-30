@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Archivo de lenguaje                       #
 #   LANGUAGE    Spanish                                 #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      Sergio Avila	                        #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -327,6 +327,8 @@ $langmsg['accounts'][22] = x("No se puede eliminar su propia cuenta.");
 $langmsg['accounts'][23] = x("(Deja en blanco para mantener actualizada)");
 $langmsg['accounts'][24] = x("Una cuenta de que ya está utilizando la dirección de correo electrónico, por favor, elija otra.");
 $langmsg['accounts'][25] = x("Por favor, introduzca un nombre de cuenta");
+$langmsg['accounts'][26] = x("Archivos");
+$langmsg['accounts'][27] = x("Imágenes");
 
 #----ACCESS MODULE
 $langmsg['access'][0] = x("Niveles de Acceso");
@@ -402,6 +404,7 @@ $langmsg['filters'][3] = x("Todas las palabras a continuación se filtra de todos
 $langmsg['filters'][4] = x("Word filtrada");
 $langmsg['filters'][5] = x("Reemplazar");
 $langmsg['filters'][6] = x("Borrar");
+$langmsg['filters'][7] = x("Añadir un nuevo filtro");
 
 #-----RSS MODULE
 $langmsg['rss'][0] = x("Feeds RSS");
@@ -793,6 +796,7 @@ $langmsg['js'][29] = x("¿Estás seguro de que quieres eliminar las categorías sel
 $langmsg['js'][30] = x("Smilies Cómo ... Por favor, espere.");
 $langmsg['js'][31] = x("¿Estás seguro de que desea borrar el archivo seleccionado (s)?");
 $langmsg['js'][32] = x("¿Estás seguro de que quieres eliminar las caritas seleccionado?");
+$langmsg['js'][33] = x("¿Está seguro que desea eliminar el filtro seleccionado (s)?");
 
 $langmsg['news'][0] = x("Por favor, introduzca un nombre.");
 $langmsg['news'][1] = x("Por favor, introduzca un mensaje.");

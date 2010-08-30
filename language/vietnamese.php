@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Vietnamese		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -313,6 +313,9 @@ $langmsg['accounts'][22] = x("Bạn không thể xoá các tài khoản riêng c
 $langmsg['accounts'][23] = x("(Để trống để giữ hiện hành)");
 $langmsg['accounts'][24] = x("Một tài khoản đã được sử dụng địa chỉ email đó, hãy lựa chọn khác.");
 $langmsg['accounts'][25] = x("Hãy nhập tên tài khoản");
+$langmsg['accounts'][26] = x("Files");
+$langmsg['accounts'][27] = x("Hình ảnh");
+
 
 $langmsg['access'][0] = x("Access Levels");
 $langmsg['access'][1] = x("Tạo một cấp độ truy cập mới.");
@@ -385,6 +388,7 @@ $langmsg['filters'][3] = x("Tất cả các từ dưới đây sẽ được l�
 $langmsg['filters'][4] = x("Lọc Word");
 $langmsg['filters'][5] = x("Thay thế Với");
 $langmsg['filters'][6] = x("Xoá");
+$langmsg['filters'][7] = x("Thêm một bộ lọc mới");
 
 $langmsg['rss'][0] = x("RSS Feeds");
 $langmsg['rss'][1] = x("RSS feed chỉnh các cài đặt dưới đây");
@@ -766,6 +770,7 @@ $langmsg['js'][29] = x("Bạn có chắc chắn muốn xoá các mục chọn kh
 $langmsg['js'][30] = x("Bắt smilies ... Xin vui lòng chờ đợi.");
 $langmsg['js'][31] = x("Bạn có chắc chắn muốn xóa các tập tin đã chọn (s)?");
 $langmsg['js'][32] = x("Bạn có chắc chắn muốn xoá các smilies chọn?");
+$langmsg['js'][33] = x("Bạn có chắc bạn muốn xóa các bộ lọc được lựa chọn (s)?");
 
 $langmsg['news'][0] = x("Xin vui lòng nhập một tên.");
 $langmsg['news'][1] = x("Xin vui lòng nhập một tin nhắn.");

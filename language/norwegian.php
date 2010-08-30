@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Norwegian		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Du kan ikke slette din egen konto.");
 $langmsg['accounts'][23] = x("(La stå tomt for å beholde gjeldende)");
 $langmsg['accounts'][24] = x("En konto er allerede bruker den e-postadressen, kan du velge en annen.");
 $langmsg['accounts'][25] = x("Vennligst oppgi et kontonavn");
+$langmsg['accounts'][26] = x("Filer");
+$langmsg['accounts'][27] = x("Bilder");
 
 $langmsg['access'][0] = x("Access Levels");
 $langmsg['access'][1] = x("Opprett en ny tilgangsnivået.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Alle ordene nedenfor vil bli filtrert fra alle komme
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Erstatt med");
 $langmsg['filters'][6] = x("Slette");
+$langmsg['filters'][7] = x("Legg til et nytt filter");
 
 $langmsg['rss'][0] = x("RSS-feeder");
 $langmsg['rss'][1] = x("Rediger din RSS feed innstillingene nedenfor");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Er du sikker på at du vil slette de valgte kategoriene?
 $langmsg['js'][30] = x("Komme smilies ... Vennligst vent.");
 $langmsg['js'][31] = x("Er du sikker på at du vil slette den valgte filen (e)?");
 $langmsg['js'][32] = x("Er du sikker på at du vil slette de valgte smilier?");
+$langmsg['js'][33] = x("Er du sikker på at du vil slette de valgte filteret (e)?");
 
 $langmsg['news'][0] = x("Skriv inn et navn.");
 $langmsg['news'][1] = x("Legg inn en beskjed.");

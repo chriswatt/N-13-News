@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***********************************************************************
   N-13 News is a free news publishing system
   Copyright (C) 2010 Chris Watt
@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    Galician		                        #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -312,6 +312,8 @@ $langmsg['accounts'][22] = x("Non pode eliminar a súa propia conta.");
 $langmsg['accounts'][23] = x("(Deixe en blanco para manter actual)");
 $langmsg['accounts'][24] = x("Unha conta Xa se está usando o seu enderezo de correo electrónico, por favor escolla outro.");
 $langmsg['accounts'][25] = x("Por favor, indique un nome de conta");
+$langmsg['accounts'][26] = x("Arquivos");
+$langmsg['accounts'][27] = x("Imaxes");
 
 $langmsg['access'][0] = x("Niveis de acceso");
 $langmsg['access'][1] = x("Crear un novo nivel de acceso.");
@@ -384,6 +386,7 @@ $langmsg['filters'][3] = x("Todas as palabras embaixo serán filtrados de todos 
 $langmsg['filters'][4] = x("Palabra Filtered");
 $langmsg['filters'][5] = x("Substituír por");
 $langmsg['filters'][6] = x("Borrar");
+$langmsg['filters'][7] = x("Engadir un novo filtro");
 
 $langmsg['rss'][0] = x("Feeds RSS");
 $langmsg['rss'][1] = x("Edita o teu RSS feed definicións embaixo");
@@ -765,6 +768,7 @@ $langmsg['js'][29] = x("Vostede está seguro que quere eliminar as categorías s
 $langmsg['js'][30] = x("Risoños getting ... Por favor, espere.");
 $langmsg['js'][31] = x("Vostede está seguro de que quere borrar o arquivo seleccionado (s)?");
 $langmsg['js'][32] = x("¿Está seguro de que desexa eliminar os smilies seleccionados?");
+$langmsg['js'][33] = x("¿Está seguro que quere eliminar o filtro seleccionado (s)?");
 
 $langmsg['news'][0] = x("Por favor, introduza un nome.");
 $langmsg['news'][1] = x("Introduza unha mensaxe.");

@@ -21,7 +21,7 @@
 #                                                       #
 #   N-13 News Language File                             #
 #   LANGUAGE    German                                  #
-#   VERSION     3.7                                     #
+#   VERSION     4.0                                     #
 #   AUTHOR      chris@network-13.com                    #
 #                                                       #
 #   Any words you see wrapped in { } braces,            #
@@ -326,6 +326,8 @@ $langmsg['accounts'][22] = x("Sie können nicht gelöscht werden Ihren Account.");
 $langmsg['accounts'][23] = x("(Oder leer lassen dem Laufenden zu halten)");
 $langmsg['accounts'][24] = x("Ein Konto ist bereits mit dieser E-Mail-Adresse, wählen Sie einen anderen.");
 $langmsg['accounts'][25] = x("Bitte geben Sie einen Account-Namen");
+$langmsg['accounts'][26] = x("Files");
+$langmsg['accounts'][27] = x("Bilder");
 
 
 $langmsg['access'][0] = x("Zugriffsebenen");
@@ -401,6 +403,7 @@ $langmsg['filters'][3] = x("Alle Wörter unten wird von allen Kommentaren gefilte
 $langmsg['filters'][4] = x("Filtered Word");
 $langmsg['filters'][5] = x("Ersetzen durch");
 $langmsg['filters'][6] = x("Löschen");
+$langmsg['filters'][7] = x("Fügen Sie einen neuen Filter");
 
 
 $langmsg['rss'][0] = x("RSS-Feeds");
@@ -792,6 +795,7 @@ $langmsg['js'][29] = x("Sind Sie sicher, dass Sie den ausgewählten Kategorien lö
 $langmsg['js'][30] = x("Erste Smiles ... Bitte warten.");
 $langmsg['js'][31] = x("Sind Sie sicher, dass Sie die ausgewählte Datei (en) wirklich löschen?");
 $langmsg['js'][32] = x("Sind Sie sicher, dass Sie den ausgewählten Smiles löschen?");
+$langmsg['js'][33] = x("Sind Sie sicher, dass Sie den ausgewählten Filter (s) löschen?");
 
 $langmsg['news'][0] = x("Bitte geben Sie einen Namen ein.");
 $langmsg['news'][1] = x("Bitte geben Sie eine Nachricht.");

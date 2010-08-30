@@ -24,7 +24,9 @@ $dirname = str_replace('js', '', $dirname);
 if(!defined('ABSPATH')){
 	define('ABSPATH', $dirname);
 }
-require_once(ABSPATH . '/functions.php');
+require_once(ABSPATH . '/db.php');
+require_once(ABSPATH . '/config.php');
+#require_once(ABSPATH . '/functions.php');
 require_once(ABSPATH . '/langmsg.php');
 ?>
 if(document.images){
@@ -124,9 +126,11 @@ function deleteimages(){
 }
 function colorfield(id,origcolor){
 	if(document.getElementById('check_'+id).checked == true){
-		document.getElementById(id).className = 'thumbnail rowhighlight';
+		document.getElementById(id).style.backgroundColor = '#f8ffcb';
+		//document.getElementById(id).className = 'thumbnail rowhighlight';
 	}else{
-		document.getElementById(id).className = 'thumbnail';
+		document.getElementById(id).style.backgroundColor = '#FFFFFF';
+		//document.getElementById(id).className = 'thumbnail';
 	}	
 }
 function markfield(field){
@@ -423,6 +427,13 @@ if(document.getElementById('commentaction').value == 'delete'){
 if(document.getElementById('commentaction').value == 'approve'){
 	document.getElementById('commentsform').submit();
 }
+}
+function deletefilters(){
+	if(document.getElementById('filteraction').value == "delete"){
+		if(confirm('<?php echo esc($langmsg['js'][33]); ?>')){
+			document.getElementById('filterform').submit();
+		}
+	}
 }
 function deletecat(){
 	if(document.getElementById('cataction').value == "delete"){

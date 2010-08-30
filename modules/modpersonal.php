@@ -19,9 +19,13 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['personal'][0]."</span></div><table width=\"685px\"><tr><td width=\"17%\" align=center valign=top><br><img src=\"images/largemail.png\" alt=\"Personal Options\"></td>";
-echo "<td><br><div class=panel>".$langmsg['personal'][1]."</div><br>";
-echo "<style>table { text-align: left; } </style>";
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+
 $userdata		= DataAccess::fetch("SELECT * FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
 $all			= $userdata['0'];
 $email			= $all['email'];
@@ -31,11 +35,16 @@ $enablewysiwyg	= $all['enablewysiwyg'];
 
 function showpersonal($name,$email,$alertmsg,$enablewysiwyg){
 	global $langmsg;
+
+	echo "<table width=\"100%\"><tr>";
+	echo "<td><div class=subheaders>".$langmsg['personal'][1]."</div>";
+	echo "<div class=\"subheaders_body displaytable\">";
+	echo "<style>table { text-align: left; } </style>";
 	echo "<form method=\"POST\" action=\"?action=options&mod=personal\">\n";
 	echo "<div align=\"right\"><table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	echo "    <tr>\n";
 	echo "      <td width=\"24%\">".$langmsg['personal'][2]."</td>\n";
-	echo "      <td width=\"76%\"><div class=success>$name</div></td>\n";
+	echo "      <td width=\"76%\"><div class=ok>$name</div></td>\n";
 	echo "    </tr>\n";
 	echo "      <td width=\"24%\">".$langmsg['personal'][4]."</td>\n";
 	echo "      <td width=\"76%\"><input type=\"text\" name=\"T2\" size=\"25\" value=\"$email\"></td>\n";
@@ -67,6 +76,7 @@ function showpersonal($name,$email,$alertmsg,$enablewysiwyg){
 	echo "    </tr>\n";
 	echo "  </table>\n";
 	echo "</div>\n";
+	echo "</div>\n";
 	echo "</form></td></tr></table>\n";
 }
 $_POST['B1'] = (empty($_POST['B1'])) ? '' : $_POST['B1'];
@@ -89,4 +99,7 @@ if($_POST['B1'] == ""){
 	showpersonal($name,$email,$alertmsg,$enablewysiwyg);
 }
 echo "</td></tr></table>";
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>
