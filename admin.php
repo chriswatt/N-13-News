@@ -208,14 +208,33 @@ if(isloggedin()){
 	
 		if(isloggedin()){
 			echo '<div id="menu" style="">';
-			echo '<a class="menuButton menuButtonActive menuButtonHome" href="?">' . $langmsg['menu'][18] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+			if(!$_GET['action'] || $_GET['action'] == "home"){
+				$class = 'menuButtonActive';
+			}
+			echo '<a class="menuButton '. $class . ' menuButtonHome" href="?">' . $langmsg['menu'][18] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+			$class = '';
+
+			if($_GET['action'] == "addnews" || $_GET['action'] == "editnews"){
+				$class = 'menuButtonActive';
+			}			
 			if(getaccess('news')){
-				echo '<a class="menuButton menuButtonArticles" href="?action=editnews">' . $langmsg['menu'][19] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+				echo '<a class="menuButton '. $class . ' menuButtonArticles" href="?action=editnews">' . $langmsg['menu'][19] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+			}
+			$class = '';
+			
+			if($_GET['action'] == "privatemsgs"){
+				$class = 'menuButtonActive';
 			}
 			if(getaccess('privatemsgs')){
-				echo '<a class="menuButton menuButtonMessages" href="#">' . $langmsg['menu'][20] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+				echo '<a class="menuButton '. $class . ' menuButtonMessages" href="#">' . $langmsg['menu'][20] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
 			}
-			echo '<a class="menuButton menuButtonOptions" href="?action=options&mod=system">' . $langmsg['menu'][21] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+			$class = '';
+		
+			if($_GET['action'] == "options"){
+				$class = 'menuButtonActive';
+			}
+			echo '<a class="menuButton ' . $class . ' menuButtonOptions" href="?action=options&mod=system">' . $langmsg['menu'][21] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+			$class = '';
 			if(getaccess('help')){
 				echo '<a class="menuButton menuButtonHelp" href="#">' . $langmsg['menu'][22] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
 			}

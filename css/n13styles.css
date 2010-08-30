@@ -402,3 +402,18 @@ table,tr,td,div,span,a,input,textarea,select,option{
 .clickable {
 	cursor: pointer;
 }
+.header {
+background-color:#dae2ef;
+color:#15497C;
+font-size:14px;
+margin-right:15px;
+padding-left:6px;
+padding-right:6px;
+}
+.headertitle {
+	background-image: url('../images/headertest.png'); 	 
+	background-repeat: repeat-x; 
+	height: 30px; 
+	margin-left: -6px;
+	margin-bottom: 10px;
+}

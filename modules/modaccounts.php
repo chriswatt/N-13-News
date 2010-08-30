@@ -26,6 +26,19 @@ echo '		<div id="pageLeft">
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
 
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['accounts'][0] . '</span>';
+if($_GET['create'] == "new"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+if($_GET['create'] == "edit"){
+	echo '<span class="header">' . $langmsg['options'][2] . '</span>';
+}
+
+echo '</div>';
+
 function accountform(){
 	global $langmsg;
 	if($_GET['create'] == "new"){
