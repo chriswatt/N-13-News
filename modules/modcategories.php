@@ -26,6 +26,19 @@ echo '		<div id="pageLeft">
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
 
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['cats'][0] . '</span>';
+if($_GET['edit'] == "new"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+if($_GET['edit'] == "true"){
+	echo '<span class="header">' . $langmsg['options'][2] . '</span>';
+}
+
+echo '</div>';
+
 
 echo "<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td>";
 $_POST['delete']	= (empty($_POST['delete'])) ? '' : $_POST['delete'];
@@ -50,9 +63,10 @@ if($_POST['catoption'] == "delete"){
 }
 
 if($_GET['edit'] == "new"){
-	echo "<div class=subheaders>".$langmsg['cats'][4]."</div>";
+	
 	function newcatform(){
 	global $langmsg;
+	echo "<div class=subheaders>".$langmsg['cats'][4]."</div>";
 	echo "<div class=\"subheaders_body tabledisplay\"><table width=\"100%\">";
 	echo "<form method=post action=\"?action=options&mod=categories&edit=new\">";
 	echo "<tr><td width=\"44\">".$langmsg['cats'][5]."</td><td><input type=text name=name value=\"" . displayhtml($_POST['name']) . "\"></td></tr>";

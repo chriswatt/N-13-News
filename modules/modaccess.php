@@ -25,6 +25,21 @@ echo '		<div id="pageLeft">
 			<div id="titleHome">N-13 News<br />4.0</div>
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
+
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['access'][0] . '</span>';
+if($_GET['do'] == "new"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+if($_GET['do'] == "edit"){
+	echo '<span class="header">' . $langmsg['options'][2] . '</span>';
+}
+
+echo '</div>';
+
+
 $_POST['S1'] = (empty($_POST['S1'])) ? '' : $_POST['S1'];
 function accesslevelform(){
 	global $langmsg;
@@ -152,7 +167,11 @@ function accesslevelform(){
 		}	
     }
 	echo "<form method=\"post\" action=\"\">";
-	echo "<div class=panel>".$langmsg['access'][1]."</div>";			 
+	if(!$_GET['do'] == "edit"){
+		echo "<div class=panel>".$langmsg['access'][1]."</div>";			 
+	}else{
+		echo "<div class=panel>".$langmsg['access'][32]."</div>";			 
+	}
 	echo "<br />";
 	echo "<div class=\"subheaders\" style=\"\">" .$langmsg['access'][2] . "</div>";
 	echo "<div class=\"subheaders_body\" style=\"height: 30px\">";

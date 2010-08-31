@@ -26,6 +26,20 @@ echo '		<div id="pageLeft">
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
 
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['uploadedfiles'][0] . '</span>';
+if($_GET['newfile'] == "true"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+if($_GET['fileuid']){
+	echo '<span class="header">' . $langmsg['options'][2] . '</span>';
+}
+
+echo '</div>';
+
+
 $uploaddir = $imageuploaddir;
 $currentpath = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $currentpath = "http://" . $currentpath;

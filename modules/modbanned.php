@@ -24,6 +24,19 @@ echo '		<div id="pageLeft">
 			<div id="titleHome">N-13 News<br />4.0</div>
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
+
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['bannedips'][0] . '</span>';
+if($_GET['new'] == "true"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+
+
+echo '</div>';
+
+
 echo "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">";
 $_GET['new'] = (empty($_GET['new'])) ? '' : $_GET['new'];
 $_POST['S1'] = (empty($_POST['S1'])) ? '' : $_POST['S1'];

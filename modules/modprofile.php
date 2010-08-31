@@ -25,6 +25,14 @@ echo '		<div id="pageLeft">
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
 
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['profile'][0] . '</span>';
+
+echo '</div>';
+
+
 
 $dd = str_replace("admin.php","uploads/", ADMINPATH);
 $_POST['B1'] = (empty($_POST['B1'])) ? '' : $_POST['B1'];

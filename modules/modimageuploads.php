@@ -25,6 +25,19 @@ echo '		<div id="pageLeft">
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
 
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['img'][0] . '</span>';
+if($_GET['newimage'] == "true"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+if($_GET['imageuid']){
+	echo '<span class="header">' . $langmsg['options'][2] . '</span>';
+}
+
+echo '</div>';
+
 
 $_GET['view'] = (empty($_GET['view'])) ? '' : $_GET['view'];
 $_GET['file'] = (empty($_GET['file'])) ? '' : $_GET['file'];

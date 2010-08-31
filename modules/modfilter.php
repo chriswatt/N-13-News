@@ -26,6 +26,17 @@ echo '		<div id="pageLeft">
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
 
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['filters'][0] . '</span>';
+if($_GET['new'] == "true"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+
+echo '</div>';
+
+
 
 $_POST['filter'] = (empty($_POST['filter'])) ? '' : $_POST['filter'];
 $_GET['delete'] = (empty($_GET['delete'])) ? '' : $_GET['delete'];

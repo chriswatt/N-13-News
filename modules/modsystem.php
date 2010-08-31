@@ -27,11 +27,22 @@ echo '		<div id="pageLeft">
 		</div><!--leftside-->';
 echo '<div id="pageRight">';
 
-echo "<div id=\"headerBox\">".$langmsg['system'][0] . "</div>";
+echo '<div class="headertitle">';
 
-echo "<table width=\"512px\"><tr><td>";
+echo '<span class="header">' . $langmsg['options'][0] . '</span>';
+echo '<span class="header">' . $langmsg['system'][0] . '</span>';
+if($_GET['create'] == "new"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+if($_GET['create'] == "edit"){
+	echo '<span class="header">' . $langmsg['options'][2] . '</span>';
+}
 
-echo "<style>table { text-align: left; } </style>";
+echo '</div>';
+
+echo "<style>table { text-align: left; margin-top: -10px; padding-top: 0px} </style>";
+
+echo "<table cellspacing=\"0\" cellpadding=\"0\" width=\"512px\"><tr><td>";
 
 function systemsettingsform(){
 	global $langmsg;
@@ -515,7 +526,7 @@ if(!$_POST['B1']){
 	WHERE 1";
 	
 	DataAccess::put($sql, $nppage, $newsorder, $newstime, $showavatars, $commentsorder, $commentstime, $commentslength, $cppage, $commentspop, $spamtime, $imagefiletypes, $timezone, $uploadpath, $noaccessmsg, $spammsg, $commentmsg, $commentapprovemsg, $furlenabled, $furlprefix, $furldirname, $furlextension, $catdelimiter, $useimgverification, $registrationaccess, $registrationallow, $regcomment, $commentsnotify, $registernotify, $emailnotify, $unapprovednotify, $uploadedfiletypes, $publickey, $privatekey, $scriptpath, $deleteowncomments, $loginverification, $registrationverification, $filetime, $enabletail);
-	echo "</tr><tr><td></td><td><div class=success>".$langmsg['system'][36]."</div><br />";
+	echo "</tr><tr><td></td><td><div class=success>".$langmsg['system'][36]."</div>";
 	systemsettingsform();	
 	echo "</td></tr></table>";
 }
