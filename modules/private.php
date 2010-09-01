@@ -19,6 +19,19 @@
 
 if (!defined('ABSPATH')){ die(); }
 
+
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+echo '<div class="headertitle">';
+echo '<span class="header">' . $langmsg['privmsgs'][0] . '</span>';
+if($_GET['todo'] == "new"){ echo "<span class=\"header\">".$langmsg['privmsgs'][3]."</span>"; }
+if($_GET['type'] == "" && $_GET['todo'] == ""){ echo "<span class=\"header\">".$langmsg['privmsgs'][1]."</span>"; }
+if($_GET['type'] == "out"){ echo "<span class=\"header\">".$langmsg['privmsgs'][2]."</span>"; }
+echo '</div>';
+
 $_GET['todo'] = (empty($_GET['todo'])) ? '' : $_GET['todo'];
 $_GET['type'] = (empty($_GET['type'])) ? '' : $_GET['type'];
 $_GET['page'] = (empty($_GET['page'])) ? '' : $_GET['page'];
@@ -29,13 +42,7 @@ $type = $_GET['type'];
 if($type != "out"){
 	$type = "";
 }
-echo "<span class=header>".$langmsg['privmsgs'][0]."</span>";
-if($_GET['todo'] == "new"){ echo "<span class=\"header\">".$langmsg['privmsgs'][3]."</span>"; }
-if($_GET['type'] == "" && $_GET['todo'] == ""){ echo "<span class=\"header\">".$langmsg['privmsgs'][1]."</span>"; }
-if($_GET['type'] == "out"){ echo "<span class=\"header\">".$langmsg['privmsgs'][2]."</span>"; }
-echo "</div>";
-echo "<table width=\"685px\" cellpadding=\"0\"><tr>";
-echo "<td width=\"17%\" align=center valign=top><br /><img src=\"images/largemail.png\" /></td><td>";
+
 echo "\n\n\n<script language=\"javascript\">";
 echo "function toggle(id){\n";
 echo "if(document.getElementById(id).style.display == 'none'){\n
@@ -189,11 +196,13 @@ if($_GET['todo'] == "new"){
 	}
 	echo "</form>";  
 }
-echo "<br /><form method=\"post\" id=\"privatemsgform\" action=\"?action=private&type=$type\">";
+echo "<form method=\"post\" id=\"privatemsgform\" action=\"?action=private&type=$type\">";
 $uid = $_SESSION['uid'];
 if($type == "out"){
+	
 	$unread = DataAccess::fetch("SELECT COUNT(uid) AS unread FROM " . NEWS_PRIVATEOUT . " WHERE sentfrom = ? AND viewed = ?", $uid, "1");
 	$unread = $unread['0']['unread'];
+	echo "X";
 }else{
 	$unread = DataAccess::fetch("SELECT COUNT(uid) AS unread FROM " . NEWS_PRIVATE . " WHERE sentto = ? AND viewed = ?", $uid, "1");                    
 	$unread = $unread['0']['unread'];
@@ -253,11 +262,11 @@ function handleStateChange() {
 	$f = $f . " <b>$unread</b> " . $langmsg['privmsgs'][21] . " <b>$total</b> " . $langmsg['privmsgs'][22];
 	echo "<div align=right><div class=panel style=\"text-align: left\">$f</div></div><br />";
 	echo "<div align=\"right\">\n";
-	echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"1\"><tr><td>";
+	echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td>";
 	$uid = $_SESSION['uid'];
-	echo "<tr><td width=\"20\" align=\"center\"></td><td width=\"40%\">".$langmsg['privmsgs'][5]."</td><td width=\"30%\">";
+	echo "<tr><td width=\"20\" class=\"tableshead tablerightborder\" align=\"center\"></td><td class=\"tableshead tablerightborder\" width=\"40%\">".$langmsg['privmsgs'][5]."</td><td class=\"tableshead tablerightborder\" width=\"30%\">";
 	if($type == "out"){ echo $langmsg['privmsgs'][8]; }else{ echo $langmsg['privmsgs'][6]; }
-	echo "</td><td>".$langmsg['privmsgs'][7]."</td><td width=\"12\" align=right><input name=\"allcheck\" id=\"allcheck\" onclick=\"selectall2()\" type=\"checkbox\" /></td></tr>";
+	echo "</td><td class=\"tableshead tablerightborder\">".$langmsg['privmsgs'][7]."</td><td class=\"tableshead tablerightborder\" width=\"12\" align=right><input name=\"allcheck\" id=\"allcheck\" onclick=\"selectall2()\" type=\"checkbox\" /></td></tr>";
 	$tmpcolor = 1;
 	
 	$page = $_GET['page'];
@@ -333,16 +342,16 @@ function handleStateChange() {
 		}
 		$from = DataAccess::fetch("SELECT user FROM " . NEWS_USERS . " WHERE uid = ?", $g);
 		$from = $from['0']['user'];
-		echo "\n\n<tr class=\"$class\"><td align=\"center\" id=\"img$row[uid]\">";
+		echo "\n\n<tr class=\"$class\"><td class=\"tablebody tablerightborder\" align=\"center\" id=\"img$row[uid]\">";
 		if($row['viewed'] == "0"){
 			echo "<img src=\"images/email2.png\" />";
 		}else{
 			echo "<img src=\"images/email1.png\" />";
 		}
 		$title = displayhtml($row['title']);
-		echo "</td><td><div style=\"height: 17px; width: 230px; overflow: hidden\"><a href=\"#\" onclick=\"senddata('$row[uid]','$type'); toggle('$row[uid]')\">$title</a></div></td><td>$from</td><td>$date</td><td align=\"center\"><input type=\"checkbox\" value=\"$row[uid]\" id=\"selected[]\" name=\"selected[]\" /></tr>";
+		echo "</td><td class=\"tablebody tablerightborder\"><div style=\"height: 17px; width: 230px; overflow: hidden\"><a href=\"#\" onclick=\"senddata('$row[uid]','$type'); toggle('$row[uid]')\">$title</a></div></td><td class=\"tablebody tablerightborder\">$from</td><td class=\"tablebody tablerightborder\">$date</td><td  class=\"tablebody tablerightborder\" align=\"center\"><input type=\"checkbox\" value=\"$row[uid]\" id=\"selected[]\" name=\"selected[]\" /></tr>";
 		$message = bbcode($row['message'],'0','1');
-		echo "<tr id=\"$row[uid]\" style=\"display: none\" bgcolor=\"\"><td></td><td colspan=4>$message<br /><br /><a href=\"?action=private&todo=new&user=$from&title=$title\"><u>Reply to this message</u></a></td></tr>";
+		echo "<tr id=\"$row[uid]\" class=\"$class\" style=\"display: none\" bgcolor=\"\"><td></td><td class=\"tablebody tablerightborder\" colspan=4>$message<br /><br /><a href=\"?action=private&todo=new&user=$from&title=$title\">Reply to this message</a></td></tr>";
 		$i++;					
 	}
 
@@ -358,6 +367,8 @@ function handleStateChange() {
 	echo "</div>";if($amountofpages > 1){
 	echo "<div style=\"float: left\">$plink [ $pages] $nlink</div>";
 }
-echo "</td></tr></table>";
+
 echo "<div id=\"whichbox\" style=\"display: none\">message</div>";
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

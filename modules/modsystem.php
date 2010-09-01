@@ -19,7 +19,7 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<style>.subheaders { margin-top: 10px; } #headerBox { margin-bottom: 0px; }</style>";
+echo "<style>.subheaders { margin-top: 10px; } #headerBox { margin-bottom: 0px; } .subheaders_body { padding-top:15px; }</style>";
 
 echo '		<div id="pageLeft">
 			<div id="pageIconHome"></div><!--icon-->

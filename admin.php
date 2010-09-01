@@ -160,6 +160,20 @@ if(isloggedin()){
 			$x++;
 		}
 	}
+	if(isloggedin()){
+		if(getaccess("privatemsgs")){
+			if($_GET['action'] == "private"){
+				$active = ($_GET['todo'] == "new") ? 'subMenuActive' : 'subMenu';
+				$showoptions .= '<a class="' . $active . '" href="?action=private&todo=new">'.$langmsg['menu'][3].'</a>';
+				$active = (empty($_GET['type']) && $_GET['todo'] !== "new") ? 'subMenuActive' : 'subMenu';
+				$showoptions .= '<a class="' . $active . '" href="?action=private&type=">'.$langmsg['menu'][4].'</a>';
+				$active = ($_GET['type'] == "out") ? 'subMenuActive' : 'subMenu';
+				$showoptions .= '<a class="' . $active . '" href="?action=private&type=out">'.$langmsg['menu'][5].'</a>';
+				$active = '';
+				$x++;
+			}
+		}
+	}
 }
 
 
@@ -222,11 +236,11 @@ if(isloggedin()){
 			}
 			$class = '';
 			
-			if($_GET['action'] == "privatemsgs"){
+			if($_GET['action'] == "private"){
 				$class = 'menuButtonActive';
 			}
 			if(getaccess('privatemsgs')){
-				echo '<a class="menuButton '. $class . ' menuButtonMessages" href="#">' . $langmsg['menu'][20] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+				echo '<a class="menuButton '. $class . ' menuButtonMessages" href="?action=private">' . $langmsg['menu'][20] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
 			}
 			$class = '';
 		
