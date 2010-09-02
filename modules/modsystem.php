@@ -95,7 +95,7 @@ function systemsettingsform(){
 
 	// comments
 	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('comments')\">" . $langmsg['system'][11] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_comments\" style=\"display: none; width: 518px\">";
+	echo "<div class=\"subheaders_body\" id=\"section_comments\" style=\"display: none;\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 
 	echo "  <tr class=\"\">\n";
@@ -187,7 +187,7 @@ function systemsettingsform(){
 	// friendly urls
 
 	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('friendlyurls')\">" . $langmsg['system'][23] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_friendlyurls\" style=\"display: none; width: 518px\">";
+	echo "<div class=\"subheaders_body\" id=\"section_friendlyurls\" style=\"display: none;\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	
 	echo "<tr class=\"\"><td>".$langmsg['system'][24]."</td><td><select name=\"furlenabled\"><option ";
@@ -204,7 +204,7 @@ function systemsettingsform(){
 
 	// news
 	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('news')\">" . $langmsg['system'][2] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_news\" style=\"display: none; width: 518px\">";
+	echo "<div class=\"subheaders_body\" id=\"section_news\" style=\"display: none;\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	
 	echo "  <tr class=\"\">\n";
@@ -244,7 +244,7 @@ function systemsettingsform(){
 
 	// notifications
 	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('notifications')\">" . $langmsg['system'][38] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_notifications\" style=\"display: none; width: 518px\">";
+	echo "<div class=\"subheaders_body\" id=\"section_notifications\" style=\"display: none;\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	
 	echo "  <tr class=\"\">\n";
@@ -284,7 +284,7 @@ function systemsettingsform(){
 	
 	// recaptcha
 	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('recaptcha')\">reCAPTCHA</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_recaptcha\" style=\"display: none; width: 518px\">";
+	echo "<div class=\"subheaders_body\" id=\"section_recaptcha\" style=\"display: none;\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";	
 	echo "  <tr class=\"\">\n";
 	echo "    <td>" . $langmsg['system'][45] . "</td>\n";
@@ -302,7 +302,7 @@ function systemsettingsform(){
 
 	// registration
 	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('registration')\">".$langmsg['system'][28]."</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_registration\" style=\"display: none; width: 518px\">";
+	echo "<div class=\"subheaders_body\" id=\"section_registration\" style=\"display: none;\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";	
 	
 	echo "<tr><td class=\"\">".$langmsg['system'][29]."</td><td class=\"\">";
@@ -343,7 +343,7 @@ function systemsettingsform(){
 
 	// login
 	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('login')\">" . $langmsg['login'][6] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_login\" style=\"display: none; width: 518px\">";
+	echo "<div class=\"subheaders_body\" id=\"section_login\" style=\"display: none;\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";		
 	echo "  <tr class=\"\">\n";
 	echo "    <td>" . $langmsg['system'][49] . "</td>\n";
@@ -362,7 +362,7 @@ function systemsettingsform(){
 	
 	// other
 	echo "<div class=\"subheaders\" style=\"cursor: pointer\" onclick=\"toggle_section2('other')\">" . $langmsg['system'][31] . "</div>";
-	echo "<div class=\"subheaders_body\" id=\"section_other\" style=\"display: none; width: 518px\">";
+	echo "<div class=\"subheaders_body\" id=\"section_other\" style=\"display: none;\">";
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";		
 	
 	echo "  <tr>\n";

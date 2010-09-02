@@ -34,6 +34,8 @@ $_GET['mod']	= (empty($_GET['mod'])) ? '' : $_GET['mod'];
 $_GET['thumb']	= (empty($_GET['thumb'])) ? '' : $_GET['thumb'];
 $_POST['B3']	= (empty($_POST['B3'])) ? '' : $_POST['B3'];
 
+
+
 if($_GET['action'] == "options" && $_GET['mod'] == "imageuploads" && $_GET['thumb']){
 	#create thumbnails
 	require_once 'modules/thumbnails.php';
@@ -210,6 +212,18 @@ if(isloggedin()){
 }
 </style><?php
 	}
+?>
+<?php
+if(stristr($_SERVER['HTTP_USER_AGENT'], 'webkit')){
+	// hack to change the width of the subheaders_body class for webkit
+	echo "
+		<style>
+		.subheaders_body {
+			width: 533px;
+		}
+		</style>
+	";
+}
 ?>
 
 <!-- TOP MENU -->

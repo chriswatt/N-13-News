@@ -94,11 +94,12 @@ if($_POST['todo'] == "mark"){
 
 }
 if($_GET['todo'] == "new"){
-	echo "<form method=\"post\" action=\"?action=private&todo=new\"><br />";
+	echo "<form method=\"post\" action=\"?action=private&todo=new\">";
 	function newmsgform(){
 		global $langmsg;
-		echo "<div align=right><div class=panel style=\"text-align: left\">".$langmsg['privmsgs'][10]."</div></div><br />";
-		$_GET['user'] = (empty($_GET['user'])) ? '' : $_GET['user'];
+		echo "<div class=\"subheaders\">".$langmsg['privmsgs'][10]."</div>";
+		echo "<div class=\"subheaders_body displaytable\">";
+				$_GET['user'] = (empty($_GET['user'])) ? '' : $_GET['user'];
 		$_GET['title'] = (empty($_GET['title'])) ? '' : $_GET['title'];
 		$_POST['message'] = (empty($_POST['message'])) ? '' : $_POST['message'];
 		if(!$_POST['S2']){
@@ -110,7 +111,6 @@ if($_GET['todo'] == "new"){
 			$title	= displayhtml($_POST['title']);
 		}
 	 
-		echo "<div align=right><div style=\"text-align: left\">";
 		echo "<div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][11]."</div> <input type=\"text\" name=\"sendto\" value=\"$sendto\"> ". $langmsg['privmsgs'][14]; 
 		echo "<div style=\"padding-top: 2px; margin-bottom: 3px\"><div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][12]."</div> <input type=\"text\" name=\"title\" value=\"$title\" /></div>";
 		echo "<div id=\"smileybox\" style=\"width: 150px; background-color: #EEEEEE; border: 1px solid #AAAAAA; padding: 5px; display: none; position: absolute; z-index: 10001; \">";
@@ -137,28 +137,30 @@ if($_GET['todo'] == "new"){
 		$bbcode .= "<img title=\"PHP Code\" src=\"images/icons/page_white_php.png\" style=\"cursor: pointer\" onclick=\"bbcode('code','message')\">&nbsp;";
 		$bbcode .= "<img title=\"Quote\" src=\"images/icons/comment.png\" style=\"cursor: pointer\" onclick=\"bbcode('quote','message')\">&nbsp;";		            
 		echo "<div style=\"width: 80px; float: left\">&nbsp;</div>$bbcode";
-		echo "<div style=\"padding-top: 2px\"><div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][13]."</div> <textarea id=\"message\" style=\"width: 460px; height: 140px\" name=\"message\">" . displayhtml($_POST['message']) . "</textarea></div>";  
-		echo "<div style=\"padding-top: 2px\"><div style=\"width: 80px; float: left\">&nbsp;</div> <input class=\"nostyle\" type=\"submit\" name=\"S2\" value=\"".$langmsg['submitfield'][1]."\" />&nbsp;<input type=\"submit\" name=\"S2\" class=\"nostyle\" value=\"".$langmsg['submitfield'][4]."\" /></div>";
-		echo "</div></div>";
+		echo "<div style=\"padding-top: 2px\"><div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][13]."</div> <textarea id=\"message\" style=\"width: 420px; height: 140px\" name=\"message\">" . displayhtml($_POST['message']) . "</textarea></div>"; 
+		echo "<div style=\"padding-top: 2px\"><div style=\"width: 80px; float: left\">&nbsp;</div> <input class=\"nostyle\" type=\"submit\" name=\"S2\" value=\"".$langmsg['submitfield'][1]."\" />&nbsp;<input type=\"submit\" name=\"S2\" class=\"nostyle\" value=\"".$langmsg['submitfield'][4]."\" /></div>";		
+		echo "</div>";
 	}
 
 	$_POST['S2'] = (empty($_POST['S2'])) ? '' : $_POST['S2'];
 	if(!$_POST['S2']){
 		newmsgform();
 	}elseif($_POST['S2'] == "Preview"){
-		echo "<div class=panel>".$langmsg['privmsgs'][15]."</div><br />";
+		echo "<div class=\"subheaders\">".$langmsg['privmsgs'][15]."</div>";
+		echo "<div class=\"subheaders_body displaytable\">";
 		$message = bbcode($_POST['message'],'0','1');
 		echo $message;
-		echo "<br /><br />";	 	
+		echo "</div>";
+		echo "<br />";
 		newmsgform();
 	}elseif(!$_POST['sendto']){
-		echo "<div align=right><div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][17]."</div></div><br />";
+		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][17]."</div><br />";
 		newmsgform();
 	}elseif(!$_POST['title']){
-		echo "<div align=right><div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][18]."</div></div><br />";
+		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][18]."</div><br />";
 		newmsgform();
 	}elseif(!$_POST['message']){
-		echo "<div align=right><div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][19]."</div></div><br />"; 	
+		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][19]."</div><br />"; 	
 		newmsgform();
 	}else{
 		$sendtox = $_POST['sendto'];
@@ -192,17 +194,16 @@ if($_GET['todo'] == "new"){
 		$users = substr($users,0,(strlen($users) - 2));
 		$f = $langmsg['privmsgs'][16];
 		$f = $f . " " . $users;
-		echo "<div align=right><div style=\"text-align: left\" class=success>$f</div></div>"; 	
+		echo "<div class=\"success\">$f</div>"; 	
+		
 	}
 	echo "</form>";  
 }
 echo "<form method=\"post\" id=\"privatemsgform\" action=\"?action=private&type=$type\">";
 $uid = $_SESSION['uid'];
 if($type == "out"){
-	
 	$unread = DataAccess::fetch("SELECT COUNT(uid) AS unread FROM " . NEWS_PRIVATEOUT . " WHERE sentfrom = ? AND viewed = ?", $uid, "1");
 	$unread = $unread['0']['unread'];
-	echo "X";
 }else{
 	$unread = DataAccess::fetch("SELECT COUNT(uid) AS unread FROM " . NEWS_PRIVATE . " WHERE sentto = ? AND viewed = ?", $uid, "1");                    
 	$unread = $unread['0']['unread'];
@@ -260,8 +261,8 @@ function handleStateChange() {
 	#$langmsg['privmsgs'][4] = x("You have <b>{totalunread}</b> unread messages. <b>{totalmsgs}</b> messages in total.");
 	$f = $langmsg['privmsgs'][4];
 	$f = $f . " <b>$unread</b> " . $langmsg['privmsgs'][21] . " <b>$total</b> " . $langmsg['privmsgs'][22];
-	echo "<div align=right><div class=panel style=\"text-align: left\">$f</div></div><br />";
-	echo "<div align=\"right\">\n";
+	echo "<div><div class=panel style=\"text-align: left\">$f</div></div><br />";
+	echo "<div>\n";
 	echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td>";
 	$uid = $_SESSION['uid'];
 	echo "<tr><td width=\"20\" class=\"tableshead tablerightborder\" align=\"center\"></td><td class=\"tableshead tablerightborder\" width=\"40%\">".$langmsg['privmsgs'][5]."</td><td class=\"tableshead tablerightborder\" width=\"30%\">";
