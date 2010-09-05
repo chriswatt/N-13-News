@@ -19,29 +19,27 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo '		<div id="pageLeft">
-			<div id="pageIconHome"></div><!--icon-->
-			<div id="titleHome">N-13 News<br />4.0</div>
-		</div><!--leftside-->';
-echo '<div id="pageRight">';
+
+echo '<div id="pageRight" style="width: 705px">';
 
 
-echo "<span class=header>".$langmsg['editnews'][0]."</span>";
+echo '<div class="headertitle">';
+echo "<span class=\"header\">".$langmsg['editnews'][0]."</span>";
 $_GET['archives'] = (empty($_GET['archives'])) ? '' : $_GET['archives'];
 if($_GET['archives']){
 	echo "<span class=\"header\">" . $langmsg['menu'][2] . "</span>";
 }
+echo "</div>";
 
-echo "<table width=\"685px\"><tr>";
 $_GET['id'] = (empty($_GET['id'])) ? '' : $_GET['id'];
 if(!$_GET['id']){
 	
 }
 $_GET['added'] = (empty($_GET['added'])) ? '' : $_GET['added'];
 if($_GET['added'] == "true"){
-	echo "<div style=\"text-align: left\" class=success>".$langmsg['editnews'][16]."</div>";
+	echo "<div class=success>".$langmsg['editnews'][16]."</div>";
 }elseif($_GET['added'] == "edit"){
-	echo "<div style=\"text-align: left\" class=success>".$langmsg['editnews'][19]."</div>";
+	echo "<div class=success>".$langmsg['editnews'][19]."</div>";
 }
 #selected files being posted from edit news table
 $_POST['action'] = (empty($_POST['action'])) ? '' : $_POST['action'];
@@ -118,7 +116,7 @@ if($_GET['id']){
 	if(!$_POST['S1']){
 		newsform("editnews");
 	}elseif($_POST['S1'] == "Preview"){
-		echo "<br /><div class=panel>News Preview</div><br />";
+		echo "<br /><div class=\"panel\">News Preview</div><br />";
 		$style = '0';
 		$usehtml = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".usehtml FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);
 		$usehtml = $usehtml['0']['usehtml'];
@@ -189,7 +187,7 @@ if(!$_GET['id'] || $shownews){
 	allnews();
 }
 
-echo "</td></tr></table>";
+
 echo "<script language=\"javascript\">";
 echo "function showalleditnewscats(){ ";
 echo "var posts = '";

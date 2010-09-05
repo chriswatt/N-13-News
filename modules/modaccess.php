@@ -174,7 +174,7 @@ function accesslevelform(){
 	}
 	echo "<br />";
 	echo "<div class=\"subheaders\" style=\"\">" .$langmsg['access'][2] . "</div>";
-	echo "<div class=\"subheaders_body\" style=\"height: 30px\">";
+	echo "<div class=\"subheaders_body displaytable\" style=\"height: 30px\">";
 	echo "<input type=\"text\" value=\"$accessname\" style=\"\" name=\"accessname\" />";
 	echo "</div>";
 	echo "<div class=\"subheaders\" style=\"\">" .$langmsg['access'][44]	 . "</div>";
@@ -253,7 +253,7 @@ function accesslevelform(){
 	echo "<td style=\"width: 45%\">";
 	
 	echo "<div class=\"subheaders\" style=\"width: 230px; margin-right: 6px;\">" .$langmsg['access'][3] . "</div>";
-	echo "<div class=\"subheaders_body\" style=\"display: table; width: 230px; height: 30px\">";
+	echo "<div class=\"subheaders_body displaytable\" style=\"width: 230px; height: 30px\">";
 	
 
 	

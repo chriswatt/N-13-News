@@ -143,6 +143,7 @@ body { margin:0px 0px 0px 0px; background:url(../images/page/mainBgLoop.jpg) rep
 
 #systemCont { width:949px; height:auto; position:relative; margin:0px auto 0px auto; }
 #pageCont { background:url(../images/page/pageBgLoop.jpg) repeat-y; width:759px; min-height:300px; max-height:auto; position:relative; float:right; -moz-border-radius:10px; -khtml-border-radius:10px; -webkit-border-radius:10px; }
+#pageCont2 { background:url(../images/page/pageBgLoop2.jpg) repeat-y; width:759px; min-height:300px; max-height:auto; position:relative; float:right; -moz-border-radius:10px; -khtml-border-radius:10px; -webkit-border-radius:10px; }
 #pageLeft { position:relative; width:170px; min-height:300px; float:left; background-image: url(../images/page/leftShade.jpg); background-repeat: no-repeat; background-position: 60px 0px; }
 #pageIconHome {  postion:absolute; width:130px; height:132px; top:0px; margin:20px auto 0px auto; background:url(../images/icons/homeIcon.png) no-repeat; border:none; }
 #pageIconArticles { postion:absolute; width:159px; height:174px; top:0px; margin:0px auto 0px auto; background:url(../images/icons/articlesIcon.jpg) no-repeat; border:none; }
@@ -205,6 +206,7 @@ input[type="text"]:focus, input[type="textarea"]:focus, input[type="password"]:f
 	font-family: Arial;
 	font-size: 13px;
 	padding: 6px;
+	-khtml-border-radius:5px 5px 5px 5px; -webkit-border-radius:5px 5px 5px 5px;
 	-moz-border-radius: 5px 5px 5px 5px;	
 	border: 1px solid #A3AFC0;
 	background-image: url('../images/white-grad.png');
@@ -303,6 +305,7 @@ table, tr, td {
 }
 .subheaders {
 	-moz-border-radius:5px 5px 0px 0px;
+	-khtml-border-radius:5px 5px 0px 0px; -webkit-border-radius:5px 5px 0px 0px;
 	background-image:url("../images/white-grad.png");
 	border:1px solid #A3AFC0;
 	font-family:Arial;
@@ -419,4 +422,7 @@ padding-right:6px;
 }
 img {
 	border: 0px;
+}
+.slink {
+	cursor: pointer;
 }

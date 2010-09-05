@@ -1705,16 +1705,16 @@ function allnews(){
 	}
 	$shownnews = count($allnews);
 	$langmsg['editnews'][1] = $langmsg['editnews'][1] . " <b>$shownnews</b> " . $langmsg['editnews'][21] . " <b>$totalnews</b> " . $langmsg['editnews'][22]; 
-	echo "<br /><div onclick=\"toggle_section2('newsoptions')\" class=\"panel\" style=\"cursor: pointer\"><div style=\"float: right\">";
+	echo "<div onclick=\"toggle_section2('newsoptions')\" class=\"subheaders\" style=\"cursor: pointer\"><div style=\"float: right\">";
 
 	echo "<span style=\"cursor: pointer; text-decoration: underline;\">".$langmsg['editnews'][2]."</span>&nbsp;</div>".$langmsg['editnews'][1]."</div><form style=\"margin: 0px\" method=\"POST\" name=\"editform\" id=\"editform\" action=\"?action=editnews&archives=" . $_GET['archives'] . "&filtercat=" . $_GET['filtercat'] . "\">\n";
-	echo "<br /><div class=\"subheaders_body\" style=\"";
+	echo "<div class=\"subheaders_body displaytable\" style=\"";
 	if($_POST['changeoptions']){
 		echo "display: table";
 	}else{
 		echo "display: none;";
 	} 
-	echo "text-align: left; width: 550px; margin-top: -18px; margin-bottom: 18px;\" id=\"section_newsoptions\">";
+	echo "text-align: left; margin-bottom: 18px; width: 691px\" id=\"section_newsoptions\">";
 	if($_GET['archives']){ $archives = "true"; }else{ $archives = ''; }
 	echo $langmsg['editnews'][25] . " <select onchange=\"editnews_filtercat('$archives');\" id=\"filter_cat\" style=\"margin-right: 6px; margin-top: -2px\" name=\"filter_cat\">";
 
@@ -1779,9 +1779,9 @@ function allnews(){
 		$cats[$i] = array("name" => $row2['name'], "id" => $row2['id']);
 		$i++;                                        		
 	}
-
-	echo "<table id=\"rows\" border=\"0\" cellpadding=\"0\" width=\"100%\">\n";
-	echo "<tr><td width=\"25%\">".$langmsg['editnews'][7]."</td><td width=\"20%\">".$langmsg['editnews'][8]."</td><td width=\"15%\"><a href=\"javascript:void(0); showalleditnewscats()\">".$langmsg['editnews'][9]."</a></td><td width=\"11%\">".$langmsg['editnews'][10]."&nbsp;</td><td width=\"15%\" align=center>".$langmsg['editnews'][11]."</td><td width=\"15%\" align=center>".$langmsg['editnews'][12]."</td><td align=center><input name=\"allcheck\" id=\"allcheck\" onclick=\"selectall()\" type=\"checkbox\" /></td></tr>\n";
+	echo "<br />";
+	echo "<table id=\"rows\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n";
+	echo "<tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"25%\">".$langmsg['editnews'][7]."</td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['editnews'][8]."</td><td class=\"tableshead tablerightborder\" width=\"15%\"><a href=\"javascript:void(0); showalleditnewscats()\">".$langmsg['editnews'][9]."</a></td><td class=\"tableshead tablerightborder\" width=\"11%\">".$langmsg['editnews'][10]."&nbsp;</td><td width=\"15%\" class=\"tableshead tablerightborder\" >".$langmsg['editnews'][11]."</td><td width=\"15%\" class=\"tableshead tablerightborder\">".$langmsg['editnews'][12]."</td><td class=\"tableshead tablerightborder\"><input name=\"allcheck\" id=\"allcheck\" onclick=\"selectall()\" type=\"checkbox\" /></td></tr>\n";
 											
 	$tmpcolor = "1";
 	$d = 1;
@@ -1801,13 +1801,13 @@ function allnews(){
 		}
 		$title = $row['title'];
 		$totalfiles = $row['totalfiles'];
-		$title = "<a href=\"?action=editnews&id=$row[postid]\">$title</a>";
+		$title = "$title";
 		if($row['totalfiles'] > 0){
-			$hasfiles = "<img class=\"slink\" src=\"images/icons/page_white_office.png\" onclick=\"showhideeditnewsfiles('files_" . $d . "')\" style=\"postition: absolute; float: left; margin-left: -20px;\" />";
+			$hasfiles = "<img class=\"slink\" src=\"images/icons/page_white_office.png\" onclick=\"showhideeditnewsfiles('files_" . $d . "')\" style=\"\" />";
 		}else{
 			$hasfiles = '';
 		}
-		echo "    <td>$hasfiles<div style=\"height: 17px; width: 136px; overflow: hidden\">$title</div></td><td>";
+		echo "    <td class=\"tablebody tablerightborder\"><a href=\"?action=editnews&id=$row[postid]\"><img src=\"images/icons/pencil.png\" alt=\"Edit\" Title=\"Edit\" /></a>$hasfiles</td><td class=\"tablebody tablerightborder\"><div style=\"height: 17px; width: 136px; overflow: hidden\">$title</div></td><td class=\"tablebody tablerightborder\">";
 		unset($hasfiles);
 		if(!$row['user']){
 			echo $row['origauthor'];
@@ -1836,11 +1836,11 @@ function allnews(){
 		}else{
 			$g = "<a href=\"#\" id=\"showcatlink_$row[postid]\" onclick=\"this.style.display = 'none'; document.getElementById('showcats_$row[postid]').style.display = '';\"></a>";
 		}
-		echo "</td><td>$g<span style=\"display: none\" id=\"showcats_$row[postid]\">$dcats</span>";
-		echo "</td><td>" . date("d-m-y" ,$row['timestamp'] + TIMEZONE) . "</td><td align=center>$approved</td><td align=center><a href=\"?action=editcomments&pid=$row[postid]\">$numcomments</a></td><td align=center><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" value=\"$row[postid]\" id=\"check_$d\" name=\"selectedposts[]\">";
+		echo "</td><td class=\"tablebody tablerightborder\">$g<span style=\"display: none\" id=\"showcats_$row[postid]\">$dcats</span>";
+		echo "</td><td class=\"tablebody tablerightborder\">" . date("d-m-y" ,$row['timestamp'] + TIMEZONE) . "</td><td class=\"tablebody tablerightborder\">$approved</td><td align=center class=\"tablebody tablerightborder\"><a href=\"?action=editcomments&pid=$row[postid]\">$numcomments</a></td><td class=\"tablebody\"><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" value=\"$row[postid]\" id=\"check_$d\" name=\"selectedposts[]\">";
 		echo "</td></tr>\n";
 		if($row['totalfiles'] > 0){
-			echo "<tr style=\"display: none\" id=\"files_$d\"><td colspan=\"7\">";
+			echo "<tr style=\"display: none\" id=\"files_$d\"><td style=\"padding: 5px\" class=\"rowhighlight\" colspan=\"8\">";
 			echo "<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">";
 			echo "<tr class=\"rowhighlight\"><td style=\"width: 136px;\">" . $langmsg['uploadedfiles'][23] . "</td><td>" . $langmsg['uploadedfiles'][12] . "</td><td>" . $langmsg['uploadedfiles'][33] . "</td><td>" . $langmsg['uploadedfiles'][24] . "</td><td>" . $langmsg['uploadedfiles'][34] . "</td><td>" . $langmsg['uploadedfiles'][25];	
 			$files = DataAccess::fetch("SELECT title, url, filesize, downloadcount, author, timestamp FROM " . NEWS_FILES . " WHERE uid IN (SELECT fileid FROM " . NEWS_LINKEDFILES . " WHERE storyid = ?)", $row['postid']);
@@ -1997,15 +1997,20 @@ function newsform($type){
 	}
 
 	if($type == "addnews"){
-		echo "<form method=\"POST\" name=\"post\" action=\"?action=addnews\"><br style=\"clear: both\" />\n";
+		echo "<form method=\"POST\" name=\"post\" action=\"?action=addnews\">\n";
 	}else{
-		echo "<form method=\"POST\" name=\"post\" action=\"?action=editnews&id=".htmlspecialchars($_GET['id'])."\"><br>\n";
+		echo "<form method=\"POST\" name=\"post\" action=\"?action=editnews&id=".htmlspecialchars($_GET['id'])."\">\n";
 	}
 	echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"100%\">\n";
 	echo "<tr>\n";
 	echo "\n";
 	echo "<td width=\"100%\">\n";
+	echo "<div class=\"subheaders\">" . $langmsg['editnews'][7] . "</div>";
+	echo "<div class=\"subheaders_body displaytable\" style=\"width: 689px; height: 0px\">";
+	
+	
 	echo "<input type=\"text\" name=\"title\" $changecolor class=\"newborder\" value=\"$title\" /></td>\n";
+	echo "</div>";
 	echo "</tr>\n";
 
 	echo "<div style=\"display: none\" id=\"whichbox\">x</div>";
@@ -2476,7 +2481,7 @@ function newsform($type){
 	$f = str_replace('{1}','shortstorysmilies',$bbcode);
 	$f = str_replace('{2}','storysmilies',$f);
 	#echo $f;							            
-	echo "<tr><d>$f</td></tr>";
+	echo "<tr><td>$f</td></tr>";
 	echo "</tr>\n";
 						
 	echo "  <tr>\n";
@@ -2778,6 +2783,6 @@ function newsform($type){
 
 	echo " </td> </tr>\n";
 	echo "</table>\n";
-	echo "</form>\n";			
+	echo "</form>\n";	
 }
 ?>

@@ -176,6 +176,20 @@ if(isloggedin()){
 			}
 		}
 	}
+	if(isloggedin()){
+		if(getaccess("news")){
+			if($_GET['action'] == "editnews" || $_GET['action'] == "addnews"){
+				$active = ($_GET['action'] == "addnews") ? 'subMenuActive' : 'subMenu';
+				$showoptions .= '<a class="' . $active . '" href="?action=addnews">'.$langmsg['menu'][0].'</a>';
+				$active = ($_GET['action'] == "editnews") ? 'subMenuActive' : 'subMenu';
+				$showoptions .= '<a class="' . $active . '" href="?action=editnews">'.$langmsg['menu'][1].'</a>';
+				$active = ($_GET['action'] == "out" && $_GET['archive'] == "true") ? 'subMenuActive' : 'subMenu';
+				$showoptions .= '<a class="' . $active . '" href="?action=editnews&archives=true">'.$langmsg['menu'][2].'</a>';
+				$active = '';
+				$x++;
+			}
+		}
+	}
 }
 
 
@@ -230,10 +244,6 @@ if(stristr($_SERVER['HTTP_USER_AGENT'], 'webkit')){
 <div id="outterCont">
 <div id="menuCont">
 	<?php
-
-		
-
-	
 		if(isloggedin()){
 			echo '<div id="menu" style="">';
 			if(!$_GET['action'] || $_GET['action'] == "home"){
@@ -272,7 +282,6 @@ if(stristr($_SERVER['HTTP_USER_AGENT'], 'webkit')){
 			echo '<div id="menu" style="visibility: hidden">';
 		}
 	?>
-
 	</div><!--menu-->
 </div><!--menuContainer-->
 <div id="menuShadow"></div>
@@ -285,7 +294,24 @@ if(stristr($_SERVER['HTTP_USER_AGENT'], 'webkit')){
 	
 	
 	<!-- MAIN SYSTEM CONTENT -->
-	<div id="pageCont">
+	<?php
+	if(isloggedin() && getaccess("news") && ($_GET['action'] == "editnews" || $_GET['action'] == "addnews")){
+	?>
+	<style>
+		.subMenuActive:link { outline: none; font-family:arial; font-size:12px; text-align:right; padding:6px 13px 0px 0px; color:#1e497d; background:#dae2ef; text-decoration:none; width:177px; height:19px; display:block; margin:0px 0px 1px 0px; }
+		.subMenuActive:visited { outline: none; font-family:arial; font-size:12px; text-align:right; padding:6px 13px 0px 0px; color:#1e497d; background:#dae2ef; text-decoration:none; width:177px; height:19px; display:block; margin:0px 0px 1px 0px; }
+		.subMenuActive:hover { outline: none; foutline: none; ont-family:arial; font-size:12px; text-align:right; padding:6px 13px 0px 0px; color:#1e497d; background:#dae2ef; text-decoration:none; width:177px; height:19px; display:block; margin:0px 0px 1px 0px; }
+		.subMenuActive:active { font-family:arial; font-size:12px; text-align:right; padding:6px 13px 0px 0px; color:#1e497d; background:#dae2ef; text-decoration:none; width:177px; height:19px; display:block; margin:0px 0px 1px 0px; }	
+	</style>
+	<div id="pageCont2">
+	<?php
+	}else{
+	?>
+	<div id="pageCont">		
+	<?php
+	}
+	?>
+	
 
 	<div id="subMenuCont" style="margin-left: -190px; margin-bottom: 20px">
 		<?php
