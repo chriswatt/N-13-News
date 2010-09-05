@@ -178,7 +178,7 @@ if(isloggedin()){
 	}
 	if(isloggedin()){
 		if(getaccess("news")){
-			if($_GET['action'] == "editnews" || $_GET['action'] == "addnews"){
+			if($_GET['action'] == "editnews" || $_GET['action'] == "addnews" || $_GET['action'] == "editnews"){
 				$active = ($_GET['action'] == "addnews") ? 'subMenuActive' : 'subMenu';
 				$showoptions .= '<a class="' . $active . '" href="?action=addnews">'.$langmsg['menu'][0].'</a>';
 				$active = ($_GET['action'] == "editnews") ? 'subMenuActive' : 'subMenu';
@@ -252,7 +252,7 @@ if(stristr($_SERVER['HTTP_USER_AGENT'], 'webkit')){
 			echo '<a class="menuButton '. $class . ' menuButtonHome" href="?">' . $langmsg['menu'][18] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
 			$class = '';
 
-			if($_GET['action'] == "addnews" || $_GET['action'] == "editnews"){
+			if($_GET['action'] == "addnews" || $_GET['action'] == "editnews" || $_GET['action'] == "editcomments"){
 				$class = 'menuButtonActive';
 			}			
 			if(getaccess('news')){

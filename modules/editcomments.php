@@ -19,7 +19,27 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['editcomments'][0]."</span></div><br /><table style=\"width: 685px\" cellpadding=\"0\" cellspacing=\"0\"><tr><td style=\"width: 17%\" align=center valign=top><img src=\"images/comments.png\" /></td><td valign=top>";
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['editcomments'][0] . '</span>';
+$articletitle = DataAccess::fetch(sprintf("SELECT title FROM %s WHERE id = ?", NEWS_ARTICLES), $_GET['pid']);
+$articletitle = $articletitle['0']['title'];
+echo '<span class="header">' . $articletitle . '</span>';
+if($_GET['do'] == "new"){
+	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
+}
+if($_GET['do'] == "edit"){
+	echo '<span class="header">' . $langmsg['options'][2] . '</span>';
+}
+
+echo '</div>';
+
 $_GET['edit'] = (empty($_GET['edit'])) ? '' : $_GET['edit'];
 $_POST['B2'] = (empty($_POST['B2'])) ? '' : $_POST['B2'];
 if($_GET['edit'] == "true"){
@@ -189,5 +209,8 @@ echo "</div>";
 if($amountofpages > 1){
 	echo "<br /><br /><div style=\"text-align: right\">$plink $pages $nlink</div>";
 }
-echo "</td></tr></table></form>";
+
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>
