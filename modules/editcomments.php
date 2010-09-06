@@ -50,9 +50,10 @@ if($_GET['edit'] == "true"){
 		$message	= displayhtml($all['message']);
 		$user		= displayhtml($all['user']);
 		$email		= displayhtml($all['email']);
-		echo "<div style=\"text-align: left\" class=panel>".$langmsg['editcomments'][1]."</div><br />";						  
+		echo "<div style=\"text-align: left\" class=\"subheaders\">".$langmsg['editcomments'][1]."</div>";
+		echo "<div class=\"subheaders_body displaytable\">";
 		echo "<form method=\"POST\" action=\"?action=editcomments&pid=$_GET[pid]&edit=true&id=$_GET[id]\">\n";
-		echo "<table border=\"0\" cellspacing=\"0\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"101%\" cellpadding=\"2\">\n";
+		echo "<table border=\"0\" style=\"width: 99%\" cellspacing=\"0\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"101%\" cellpadding=\"2\">\n";
 		echo "  <tr>\n";
 		echo "    <td width=\"21%\">".$langmsg['editcomments'][2]."</td>\n";
 		echo "    <td width=\"80%\" colspan=\"2\"><input type=\"text\" name=\"T1\" size=\"54\" value=\"$user\"></td>\n";
@@ -63,20 +64,21 @@ if($_GET['edit'] == "true"){
 		echo "  </tr>\n";
 		echo "  <tr>\n";
 		echo "    <td width=\"21%\" valign=\"top\">".$langmsg['editcomments'][4]."</td>\n";
-		echo "    <td width=\"40%\"><textarea rows=\"13\" name=\"S1\" cols=\"58\" id=\"S1\">$message</textarea></td>\n";
+		echo "    <td width=\"80%\"><textarea rows=\"13\" name=\"S1\" style=\"width: 98%\" id=\"S1\">$message</textarea></td>\n";
 
 		echo "  </tr>\n";
 		echo "  <tr>\n";
 		echo "    <td width=\"21%\" valign=\"top\">&nbsp;</td>\n";
 		echo "    <td width=\"80%\" colspan=\"2\">\n";
-		echo "    <input type=\"submit\" value=\"".$langmsg['submitfield'][3]."\" name=\"B2\"></td>\n";
+		echo "    <input type=\"submit\" style=\"width: 100%\" value=\"".$langmsg['submitfield'][3]."\" name=\"B2\"></td>\n";
 		echo "  </tr>\n";
 		echo "</table>\n";
 		echo "</form>\n";
+		echo "</div>";
 	}else{
 		$id = $_GET['id'];
 		DataAccess::put("UPDATE " . NEWS_COMMENTS . " SET user = ?, email = ?, message = ? WHERE id = ?", $_POST['T1'], $_POST['T2'], $_POST['S1'], $id);
-		echo "<div class=success>".$langmsg['editcomments'][5]."</div><br />";
+		echo "<div class=success>".$langmsg['editcomments'][5]."</div>";
 	}
 }
 			
@@ -90,7 +92,7 @@ if($_POST['selected']){
 			$i++;
 		}
 		$langmsg['editcomments'][6] = "<b>$i</b> " . $langmsg['editcomments'][6];
-		echo "<div class=\"success\">".$langmsg['editcomments'][6]."</div><br />";
+		echo "<div class=\"success\">".$langmsg['editcomments'][6]."</div>";
 	}
 	if($_POST['commentaction'] == "approve"){
 		$i = 0;
@@ -103,7 +105,7 @@ if($_POST['selected']){
 		//update comment count on parent article
 		updatecommentcount($_GET['pid']);
 		$langmsg['editcomments'][7] = "<b>$i</b> " . $langmsg['editcomments'][7];
-		echo "<div class=\"success\">".$langmsg['editcomments'][7]."</div><br />";				
+		echo "<div class=\"success\">".$langmsg['editcomments'][7]."</div>";
 	}
 }
 
@@ -161,7 +163,7 @@ $numcomments = count($allcomments);
 $langmsg['editcomments'][8] = "<b>$numcomments</b> " . $langmsg['editcomments'][8];
 echo "<div class=panel style=\"text-align: left\">".$langmsg['editcomments'][8]."</div><br />";
 echo "<form method=\"POST\" id=\"commentsform\" style=\"margin: 0px\" name=\"commentsform\" action=\"?action=editcomments&pid=$_GET[pid]\">";
-echo "<table id=\"rows\" width=\"100%\" cellspacing=\"1\" border=\"0\" cellpadding=\"0\"><tr><td width=\"30%\">".$langmsg['editcomments'][9]."</td><td width=\"20%\">".$langmsg['editcomments'][2]."</td><td width=\"15%\">".$langmsg['editcomments'][10]."</td><td width=\"15%\" align=center>".$langmsg['editnews'][11]."</td><td width=\"20%\">".$langmsg['editcomments'][12]."</td><td width=\"0\"><input type=\"checkbox\" name=\"allcheck\" onclick=\"selectall()\" id=\"allcheck\" /></td></tr><tr>\n";
+echo "<table id=\"rows\" width=\"100%\" cellspacing=\"0\" border=\"0\" cellpadding=\"0\"><tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"30%\">".$langmsg['editcomments'][9]."</td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['editcomments'][2]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['editcomments'][10]."</td><td class=\"tableshead tablerightborder\" width=\"15%\" align=center>".$langmsg['editnews'][11]."</td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['editcomments'][12]."</td><td class=\"tableshead\" width=\"0\"><input type=\"checkbox\" name=\"allcheck\" onclick=\"selectall()\" id=\"allcheck\" /></td></tr><tr>\n";
               
 $i = 1;
 foreach($allcomments AS $row){			                			
@@ -173,7 +175,7 @@ foreach($allcomments AS $row){
 		$tmpcolor = 1;
 	}
 	$pid = $_GET['pid'];
-	echo "<tr onmouseover=\"markfield('$i')\" onmouseout=\"unmarkfield('$i')\" id=\"$i\" class=\"$class\"><td><div style=\"width: 161px; height: 17px; overflow: hidden\"><a href=\"?action=editcomments&pid=$pid&edit=true&id=$row[id]\">";
+	echo "<tr onmouseover=\"markfield('$i')\" onmouseout=\"unmarkfield('$i')\" id=\"$i\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=editcomments&pid=$pid&edit=true&id=$row[id]\"><img src=\"images/icons/pencil.png\" alt=\"Edit\" title=\"Edit\" /></a></td><td class=\"tablebody tablerightborder\"><div style=\"width: 161px; height: 17px; overflow: hidden\">";
 	echo displayhtml($row['message']);;
 	if(strlen($row['user']) >= 10){
 		$user = displayhtml($row['user']);
@@ -189,7 +191,7 @@ foreach($allcomments AS $row){
 		$approved = $langmsg['editcomments'][14];
 		$approved = "<span style=\"color: #AA0000\">" . $approved . "</span>";
 	}			 
-	echo "</td><td>$user</td><td>". date("d/m/y",$row['timestamp']) . "</td><td align=center>$approved</td><td>$row[ip]</td><td align=right><input type=\"checkbox\" id=\"check_".$i."\"value=\"$row[id]\" onclick=\"if(document.getElementById('check_'+$i).checked == true){ markfield('$i'); }else{ unmarkfield('$i') }\" value=\"$row[id]\" id=\"check_$d\" name=\"selected[]\"></td></tr>\n";
+	echo "</td><td class=\"tablebody tablerightborder\">$user</td><td class=\"tablebody tablerightborder\">". date("d/m/y",$row['timestamp']) . "</td><td class=\"tablebody tablerightborder\" align=center>$approved</td><td class=\"tablebody tablerightborder\">$row[ip]</td><td class=\"tablebody\" align=right><input type=\"checkbox\" id=\"check_".$i."\"value=\"$row[id]\" onclick=\"if(document.getElementById('check_'+$i).checked == true){ markfield('$i'); }else{ unmarkfield('$i') }\" value=\"$row[id]\" id=\"check_$d\" name=\"selected[]\"></td></tr>\n";
 	$i++;
 }
 

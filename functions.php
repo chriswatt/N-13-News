@@ -1705,7 +1705,7 @@ function allnews(){
 	}
 	$shownnews = count($allnews);
 	$langmsg['editnews'][1] = $langmsg['editnews'][1] . " <b>$shownnews</b> " . $langmsg['editnews'][21] . " <b>$totalnews</b> " . $langmsg['editnews'][22]; 
-	echo "<div onclick=\"toggle_section2('newsoptions')\" class=\"subheaders\" style=\"cursor: pointer\"><div style=\"float: right\">";
+	echo "<div onclick=\"toggle_section2('newsoptions')\" class=\"subheaders subheaders2\" style=\"cursor: pointer\"><div style=\"float: right\">";
 
 	echo "<span style=\"cursor: pointer; text-decoration: underline;\">".$langmsg['editnews'][2]."</span>&nbsp;</div>".$langmsg['editnews'][1]."</div><form style=\"margin: 0px\" method=\"POST\" name=\"editform\" id=\"editform\" action=\"?action=editnews&archives=" . $_GET['archives'] . "&filtercat=" . $_GET['filtercat'] . "\">\n";
 	echo "<div class=\"subheaders_body displaytable\" style=\"";
@@ -2001,10 +2001,10 @@ function newsform($type){
 	}else{
 		echo "<form method=\"POST\" name=\"post\" action=\"?action=editnews&id=".htmlspecialchars($_GET['id'])."\">\n";
 	}
-	echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"100%\">\n";
+	echo "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n";
 	echo "<tr>\n";
 	echo "\n";
-	echo "<td width=\"100%\">\n";
+	echo "<td valign=\"top\" width=\"100%\">\n";
 
 	echo "<div class=\"subheaders\">" . $langmsg['editnews'][7] . "</div>";
 	echo "<div class=\"subheaders_body displaytable\" style=\"width: 689px; height: 0px\">";
@@ -2505,7 +2505,7 @@ function newsform($type){
 	echo "</div>";
 	echo "</td></tr><tr><td>";
 	
-	echo "<div class=\"subheaders\" style=\"\" onclick=\"toggle_section('summary')\">" . $langmsg['news'][51] . "</div>";
+	echo "<div class=\"subheaders subheaders2\" style=\"\" onclick=\"toggle_section('summary')\">" . $langmsg['news'][51] . "</div>";
 	echo "<div id=\"section_summary\" ";
 		if($togglesummary == "0"){
 			echo " style=\"display: none\" ";
@@ -2525,7 +2525,7 @@ function newsform($type){
 	echo "<table cellpadding=\"0\" cellspacing=\"0\" style=\"width: 100%\">";
 		echo "<tr><td valign=\"top\">";
 		
-	echo "<div class=\"subheaders\" style=\"width: 332px; text-align: left;\" onclick=\"toggle_section('categories')\">" . $langmsg['menu'][9] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
+	echo "<div class=\"subheaders subheaders2\" style=\"width: 332px; text-align: left;\" onclick=\"toggle_section('categories')\">" . $langmsg['menu'][9] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
 	echo "<div class=\"subheaders_body\" id=\"section_categories\" ";
 	if($newsform_options['toggle_categories'] == "0"){
 		echo "style=\"display: none; text-align: left; width: 328px\">";
@@ -2592,7 +2592,7 @@ function newsform($type){
 	echo "</td>";
 	echo "<td valign=\"top\" align=\"right\">";
 	
-	echo "<div class=\"subheaders\" style=\"text-align: left; width: 332px\" onclick=\"toggle_section('comments')\">" . $langmsg['newsform'][7] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
+	echo "<div class=\"subheaders subheaders2\" style=\"text-align: left; width: 332px\" onclick=\"toggle_section('comments')\">" . $langmsg['newsform'][7] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
 	echo "<div class=\"subheaders_body\" ";
 	if($newsform_options['toggle_comments'] == "0"){
 		echo " style=\"display: none; width: 328px; text-align: left\" ";
@@ -2624,7 +2624,7 @@ function newsform($type){
 	echo "<td valign=\"top\">";
 
 	
-	echo "<div class=\"subheaders\" style=\"width: 332px\" onclick=\"toggle_section('date')\">" . $langmsg['news'][53] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
+	echo "<div class=\"subheaders subheaders2\" style=\"width: 332px\" onclick=\"toggle_section('date')\">" . $langmsg['news'][53] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
 	echo "<div class=\"subheaders_body\" id=\"section_date\" ";
 	if($newsform_options['toggle_date'] == "0"){
 		echo "style=\"display: none; width: 328px\">";
@@ -2695,7 +2695,7 @@ function newsform($type){
 
 
 
-	echo "<div class=\"subheaders\" style=\"width: 332px; text-align: left;\" onclick=\"toggle_section('archive')\">" . $langmsg['news'][55] . "</div>";
+	echo "<div class=\"subheaders subheaders2\" style=\"width: 332px; text-align: left;\" onclick=\"toggle_section('archive')\">" . $langmsg['news'][55] . "</div>";
 	echo "<div class=\"subheaders_body\" id=\"section_archive\"";
 	if($newsform_options['toggle_archive'] == "0"){
 		echo " style=\"display: none; width: 328px; text-align: left;\" ";
