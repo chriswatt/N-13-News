@@ -19,9 +19,14 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['addnews'][3]."</span></div>";
-echo "<table width=\"685px\"><tr>";
-
+echo '<div id="pageRight" style="width: 705px">';
+echo '<div class="headertitle">';
+echo "<span class=\"header\">".$langmsg['menu'][0]."</span>";
+$_GET['archives'] = (empty($_GET['archives'])) ? '' : $_GET['archives'];
+if($_GET['archives']){
+	echo "<span class=\"header\">" . $langmsg['menu'][2] . "</span>";
+}
+echo "</div>";
 
 $_POST['S1'] = (empty($_POST['S1'])) ? '' : $_POST['S1'];
 if(!$_POST['S1']){
@@ -135,5 +140,7 @@ if(!$_POST['S1']){
 }
 echo " </td> </tr>\n";
 echo "</table>\n";
-echo "</form></td></tr></table>\n";	
+echo "</form>";
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

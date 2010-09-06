@@ -2005,6 +2005,7 @@ function newsform($type){
 	echo "<tr>\n";
 	echo "\n";
 	echo "<td width=\"100%\">\n";
+
 	echo "<div class=\"subheaders\">" . $langmsg['editnews'][7] . "</div>";
 	echo "<div class=\"subheaders_body displaytable\" style=\"width: 689px; height: 0px\">";
 	
@@ -2486,7 +2487,7 @@ function newsform($type){
 						
 	echo "  <tr>\n";
 	echo "    <td valign=\"top\">\n";
-	echo "<div class=\"subheaders\" style=\"width: 682px\" onclick=\"toggle_section('article')\">" . $langmsg['newsform'][22] . "</div>";
+	echo "<div class=\"subheaders\" style=\"\" onclick=\"toggle_section('article')\">" . $langmsg['newsform'][22] . "</div>";
 	$enablewysiwyg = DataAccess::fetch("SELECT enablewysiwyg FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
 	$enablewysiwyg =  $enablewysiwyg['0']['enablewysiwyg'];
 	if($enablewysiwyg == "1"){
@@ -2504,7 +2505,7 @@ function newsform($type){
 	echo "</div>";
 	echo "</td></tr><tr><td>";
 	
-	echo "<div class=\"subheaders\" style=\"width: 682px\" onclick=\"toggle_section('summary')\">" . $langmsg['news'][51] . "</div>";
+	echo "<div class=\"subheaders\" style=\"\" onclick=\"toggle_section('summary')\">" . $langmsg['news'][51] . "</div>";
 	echo "<div id=\"section_summary\" ";
 		if($togglesummary == "0"){
 			echo " style=\"display: none\" ";
@@ -2783,6 +2784,8 @@ function newsform($type){
 
 	echo " </td> </tr>\n";
 	echo "</table>\n";
-	echo "</form>\n";	
+	echo " </td> </tr>\n";
+	echo "</table>\n";
+	echo "</form>\n";
 }
 ?>

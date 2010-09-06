@@ -426,3 +426,12 @@ img {
 .slink {
 	cursor: pointer;
 }
+.cke_contents {
+width: 500px !important;
+}
+.noshow {
+	display: none;	
+}
+.show {
+	display: table;
+}

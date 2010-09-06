@@ -21,8 +21,6 @@ if (!defined('ABSPATH')){ die(); }
 
 
 echo '<div id="pageRight" style="width: 705px">';
-
-
 echo '<div class="headertitle">';
 echo "<span class=\"header\">".$langmsg['editnews'][0]."</span>";
 $_GET['archives'] = (empty($_GET['archives'])) ? '' : $_GET['archives'];

@@ -12,7 +12,8 @@ CKEDITOR.editorConfig = function( config )
    
    
 	CKEDITOR.instances['story'].config.extraPlugins = 'customimage,customsmiley,customfiles';
-	CKEDITOR.instances['story'].config.resize_maxWidth = 750;
+	CKEDITOR.instances['story'].config.resize_maxWidth = 700;
+	CKEDITOR.instances['story'].config.resize_minWidth = 700;
 	CKEDITOR.instances['story'].config.resize_minHeight = 100;
 	CKEDITOR.instances['story'].config.toolbar = [
 	['Font','FontSize','Bold','Italic','Underline','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','NumberedList','BulletedList'],
@@ -45,7 +46,8 @@ CKEDITOR.editorConfig = function( config )
 	
 	// SUMMARY
 	CKEDITOR.instances['shortstory'].config.extraPlugins = 'customimage2,customsmiley2,customfiles2';
-	CKEDITOR.instances['shortstory'].config.resize_maxWidth = 750;
+	CKEDITOR.instances['shortstory'].config.resize_maxWidth = 700;
+	CKEDITOR.instances['shortstory'].config.resize_minWidth = 700;
 	CKEDITOR.instances['shortstory'].config.resize_minHeight = 100;
 	CKEDITOR.instances['shortstory'].config.toolbar = [
 	['Font','FontSize','Bold','Italic','Underline','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','NumberedList','BulletedList'],
