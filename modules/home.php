@@ -84,8 +84,8 @@ if(file_exists(ABSPATH . "install/index.php")){
 	}
 }
 
-echo "<div class=panel><span style=\"float: right; margin-right: 0px\">" . $langmsg['home'][20] . $f ."</span>".$langmsg['home'][0] . "</div>";
-echo "<br>";
+echo "<div class=subheaders><span style=\"float: right; margin-right: 0px\">" . $langmsg['home'][20] . $f ."</span>".$langmsg['home'][0] . "</div>";
+echo "<div class=\"subheaders_body displaytable\">";
 echo "<table border=\"0\" cellpadding=\"0\" style=\"text-align: left; border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 echo "  <tr>\n";
 echo "    <td>\n";
@@ -141,6 +141,7 @@ echo "<td><div class=ok>$numaccess</div></td>\n";
 echo "<td><a href=\"?action=accesslogs\">" . $langmsg['home'][18] . "</a></td><td></td>";
 echo "</tr>";            
 echo "</table>\n";
+echo "</div>";
 echo "		</div><!--rightside-->
 	</div><!--pageCont-->";
 $_SESSION['beenalerted'] = (empty($_SESSION['beenalerted'])) ? '' : $_SESSION['beenalerted'];

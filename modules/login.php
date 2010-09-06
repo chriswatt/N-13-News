@@ -32,23 +32,17 @@ echo '		<div id="pageLeft">
 echo '<div id="pageRight">';
 
 $_POST['B3'] = (empty($_POST['B3'])) ? '' : $_POST['B3'];
-if($_POST['B3']){
-	#echo "<div style=\"padding-left: 50px; margin: 0px\">";
-	if($image_verification == "1"){
-		if(md5(SALT . $_POST['key']) !== $_SESSION['image_random_value']){
-			echo "<span class=\"error\">". $loginerrormessage . "</span>";			
-		}
-	}	
+if($_POST['B3']){	
 	echo "<span class=\"error\">".$_SESSION['loginerror']."</span>";
 	#echo "</div>";
 }
 
-echo "<div id=\"headerBox\">".$langmsg['login'][0]."</div>";
+echo "<div class=\"subheaders\" style=\"margin-bottom: 0px\">".$langmsg['login'][0]."</div>";
 
 
 
-echo "            <form method=\"POST\" style=\"padding-left: 50px; margin: 0px\" action=\"\">\n";
-echo "            <table style=\"padding-top: 20px\" border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"100%\">\n";
+echo "            <form method=\"POST\" class=\"subheaders_body displaytable\" style=\"padding: 6px; padding-bottom: 10px; margin: 0px\" action=\"\">\n";
+echo "            <table style=\"\" border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"100%\">\n";
 echo "              <tr>\n";
 echo "                <td width=\"100\">".$langmsg['login'][1]." </td>\n";
 echo "                <td width=\"\">\n";
