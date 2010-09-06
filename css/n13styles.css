@@ -435,3 +435,6 @@ width: 500px !important;
 .show {
 	display: table;
 }
+.cke_contents:focus {
+	border: 1px solid #BBDAFD;
+}
