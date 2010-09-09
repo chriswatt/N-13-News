@@ -454,3 +454,7 @@ width: 500px !important;
   opacity:.50;
   filter: alpha(opacity=50);
 }
+.datesdropdown {
+	margin-right: 0px;
+	margin-left: 0px;
+}

@@ -54,7 +54,7 @@ if(defined('EXTENSION')){
 
 function x($s){
 	$y = array('english','swedish','dutch','french','german','italian','portugues','spanish','turkish','finnish','filipinp','indonesian','malay','swahili','welsh');
-	$n = array('arabic','chinesesimple','chinesetraditional','japanese','korean','russian','thai','african','albanian','belarusian','bulgarian','catalan','czech','croatian','danish','estonian','galician','greek','haitian','hindi','hebrew','hungarian','icelandic','irish','latvian','macedonian','maltese','norwegian','persian','polish','romanian','serbian','slovak','slovenian','ukrainian','vietnamese','yiddish','lithuanian');
+	$n = array('arabic','chinese simple','chinese traditional','japanese','korean','russian','thai','african','albanian','belarusian','bulgarian','catalan','czech','croatian','danish','estonian','galician','greek','haitian','hindi','hebrew','hungarian','icelandic','irish','latvian','macedonian','maltese','norwegian','persian','polish','romanian','serbian','slovak','slovenian','ukrainian','vietnamese','yiddish','lithuanian');
 	if($_SESSION['langtype'] !== "dropdown" || $_SESSION['langtype'] == "index"){
 		if(in_array($_SESSION['language'], $n)){
 		
@@ -1705,16 +1705,16 @@ function allnews(){
 	}
 	$shownnews = count($allnews);
 	$langmsg['editnews'][1] = $langmsg['editnews'][1] . " <b>$shownnews</b> " . $langmsg['editnews'][21] . " <b>$totalnews</b> " . $langmsg['editnews'][22]; 
-	echo "<div onclick=\"toggle_section2('newsoptions')\" class=\"subheaders subheaders2\" style=\"cursor: pointer\"><div style=\"float: right\">";
+	echo "<div onclick=\"toggle_section2('newsoptions')\" class=\"subheaders subheaders2 slink\" style=\"cursor: pointer\"><div style=\"float: right\">";
 
 	echo "<span style=\"cursor: pointer; text-decoration: underline;\">".$langmsg['editnews'][2]."</span>&nbsp;</div>".$langmsg['editnews'][1]."</div><form style=\"margin: 0px\" method=\"POST\" name=\"editform\" id=\"editform\" action=\"?action=editnews&archives=" . $_GET['archives'] . "&filtercat=" . $_GET['filtercat'] . "\">\n";
 	echo "<div class=\"subheaders_body displaytable\" style=\"";
 	if($_POST['changeoptions']){
-		echo "display: table";
+		echo "display: block";
 	}else{
 		echo "display: none;";
 	} 
-	echo "text-align: left; margin-bottom: 18px; width: 691px\" id=\"section_newsoptions\">";
+	echo "text-align: left; margin-bottom: 18px; width: 100%\" id=\"section_newsoptions\">";
 	if($_GET['archives']){ $archives = "true"; }else{ $archives = ''; }
 	echo $langmsg['editnews'][25] . " <select onchange=\"editnews_filtercat('$archives');\" id=\"filter_cat\" style=\"margin-right: 6px; margin-top: -2px\" name=\"filter_cat\">";
 
@@ -2001,13 +2001,13 @@ function newsform($type){
 	}else{
 		echo "<form method=\"POST\" name=\"post\" action=\"?action=editnews&id=".htmlspecialchars($_GET['id'])."\">\n";
 	}
-	echo "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n";
+	echo "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"692px\">\n";
 	echo "<tr>\n";
 	echo "\n";
-	echo "<td valign=\"top\" width=\"100%\">\n";
+	echo "<td valign=\"top\"  width=\"100%\">\n";
 
 	echo "<div class=\"subheaders\">" . $langmsg['editnews'][7] . "</div>";
-	echo "<div class=\"subheaders_body displaytable\" style=\"width: 689px; height: 0px\">";
+	echo "<div class=\"subheaders_body\" style=\"display: block; width: 692px; height: 28px\">";
 	
 	
 	echo "<input type=\"text\" name=\"title\" $changecolor class=\"newborder\" value=\"$title\" /></td>\n";
@@ -2467,7 +2467,7 @@ function newsform($type){
 				
 	echo "</td></tr>\n";
 	echo "<div id=\"smileybox\" style=\"z-index: 10001; width: 150px; background-color: #FFFFFF; border: 1px solid #AAAAAA; padding: 5px; margin-left: 470px; margin-top: 40px; display: none; position: absolute\">";
-	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"document.getElementById('smileybox').style.display = 'none'; document.getElementById('fade').style.display = 'none';\">[close]</a><span class=\"header\" style=\"padding-left: 0px\">Smilies</span><hr />";
+	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"document.getElementById('smileybox').style.display = 'none'; document.getElementById('fade').style.display = 'none';\">[close]</a><span class=\"header\" style=\"background-color: #FFFFFF; padding-left: 0px\">Smilies</span><hr />";
 	echo "<div id=\"storysmilies\">";
 	$smilies = DataAccess::fetch("SELECT path, keycode FROM " . NEWS_SMILIES . "");
 	foreach($smilies AS $row){
@@ -2487,7 +2487,7 @@ function newsform($type){
 						
 	echo "  <tr>\n";
 	echo "    <td valign=\"top\">\n";
-	echo "<div class=\"subheaders\" style=\"\" onclick=\"toggle_section('article')\">" . $langmsg['newsform'][22] . "</div>";
+	echo "<div class=\"subheaders slink\" style=\"\" onclick=\"toggle_section('article')\">" . $langmsg['newsform'][22] . "</div>";
 	$enablewysiwyg = DataAccess::fetch("SELECT enablewysiwyg FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
 	$enablewysiwyg =  $enablewysiwyg['0']['enablewysiwyg'];
 	if($enablewysiwyg == "1"){
@@ -2505,7 +2505,7 @@ function newsform($type){
 	echo "</div>";
 	echo "</td></tr><tr><td>";
 	
-	echo "<div class=\"subheaders subheaders2\" style=\"\" onclick=\"toggle_section('summary')\">" . $langmsg['news'][51] . "</div>";
+	echo "<div class=\"subheaders subheaders2 slink\" style=\"\" onclick=\"toggle_section('summary')\">" . $langmsg['news'][51] . "</div>";
 	echo "<div id=\"section_summary\" ";
 		if($togglesummary == "0"){
 			echo " style=\"display: none\" ";
@@ -2516,21 +2516,18 @@ function newsform($type){
 	echo "<textarea name=\"shortstory\" class=\"$useck\" style=\"width: 100%; height: 250px\">$shortstory</textarea>";
 	echo "</div>";
 	echo "</td></tr>";
+	echo "</table>";
+	echo "<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">";
 	
 
-
-	echo "<tr><td>";
-	
-
-	echo "<table cellpadding=\"0\" cellspacing=\"0\" style=\"width: 100%\">";
-		echo "<tr><td valign=\"top\">";
+		echo "<tr><td valign=\"top\" style=\"width: 40%; padding-right: 5px\">";
 		
-	echo "<div class=\"subheaders subheaders2\" style=\"width: 332px; text-align: left;\" onclick=\"toggle_section('categories')\">" . $langmsg['menu'][9] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
+	echo "<div class=\"subheaders subheaders2 slink\" style=\"text-align: left;\" onclick=\"toggle_section('categories')\">" . $langmsg['menu'][9] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
 	echo "<div class=\"subheaders_body\" id=\"section_categories\" ";
 	if($newsform_options['toggle_categories'] == "0"){
-		echo "style=\"display: none; text-align: left; width: 328px\">";
+		echo "style=\"width: 334px; display: none; text-align: left;\">";
 	}else{
-		echo "style=\"text-align: left; width: 328px\">";
+		echo "style=\"width: 334px; text-align: left;\">";
 	}
 	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']); 														
 	if($allowedcats['0']['cats'] !== "all"){
@@ -2590,14 +2587,14 @@ function newsform($type){
 
 		
 	echo "</td>";
-	echo "<td valign=\"top\" align=\"right\">";
+	echo "<td valign=\"top\" style=\"width: 50%\" align=\"right\">";
 	
-	echo "<div class=\"subheaders subheaders2\" style=\"text-align: left; width: 332px\" onclick=\"toggle_section('comments')\">" . $langmsg['newsform'][7] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
+	echo "<div class=\"subheaders subheaders2 slink\" style=\"text-align: left;\" onclick=\"toggle_section('comments')\">" . $langmsg['newsform'][7] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
 	echo "<div class=\"subheaders_body\" ";
 	if($newsform_options['toggle_comments'] == "0"){
-		echo " style=\"display: none; width: 328px; text-align: left\" ";
+		echo " style=\"width: 339px; display: none; text-align: left\" ";
 	}else{
-		echo " style=\"width: 328px; text-align: left\" ";
+		echo " style=\"width: 339px; text-align: left\" ";
 	}
 	
 	echo "id=\"section_comments\">";
@@ -2621,19 +2618,19 @@ function newsform($type){
 	echo "</td>";
 	echo "</tr>";
 	echo "<tr>";
-	echo "<td valign=\"top\">";
+	echo "<td valign=\"top\" style=\"padding-right: 5px; width: 50%\">";
 
 	
-	echo "<div class=\"subheaders subheaders2\" style=\"width: 332px\" onclick=\"toggle_section('date')\">" . $langmsg['news'][53] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
+	echo "<div class=\"subheaders subheaders2 slink\" style=\"\" onclick=\"toggle_section('date')\">" . $langmsg['news'][53] . "<a href=\"#\" style=\"text-decoration: none\"><span></span></a></div>";
 	echo "<div class=\"subheaders_body\" id=\"section_date\" ";
 	if($newsform_options['toggle_date'] == "0"){
-		echo "style=\"display: none; width: 328px\">";
+		echo "style=\"width: 334px; display: none;\">";
 	}else{
-		echo "style=\"width: 328px\">";
+		echo "style=\"width: 334px; \">";
 	}
 	
 	echo "<span>" . $langmsg['news'][54] . "</span><br /><br />";
-	echo "<select name=\"day\">";
+	echo "<select class=\"datesdropdown\" name=\"day\">";
 	$i = 01;
 	while($i <= 31){
 		$i = sprintf("%02d",$i);
@@ -2642,7 +2639,7 @@ function newsform($type){
 	}
 	echo "</select>";
 	
-	echo " <select name=\"month\">";
+	echo " <select class=\"datesdropdown\" name=\"month\">";
 	
 	$months = array('January','February','March','April','May','June','July','August','September','October','November','December');
 	$months_short = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
@@ -2654,7 +2651,7 @@ function newsform($type){
 	echo "</select>";
 	
 	$i = "1970";
-	echo " <select name=\"year\">";
+	echo " <select class=\"datesdropdown\"  name=\"year\">";
 	while($i <= 2037){
 		echo "<option value=\"$i\""; if($year == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
 		$i++;
@@ -2662,7 +2659,7 @@ function newsform($type){
 	echo "</select>";
 	
 	$i = 0;
-	echo " <select name=\"hour\">";
+	echo " <select class=\"datesdropdown\" name=\"hour\">";
 	while($i <= 23){
 		$i = sprintf("%02d",$i);
 		echo "<option value=\"$i\""; if($hour == $i){ echo "selected=\"selected\"";} echo ">$i</option>";
@@ -2672,7 +2669,7 @@ function newsform($type){
 	
 
 	$i = 0;
-	echo " <select name=\"minute\">";
+	echo " <select class=\"datesdropdown\" name=\"minute\">";
 	while($i <= 59){
 		$i = sprintf("%02d",$i);
 		echo "<option value=\"$i\" "; if($minute == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
@@ -2681,7 +2678,7 @@ function newsform($type){
 	echo "</select>";
 	
 	$i = 0;
-	echo " <select name=\"second\">";
+	echo " <select class=\"datesdropdown\" name=\"second\">";
 	while($i <= 59){
 		$i = sprintf("%02d",$i);
 		echo "<option value=\"$i\" "; if($second == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
@@ -2691,16 +2688,16 @@ function newsform($type){
 
 	
 	echo "</td>";
-	echo "<td valign=\"top\" align=\"right\">";
+	echo "<td valign=\"top\" align=\"right\" style=\"padding-right: 0px; width: 50%\">";
 
 
 
-	echo "<div class=\"subheaders subheaders2\" style=\"width: 332px; text-align: left;\" onclick=\"toggle_section('archive')\">" . $langmsg['news'][55] . "</div>";
+	echo "<div class=\"subheaders subheaders2 slink\" style=\"text-align: left;\" onclick=\"toggle_section('archive')\">" . $langmsg['news'][55] . "</div>";
 	echo "<div class=\"subheaders_body\" id=\"section_archive\"";
 	if($newsform_options['toggle_archive'] == "0"){
-		echo " style=\"display: none; width: 328px; text-align: left;\" ";
+		echo " style=\"width: 339px; display: none; text-align: left;\" ";
 	}else{
-		echo " style=\"width: 328px; text-align: left;\" ";
+		echo " style=\width: 339px; text-align: left;\" ";
 	}
 	echo ">";
 
@@ -2709,7 +2706,7 @@ function newsform($type){
 			echo "checked=\"checked\" ";
 		}
 	echo "name=\"neverarchive\" type=\"checkbox\"><label for=\"neverarchive\">".$langmsg['newsform'][18]."</label></span><br /><br />";
-	echo "<select name=\"archive_day\">";
+	echo "<select class=\"datesdropdown\" name=\"archive_day\">";
 	$i = 01;
 	while($i <= 31){
 		$i = sprintf("%02d",$i);
@@ -2718,7 +2715,7 @@ function newsform($type){
 	}
 	echo "</select>";
 	
-	echo " <select name=\"archive_month\">";
+	echo " <select class=\"datesdropdown\" name=\"archive_month\">";
 	
 	$months = array('January','February','March','April','May','June','July','August','September','October','November','December');
 	$months_short = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
@@ -2730,7 +2727,7 @@ function newsform($type){
 	echo "</select>";
 	
 	$i = "1970";
-	echo " <select name=\"archive_year\">";
+	echo " <select class=\"datesdropdown\" name=\"archive_year\">";
 	while($i <= 2037){
 		echo "<option value=\"$i\""; if($archive_year == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
 		$i++;
@@ -2738,7 +2735,7 @@ function newsform($type){
 	echo "</select>";
 	
 	$i = 0;
-	echo " <select name=\"archive_hour\">";
+	echo " <select class=\"datesdropdown\" name=\"archive_hour\">";
 	while($i <= 23){
 		$i = sprintf("%02d",$i);
 		echo "<option value=\"$i\""; if($archive_hour == $i){ echo "selected=\"selected\"";} echo ">$i</option>";
@@ -2748,7 +2745,7 @@ function newsform($type){
 	
 
 	$i = 0;
-	echo " <select name=\"archive_minute\">";
+	echo " <select class=\"datesdropdown\" name=\"archive_minute\">";
 	while($i <= 59){
 		$i = sprintf("%02d",$i);
 		echo "<option value=\"$i\" "; if($archive_minute == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
@@ -2757,7 +2754,7 @@ function newsform($type){
 	echo "</select>";
 	
 	$i = 0;
-	echo " <select name=\"archive_second\">";
+	echo " <select class=\"datesdropdown\" name=\"archive_second\">";
 	while($i <= 59){
 		$i = sprintf("%02d",$i);
 		echo "<option value=\"$i\" "; if($archive_second == $i){ echo "selected=\"selected\""; } echo ">$i</option>";
@@ -2771,8 +2768,8 @@ function newsform($type){
 		
 	echo "</td>";
 	echo "</tr>";
-	echo "<tr><td style=\"padding-top: 10px; padding-right: 4px;\">";
-	echo "<button type=\"submit\" name=\"S1\" value=\"Preview\" style=\"width: 100%\">".$langmsg['submitfield'][1]."</button></td><td style=\"padding-top: 10px; padding-left: 4px\"><input style=\"width: 100%\" type=\"submit\" value=\"";
+	echo "<tr><td style=\"width: 50%; padding-top: 10px; padding-right: 5px;\">";
+	echo "<button type=\"submit\" name=\"S1\" value=\"Preview\" style=\"width: 100%\">".$langmsg['submitfield'][1]."</button></td><td style=\"width: 50%; padding-top: 10px; padding-left: 0px\"><input style=\"width: 100%\" type=\"submit\" value=\"";
 	if($_GET['action'] == "add"){
 		echo $langmsg['submitfield'][2];
 	}else{
@@ -2782,8 +2779,6 @@ function newsform($type){
 	echo "\" name=\"S1\">\n";
 	echo "</td></tr>";
 
-	echo " </td> </tr>\n";
-	echo "</table>\n";
 	echo " </td> </tr>\n";
 	echo "</table>\n";
 	echo "</form>\n";
