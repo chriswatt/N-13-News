@@ -19,22 +19,32 @@
 
 if (!defined('ABSPATH')){ die(); }
 
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['recover'][0] . '</span>';
+echo '</div>';
+
+
 $_GET['vcode']	= (empty($_GET['vcode'])) ? '' : $_GET['vcode'];
 $_POST['S1']	= (empty($_POST['S1'])) ? '' : $_POST['S1'];
 $_POST['email']	= (empty($_POST['email'])) ? '' : $_POST['email'];
 
 if(!$_GET['vcode']){
-	echo "<span class=header>".$langmsg['recover'][0]."</span></div><br />";
-	echo "<div align=right>";
-	echo "<div style=\"width: 560px; text-align: left\" class=panel>".$langmsg['recover'][1]."</div><br />";
+	echo "<div class=subheaders>".$langmsg['recover'][1]."</div>";
 	if(!$_POST['S1']){
+		echo "<div class=\"subheaders_body displaytable\">";
 		echo "<form method=post action=\"?action=recoverpass\">";
-		echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"565\">\n";
-		echo "<tr><td style=\"text-align: left\">".$langmsg['recover'][2]." <input type=text name=email>&nbsp;<input type=submit name=\"S1\" value=\"".$langmsg['submitfield'][9]."\"></td></tr>";
-		echo "</table>";
+		echo $langmsg['recover'][2]." <input type=text name=email>&nbsp;<input type=submit name=\"S1\" value=\"".$langmsg['submitfield'][9]."\">";
 		echo "</form>";
+		echo "</div>";
 	}else{
-		echo "<table width=\"685\"><tr><td style=\"text-align: left\">";
+		echo "<div class=\"subheaders_body displaytable\">";
 		$email		= $_POST['email'];
 		$userexists	= DataAccess::fetch("SELECT uid, vcode FROM " . NEWS_USERS . " WHERE email = ?", $email);
 		if(count($userexists) >= 1){
@@ -55,68 +65,56 @@ if(!$_GET['vcode']){
 				$message .= "<br><br>";
 				$message .= "<a href=\"http://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]?action=recoverpass&vcode=$vcode&email=$email\">".$langmsg['recover'][4]."</a>";
 				if(@mail($email,"Account info",$message,$headers)){
-					echo "<div align=right>";
-					echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"565\"><tr><td>\n";
 					$g = $langmsg['recover'][5];
 					$g .= " <b>$email</b> " . $langmsg['recover'][13];
 					echo $g;
-					echo "</td></tr></table>";
-					echo "</div>";	
 				}else{
-					echo "<div align=right>";
-					echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"565\"><tr><td>\n";
 					echo "<span class=\"error\">".$langmsg['recover'][9]."</span>";
-					echo "</td></tr></table>";
-					echo "</div>";	
 				}
 		}else{
-			echo "<div align=right>";
-			echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"565\"><tr><td style=\"text-align: left\">\n";
 			echo "<div class=error>".$langmsg['recover'][6]."</div>";
-			echo "</td></tr></table>";
-			echo "</div>";
 		}
-		echo "</td></tr></table>";
+		echo "</div>";
 	}
-	echo "</div>";
 }else{
 	$userexists = DataAccess::fetch("SELECT user FROM " . NEWS_USERS . " WHERE vcode = ? AND email = ?", $_GET['vcode'], $_GET['email']);
 	if(count($userexists) >= 1){
 		$email	= $_GET['email'];
 		$vcode	= $_GET['vcode'];
 		$name	= $userexists['0']['user'];
-		echo "<span class=header>".$langmsg['recover'][7]."</span></div>";
-		echo "<br>";           
-		echo "<div align=right><div class=panel style=\"width: 81%; text-align: left\">".$langmsg['recover'][8]."</div></div><br />";
+
+
 		function resetpassform($name){
 			$email	= $_GET['email'];
 			$vcode	= $_GET['vcode'];
 			$_POST['T1'] = (empty($_POST['T1'])) ? '' : $_POST['T1'];
 			$_POST['T2'] = (empty($_POST['T2'])) ? '' : $_POST['T2'];
 			global $langmsg;
+			echo "<div class=\"subheaders\">".$langmsg['recover'][8]."</div>";
+			echo "<div class=\"subheaders_body displaytable\">";
 			echo "<form method=post action=\"?action=recoverpass&vcode=$vcode&email=$email\">";
-			echo "<div align=\"right\"><table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"81%\">\n";
-			echo "<tr><td width=\"150\"><div class=success>$name</div></td></tr>";
+			echo "<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" width=\"81%\">\n";
+			echo "<tr><td width=\"150\"><div class=ok>$name</div></td></tr>";
 			echo "<tr><td width=\"150\">".$langmsg['recover'][7].":</td><td><input type=\"password\" name=\"T1\" value=\"$_POST[T1]\"></td></tr>";
 			echo "<tr><td width=\"150\">".$langmsg['recover'][10]."</td><td><input type=\"password\" name=\"T2\" value=\"$_POST[T2]\"></td></tr>";
 			echo "<tr><td width=\"150\"></td><td><input type=submit name=S1 value=\"".$langmsg['submitfield'][6]."\"></td></tr>";
 			echo "</table>";
-			echo "</div>";
 			echo "</form>";
+			echo "</div>";
 		}
 		if(!$_POST['S1']){
 			resetpassform($name);
 		}else{
 			if(!$_POST['T1'] OR !$_POST['T2']){
-				echo "<div align=right><table width=\"81%\"><tr><td><div class=error>".$langmsg['recover'][11]."</div></td></tr></table></div>";
+				echo "<div class=error>".$langmsg['recover'][11]."</div>";
 				resetpassform($name);
 			}elseif($_POST['T1'] == $_POST['T2']){
 				$pass = $_POST['T1'];
 				$pass = md5(SALT . $pass);
 				DataAccess::put(sprintf("UPDATE %s SET pass = ?, newpass = ?, vcode = ? WHERE email = ? AND vcode = ?", NEWS_USERS), "", $pass, "", $email, $vcode);
-				echo "<div align=right><table width=\"81%\"><tr><td><div class=success>".$langmsg['recover'][12]."</div><br><a href=\"?\">Login here!</a></td></tr></table></div>";
+				echo "<div class=success>".$langmsg['recover'][12]."</div><br><a href=\"?\">Login here!</a>";
 			}else{
-				echo "<div align=right><table width=\"81%\"><tr><td><div class=error>".$langmsg['recover'][11]."</div></td></tr></table></div>";
+				echo "<div class=error>".$langmsg['recover'][11]."</div>";
 				resetpassform($name);
 			}
 		}
@@ -124,4 +122,7 @@ if(!$_GET['vcode']){
 		echo "Go away! :o";
 	}
 }
+
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>
