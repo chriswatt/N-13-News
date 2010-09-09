@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Alamat email harus dimasukkan.");
 $langmsg['personal'][11] = x("Pengaturan diperbarui.");
 $langmsg['personal'][12] = x("Password tidak cocok.");
 $langmsg['personal'][13] = x("Aktifkan editor WYSIWYG?");
+$langmsg['personal'][14] = x("Pilihan default");
 
 $langmsg['login'][0] = x("Silahkan Login");
 $langmsg['login'][1] = x("Nama:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Diblokir reset count");
 $langmsg['selectfield'][19] = x("Buat salinan");
 $langmsg['selectfield'][20] = x("Reset menghitung");
 $langmsg['selectfield'][21] = x("Reset pemberian peringkat");
+$langmsg['selectfield'][22] = x("Simpan & Lanjutkan");
 
 $langmsg['js'][0] = x("Apakah Anda yakin ingin menghapus foto dari kategori?");
 $langmsg['js'][1] = x("Apakah Anda yakin ingin menghapus gambar yang dipilih (s)?");

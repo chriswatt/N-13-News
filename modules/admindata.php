@@ -19,7 +19,21 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-$noaccessmsg = "<br />" . NOACCESSMSG . "";
+
+
+$hh .= '
+			<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->
+	<div id="pageRight">';
+
+
+
+$noaccessmsg = $hh . "<br />" . NOACCESSMSG . "
+	</div><!--rightside-->
+	</div><!--pageCont-->";
+	
 if(isloggedin()){
     if(!$_GET['action']){
         require_once('modules/home.php');         
@@ -61,7 +75,7 @@ if(isloggedin()){
     			}else{				 
     				echo $noaccessmsg;
     			}
-    		}elseif($_GET['mod'] == "access"){
+    		}elseif($_GET['mod'] == "accesslevels"){
     			if(getaccess("accesslevels")){	
     				require_once( 'modules/modaccess.php');
     			}else{
@@ -73,25 +87,25 @@ if(isloggedin()){
     			}else{
     				echo $noaccessmsg;
     			}		
-    		}elseif($_GET['mod'] == "template"){
+    		}elseif($_GET['mod'] == "templates"){
     			if(getaccess("templates")){	
     				require_once( 'modules/modtemplate.php');
     			}else{
     			 	echo $noaccessmsg;
     			}              
-    		}elseif($_GET['mod'] == "system"){
+    		}elseif($_GET['mod'] == "sysconfig"){
     			if(getaccess("sysconfig")){	
     				require_once( 'modules/modsystem.php');
     			}else{
     			 	echo $noaccessmsg;
     			}
-    		}elseif($_GET['mod'] == "banned"){
+    		}elseif($_GET['mod'] == "bannedips"){
     			if(getaccess("bannedips")){
     				require_once( 'modules/modbanned.php');
     			}else{
     			 	echo $noaccessmsg;
     			}
-    		}elseif($_GET['mod'] == "categories"){
+    		}elseif($_GET['mod'] == "newscats"){
     			if(getaccess("newscats")){
     				require_once( 'modules/modcategories.php');
     			}else{
@@ -103,13 +117,13 @@ if(isloggedin()){
     			}else{
     			 	echo $noaccessmsg;
     			}
-    		}elseif($_GET['mod'] == "filter"){
+    		}elseif($_GET['mod'] == "wordfilters"){
     			if(getaccess("wordfilters")){
     				require_once( 'modules/modfilter.php');
     			}else{
     			 	echo $noaccessmsg;
     			}
-    		}elseif($_GET['mod'] == "personal"){
+    		}elseif($_GET['mod'] == "personaloptions"){
     			if(getaccess("personaloptions")){
     				require_once( 'modules/modpersonal.php');
     			}else{

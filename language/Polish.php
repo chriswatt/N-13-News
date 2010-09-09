@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Adres e-mail należy wpisać.");
 $langmsg['personal'][11] = x("Ustawienia aktualizacji.");
 $langmsg['personal'][12] = x("Hasła nie pasują do siebie.");
 $langmsg['personal'][13] = x("Włącz edytor WYSIWYG?");
+$langmsg['personal'][14] = x("Opcje domyślne");
 
 $langmsg['login'][0] = x("Proszę zaloguj");
 $langmsg['login'][1] = x("Imię i nazwisko:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset zablokowany wizytówki");
 $langmsg['selectfield'][19] = x("Tworzenie kopii");
 $langmsg['selectfield'][20] = x("Ilość wyświetleń Reset");
 $langmsg['selectfield'][21] = x("Oceny: Reset");
+$langmsg['selectfield'][22] = x("Zapisz i kontynuuj");
 
 $langmsg['js'][0] = x("Czy na pewno chcesz usunąć ten obraz z kategorii?");
 $langmsg['js'][1] = x("Czy na pewno chcesz usunąć wybrane zdjęcie (a)?");

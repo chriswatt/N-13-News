@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Egy e-mail címet kell beírni.");
 $langmsg['personal'][11] = x("Beállítások frissítve.");
 $langmsg['personal'][12] = x("A jelszavak nem egyeznek.");
 $langmsg['personal'][13] = x("Lehetővé teszi WYSIWYG szerkesztő?");
+$langmsg['personal'][14] = x("Alapértelmezett beállítások");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Név:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset blokkolt számít");
 $langmsg['selectfield'][19] = x("Készítsen másolatot");
 $langmsg['selectfield'][20] = x("Reset View Count");
 $langmsg['selectfield'][21] = x("Reset értékelés");
+$langmsg['selectfield'][22] = x("Mentés és folytatás");
 
 $langmsg['js'][0] = x("Biztosan el akarja távolítani ezt a képet a kategóriát?");
 $langmsg['js'][1] = x("Biztos benne, hogy törli a kiválasztott kép (ek)?");

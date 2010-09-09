@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Este enderezo de correo-e debe ser ingresaran.");
 $langmsg['personal'][11] = x("Definicións actualizadas.");
 $langmsg['personal'][12] = x("Os contrasinais non coinciden.");
 $langmsg['personal'][13] = x("Activar editor WYSIWYG?");
+$langmsg['personal'][14] = x("Default Options");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Nome:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Restablecer contador bloqueada");
 $langmsg['selectfield'][19] = x("Crear copia");
 $langmsg['selectfield'][20] = x("Restablecer contador vista");
 $langmsg['selectfield'][21] = x("Valoración Reset");
+$langmsg['selectfield'][22] = x("Gardar e Continuar");
 
 $langmsg['js'][0] = x("¿Está seguro que desexa eliminar esta imaxe da categoría?");
 $langmsg['js'][1] = x("Vostede está seguro de que quere borrar a imaxe seleccionada (s)?");

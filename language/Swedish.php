@@ -270,6 +270,7 @@ $langmsg['personal'][10] = x("En e-postadress skall anges.");
 $langmsg['personal'][11] = x("Inställningar uppdateras.");
 $langmsg['personal'][12] = x("Lösenorden matchar inte.");
 $langmsg['personal'][13] = x("Aktivera WYSIWYG editor?");
+$langmsg['personal'][14] = x("Förvalda alternativ");
 
 
 $langmsg['login'][0] = x("Vänligen Logga");
@@ -763,6 +764,7 @@ $langmsg['selectfield'][18] = x("Återställ blockerade count");
 $langmsg['selectfield'][19] = x("Skapa säkerhetskopior");
 $langmsg['selectfield'][20] = x("Återställ Visningantal");
 $langmsg['selectfield'][21] = x("Återställ ratings");
+$langmsg['selectfield'][22] = x("Spara och fortsätt");
 
 
 $langmsg['js'][0] = x("Är du säker på att du vill ta bort bilden från klassen?");

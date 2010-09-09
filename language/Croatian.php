@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("E-mail adresa mora biti upisana.");
 $langmsg['personal'][11] = x("Postavke obnovljeno.");
 $langmsg['personal'][12] = x("Lozinke se ne podudaraju.");
 $langmsg['personal'][13] = x("Omogućiti WYSIWYG editor?");
+$langmsg['personal'][14] = x("Default Mogućnosti");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Ime:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset blokiran count");
 $langmsg['selectfield'][19] = x("Napravite kopiju");
 $langmsg['selectfield'][20] = x("Reset View Count");
 $langmsg['selectfield'][21] = x("Reset ocjene");
+$langmsg['selectfield'][22] = x("Spremi i nastavi");
 
 $langmsg['js'][0] = x("Jeste li sigurni da želite ukloniti ovu sliku iz kategorije?");
 $langmsg['js'][1] = x("Jeste li sigurni da želite izbrisati odabrane slike (a)?");

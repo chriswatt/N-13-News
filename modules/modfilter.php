@@ -50,7 +50,7 @@ function filterform(){
 	}
 	echo "<div class=\"subheaders\">" . $langmsg['filters'][7] . "</div>";
 	echo "<div class=\"subheaders_body displaytable\">";
-	echo "<form method=\"post\" action=\"?action=options&mod=filter&new=true\">";
+	echo "<form method=\"post\" action=\"?action=options&mod=wordfilters&new=true\">";
 	echo $langmsg['filters'][4]." <input type=\"text\" vale=\"$filter\" name=\"filter\">  ".$langmsg['filters'][5]." <input type=\"text\" value=\"$replace\" name=\"alt\">";
 	echo "&nbsp;&nbsp;<input type=\"submit\" class=\"nostyle\" value=\"".$langmsg['submitfield'][7]."\">";
 	echo "</form>";
@@ -109,7 +109,7 @@ echo "</td></tr>";
 echo "</table>";
 echo "</form>";
 
-echo "<a href=\"?action=options&mod=filter&new=true\">Add a new filter.</a>";
+echo "<a href=\"?action=options&mod=wordfilters&new=true\">Add a new filter.</a>";
 
 /* end of filter mod */
 

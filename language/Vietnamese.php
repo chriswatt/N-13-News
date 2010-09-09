@@ -260,6 +260,7 @@ $langmsg['personal'][10] = x("Một địa chỉ email phải được nhập.")
 $langmsg['personal'][11] = x("Cài đặt cập nhật.");
 $langmsg['personal'][12] = x("Mật khẩu không khớp.");
 $langmsg['personal'][13] = x("Kích hoạt tính năng WYSIWYG biên tập?");
+$langmsg['personal'][14] = x("Tùy chọn mặc định");
 
 $langmsg['login'][0] = x("Vui lòng Đăng nhập");
 $langmsg['login'][1] = x("Tên:");
@@ -738,6 +739,7 @@ $langmsg['selectfield'][18] = x("Đặt lại bị đếm");
 $langmsg['selectfield'][19] = x("Tạo bản sao");
 $langmsg['selectfield'][20] = x("Đặt lại xem đếm");
 $langmsg['selectfield'][21] = x("Đặt lại xếp hạng");
+$langmsg['selectfield'][22] = x("Lưu & Tiếp tục");
 
 $langmsg['js'][0] = x("Bạn có chắc chắn muốn xoá bỏ hình ảnh này từ thể loại không?");
 $langmsg['js'][1] = x("Bạn có chắc chắn muốn xóa hình ảnh được chọn (s)?");

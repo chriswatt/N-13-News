@@ -260,6 +260,7 @@ $langmsg['personal'][10] = x("Isang email address ay dapat maipasok.");
 $langmsg['personal'][11] = x("Setting-update.");
 $langmsg['personal'][12] = x("Ang mga password ay hindi tumutugma.");
 $langmsg['personal'][13] = x("Paganahin ang WYSIWYG editor?");
+$langmsg['personal'][14] = x("Default Opsyon");
 
 $langmsg['login'][0] = x("Paki-Login");
 $langmsg['login'][1] = x("Pangalan:");
@@ -737,6 +738,7 @@ $langmsg['selectfield'][18] = x("I-reset ang naharang count");
 $langmsg['selectfield'][19] = x("Gumawa ng kopya");
 $langmsg['selectfield'][20] = x("Tingnan ang I-reset ang count");
 $langmsg['selectfield'][21] = x("I-reset ang mga rating");
+$langmsg['selectfield'][22] = x("I-save at Magpatuloy");
 
 $langmsg['js'][0] = x("Sigurado ka bang gusto mong tanggalin ang larawan na ito mula sa mga kategorya?");
 $langmsg['js'][1] = x("Sigurado ka bang gusto mong burahin ang mga napiling larawan (s)?");

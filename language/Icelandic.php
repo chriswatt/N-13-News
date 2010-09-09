@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Netfang verður að vera inn.");
 $langmsg['personal'][11] = x("Stillingar updated.");
 $langmsg['personal'][12] = x("Lykilorð stemma ekki.");
 $langmsg['personal'][13] = x("Virkja WYSIWYG Editor?");
+$langmsg['personal'][14] = x("Default Options");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Nafn:");
@@ -737,6 +738,7 @@ $langmsg['selectfield'][18] = x("Endurstilla lokað telja");
 $langmsg['selectfield'][19] = x("Búa afrit");
 $langmsg['selectfield'][20] = x("Endurstilla View Count");
 $langmsg['selectfield'][21] = x("Endurstilla einkunnir");
+$langmsg['selectfield'][22] = x("Vista og halda áfram");
 
 $langmsg['js'][0] = x("Ertu viss um að þú viljir fjarlægja þessa mynd úr flokknum?");
 $langmsg['js'][1] = x("Ertu viss um að þú viljir eyða völdum mynd (ir)?");

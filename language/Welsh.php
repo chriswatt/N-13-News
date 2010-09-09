@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Rhaid cyfeiriad e-bost yn cael ei rhoi.");
 $langmsg['personal'][11] = x("Gosodiadau ddiweddaru.");
 $langmsg['personal'][12] = x("Nid yw'r cyfrineiriau yn cyfateb.");
 $langmsg['personal'][13] = x("Galluogi WYSIWYG Golygydd?");
+$langmsg['personal'][14] = x("Default Dewisiadau");
 
 $langmsg['login'][0] = x("Os gwelwch yn dda Mewngofnodi");
 $langmsg['login'][1] = x("Enw:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Ailosod blocio cyfrif");
 $langmsg['selectfield'][19] = x("Creu copi");
 $langmsg['selectfield'][20] = x("Cyfrif weld Ailosod");
 $langmsg['selectfield'][21] = x("Ailosod graddau");
+$langmsg['selectfield'][22] = x("Save & Parhau");
 
 $langmsg['js'][0] = x("A ydych yn sicr eich bod am i gael gwared ar y ddelwedd hon o'r categori?");
 $langmsg['js'][1] = x("A ydych yn sicr eich bod am ddileu y delwedd ddewiswyd (au)?");

@@ -55,7 +55,7 @@ if($_GET['new'] == "true"){
 		global $langmsg;
 		echo "<div class=subheaders>".$langmsg['bannedips'][4]."</div>";
 		echo "<div class=\"subheaders_body displaytable\">";
-		echo "<form method=\"post\" action=\"?action=options&mod=banned&new=true\">";
+		echo "<form method=\"post\" action=\"?action=options&mod=bannedips&new=true\">";
 		$ip = htmlspecialchars($_POST['ip']);
 		echo "<div style=\"width: 100px; float: left; font-family: Arial; font-size: 12px;\">".$langmsg['bannedips'][6]."</div><input type=\"text\" name=\"ip\" value=\"$ip\">";
 		echo "<div style=\"padding-top: 2px\"><div style=\"width: 100px; float: left\">&nbsp;</div><div><input type=\"submit\" name=\"S1\" value=\"".$langmsg['submitfield'][7]."\"></div>";
@@ -111,7 +111,7 @@ $total = $total['0']['total'];
 $f = $langmsg['bannedips'][1];
 $f = "<b>$total</b>" . " " . $f;
 echo "<div class=panel>$f</div><br>";
-echo "<form method=\"post\" id=\"bannedform\" action=\"?action=options&mod=banned\">";
+echo "<form method=\"post\" id=\"bannedform\" action=\"?action=options&mod=bannedips\">";
 echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">";
 echo "<tr><td class=\"tableshead tablerightborder\" width=\"50%\">".$langmsg['bannedips'][2]."</td><td align=\"center\" class=\"tableshead tablerightborder\" width=\"50%\">".$langmsg['bannedips'][3]."</td><td class=\"tableshead\"><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></td></tr>";
 $d = 1;
@@ -136,11 +136,11 @@ echo "<option value=\"delete\">".$langmsg['selectfield'][3]."</option>";
 echo "<option value=\"reset\">".$langmsg['selectfield'][18]."</option>";
 echo "</select>&nbsp;<input type=\"button\" value=\"".$langmsg['submitfield'][0]."\" onclick=\"editbannedips()\" />";
 echo "</td></tr></form></table>";
-echo "<a href=\"?action=options&mod=banned&new=true\">".$langmsg['bannedips'][4]."</a>"; 
+echo "<a href=\"?action=options&mod=bannedips&new=true\">".$langmsg['bannedips'][4]."</a>"; 
 
 function bannedipform(){
 	global $langmsg;
-	echo "<form method=\"post\" action=\"?action=options&mod=banned\">"; 				
+	echo "<form method=\"post\" action=\"?action=options&mod=bannedips\">"; 				
 	echo "<br /><div class=panel>".$langmsg['bannedips'][5]."</div>";
 	echo "<br><textarea name=\"T2\" style=\"width: 99%\" rows=5>" . BANNEDMSG . "</textarea>";
 	echo "<div align=right><input type=\"submit\" value=\"".$langmsg['submitfield'][6]."\" class=\"nostyle\" name=\"S1\"></div>";

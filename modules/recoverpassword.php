@@ -39,8 +39,8 @@ if(!$_GET['vcode']){
 	echo "<div class=subheaders>".$langmsg['recover'][1]."</div>";
 	if(!$_POST['S1']){
 		echo "<div class=\"subheaders_body displaytable\">";
-		echo "<form method=post action=\"?action=recoverpass\">";
-		echo $langmsg['recover'][2]." <input type=text name=email>&nbsp;<input type=submit name=\"S1\" value=\"".$langmsg['submitfield'][9]."\">";
+		echo "<form method=\"post\" action=\"?action=recoverpass\">";
+		echo $langmsg['recover'][2]." <input type=\"text\" name=\"email\">&nbsp;<input type=\"submit\" name=\"S1\" value=\"".$langmsg['submitfield'][9]."\">";
 		echo "</form>";
 		echo "</div>";
 	}else{

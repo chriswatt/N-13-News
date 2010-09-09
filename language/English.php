@@ -271,6 +271,7 @@ $langmsg['personal'][10] = x("An email address must be entered.");
 $langmsg['personal'][11] = x("Settings updated.");
 $langmsg['personal'][12] = x("Passwords don't match.");
 $langmsg['personal'][13] = x("Enable WYSIWYG editor?");
+$langmsg['personal'][14] = x("Default Options");
 
 #-----LOGIN MODULE
 $langmsg['login'][0] = x("Please Login");
@@ -765,6 +766,7 @@ $langmsg['selectfield'][18] = x("Reset blocked count");
 $langmsg['selectfield'][19] = x("Create copy");
 $langmsg['selectfield'][20] = x("Reset view count");
 $langmsg['selectfield'][21] = x("Reset ratings");
+$langmsg['selectfield'][22] = x("Save & Continue");
 
 #-----Javascript
 $langmsg['js'][0] = x("Are you sure you want to remove this image from the category?");

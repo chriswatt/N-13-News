@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("En e-postadresse må oppgis.");
 $langmsg['personal'][11] = x("Innstillinger oppdatert.");
 $langmsg['personal'][12] = x("Passordene samsvarer ikke.");
 $langmsg['personal'][13] = x("Aktiver WYSIWYG editor?");
+$langmsg['personal'][14] = x("Standard Valg");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Navn:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Nullstill blokkert count");
 $langmsg['selectfield'][19] = x("Lag kopi");
 $langmsg['selectfield'][20] = x("Tilbakestill teller");
 $langmsg['selectfield'][21] = x("Nullstill rangeringer");
+$langmsg['selectfield'][22] = x("Lagre og fortsett");
 
 $langmsg['js'][0] = x("Er du sikker på at du vil fjerne dette bildet fra kategorien?");
 $langmsg['js'][1] = x("Er du sikker på at du vil slette de valgte bilde (r)?");

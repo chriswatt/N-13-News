@@ -83,27 +83,27 @@ if(isloggedin()){
 	}
 	
 	if($_GET['action'] == "options"){
+		if(getaccess("accesslevels")){
+			if($_GET['mod'] == "accesslevels"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
+			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=accesslevels">'.$langmsg['menu'][7].'</a>';
+			$active = '';
+			$x++;
+		}
 		if(getaccess("accounts")){
 			if($_GET['mod'] == "accounts"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
 			$showoptions .= '<a class="'.$active.'" href="?action=options&mod=accounts">'.$langmsg['menu'][6].'</a>';
 			$active = '';
 			$x++;
 		}
-		if(getaccess("accesslevels")){
-			if($_GET['mod'] == "access"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
-			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=access">'.$langmsg['menu'][7].'</a>';
-			$active = '';
-			$x++;
-		}
 		if(getaccess("bannedips")){
-			if($_GET['mod'] == "banned"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
-			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=banned">'.$langmsg['menu'][8].'</a>';
+			if($_GET['mod'] == "bannedips"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
+			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=bannedips">'.$langmsg['menu'][8].'</a>';
 			$active = '';
 			$x++;
 		}
 		if(getaccess("newscats")){
-			if($_GET['mod'] == "categories"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
-			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=categories">'.$langmsg['menu'][9].'</a>';
+			if($_GET['mod'] == "newscats"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
+			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=newscats">'.$langmsg['menu'][9].'</a>';
 			$active = '';
 			$x++;
 		}
@@ -120,8 +120,8 @@ if(isloggedin()){
 			$x++;
 		}
 		if(getaccess("personaloptions")){
-			if($_GET['mod'] == "personal"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
-			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=personal">'.$langmsg['menu'][11].'</a>';
+			if($_GET['mod'] == "personaloptions"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
+			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=personaloptions">'.$langmsg['menu'][11].'</a>';
 			$active = '';
 			$x++;
 		}
@@ -144,20 +144,20 @@ if(isloggedin()){
 			$x++;
 		}
 		if(getaccess("sysconfig")){
-			if($_GET['mod'] == "system"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
-			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=system">'.$langmsg['menu'][15].'</a>';
+			if($_GET['mod'] == "sysconfig"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
+			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=sysconfig">'.$langmsg['menu'][15].'</a>';
 			$active = '';
 			$x++;
 		}
 		if(getaccess("templates")){	
-			if($_GET['mod'] == "template"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
-			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=template">'.$langmsg['menu'][16].'</a>';
+			if($_GET['mod'] == "templates"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
+			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=templates">'.$langmsg['menu'][16].'</a>';
 			$active = '';
 			$x++;
 		}
 		if(getaccess("wordfilters")){
-			if($_GET['mod'] == "filter"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
-			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=filter">'.$langmsg['menu'][17].'</a>';
+			if($_GET['mod'] == "wordfilters"){ $active = 'subMenuActive'; }else{ $active = 'subMenu'; }
+			$showoptions .= '<a class="' . $active . '" href="?action=options&mod=wordfilters">'.$langmsg['menu'][17].'</a>';
 			$active = '';
 			$x++;
 		}
@@ -271,7 +271,9 @@ if(stristr($_SERVER['HTTP_USER_AGENT'], 'webkit')){
 			if($_GET['action'] == "options"){
 				$class = 'menuButtonActive';
 			}
-			echo '<a class="menuButton ' . $class . ' menuButtonOptions" href="?action=options&mod=system">' . $langmsg['menu'][21] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+			$defaultmodule = DataAccess::fetch(sprintf("SELECT defaultmodule FROM %s WHERE user = ?", NEWS_USERS), $_SESSION['name']);
+			$defaultmodule = $defaultmodule['0']['defaultmodule'];
+			echo '<a class="menuButton ' . $class . ' menuButtonOptions" href="?action=options&mod=' . $defaultmodule . '">' . $langmsg['menu'][21] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
 			$class = '';
 			if(getaccess('help')){
 				echo '<a class="menuButton menuButtonHelp" href="#">' . $langmsg['menu'][22] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';

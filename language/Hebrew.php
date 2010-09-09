@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("כתובת דואל חייבת להיות נכנס
 $langmsg['personal'][11] = x("הגדרות עודכן.");
 $langmsg['personal'][12] = x("הסיסמאותלאתואמות.");
 $langmsg['personal'][13] = x("אפשר עורך WYSIWYG?");
+$langmsg['personal'][14] = x("ברירת המחדל של אפשרויות");
 
 $langmsg['login'][0] = x("בבקשה התחבר");
 $langmsg['login'][1] = x("שם:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("איפוס חסם לספור");
 $langmsg['selectfield'][19] = x("צור עותק");
 $langmsg['selectfield'][20] = x("לספור איפוס תצוגה");
 $langmsg['selectfield'][21] = x("דירוגים איפוס");
+$langmsg['selectfield'][22] = x("שמור והמשך");
 
 $langmsg['js'][0] = x("האם אתה בטוח שברצונך להסיר תמונה זו בקטגוריה?");
 $langmsg['js'][1] = x("האם אתה בטוח שאתה רוצה למחוק את התמונה הנבחרת (ים)?");

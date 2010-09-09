@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("E-mailová adresa musí byť zadaná.");
 $langmsg['personal'][11] = x("Nastavenie aktualizácie.");
 $langmsg['personal'][12] = x("Heslá sa nezhodujú.");
 $langmsg['personal'][13] = x("Povoliť WYSIWYG editor?");
+$langmsg['personal'][14] = x("Východiskové voľby");
 
 $langmsg['login'][0] = x("Prosím prihláste");
 $langmsg['login'][1] = x("Meno:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset zablokovaného Počet");
 $langmsg['selectfield'][19] = x("Vytvoriť kópiu");
 $langmsg['selectfield'][20] = x("Reset View Count");
 $langmsg['selectfield'][21] = x("Reset hodnotenie");
+$langmsg['selectfield'][22] = x("Uložiť a pokračovať");
 
 $langmsg['js'][0] = x("Ste si istí, že chcete odstrániť tento obrázok z kategórie?");
 $langmsg['js'][1] = x("Ste si istí, že chcete zmazať vybraný snímka (y)?");

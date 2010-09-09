@@ -1,2 +1,3 @@
 UPDATE `news30_options` SET `version` = '4.0' WHERE 1;
 ALTER TABLE news30_smilies ADD position INT(11) AFTER showhide;
+ALTER TABLE news30_users ADD defaultmodule varchar(255) DEFAULT 'personaloptions' AFTER language;

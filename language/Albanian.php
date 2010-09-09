@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Një adresë e-mail duhet të jenë hyri.");
 $langmsg['personal'][11] = x("Settings updated.");
 $langmsg['personal'][12] = x("Fjalkalimet nuk perputhen.");
 $langmsg['personal'][13] = x("Aktivizo WYSIWYG?");
+$langmsg['personal'][14] = x("Default Options");
 
 $langmsg['login'][0] = x("Lutem Identifikohu");
 $langmsg['login'][1] = x("Emri:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset bllokuar numërimin");
 $langmsg['selectfield'][19] = x("Krijo kopje");
 $langmsg['selectfield'][20] = x("Reset view count");
 $langmsg['selectfield'][21] = x("Reset ratings");
+$langmsg['selectfield'][22] = x("Save & Vazhdoni");
 
 $langmsg['js'][0] = x("A jeni i sigurt se doni të hiqni këtë imazh nga kategori?");
 $langmsg['js'][1] = x("A jeni i sigurt se doni te fshini imazhin e zgjedhur (s)?");

@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Email address għandu jiddaħħal.");
 $langmsg['personal'][11] = x("Settings aġġornata.");
 $langmsg['personal'][12] = x("Passwords ma jaqblux.");
 $langmsg['personal'][13] = x("Jippermettu editur WYSIWYG?");
+$langmsg['personal'][14] = x("Għażliet Default");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Isem:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset imblukkata għadd");
 $langmsg['selectfield'][19] = x("Oħloq Kopja");
 $langmsg['selectfield'][20] = x("Għadd tal-fehma Reset");
 $langmsg['selectfield'][21] = x("Reset ratings");
+$langmsg['selectfield'][22] = x("Save & Tkompli");
 
 $langmsg['js'][0] = x("Are you sure tixtieq tneħħi din id-dehra mill-kategorija?");
 $langmsg['js'][1] = x("Inti żgur li trid tneħħi l-immaġini (i) magħżula?");

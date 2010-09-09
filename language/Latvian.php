@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("E-pasta adrese jāievada.");
 $langmsg['personal'][11] = x("Iestatījumi atjaunināti.");
 $langmsg['personal'][12] = x("Paroles nesakrīt.");
 $langmsg['personal'][13] = x("Ieslēgt WYSIWYG redaktors?");
+$langmsg['personal'][14] = x("Noklusējuma opcijas");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Vārds:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset bloķēts count");
 $langmsg['selectfield'][19] = x("Izveidot kopiju");
 $langmsg['selectfield'][20] = x("Atiestatīt skatījumu skaits");
 $langmsg['selectfield'][21] = x("Reset vērtējumi");
+$langmsg['selectfield'][22] = x("Saglabāt un turpināt");
 
 $langmsg['js'][0] = x("Vai esat pārliecināts, ka vēlaties noņemt šo attēlu no kategorijas?");
 $langmsg['js'][1] = x("Vai tiešām vēlaties dzēst izvēlēto attēlu (s)?");

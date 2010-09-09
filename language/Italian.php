@@ -270,6 +270,7 @@ $langmsg['personal'][10] = x("Un indirizzo e-mail deve essere inserito.");
 $langmsg['personal'][11] = x("Impostazioni aggiornate.");
 $langmsg['personal'][12] = x("Le password non corrispondono.");
 $langmsg['personal'][13] = x("Abilita editor WYSIWYG?");
+$langmsg['personal'][14] = x("Default Options");
 
 
 $langmsg['login'][0] = x("Entra nel sito");
@@ -762,6 +763,7 @@ $langmsg['selectfield'][18] = x("Reset bloccato count");
 $langmsg['selectfield'][19] = x("Crea copia");
 $langmsg['selectfield'][20] = x("Count Reset vista");
 $langmsg['selectfield'][21] = x("Reset voti");
+$langmsg['selectfield'][22] = x("Salva e continua");
 
 
 $langmsg['js'][0] = x("Sei sicuro di voler rimuovere l'immagine della categoria?");

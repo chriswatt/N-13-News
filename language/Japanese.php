@@ -270,6 +270,7 @@ $langmsg['personal'][10] = x("電子メールアドレスを入力する必要�
 $langmsg['personal'][11] = x("設定を更新しました。");
 $langmsg['personal'][12] = x("パスワードが一致しません。");
 $langmsg['personal'][13] = x("有効にするWYSIWYGエディタ？");
+$langmsg['personal'][14] = x("デフォルトオプション");
 
 
 $langmsg['login'][0] = x("ログインしてください");
@@ -762,6 +763,7 @@ $langmsg['selectfield'][18] = x("リセットカウントブロック");
 $langmsg['selectfield'][19] = x("コピーを作成します");
 $langmsg['selectfield'][20] = x("のビューにリセットカウント");
 $langmsg['selectfield'][21] = x("リセットの評価");
+$langmsg['selectfield'][22] = x("保存して続行");
 
 
 $langmsg['js'][0] = x("あなたのカテゴリからこの画像を削除してもよろしいですか？");

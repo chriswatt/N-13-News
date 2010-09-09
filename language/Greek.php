@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Μια διεύθυνση ηλεκτρονικού
 $langmsg['personal'][11] = x("Ρυθμίσεις ενημέρωση.");
 $langmsg['personal'][12] = x("Οι κωδικοί πρόσβασης δεν ταιριάζουν.");
 $langmsg['personal'][13] = x("Ενεργοποίηση WYSIWYG editor;");
+$langmsg['personal'][14] = x("Προεπιλογή Επιλογές");
 
 $langmsg['login'][0] = x("Παρακαλώ Σύνδεση");
 $langmsg['login'][1] = x("Όνομα:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset blocked count");
 $langmsg['selectfield'][19] = x("Δημιουργία αντιγράφου");
 $langmsg['selectfield'][20] = x("Reset count άποψη");
 $langmsg['selectfield'][21] = x("Reset ratings");
+$langmsg['selectfield'][22] = x("Αποθήκευση & Συνέχεια");
 
 $langmsg['js'][0] = x("Είστε σίγουροι ότι θέλετε να καταργήσετε αυτήν την εικόνα από την κατηγορία;");
 $langmsg['js'][1] = x("Είστε σίγουροι ότι θέλετε να διαγράψετε την επιλεγμένη εικόνα (ες);");

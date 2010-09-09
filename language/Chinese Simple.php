@@ -270,6 +270,7 @@ $langmsg['personal'][10] = x("必须输入电子邮件地址。");
 $langmsg['personal'][11] = x("设置更新。");
 $langmsg['personal'][12] = x("密码不匹配。");
 $langmsg['personal'][13] = x("启用所见即所得的编辑器？");
+$langmsg['personal'][14] = x("默认选项");
 
 
 $langmsg['login'][0] = x("请登录");
@@ -763,6 +764,7 @@ $langmsg['selectfield'][18] = x("重置封锁数");
 $langmsg['selectfield'][19] = x("创建副本");
 $langmsg['selectfield'][20] = x("鉴于计数复位");
 $langmsg['selectfield'][21] = x("复位评级");
+$langmsg['selectfield'][22] = x("保存并继续");
 
 
 $langmsg['js'][0] = x("您确定要从这类别中删除此图像？");

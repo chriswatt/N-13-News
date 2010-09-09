@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("En e-mail-adressen skal indtastes.");
 $langmsg['personal'][11] = x("Indstillingerne blev opdateret.");
 $langmsg['personal'][12] = x("Adgangskoder er ikke ens.");
 $langmsg['personal'][13] = x("Aktiver WYSIWYG editor?");
+$langmsg['personal'][14] = x("Default Options");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Navn:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Nulstil blokeret count");
 $langmsg['selectfield'][19] = x("Opret kopi");
 $langmsg['selectfield'][20] = x("Nulstil tæller");
 $langmsg['selectfield'][21] = x("Nulstil ratings");
+$langmsg['selectfield'][22] = x("Gem og fortsæt");
 
 $langmsg['js'][0] = x("Er du sikker på du vil fjerne dette billede fra den kategori?");
 $langmsg['js'][1] = x("Er du sikker på du vil slette det valgte billede (r)?");

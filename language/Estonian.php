@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("E-posti aadress tuleb sisestada.");
 $langmsg['personal'][11] = x("Seaded uuendatud.");
 $langmsg['personal'][12] = x("Paroolid ei kattu.");
 $langmsg['personal'][13] = x("Luba WYSIWYG editor?");
+$langmsg['personal'][14] = x("Vaikimisi valikud");
 
 $langmsg['login'][0] = x("Palun Logi sisse");
 $langmsg['login'][1] = x("Nimi:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Nulli blokeeritud arv");
 $langmsg['selectfield'][19] = x("Loo koopia");
 $langmsg['selectfield'][20] = x("Nulli vaadete arv");
 $langmsg['selectfield'][21] = x("Nulli reitingud");
+$langmsg['selectfield'][22] = x("Salvesta ja jätka");
 
 $langmsg['js'][0] = x("Kas olete kindel, et soovid kustutada selle pildi kategooria?");
 $langmsg['js'][1] = x("Kas soovite kindlasti kustutada valitud pilt (id)?");

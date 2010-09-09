@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Ní mór seoladh r-phoist a chur isteach.");
 $langmsg['personal'][11] = x("Socruithe cothrom le dáta.");
 $langmsg['personal'][12] = x("Nach bhfuil na focail fhaire.");
 $langmsg['personal'][13] = x("Cumasaigh WYSIWYG eagarthóir?");
+$langmsg['personal'][14] = x("Roghanna Default");
 
 $langmsg['login'][0] = x("Logáil isteach le do thoil");
 $langmsg['login'][1] = x("Ainm:");
@@ -737,6 +738,7 @@ $langmsg['selectfield'][18] = x("Athshocraigh blocked count");
 $langmsg['selectfield'][19] = x("Cruthaigh cóip");
 $langmsg['selectfield'][20] = x("Count view Athshocraigh");
 $langmsg['selectfield'][21] = x("Rátálacha Athshocraigh");
+$langmsg['selectfield'][22] = x("Sábháil & Leanúint ar aghaidh ag");
 
 $langmsg['js'][0] = x("An bhfuil tú cinnte gur mian leat a bhaint an íomhá seo ar an chatagóir?");
 $langmsg['js'][1] = x("An bhfuil tú cinnte gur mian leat é a scrios an íomhá roghnaithe (s)?");

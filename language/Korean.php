@@ -270,6 +270,7 @@ $langmsg['personal'][10] = x("이메일 주소를 입력하셔야합니다.");
 $langmsg['personal'][11] = x("설정을 업데이 트됩니다.");
 $langmsg['personal'][12] = x("비밀 번호가 일치하지 않습니다.");
 $langmsg['personal'][13] = x("사용 WYSIWYG 편집기?");
+$langmsg['personal'][14] = x("기본 옵션");
 
 
 $langmsg['login'][0] = x("로그인하시기 바랍니다");
@@ -763,6 +764,7 @@ $langmsg['selectfield'][18] = x("카운트 재설정 차단");
 $langmsg['selectfield'][19] = x("복사본 만들기");
 $langmsg['selectfield'][20] = x("볼 카운트 재설정");
 $langmsg['selectfield'][21] = x("재설정 평가");
+$langmsg['selectfield'][22] = x("저장하고 계속하기");
 
 
 $langmsg['js'][0] = x("당신이 카테고리에서 해당 이미지를 제거하겠습니까?");

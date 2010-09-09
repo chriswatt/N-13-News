@@ -106,7 +106,7 @@ function accesslevelform(){
 			$templatedata	= DataAccess::fetch("SELECT * FROM " . NEWS_ACCESS . " WHERE uid = ?", $templateid);
             $num			= count($templatedata);
 			if($num < 1){
-				echo "<script language=\"javascript\">window.location = '?admin.php?action=options&mod=access';</script>";
+				echo "<script language=\"javascript\">window.location = '?admin.php?action=options&mod=accesslevels';</script>";
 			}else{
 				$all				= $templatedata['0'];
 				$accessname			= $all['name'];
@@ -547,7 +547,7 @@ $num = count($alltemplates);
 $g = $langmsg['access'][42];
 $g = "<b>$num</b> " . $g;
 echo "<div class=panel>".$g."</div><br />";
-echo "<form method=\"POST\" action=\"?action=options&mod=access\" id=\"accessform\">";
+echo "<form method=\"POST\" action=\"?action=options&mod=accesslevels\" id=\"accessform\">";
 echo "<table id=\"rows\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"33%\">".$langmsg['access'][43]."</td><td class=\"tableshead tablerightborder\" width=\"33%\">".$langmsg['access'][44]."</td><td align=\"center\" class=\"tableshead tablerightborder\" width=\"33%\">".$langmsg['access'][45]."</td><td class=\"tableshead\"><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></td></tr>";
 $d = 1;
 $x = false;
@@ -565,7 +565,7 @@ foreach($alltemplates AS $row){
 	if($access == 3){ $access = $langmsg['access'][48]; }
     $numaccounts = DataAccess::fetch("SELECT * FROM " . NEWS_USERS . " WHERE access = ?", $row['uid']);
     $numaccounts = count($numaccounts); 				
-	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=access&do=edit&id=$row[uid]\"><img alt=\"Edit\" title=\"Edit\" src=\"images/icons/pencil.png\" /></a></td><td class=\"tablebody tablerightborder\">$row[name]</td><td class=\"tablebody tablerightborder\">$access</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\">$numaccounts</td><td class=\"tablebody\"><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" name=\"selectedaccess[]\" value=\"$row[uid]\" /></td></tr>";
+	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=accesslevels&do=edit&id=$row[uid]\"><img alt=\"Edit\" title=\"Edit\" src=\"images/icons/pencil.png\" /></a></td><td class=\"tablebody tablerightborder\">$row[name]</td><td class=\"tablebody tablerightborder\">$access</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\">$numaccounts</td><td class=\"tablebody\"><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" name=\"selectedaccess[]\" value=\"$row[uid]\" /></td></tr>";
 	$d++;
 }
 echo "</table>";
@@ -575,7 +575,7 @@ echo "<option value=\"\">".$langmsg['selectfield'][0]."</option>";
 echo "<option value=\"delete\">".$langmsg['selectfield'][3]."</option>";
 echo "</select> <input type=\"button\" value=\"OK\" onclick=\"editaccess()\" />";
 echo "</td></tr></table>";
-echo "<a href=\"?action=options&mod=access&do=new\"><u>".$langmsg['access'][1]."</u></a>";
+echo "<a href=\"?action=options&mod=accesslevels&do=new\"><u>".$langmsg['access'][1]."</u></a>";
 echo "</td>";
 echo "</tr>";
 echo "</table>";

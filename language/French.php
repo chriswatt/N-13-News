@@ -270,6 +270,7 @@ $langmsg['personal'][10] = x("Une adresse e-mail doit être entré.");
 $langmsg['personal'][11] = x("Paramètres de mise à jour.");
 $langmsg['personal'][12] = x("Mots de passe ne correspondent pas.");
 $langmsg['personal'][13] = x("Activer l'éditeur WYSIWYG?");
+$langmsg['personal'][14] = x("Options par défaut");
 
 
 $langmsg['login'][0] = x("S'il vous plaît Login");
@@ -762,6 +763,7 @@ $langmsg['selectfield'][18] = x("Reset bloqué count");
 $langmsg['selectfield'][19] = x("Créer une copie");
 $langmsg['selectfield'][20] = x("Reset View Count");
 $langmsg['selectfield'][21] = x("Reset evaluations");
+$langmsg['selectfield'][22] = x("Enregistrer et continuer");
 
 
 $langmsg['js'][0] = x("Êtes-vous sûr de vouloir supprimer cette image de la catégorie?");

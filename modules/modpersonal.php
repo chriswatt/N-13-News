@@ -32,21 +32,23 @@ echo '<span class="header">' . $langmsg['personal'][0] . '</span>';
 echo '</div>';
 
 
-$userdata		= DataAccess::fetch("SELECT * FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
-$all			= $userdata['0'];
-$email			= $all['email'];
-$name			= $_SESSION['name'];
-$alertmsg		= $all['alertmsg'];
-$enablewysiwyg	= $all['enablewysiwyg'];
 
-function showpersonal($name,$email,$alertmsg,$enablewysiwyg){
+function showpersonal(){
 	global $langmsg;
 
+	$userdata		= DataAccess::fetch("SELECT * FROM " . NEWS_USERS . " WHERE user = ?", $_SESSION['name']);
+	$all			= $userdata['0'];
+	$email			= $all['email'];
+	$name			= $_SESSION['name'];
+	$alertmsg		= $all['alertmsg'];
+	$enablewysiwyg	= $all['enablewysiwyg'];
+	$defaultmodule	= $all['defaultmodule'];
+	
 	echo "<table width=\"100%\"><tr>";
 	echo "<td><div class=subheaders>".$langmsg['personal'][1]."</div>";
 	echo "<div class=\"subheaders_body displaytable\">";
 	echo "<style>table { text-align: left; } </style>";
-	echo "<form method=\"POST\" action=\"?action=options&mod=personal\">\n";
+	echo "<form method=\"POST\" action=\"?action=options&mod=personaloptions\">\n";
 	echo "<div align=\"right\"><table border=\"0\" cellpadding=\"1\" cellspacing=\"0\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";
 	echo "    <tr>\n";
 	echo "      <td width=\"24%\">".$langmsg['personal'][2]."</td>\n";
@@ -72,8 +74,40 @@ function showpersonal($name,$email,$alertmsg,$enablewysiwyg){
 	echo "<tr>";
 	echo "<td>" . $langmsg['personal'][13] . "</td><td>";
 	echo "<select name=\"enablewysiwyg\">";
-		echo "<option value=\"1\""; if($enablewysiwyg == '1'){ echo " selected=selected"; } echo">" . $langmsg['selectfield'][1] . "</option>";
-		echo "<option value=\"0\""; if($enablewysiwyg == '0'){ echo " selected=selected"; } echo">" . $langmsg['selectfield'][2] . "</option>";
+	echo "<option value=\"1\""; if($enablewysiwyg == '1'){ echo " selected=selected"; } echo">" . $langmsg['selectfield'][1] . "</option>";
+	echo "<option value=\"0\""; if($enablewysiwyg == '0'){ echo " selected=selected"; } echo">" . $langmsg['selectfield'][2] . "</option>";
+	echo "</select>";
+	echo "</td></tr>";
+	echo "<tr><td>" . $langmsg['personal'][14] . "</td><td>";
+	echo "<select name=\"defaultmodule\">";
+		$accesslevels_selected		= ($defaultmodule == "accesslevels") ? 'selected="selected' : '';
+		$accounts_selected			= ($defaultmodule == "accounts") ? 'selected="selected' : '';
+		$bannedips_selected			= ($defaultmodule == "bannedips") ? 'selected="selected' : '';
+		$newscats_selected			= ($defaultmodule == "newscats") ? 'selected="selected' : '';
+		$fileuploads_selected		= ($defaultmodule == "fileuploads") ? 'selected="selected' : '';
+		$imageuploads_selected		= ($defaultmodule == "imageuploads") ? 'selected="selected' : '';
+		$personaloptions_selected	= ($defaultmodule == "personaloptions") ? 'selected="selected' : '';
+		$profile_selected			= ($defaultmodule == "profile") ? 'selected="selected' : '';
+		$rss_selected				= ($defaultmodule == "rss") ? 'selected="selected' : '';
+		$smilies_selected			= ($defaultmodule == "smilies") ? 'selected="selected' : '';
+		$sysconfig_selected			= ($defaultmodule == "sysconfig") ? 'selected="selected' : '';
+		$templates_selected			= ($defaultmodule == "templates") ? 'selected="selected' : '';
+		$wordfilters_selected		= ($defaultmodule == "wordfilters") ? 'selected="selected' : '';
+		
+		echo getaccess('accesslevels')		? '<option ' . $accesslevels_selected . ' value="accesslevels">' . $langmsg['menu'][7] . '</option>' : '';
+		echo getaccess('accounts')			? '<option ' . $accounts_selected . ' value="accounts">' . $langmsg['menu'][6] . '</option>' : '';
+		echo getaccess('bannedips') 		? '<option ' . $bannedips_selected . ' value="bannedips">' . $langmsg['menu'][8] . '</option>' : '';
+		echo getaccess('newscats')			? '<option ' . $newscats_selected . ' value="newscats">' . $langmsg['menu'][9] . '</option>' : '';
+		echo getaccess('fileuploads') 		? '<option ' . $fileuploads_selected . ' value="fileuploads">' . $langmsg['menu'][24] . '</option>' : '';
+		echo getaccess('imageuploads') 		? '<option ' . $imageuploads_selected . ' value="imageuploads">' . $langmsg['menu'][10] . '</option>' : '';
+		echo getaccess('personaloptions') 	? '<option ' . $personaloptions_selected . ' value="personaloptions">' . $langmsg['menu'][11] . '</option>' : '';
+		echo getaccess('profile') 			? '<option ' . $profile_selected . ' value="profile">' . $langmsg['menu'][12] . '</option>' : '';
+		echo getaccess('rss') 				? '<option ' . $rss_selected . ' value="rss">' . $langmsg['menu'][13] . '</option>' : '';
+		echo getaccess('smilies')			? '<option ' . $smilies_selected . ' value="smilies">' . $langmsg['menu'][14] . '</option>' : '';
+		echo getaccess('sysconfig')			? '<option ' . $sysconfig_selected . ' value="sysconfig">' . $langmsg['menu'][15] . '</option>' : '';
+		echo getaccess('templates')			? '<option ' . $templates_selected . ' value="templates">' . $langmsg['menu'][16] . '</option>' : '';
+		echo getaccess('wordfilters') 		? '<option ' . $wordfilters_selected . ' value="wordfilters">' . $langmsg['menu'][17] . '</option>' : '';
+		
 	echo "</select>";
 	echo "</td></tr>";
 	echo "</tr>";
@@ -87,22 +121,22 @@ function showpersonal($name,$email,$alertmsg,$enablewysiwyg){
 }
 $_POST['B1'] = (empty($_POST['B1'])) ? '' : $_POST['B1'];
 if($_POST['B1'] == ""){
-	showpersonal($name,$email,$alertmsg,$enablewysiwyg);
+	showpersonal();
 }elseif(!$_POST['T2']){
 	echo "<div class=error>".$langmsg['personal'][10]."</div>";
-	showpersonal($name,$email,$alertmsg,$enablewysiwyg);
+	showpersonal();
 }elseif($_POST['T3'] == $_POST['T4']){
 	if($_POST['T3'] == ""){
-		DataAccess::put("UPDATE " . NEWS_USERS . " SET alertmsg = ?, email = ?, enablewysiwyg = ? WHERE user = ?", $_POST['alertmsg'], $_POST['T2'], $_POST['enablewysiwyg'], $_SESSION['name']);
+		DataAccess::put("UPDATE " . NEWS_USERS . " SET defaultmodule = ?, alertmsg = ?, email = ?, enablewysiwyg = ? WHERE user = ?", $_POST['defaultmodule'], $_POST['alertmsg'], $_POST['T2'], $_POST['enablewysiwyg'], $_SESSION['name']);
 	}else{
 		$pass = md5(SALT . $_POST['T3']);
-		DataAccess::put("UPDATE " . NEWS_USERS . " SET alertmsg = ?, newpass = ?, email = ?, enablewysiwyg = ? WHERE user = ?", $_POST['alertmsg'], $pass, $_POST['T2'], $_POST['enablewysiwyg'], $_SESSION['name']);                
+		DataAccess::put("UPDATE " . NEWS_USERS . " SET defaultmodule = ?, alertmsg = ?, newpass = ?, email = ?, enablewysiwyg = ? WHERE user = ?", $_POST['defaultmodule'], $_POST['alertmsg'], $pass, $_POST['T2'], $_POST['enablewysiwyg'], $_SESSION['name']);
 	}
 	echo "<div class=success>".$langmsg['personal'][11]."</div>";
-	showpersonal($name, $email, $alertmsg,$enablewysiwyg);
+	showpersonal();
 }else{
 	echo "<div class=error>".$langmsg['personal'][12]."</div>";
-	showpersonal($name,$email,$alertmsg,$enablewysiwyg);
+	showpersonal();
 }
 echo "</td></tr></table>";
 

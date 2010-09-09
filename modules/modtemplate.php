@@ -465,9 +465,13 @@ function templateform(){
 	echo "<br /><textarea style=\"width: 98%; height: 130px\" name=\"uploadedfiles\">$uploadedfiles</textarea>";
 	echo "</div>";		
 	
-	echo "    <input type=\"submit\" value=\"Save\" class=\"nostyle\" style=\"margin-top: 5px; width: 100%\" name=\"S1\"></td>\n";
-	
-	echo "<br /><br /><br />\n";
+	if($_GET['edit'] == "new"){
+		echo "	<button type=\"submit\" name=\"S1\" value=\"Save\" style=\"margin-top: 5px; width: 100%\">" . $langmsg['submitfield'][3] . "</button>";
+	}else{
+		echo "	<button type=\"submit\" name=\"S1\" value=\"SaveContinue\" style=\"margin-top: 5px; width: 50%\">" . $langmsg['selectfield'][22] . "</button>";
+		echo "	<button type=\"submit\" name=\"S1\" value=\"Save\" style=\"margin-top: 5px; width: 49%\">" . $langmsg['submitfield'][3] . "</button>";
+	}
+	echo "</td><br /><br /><br />\n";
 }
 
 $_GET['edit'] = (empty($_GET['edit'])) ? '' : $_GET['edit'];
@@ -542,7 +546,9 @@ if($_GET['edit'] == "new"){
 			searchresults = ?,
             name = ? WHERE id = ?", $newstemplate, $commentstemplate, $commentsform, $newspagintation, $commentspagintation, $profiletemplate, $newsstructure, $commentsstructure, $registrationform, $uploadedfiles, $loginform, $searchform, $searchresults, $templatename, $_GET['id']);
             echo "<div class=success>".$langmsg['templates'][81]."</div>";
-            unset($_SESSION['origtempname']);
+			if($_POST['S1'] == "SaveContinue"){
+				templateform($newstemplates);
+			}			
         }else{
 			$templateexists = DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = ?", $_POST['templatename']);
             if(count($templateexists) > 0){
@@ -578,7 +584,10 @@ if($_GET['edit'] == "new"){
 				searchform = ?,
 				searchresults = ?,
                 name = ? WHERE id = ?", $newstemplate, $commentstemplate, $commentsform, $newspagintation, $commentspagintation, $profiletemplate, $newsstructure, $commentsstructure, $registrationform, $uploadedfiles, $loginform, $searchform, $searchresults, $templatename, $_GET['id']);
-				echo "<div class=success>".$langmsg['templates'][81]."</div>";                 	
+				echo "<div class=success>".$langmsg['templates'][81]."</div>";
+				if($_POST['S1'] == "SaveContinue"){
+					templateform($newstemplates);
+				}
 			}
 		}
 	}
@@ -657,12 +666,12 @@ foreach($alltemplates AS $row){
 		$class = "row2";
 		$tmpcolor = 1;
 	}
-	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=template&edit=true&id=$row[id]\"><img src=\"images/icons/pencil.png\" alt=\"Edit\" title=\"Edit\" /></a><td class=\"tablebody tablerightborder\">$row[name]</td><td class=\"tablebody tablerightborder\">";
-	if($row['id'] == $templateid){ echo "*"; }else{ echo "<a href=\"?action=options&mod=template&select=true&id=$row[id]\"><u>".$langmsg['templates'][91]."</u></a>"; }         
+	echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=templates&edit=true&id=$row[id]\"><img src=\"images/icons/pencil.png\" alt=\"Edit\" title=\"Edit\" /></a><td class=\"tablebody tablerightborder\">$row[name]</td><td class=\"tablebody tablerightborder\">";
+	if($row['id'] == $templateid){ echo "*"; }else{ echo "<a href=\"?action=options&mod=templates&select=true&id=$row[id]\"><u>".$langmsg['templates'][91]."</u></a>"; }         
 	echo "</td><td class=\"tablebody\"><input name=\"selected[]\" value=\"$row[id]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" type=\"checkbox\" /></td></tr>";
 	$d++;
 }
-echo "<tr><td align=right colspan=4>";
+echo "<tr><td align=right style=\"padding-top: 4px\" colspan=4>";
 echo "<select id=\"templateaction\" name=\"templateaction\"><option>".$langmsg['selectfield'][0]."</option>";
 echo "<option value=\"createcopy\">".$langmsg['selectfield'][19]."</option>";
 echo "<option value=\"delete\">".$langmsg['selectfield'][3]."</option>";
@@ -670,7 +679,7 @@ echo "</select>&nbsp;<input type=\"button\" name=\"S1\" onclick=\"edittemplates(
 echo "</td></tr>";
 echo "</table>";
 echo "</form>";
-echo "<a href=\"?action=options&mod=template&edit=new\"><u>".$langmsg['templates'][90]."</u></a>";
+echo "<a href=\"?action=options&mod=templates&edit=new\"><u>".$langmsg['templates'][90]."</u></a>";
 
 
 echo "		</div><!--rightside-->

@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("'N e-pos adres moet verskaf word.");
 $langmsg['personal'][11] = x("Stellings opgedateer.");
 $langmsg['personal'][12] = x("Wagwoorde kom nie ooreen nie.");
 $langmsg['personal'][13] = x("Skakel WYSIWYG-editor?");
+$langmsg['personal'][14] = x("Standaard Opsies");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Naam:");
@@ -737,6 +738,7 @@ $langmsg['selectfield'][18] = x("Reset geblokkeer Telling");
 $langmsg['selectfield'][19] = x("Skep 'n afskrif");
 $langmsg['selectfield'][20] = x("Reset oog Telling");
 $langmsg['selectfield'][21] = x("Reset ratings");
+$langmsg['selectfield'][22] = x("Spaar en gaan voort");
 
 $langmsg['js'][0] = x("Is jy seker jy wil verwyder hierdie beeld van die kategorie?");
 $langmsg['js'][1] = x("Is jy seker jy wil verwyder die geselekteerde lêer (s)?");

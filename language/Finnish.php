@@ -271,6 +271,7 @@ $langmsg['personal'][10] = x("Sähköpostiosoite on merkittävä.");
 $langmsg['personal'][11] = x("Asetukset päivitetty.");
 $langmsg['personal'][12] = x("Salasanat eivät täsmää.");
 $langmsg['personal'][13] = x("Ota WYSIWYG editori?");
+$langmsg['personal'][14] = x("Oletusasetuksia");
 
 
 $langmsg['login'][0] = x("Please Login");
@@ -763,6 +764,7 @@ $langmsg['selectfield'][18] = x("Nollaa estetty count");
 $langmsg['selectfield'][19] = x("Luo kopio");
 $langmsg['selectfield'][20] = x("Nollaa count");
 $langmsg['selectfield'][21] = x("Nollaa arviota");
+$langmsg['selectfield'][22] = x("Tallenna ja jatka");
 
 
 $langmsg['js'][0] = x("Oletko varma että haluat poistaa tämän kuvan luokkaan?");

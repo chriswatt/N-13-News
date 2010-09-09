@@ -271,6 +271,7 @@ $langmsg['personal'][10] = x("Um endereço de e-mail deve ser preenchido.");
 $langmsg['personal'][11] = x("Configurações atualizada.");
 $langmsg['personal'][12] = x("As senhas não são iguais.");
 $langmsg['personal'][13] = x("Habilitar editor WYSIWYG?");
+$langmsg['personal'][14] = x("Default Options");
 
 #-----LOGIN MODULE
 $langmsg['login'][0] = x("Área Restrita");
@@ -763,6 +764,7 @@ $langmsg['selectfield'][18] = x("Repor contagem bloqueada");
 $langmsg['selectfield'][19] = x("Criar cópia");
 $langmsg['selectfield'][20] = x("Redefinir contagem vista");
 $langmsg['selectfield'][21] = x("Avaliações Reset");
+$langmsg['selectfield'][22] = x("Salvar e Continuar");
 
 #-----Javascript
 $langmsg['js'][0] = x("É você certo você quer remover esta imagem da categoria?");

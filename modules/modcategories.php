@@ -68,7 +68,7 @@ if($_GET['edit'] == "new"){
 	global $langmsg;
 	echo "<div class=subheaders>".$langmsg['cats'][4]."</div>";
 	echo "<div class=\"subheaders_body tabledisplay\"><table width=\"100%\">";
-	echo "<form method=post action=\"?action=options&mod=categories&edit=new\">";
+	echo "<form method=post action=\"?action=options&mod=newscats&edit=new\">";
 	echo "<tr><td width=\"44\">".$langmsg['cats'][5]."</td><td><input type=text name=name value=\"" . displayhtml($_POST['name']) . "\"></td></tr>";
 	echo "<tr><td></td><td><input type=submit name=\"S1\" class=\"nostyle\" value=\"".$langmsg['submitfield'][5]."\"></td></tr>";
 	echo "</table></div>";
@@ -103,7 +103,7 @@ if($_GET['edit'] == "true"){
 		echo "<div class=subheaders>".$langmsg['cats'][10]."</div>";
 		echo "<div class=\"subheaders_body displaytable\">";
 		echo "<table width=\"100%\">";
-		echo "<form method=post action=\"?action=options&mod=categories&edit=true&id=$_GET[id]\">";
+		echo "<form method=post action=\"?action=options&mod=newscats&edit=true&id=$_GET[id]\">";
 		echo "<tr><td width=\"44\">".$langmsg['cats'][2]."</td><td><input type=text name=name value=\"" . displayhtml($catname) . "\"></td></tr>";
 		echo "<tr><td></td><td><input type=submit name=\"S1\" class=\"nostyle\"  value=\"Save\"></td></tr>";
 		echo "</table></div>";
@@ -135,7 +135,7 @@ $numcategories = count($allcats);
 $f = $langmsg['cats'][1];
 $f = "<b>$numcategories</b> " . $f;
 echo "<div class=panel>$f</div><br>";
-echo "<form method=post id=\"catform\" action=\"?action=options&mod=categories\">";
+echo "<form method=post id=\"catform\" action=\"?action=options&mod=newscats\">";
 echo "<table id=\"rows\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\"><tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"25%\">".$langmsg['cats'][2]."</td><td class=\"tableshead tablerightborder\" width=\"25%\" align=\"center\">".$langmsg['cats'][3]."</td><td class=\"tableshead tablerightborder\" width=\"25%\" align=\"center\">".$langmsg['cats'][11]."</td><td class=\"tableshead tablerightborder\" width=\"25%\" align=\"center\">".$langmsg['cats'][12]."</td><td class=\"tableshead\"><input type=\"checkbox\" id=\"allcheck\" onclick=\"selectall()\" /></td></tr>";
 $d = 1;
 $tmpcolor = 1;
@@ -154,7 +154,7 @@ foreach($allcats AS $row){
 	$files = DataAccess::fetch("SELECT DISTINCT COUNT(storyid) as total FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = ?", $row['id'], "file");
 	$files = $files['0']['total'];
 	if($row['id'] !== 0){
-		echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=categories&edit=true&id=$row[id]\"><img alt=\"Edit\" title=\"Edit\" src=\"images/icons/pencil.png\" /></a></td><td class=\"tablebody tablerightborder\">". displayhtml($row['name']) . "</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\" align=\"center\">$posts</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\" align=\"center\">$images</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\" align=\"center\">$files</td><td class=\"tablebody\"><input value=\"$row[id]\" name=\"selectedcats[]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" type=\"checkbox\" /></td></tr>\n";
+		echo "<tr id=\"$d\" onmouseover=\"markfield('$d')\" onmouseout=\"unmarkfield('$d')\" class=\"$class\"><td class=\"tablebody tablerightborder\"><a href=\"?action=options&mod=newscats&edit=true&id=$row[id]\"><img alt=\"Edit\" title=\"Edit\" src=\"images/icons/pencil.png\" /></a></td><td class=\"tablebody tablerightborder\">". displayhtml($row['name']) . "</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\" align=\"center\">$posts</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\" align=\"center\">$images</td><td style=\"text-align: right\" class=\"tablebody tablerightborder\" align=\"center\">$files</td><td class=\"tablebody\"><input value=\"$row[id]\" name=\"selectedcats[]\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" id=\"check_$d\" type=\"checkbox\" /></td></tr>\n";
 	}
 	$d++;
 }
@@ -166,7 +166,7 @@ echo "<option value=\"\">".$langmsg['selectfield'][0]."</option>";
 echo "<option value=\"delete\">".$langmsg['selectfield'][3]."</option>";
 echo "</select> <input type=\"button\" value=\"".$langmsg['submitfield'][0]."\" onclick=\"editcataction()\" />";
 echo "</td></tr></table>";
-echo "<a href=\"?action=options&mod=categories&edit=new\">".$langmsg['cats'][4]."</a>";
+echo "<a href=\"?action=options&mod=newscats&edit=new\">".$langmsg['cats'][4]."</a>";
 echo "</div>";
 echo "</td></tr></table>";
 

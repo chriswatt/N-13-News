@@ -271,6 +271,7 @@ $langmsg['personal'][10] = x("必須輸入電子郵件地址。");
 $langmsg['personal'][11] = x("設置更新。");
 $langmsg['personal'][12] = x("密碼不匹配。");
 $langmsg['personal'][13] = x("啟用所見即所得的編輯器？");
+$langmsg['personal'][14] = x("默認選項");
 
 
 $langmsg['login'][0] = x("請登錄");
@@ -763,6 +764,7 @@ $langmsg['selectfield'][18] = x("重置封鎖數");
 $langmsg['selectfield'][19] = x("創建副本");
 $langmsg['selectfield'][20] = x("鑑於計數復位");
 $langmsg['selectfield'][21] = x("復位評級");
+$langmsg['selectfield'][22] = x("保存並繼續");
 
 
 $langmsg['js'][0] = x("您確定要從這類別中刪除此圖像？");

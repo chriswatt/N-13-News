@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("O adresă de e-mail trebuie să fie introduse.");
 $langmsg['personal'][11] = x("Setări actualizare.");
 $langmsg['personal'][12] = x("Parolele nu se potrivesc.");
 $langmsg['personal'][13] = x("Activează editor WYSIWYG?");
+$langmsg['personal'][14] = x("Implicit Opţiuni");
 
 $langmsg['login'][0] = x("Vă rugăm să Autentificare");
 $langmsg['login'][1] = x("Nume:");
@@ -737,6 +738,7 @@ $langmsg['selectfield'][18] = x("A nu putea suporta blocat conta");
 $langmsg['selectfield'][19] = x("Crearea exemplar");
 $langmsg['selectfield'][20] = x("A nu putea suporta numărului de vedere");
 $langmsg['selectfield'][21] = x("Evaluări nu putea suporta");
+$langmsg['selectfield'][22] = x("Salvaţi & Continuaţi");
 
 $langmsg['js'][0] = x("Sunteţi sigur că doriţi să eliminaţi această imagine din categoria?");
 $langmsg['js'][1] = x("Sunteţi sigur că doriţi să ştergeţi imaginea selectat (e)?");

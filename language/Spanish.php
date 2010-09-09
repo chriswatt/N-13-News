@@ -271,6 +271,7 @@ $langmsg['personal'][10] = x("Una dirección de correo electrónico debe ser intro
 $langmsg['personal'][11] = x("Configuración actualizada.");
 $langmsg['personal'][12] = x("Las contraseñas no coinciden.");
 $langmsg['personal'][13] = x("Activar el editor WYSIWYG?");
+$langmsg['personal'][14] = x("Opciones por defecto");
 
 #-----LOGIN MODULE
 $langmsg['login'][0] = x("Please Login");
@@ -763,6 +764,7 @@ $langmsg['selectfield'][18] = x("Perdí mi cuenta bloqueada");
 $langmsg['selectfield'][19] = x("Crear copia");
 $langmsg['selectfield'][20] = x("Ver cuenta Perdí mi");
 $langmsg['selectfield'][21] = x("Resetear los votos");
+$langmsg['selectfield'][22] = x("Guardar y continuar");
 
 #-----Javascript
 $langmsg['js'][0] = x("¿Estás seguro de que deseas eliminar esta imagen de la categoría?");

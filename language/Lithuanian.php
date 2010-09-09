@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Pašto adresas turi būti įrašytas.");
 $langmsg['personal'][11] = x("Nustatymai atnaujinta.");
 $langmsg['personal'][12] = x("Slaptažodžiai nesutampa.");
 $langmsg['personal'][13] = x("Įtraukti WYSIWYG redaktorius?");
+$langmsg['personal'][14] = x("Numatytąsias parinktis");
 
 $langmsg['login'][0] = x("Prašome Prisijungti");
 $langmsg['login'][1] = x("Vardas:");
@@ -737,6 +738,7 @@ $langmsg['selectfield'][18] = x("Anuliuoti blokavo skaičius");
 $langmsg['selectfield'][19] = x("Sukurti kopiją");
 $langmsg['selectfield'][20] = x("Anuliuoti View Count");
 $langmsg['selectfield'][21] = x("Anuliuoti įvertinimai");
+$langmsg['selectfield'][22] = x("Išsaugoti ir tęsti");
 
 $langmsg['js'][0] = x("Ar jūs tikrai norite pašalinti šį atvaizdą iš kategorijos?");
 $langmsg['js'][1] = x("Ar tikrai norite ištrinti pasirinktą nuotrauką (-ų)?");

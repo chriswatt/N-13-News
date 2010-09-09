@@ -271,6 +271,7 @@ $langmsg['personal'][10] = x("Een email adres moet worden ingevuld.");
 $langmsg['personal'][11] = x("Inestellingen aangepast.");
 $langmsg['personal'][12] = x("Passwoord komt niet overeen.");
 $langmsg['personal'][13] = x("Activeer WYSIWYG editor?");
+$langmsg['personal'][14] = x("Standaard opties");
 
 #-----LOGIN MODULE
 $langmsg['login'][0] = x("Login");
@@ -763,6 +764,7 @@ $langmsg['selectfield'][18] = x("Reset blocked count");
 $langmsg['selectfield'][19] = x("Create copy");
 $langmsg['selectfield'][20] = x("Reset View Count");
 $langmsg['selectfield'][21] = x("Reset beoordelingen");
+$langmsg['selectfield'][22] = x("Opslaan en doorgaan");
 
 #-----Javascript
 $langmsg['js'][0] = x("Weet u zeker dat u deze afbeelding uit de categorie wilt verwijderen?");

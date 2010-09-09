@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Anwani ya barua pepe lazima aliingia.");
 $langmsg['personal'][11] = x("Settings updated.");
 $langmsg['personal'][12] = x("Lösenord don't match.");
 $langmsg['personal'][13] = x("Kuwawezesha WYSIWYG mhariri?");
+$langmsg['personal'][14] = x("Default Options");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Jina:");
@@ -736,6 +737,7 @@ $langmsg['selectfield'][18] = x("Reset blocked kuhesabu");
 $langmsg['selectfield'][19] = x("Create nakala");
 $langmsg['selectfield'][20] = x("Reset View Count");
 $langmsg['selectfield'][21] = x("Reset ratings");
+$langmsg['selectfield'][22] = x("Save & Endelea");
 
 $langmsg['js'][0] = x("Una uhakika unataka kuondoa picha hii kutoka kwa jamii?");
 $langmsg['js'][1] = x("Una uhakika unataka kufuta ya selected image (s)?");

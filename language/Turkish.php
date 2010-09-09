@@ -273,6 +273,7 @@ $langmsg['personal'][10] = x("Bir e-posta adresi girmeniz gerekmekte.");
 $langmsg['personal'][11] = x("Ayarlar güncellendi.");
 $langmsg['personal'][12] = x("Sifreler uyusmuyor.");
 $langmsg['personal'][13] = x("Enable WYSIWYG editörü?");
+$langmsg['personal'][14] = x("Default Options");
 
 #-----LOGIN MODULE
 $langmsg['login'][0] = x("Lütfen Giris Yapin");
@@ -766,6 +767,7 @@ $langmsg['selectfield'][18] = x("Engellenme sayisini sifirla");
 $langmsg['selectfield'][19] = x("Kopya olustur");
 $langmsg['selectfield'][20] = x("Reset View Count");
 $langmsg['selectfield'][21] = x("Reset derecelendirme");
+$langmsg['selectfield'][22] = x("Kaydet ve Devam");
 
 #-----Javascript
 $langmsg['js'][0] = x("Bu resmi kategoriden kald?rmak istedi?inize emin misiniz?");

@@ -270,6 +270,7 @@ $langmsg['personal'][10] = x("Eine E-Mail-Adresse muss angegeben werden.");
 $langmsg['personal'][11] = x("Einstellungen aktualisiert.");
 $langmsg['personal'][12] = x("Passwörter stimmen nicht überein.");
 $langmsg['personal'][13] = x("Enable WYSIWYG-Editor?");
+$langmsg['personal'][14] = x("Default Options");
 
 
 $langmsg['login'][0] = x("Bitte Login");
@@ -762,6 +763,7 @@ $langmsg['selectfield'][18] = x("Reset gesperrt count");
 $langmsg['selectfield'][19] = x("Kopie erstellen");
 $langmsg['selectfield'][20] = x("Zurücksetzen Ansicht count");
 $langmsg['selectfield'][21] = x("Reset Bewertungen");
+$langmsg['selectfield'][22] = x("Speichern und Fortfahren");
 
 
 $langmsg['js'][0] = x("Sind Sie sicher, dass Sie das Bild aus der Kategorie entfernen?");

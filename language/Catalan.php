@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("Una adreça de correu electrònic ha de ser introd
 $langmsg['personal'][11] = x("Configuració actualitzada.");
 $langmsg['personal'][12] = x("Les contrasenyes no coincideixen.");
 $langmsg['personal'][13] = x("Activar l'editor WYSIWYG?");
+$langmsg['personal'][14] = x("Opcions per defecte");
 
 $langmsg['login'][0] = x("Please Login");
 $langmsg['login'][1] = x("Nom:");
@@ -737,6 +738,7 @@ $langmsg['selectfield'][18] = x("He perdut el meu compte bloquejat");
 $langmsg['selectfield'][19] = x("Crear còpia");
 $langmsg['selectfield'][20] = x("Veure compte He perdut el meu");
 $langmsg['selectfield'][21] = x("Resetear dels vots");
+$langmsg['selectfield'][22] = x("Desa i continua");
 
 $langmsg['js'][0] = x("Estàs segur que vols eliminar aquesta imatge de la categoria?");
 $langmsg['js'][1] = x("Esteu segur que voleu suprimir la imatge seleccionada (s)?");

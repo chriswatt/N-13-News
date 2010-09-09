@@ -259,6 +259,7 @@ $langmsg['personal'][10] = x("dwe Yon adrès imel dwe antre.");
 $langmsg['personal'][11] = x("Settings Updated.");
 $langmsg['personal'][12] = x("Modpas pa matche.");
 $langmsg['personal'][13] = x("Pèmèt wiziwig editè?");
+$langmsg['personal'][14] = x("Default Opsyon");
 
 $langmsg['login'][0] = x("Tanpri Login");
 $langmsg['login'][1] = x("Non:");
@@ -737,6 +738,7 @@ $langmsg['selectfield'][18] = x("Rkonpoze bloke konte");
 $langmsg['selectfield'][19] = x("Kreye kopi");
 $langmsg['selectfield'][20] = x("Rkonpoze View konte");
 $langmsg['selectfield'][21] = x("Rimonté evalyasyon");
+$langmsg['selectfield'][22] = x("Save & Kontinye");
 
 $langmsg['js'][0] = x("Ou asire ou vle retire sa imaj sòti kategori lan?");
 $langmsg['js'][1] = x("Ou asire ou vle delete imaj lan seleksyone (s)?");
