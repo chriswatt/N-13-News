@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Megjeleníti a barátságos címe újságcikk.")
 $langmsg['templates'][134] = x("Keresési űrlap");
 $langmsg['templates'][135] = x("Keresési eredmények");
 $langmsg['templates'][136] = x("Feltöltött fájlok");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Feltölt egy exportált sablon (ok) fájl");
+$langmsg['templates'][139] = x("Feltölt");
+$langmsg['templates'][140] = x("Beillesztés exportált sablon (ok)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Sablon (ok) a behozott");
+$langmsg['templates'][143] = x("Nincs sablon hoztak");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import sablonok.");
 
 $langmsg['uploadedfiles'][0] = x("Fájlfeltöltés");
 $langmsg['uploadedfiles'][1] = x("Töltsön fel egy új fájlt");

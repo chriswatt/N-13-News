@@ -663,6 +663,15 @@ $langmsg['templates'][133] = x("Ay ipinapakita ang friendly pamagat ng artikulo 
 $langmsg['templates'][134] = x("Search form");
 $langmsg['templates'][135] = x("Mga resulta ng paghahanap");
 $langmsg['templates'][136] = x("Uploaded mga file");
+$langmsg['templates'][137] = x("Angkat");
+$langmsg['templates'][138] = x("I-upload ang isang nai-export ng template (s) na file");
+$langmsg['templates'][139] = x("I-upload");
+$langmsg['templates'][140] = x("Idikit ang nai-export ng template (s)");
+$langmsg['templates'][141] = x("Angkat");
+$langmsg['templates'][142] = x("Template (s)-import");
+$langmsg['templates'][143] = x("Walang mga template na na-import");
+$langmsg['templates'][144] = x("Luwas");
+$langmsg['templates'][145] = x("I-import ng mga template.");
 
 $langmsg['uploadedfiles'][0] = x("File upload");
 $langmsg['uploadedfiles'][1] = x("Mag-upload ng bagong file");

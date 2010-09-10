@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Menampilkan ramah tajuk rencana berita.");
 $langmsg['templates'][134] = x("Borang carian");
 $langmsg['templates'][135] = x("Keputusan Carian");
 $langmsg['templates'][136] = x("Tambah gambar");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Gambar sebuah template dieksport (s) Gambar");
+$langmsg['templates'][139] = x("Gambar");
+$langmsg['templates'][140] = x("Tempel dieksport template (s)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Template (s) import");
+$langmsg['templates'][143] = x("Tidak Template telah diimport");
+$langmsg['templates'][144] = x("Eksport");
+$langmsg['templates'][145] = x("Import template.");
 
 $langmsg['uploadedfiles'][0] = x("Gambar fail");
 $langmsg['uploadedfiles'][1] = x("Gambar fail baru");

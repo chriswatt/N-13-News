@@ -685,6 +685,15 @@ $langmsg['templates'][133] = x("显示友好的新闻标题。");
 $langmsg['templates'][134] = x("搜索表单");
 $langmsg['templates'][135] = x("搜索结果");
 $langmsg['templates'][136] = x("上传文件");
+$langmsg['templates'][137] = x("进口");
+$langmsg['templates'][138] = x("上传一个导出模板（第）文件");
+$langmsg['templates'][139] = x("上载");
+$langmsg['templates'][140] = x("导出模板粘贴（第）");
+$langmsg['templates'][141] = x("进口");
+$langmsg['templates'][142] = x("模板（第）进口");
+$langmsg['templates'][143] = x("没有模板已导入");
+$langmsg['templates'][144] = x("出口");
+$langmsg['templates'][145] = x("导入模板。");
 
 
 $langmsg['uploadedfiles'][0] = x("文件上传");

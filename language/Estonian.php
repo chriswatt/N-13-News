@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Näitab sõbralik pealkiri uudis.");
 $langmsg['templates'][134] = x("Otsinguvorm");
 $langmsg['templates'][135] = x("Otsingu tulemused");
 $langmsg['templates'][136] = x("Üleslaetud failid");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Lae eksporditud mall (id) faili");
+$langmsg['templates'][139] = x("Lae üles");
+$langmsg['templates'][140] = x("Aseta eksporditud malli (de)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Mall (s) imporditud");
+$langmsg['templates'][143] = x("Ühtegi šablooni ei ole imporditud");
+$langmsg['templates'][144] = x("Eksport");
+$langmsg['templates'][145] = x("Import malle.");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Lae uus fail");

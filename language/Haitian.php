@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Montre tit nan zanmitay nan atik la nouvèl.");
 $langmsg['templates'][134] = x("Search fòm");
 $langmsg['templates'][135] = x("Search Results");
 $langmsg['templates'][136] = x("Charger dosye");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Upload yon ekspòte Modèl (yo) ranpli");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Keratin ekspòte Modèl (yo)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Modèl (yo) enpòte");
+$langmsg['templates'][143] = x("Pa gen modèl yo te enpòte");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import modèl.");
 
 
 $langmsg['uploadedfiles'][0] = x("Ranpli ajou");

@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Displays cheo kirafiki ya makala ya habari.");
 $langmsg['templates'][134] = x("Search form");
 $langmsg['templates'][135] = x("Matokeo");
 $langmsg['templates'][136] = x("Uploaded files");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Upload ya nje template (s) faili");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Kuweka nje template (s)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Kigezo (s) nje");
+$langmsg['templates'][143] = x("Hakuna templates wamekuwa nje");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import templates.");
 
 $langmsg['uploadedfiles'][0] = x("Picha Uploads");
 $langmsg['uploadedfiles'][1] = x("Upload file mpya");

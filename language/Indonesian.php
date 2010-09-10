@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Menampilkan ramah judul artikel berita.");
 $langmsg['templates'][134] = x("Formulir pencarian");
 $langmsg['templates'][135] = x("Hasil pencarian");
 $langmsg['templates'][136] = x("Upload file");
+$langmsg['templates'][137] = x("Impor");
+$langmsg['templates'][138] = x("Upload sebuah template diekspor (s) File");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Tempel diekspor template (s)");
+$langmsg['templates'][141] = x("Impor");
+$langmsg['templates'][142] = x("Template (s) impor");
+$langmsg['templates'][143] = x("Tidak Template telah diimpor");
+$langmsg['templates'][144] = x("Ekspor");
+$langmsg['templates'][145] = x("Impor template.");
 
 $langmsg['uploadedfiles'][0] = x("Upload file");
 $langmsg['uploadedfiles'][1] = x("Upload file baru");

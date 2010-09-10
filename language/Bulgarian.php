@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Показва приятелски заглав
 $langmsg['templates'][134] = x("Форма пошуку");
 $langmsg['templates'][135] = x("Вынікі пошуку");
 $langmsg['templates'][136] = x("Загружаныя файлы");
+$langmsg['templates'][137] = x("Внос");
+$langmsg['templates'][138] = x("Качване на изнесени шаблон (и) файл");
+$langmsg['templates'][139] = x("Качете");
+$langmsg['templates'][140] = x("Постави изнесени шаблон (и)");
+$langmsg['templates'][141] = x("Внос");
+$langmsg['templates'][142] = x("Шаблоните (и), внесени");
+$langmsg['templates'][143] = x("Не шаблони са внесени");
+$langmsg['templates'][144] = x("Износ");
+$langmsg['templates'][145] = x("Внос шаблони.");
 
 $langmsg['uploadedfiles'][0] = x("Качването на файла");
 $langmsg['uploadedfiles'][1] = x("Качване на нов файл");

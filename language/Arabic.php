@@ -684,6 +684,15 @@ $langmsg['templates'][133] = x("يعرض عنوان المقال ودية للأ
 $langmsg['templates'][134] = x("نموذج بحث");
 $langmsg['templates'][135] = x("نتائج البحث");
 $langmsg['templates'][136] = x("تم الرفع الملفات");
+$langmsg['templates'][137] = x("استيراد");
+$langmsg['templates'][138] = x("تحميل تصدير قالب (ق) ملف");
+$langmsg['templates'][139] = x("تحميل");
+$langmsg['templates'][140] = x("تصدير لصق القالب (ق)");
+$langmsg['templates'][141] = x("استيراد");
+$langmsg['templates'][142] = x("قالب (ق) المستوردة");
+$langmsg['templates'][143] = x("ولم ترد أي قوالب المستوردة");
+$langmsg['templates'][144] = x("تصدير");
+$langmsg['templates'][145] = x("استيراد القوالب.");
 
 
 $langmsg['uploadedfiles'][0] = x("تحميل الملف");

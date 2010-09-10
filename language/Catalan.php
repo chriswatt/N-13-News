@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Mostra el títol descriptiu del reportatge.");
 $langmsg['templates'][134] = x("Formulari de cerca");
 $langmsg['templates'][135] = x("Resultats de la cerca");
 $langmsg['templates'][136] = x("Arxius enviats");
+$langmsg['templates'][137] = x("Importació");
+$langmsg['templates'][138] = x("Carregar una plantilla d'exportació (s) d'arxiu");
+$langmsg['templates'][139] = x("Pujar");
+$langmsg['templates'][140] = x("Enganxa exportats plantilla (s)");
+$langmsg['templates'][141] = x("Importació");
+$langmsg['templates'][142] = x("Plantilla (s) importats");
+$langmsg['templates'][143] = x("No hi ha plantilles s'han importat");
+$langmsg['templates'][144] = x("Exportació");
+$langmsg['templates'][145] = x("Importa plantilles.");
 
 
 $langmsg['uploadedfiles'][0] = x("Càrrega d'Arxius");

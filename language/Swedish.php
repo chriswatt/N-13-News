@@ -685,6 +685,15 @@ $langmsg['templates'][133] = x("Visar den vänliga titel nyhetsartikel.");
 $langmsg['templates'][134] = x("Sökformulär");
 $langmsg['templates'][135] = x("Sökresultat");
 $langmsg['templates'][136] = x("Uppladdade filer");
+$langmsg['templates'][137] = x("Importera");
+$langmsg['templates'][138] = x("Ladda upp en exporterad mall (s)-fil");
+$langmsg['templates'][139] = x("Ladda upp");
+$langmsg['templates'][140] = x("Klistra exporteras mall (s)");
+$langmsg['templates'][141] = x("Importera");
+$langmsg['templates'][142] = x("Mall (s) importeras");
+$langmsg['templates'][143] = x("Inga mallar har importerats");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Importera mallar.");
 
 
 $langmsg['uploadedfiles'][0] = x("Filuppladdning");

@@ -663,6 +663,15 @@ $langmsg['templates'][133] = x("Rodo draugiškas pavadinimas naujienų.");
 $langmsg['templates'][134] = x("Paieškos forma");
 $langmsg['templates'][135] = x("Paieškos rezultatai");
 $langmsg['templates'][136] = x("Įkelti failai");
+$langmsg['templates'][137] = x("Importuoti");
+$langmsg['templates'][138] = x("Įkelti eksportuojami šabloną (-ų) bylos");
+$langmsg['templates'][139] = x("Įkelti");
+$langmsg['templates'][140] = x("Įdėti eksportuoti šabloną (-ų)");
+$langmsg['templates'][141] = x("Importuoti");
+$langmsg['templates'][142] = x("Šablonas (-ų) importuojamų");
+$langmsg['templates'][143] = x("Šablonų buvo importuoti");
+$langmsg['templates'][144] = x("Eksportas");
+$langmsg['templates'][145] = x("Importo šablonus.");
 
 $langmsg['uploadedfiles'][0] = x("Failo įkėlimas");
 $langmsg['uploadedfiles'][1] = x("Įkelti naują failo");

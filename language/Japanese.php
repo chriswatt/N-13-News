@@ -684,6 +684,15 @@ $langmsg['templates'][133] = x("が表示されますニュース記事の友好
 $langmsg['templates'][134] = x("検索フォーム");
 $langmsg['templates'][135] = x("検索結果");
 $langmsg['templates'][136] = x("アップロードファイルの");
+$langmsg['templates'][137] = x("インポート");
+$langmsg['templates'][138] = x("（sをテンプレート）ファイルにエクスポートをアップロード");
+$langmsg['templates'][139] = x("アップロード");
+$langmsg['templates'][140] = x("を貼り付けます（sをテンプレート）輸出");
+$langmsg['templates'][141] = x("インポート");
+$langmsg['templates'][142] = x("テンプレート（秒）輸入");
+$langmsg['templates'][143] = x("いいえインポートされているテンプレート");
+$langmsg['templates'][144] = x("輸出");
+$langmsg['templates'][145] = x("インポートはテンプレートです。");
 
 
 $langmsg['uploadedfiles'][0] = x("ファイルをアップロード");

@@ -684,6 +684,15 @@ $langmsg['templates'][133] = x("Zeigt die freundliche Titel der News-Artikel.");
 $langmsg['templates'][134] = x("Suchformular");
 $langmsg['templates'][135] = x("Suchergebnisse");
 $langmsg['templates'][136] = x("Hochgeladene Dateien");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Upload eine exportierte Vorlage (n) Datei");
+$langmsg['templates'][139] = x("Laden");
+$langmsg['templates'][140] = x("Paste exportiert Vorlage (n)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Template (s) importiert");
+$langmsg['templates'][143] = x("Keine Vorlagen importiert wurden");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import-Vorlagen.");
 
 
 $langmsg['uploadedfiles'][0] = x("Datei-Uploads");

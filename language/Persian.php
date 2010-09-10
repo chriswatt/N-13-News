@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("نمایش دوستانه عنوان مقاله 
 $langmsg['templates'][134] = x("فرم جستجو");
 $langmsg['templates'][135] = x("نتایج جستجو");
 $langmsg['templates'][136] = x("ارسال فایل");
+$langmsg['templates'][137] = x("واردات");
+$langmsg['templates'][138] = x("ارسال صادر قالب (ها) پرونده");
+$langmsg['templates'][139] = x("ارسال");
+$langmsg['templates'][140] = x("رب صادر قالب (ها)");
+$langmsg['templates'][141] = x("واردات");
+$langmsg['templates'][142] = x("الگو (های) وارداتی");
+$langmsg['templates'][143] = x("بدون الگوهای وارداتی شده اند");
+$langmsg['templates'][144] = x("صادرات");
+$langmsg['templates'][145] = x("واردات الگو است.");
 
 
 $langmsg['uploadedfiles'][0] = x("ارسال فایل");

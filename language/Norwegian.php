@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Viser den vennlige tittelen på nyhetsartikkelen
 $langmsg['templates'][134] = x("Søkeskjema");
 $langmsg['templates'][135] = x("Søkeresultater");
 $langmsg['templates'][136] = x("Opplastede filer");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Last opp en mal eksportert (e) fil");
+$langmsg['templates'][139] = x("Last opp");
+$langmsg['templates'][140] = x("Lim eksportert mal (er)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Mal (er) importert");
+$langmsg['templates'][143] = x("Ingen maler har blitt importert");
+$langmsg['templates'][144] = x("Eksport");
+$langmsg['templates'][145] = x("Import maler.");
 
 $langmsg['uploadedfiles'][0] = x("Filopplastninger");
 $langmsg['uploadedfiles'][1] = x("Last opp en ny fil");

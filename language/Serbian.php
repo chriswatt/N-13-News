@@ -663,6 +663,15 @@ $langmsg['templates'][133] = x("Приказује пријатељски нас
 $langmsg['templates'][134] = x("Образац за претраживање");
 $langmsg['templates'][135] = x("Резултати претраге");
 $langmsg['templates'][136] = x("Уплоадед филес");
+$langmsg['templates'][137] = x("Увоз");
+$langmsg['templates'][138] = x("Уплоад извози шаблон (е) фајл");
+$langmsg['templates'][139] = x("Уплоад");
+$langmsg['templates'][140] = x("Пасте извози шаблона (е)");
+$langmsg['templates'][141] = x("Увоз");
+$langmsg['templates'][142] = x("Шаблон (а) увезени");
+$langmsg['templates'][143] = x("Нема шаблона су увезени");
+$langmsg['templates'][144] = x("Извоз");
+$langmsg['templates'][145] = x("Увоз шаблона.");
 
 $langmsg['uploadedfiles'][0] = x("Филе уплоадано");
 $langmsg['uploadedfiles'][1] = x("Постави нову датотеку");

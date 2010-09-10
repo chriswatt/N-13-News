@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Parāda draudzīgs nosaukums ziņu rakstu.");
 $langmsg['templates'][134] = x("Meklēšanas forma");
 $langmsg['templates'][135] = x("Meklēšanas rezultāti");
 $langmsg['templates'][136] = x("Augšupielādēto failu");
+$langmsg['templates'][137] = x("Imports");
+$langmsg['templates'][138] = x("Augšupielādēt eksportē veidni (s) failu");
+$langmsg['templates'][139] = x("Augšupielādēt");
+$langmsg['templates'][140] = x("Ielīmēt eksportē veidni (-i)");
+$langmsg['templates'][141] = x("Imports");
+$langmsg['templates'][142] = x("Veidnes (-s) ieved");
+$langmsg['templates'][143] = x("Neviens veidnes ir importēti");
+$langmsg['templates'][144] = x("Eksports");
+$langmsg['templates'][145] = x("Importa veidnes.");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Augšupielādēt jaunu failu");

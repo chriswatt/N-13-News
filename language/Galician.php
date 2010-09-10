@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Dille o título agradable da noticia.");
 $langmsg['templates'][134] = x("Formulario de Busca");
 $langmsg['templates'][135] = x("Resultados da busca");
 $langmsg['templates'][136] = x("Envío de arquivos");
+$langmsg['templates'][137] = x("Importación");
+$langmsg['templates'][138] = x("Cargar un modelo exportado (s) ficheiro");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Pegar exportados modelo (s)");
+$langmsg['templates'][141] = x("Importación");
+$langmsg['templates'][142] = x("Modelo (s) importado");
+$langmsg['templates'][143] = x("Non hai plantillas foron importados");
+$langmsg['templates'][144] = x("Exportación");
+$langmsg['templates'][145] = x("Importar modelos.");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Cargar un novo ficheiro");

@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Gee die vriendelike titel van die nuwe artikel."
 $langmsg['templates'][134] = x("Soek vorm");
 $langmsg['templates'][135] = x("Soek resultate");
 $langmsg['templates'][136] = x("Opgelaaide lêers");
+$langmsg['templates'][137] = x("Invoer");
+$langmsg['templates'][138] = x("Foto 'n uitgevoerde sjabloon (s) lêer");
+$langmsg['templates'][139] = x("Foto");
+$langmsg['templates'][140] = x("Plak uitgevoer sjabloon (s)");
+$langmsg['templates'][141] = x("Invoer");
+$langmsg['templates'][142] = x("Template (s) wat ingevoer");
+$langmsg['templates'][143] = x("Geen templates ingevoer is");
+$langmsg['templates'][144] = x("Uitvoer");
+$langmsg['templates'][145] = x("Invoer templates.");
 
 
 $langmsg['uploadedfiles'][0] = x("File uploads");

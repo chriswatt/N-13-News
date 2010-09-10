@@ -661,6 +661,15 @@ $langmsg['templates'][133] = x("Прикажува пријателски нас
 $langmsg['templates'][134] = x("На образецот за пребарување");
 $langmsg['templates'][135] = x("Резултати од пребарувањето");
 $langmsg['templates'][136] = x("Подигнатите датотеки");
+$langmsg['templates'][137] = x("Увоз");
+$langmsg['templates'][138] = x("Испратите извезени шаблон (и) датотека");
+$langmsg['templates'][139] = x("Додадени");
+$langmsg['templates'][140] = x("Залепи извезени шаблон (и)");
+$langmsg['templates'][141] = x("Увоз");
+$langmsg['templates'][142] = x("Шаблон (и) увезени");
+$langmsg['templates'][143] = x("Нема шаблони се увезени");
+$langmsg['templates'][144] = x("Извоз");
+$langmsg['templates'][145] = x("Увоз шаблони.");
 
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");

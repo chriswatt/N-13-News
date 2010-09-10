@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Sýnir vingjarnlegur titill frétt.");
 $langmsg['templates'][134] = x("Leita mynd");
 $langmsg['templates'][135] = x("Leitarniðurstöður");
 $langmsg['templates'][136] = x("Uploaded skrá");
+$langmsg['templates'][137] = x("Innflutningur");
+$langmsg['templates'][138] = x("Hlaða upp útfluttar sniðmát (s) skrá");
+$langmsg['templates'][139] = x("Hlaða inn");
+$langmsg['templates'][140] = x("Líma flutt sniðmát (s)");
+$langmsg['templates'][141] = x("Innflutningur");
+$langmsg['templates'][142] = x("Sniðmát (s) innflytjandi");
+$langmsg['templates'][143] = x("Ekkert sniðmát hafa verið fluttar");
+$langmsg['templates'][144] = x("Útflutningur");
+$langmsg['templates'][145] = x("Innflutningur sniðmát.");
 
 
 $langmsg['uploadedfiles'][0] = x("Skrá Uploads");

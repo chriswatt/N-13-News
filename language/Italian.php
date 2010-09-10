@@ -684,6 +684,15 @@ $langmsg['templates'][133] = x("Visualizza il titolo amichevole articolo di noti
 $langmsg['templates'][134] = x("Modulo di ricerca");
 $langmsg['templates'][135] = x("Risultati della ricerca");
 $langmsg['templates'][136] = x("File caricati");
+$langmsg['templates'][137] = x("Importazione");
+$langmsg['templates'][138] = x("Carica un modello esportato (s) file");
+$langmsg['templates'][139] = x("Caricare");
+$langmsg['templates'][140] = x("Incolla esportato modello (s)");
+$langmsg['templates'][141] = x("Importazione");
+$langmsg['templates'][142] = x("Template (s) importati");
+$langmsg['templates'][143] = x("Nessun modello sono stati importati");
+$langmsg['templates'][144] = x("Esportazione");
+$langmsg['templates'][145] = x("Importare modelli.");
 
 
 

@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Адлюстроўвае дружалюбных 
 $langmsg['templates'][134] = x("Форма за търсене");
 $langmsg['templates'][135] = x("Резултати");
 $langmsg['templates'][136] = x("Добавен файлове");
+$langmsg['templates'][137] = x("Імпарт");
+$langmsg['templates'][138] = x("Дадаць экспартаваць шаблон (ы) файла");
+$langmsg['templates'][139] = x("Загружаць");
+$langmsg['templates'][140] = x("Уставіць экспартаваць шаблон (ы)");
+$langmsg['templates'][141] = x("Імпарт");
+$langmsg['templates'][142] = x("Шаблон (ы), што ўвозяцца");
+$langmsg['templates'][143] = x("Ні аднаго шаблону не былі імпартаваныя");
+$langmsg['templates'][144] = x("Экспарт");
+$langmsg['templates'][145] = x("Імпарт шаблонаў.");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Загрузіць новы файл");

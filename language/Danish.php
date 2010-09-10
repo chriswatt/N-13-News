@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Viser den venlige titel nyhedsartikel.");
 $langmsg['templates'][134] = x("Søg form");
 $langmsg['templates'][135] = x("Søgeresultater");
 $langmsg['templates'][136] = x("Uploadede filer");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Upload en eksportvare skabelon (r) fil");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Indsæt eksporteres skabelon (r)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Template (s) importerede");
+$langmsg['templates'][143] = x("Ingen skabeloner er blevet indført");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import skabeloner.");
 
 $langmsg['uploadedfiles'][0] = x("Filupload");
 $langmsg['uploadedfiles'][1] = x("Upload en ny fil");

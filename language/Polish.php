@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Wyświetla przyjazne tytuł artykułu wiadomośc
 $langmsg['templates'][134] = x("Wyszukaj");
 $langmsg['templates'][135] = x("Wyniki wyszukiwania");
 $langmsg['templates'][136] = x("Przesłane pliki");
+$langmsg['templates'][137] = x("Przywóz");
+$langmsg['templates'][138] = x("Prześlij wywożone szablon (y) pliku");
+$langmsg['templates'][139] = x("Prześlij");
+$langmsg['templates'][140] = x("Wklej wywożone szablon (s)");
+$langmsg['templates'][141] = x("Przywóz");
+$langmsg['templates'][142] = x("Szablon (y) przywożonych");
+$langmsg['templates'][143] = x("Szablony nie zostały przywiezione");
+$langmsg['templates'][144] = x("Wywóz");
+$langmsg['templates'][145] = x("Import szablonów.");
 
 $langmsg['uploadedfiles'][0] = x("Wysyłanie plików");
 $langmsg['uploadedfiles'][1] = x("Prześlij nowy plik");

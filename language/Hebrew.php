@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("מציג את הכותרת של המאמר יד�
 $langmsg['templates'][134] = x("חיפוש צורה");
 $langmsg['templates'][135] = x("תוצאות חיפוש");
 $langmsg['templates'][136] = x("הוטען קבצים");
+$langmsg['templates'][137] = x("יבוא");
+$langmsg['templates'][138] = x("טען לייצא תבנית (ות) הקובץ");
+$langmsg['templates'][139] = x("העלאה");
+$langmsg['templates'][140] = x("הדבק לייצא תבנית (s)");
+$langmsg['templates'][141] = x("יבוא");
+$langmsg['templates'][142] = x("תבנית (ים) מיובאים");
+$langmsg['templates'][143] = x("אין תבניות יובאו");
+$langmsg['templates'][144] = x("יצוא");
+$langmsg['templates'][145] = x("ייבוא תבניות.");
 
 $langmsg['uploadedfiles'][0] = x("קובץ ההעלאות");
 $langmsg['uploadedfiles'][1] = x("להעלות קובץ חדש");

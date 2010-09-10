@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Afişează titlul prietenos de articol de ştiri
 $langmsg['templates'][134] = x("Formular de cautare");
 $langmsg['templates'][135] = x("Rezultatele căutării");
 $langmsg['templates'][136] = x("Încărcat fişiere");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Încărcaţi un şablon exportat (e) fişier");
+$langmsg['templates'][139] = x("Încărcaţi");
+$langmsg['templates'][140] = x("Pastă exportate şablon (e)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Format (e) importate");
+$langmsg['templates'][143] = x("Nu template-uri au fost importate");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import şabloane.");
 
 
 $langmsg['uploadedfiles'][0] = x("File Upload");

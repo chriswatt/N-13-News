@@ -687,6 +687,15 @@ $langmsg['templates'][133] = x("Görüntüler haber makalenin dostu baslik.");
 $langmsg['templates'][134] = x("Arama formu gönder");
 $langmsg['templates'][135] = x("Arama sonuçlari");
 $langmsg['templates'][136] = x("Yüklenen dosyalar");
+$langmsg['templates'][137] = x("Ithalat");
+$langmsg['templates'][138] = x("bir (s sablon) dosyayi yükle");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Yapistir (ler sablon) ihraç");
+$langmsg['templates'][141] = x("Ithalat");
+$langmsg['templates'][142] = x("Sablon (ler) ithal");
+$langmsg['templates'][143] = x("No ithal edilmistir sablonlari");
+$langmsg['templates'][144] = x("Ihracat");
+$langmsg['templates'][145] = x("Ithalat sablonlari.");
 
 
 #-----UPLOADED FILES

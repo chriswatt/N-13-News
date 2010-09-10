@@ -685,6 +685,15 @@ $langmsg['templates'][133] = x("디스플레이 뉴스 기사의 친절 제목�
 $langmsg['templates'][134] = x("검색 양식");
 $langmsg['templates'][135] = x("검색 결과");
 $langmsg['templates'][136] = x("파일 올리기");
+$langmsg['templates'][137] = x("수입");
+$langmsg['templates'][138] = x("(들 템플릿) 파일을 내보낸 올리기");
+$langmsg['templates'][139] = x("업로드");
+$langmsg['templates'][140] = x("붙여넣기 (들 템플릿) 수출");
+$langmsg['templates'][141] = x("수입");
+$langmsg['templates'][142] = x("템플릿 (들) 수입");
+$langmsg['templates'][143] = x("아니이 가져왔습니다 템플릿");
+$langmsg['templates'][144] = x("수출");
+$langmsg['templates'][145] = x("가져오기 템플릿.");
 
 
 $langmsg['uploadedfiles'][0] = x("파일 업로드");

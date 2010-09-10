@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Prikaže prijazno naslov časopisni članek.");
 $langmsg['templates'][134] = x("Obrazec za iskanje");
 $langmsg['templates'][135] = x("Rezultati iskanja");
 $langmsg['templates'][136] = x("Naložene datoteke");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Upload izvozi predlogo (i) datoteke");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Paste izvozi predlogo (s)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Predloga (i) uvožene");
+$langmsg['templates'][143] = x("Ne so bile uvožene predloge");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import predloge.");
 
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");

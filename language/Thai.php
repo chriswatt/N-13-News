@@ -683,6 +683,15 @@ $langmsg['templates'][133] = x("แสดงชื่อมิตรของบ
 $langmsg['templates'][134] = x("แบบฟอร์มการค้นหา");
 $langmsg['templates'][135] = x("ผลการค้นหา");
 $langmsg['templates'][136] = x("อัพโหลดไฟล์");
+$langmsg['templates'][137] = x("การนำเข้า");
+$langmsg['templates'][138] = x("Upload ส่งออกแม่ (s) file");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("ออกวางแม่ (s)");
+$langmsg['templates'][141] = x("การนำเข้า");
+$langmsg['templates'][142] = x("แม่ (s) นำเข้า");
+$langmsg['templates'][143] = x("แม่ไม่ได้นำเข้า");
+$langmsg['templates'][144] = x("ส่งออก");
+$langmsg['templates'][145] = x("นำเข้าแม่แบบ");
 
 
 $langmsg['uploadedfiles'][0] = x("อัพโหลดไฟล์");

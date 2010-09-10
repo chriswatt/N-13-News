@@ -685,6 +685,15 @@ $langmsg['templates'][133] = x("N‰ytt‰‰ yst‰v‰llinen otsikko uutisartikkeli.");
 $langmsg['templates'][134] = x("Hakulomake");
 $langmsg['templates'][135] = x("Hakutulokset");
 $langmsg['templates'][136] = x("Ladatut tiedostot");
+$langmsg['templates'][137] = x("Tuonti");
+$langmsg['templates'][138] = x("L‰het‰ viety malli (t) tiedosto");
+$langmsg['templates'][139] = x("L‰het‰");
+$langmsg['templates'][140] = x("Liit‰ vied‰ malli (t)");
+$langmsg['templates'][141] = x("Tuonti");
+$langmsg['templates'][142] = x("Malli (t) tuodaan");
+$langmsg['templates'][143] = x("Malleja ei ole tuotu");
+$langmsg['templates'][144] = x("Vienti");
+$langmsg['templates'][145] = x("Tuo malleja.");
 
 
 $langmsg['uploadedfiles'][0] = x("Tiedostolautausten");

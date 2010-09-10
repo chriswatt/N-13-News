@@ -663,6 +663,15 @@ $langmsg['templates'][133] = x("Taispeáin an teideal cairdiúil an ailt nuachta
 $langmsg['templates'][134] = x("Cuardach bhfoirm");
 $langmsg['templates'][135] = x("Torthaí an chuardaigh");
 $langmsg['templates'][136] = x("Comhaid a uaslódáil");
+$langmsg['templates'][137] = x("Iompórtáil");
+$langmsg['templates'][138] = x("Upload a onnmhairítear teimpléad (s) comhad");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Greamaigh onnmhairiú teimpléad (s)");
+$langmsg['templates'][141] = x("Iompórtáil");
+$langmsg['templates'][142] = x("Teimpléad (í) a allmhairítear");
+$langmsg['templates'][143] = x("Uimh teimpléid ar allmhairíodh");
+$langmsg['templates'][144] = x("Easpórtáil");
+$langmsg['templates'][145] = x("Iompórtáil teimpléid.");
 
 $langmsg['uploadedfiles'][0] = x("Comhad Uasluchtuithe");
 $langmsg['uploadedfiles'][1] = x("Uaslódáil comhad nua");

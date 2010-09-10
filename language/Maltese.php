@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Displays it-titolu favur ta 'l-aħbarijiet artik
 $langmsg['templates'][134] = x("forma Fittex");
 $langmsg['templates'][135] = x("Riżultati tat-tfittxija");
 $langmsg['templates'][136] = x("Uploaded fajls");
+$langmsg['templates'][137] = x("Importazzjoni");
+$langmsg['templates'][138] = x("Upload esportati mudell (i) fajl");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Pejst esportati mudell (i)");
+$langmsg['templates'][141] = x("Importazzjoni");
+$langmsg['templates'][142] = x("Template (i) importati");
+$langmsg['templates'][143] = x("Nru mudelli ġew impurtati");
+$langmsg['templates'][144] = x("Esportazzjoni");
+$langmsg['templates'][145] = x("Importazzjoni templates.");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Tella 'fajl ġdid");

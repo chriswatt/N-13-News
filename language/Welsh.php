@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Arddangosiadau gyfeillgar y teitl yr erthygl new
 $langmsg['templates'][134] = x("Chwilio ffurflen");
 $langmsg['templates'][135] = x("Canlyniadau chwilio");
 $langmsg['templates'][136] = x("Llwythwyd i fyny ffeil");
+$langmsg['templates'][137] = x("Mewnforio");
+$langmsg['templates'][138] = x("Upload yn allforio dempled (s) ffeil");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Gludo allforio templed (au)");
+$langmsg['templates'][141] = x("Mewnforio");
+$langmsg['templates'][142] = x("Templed (s) fewnforio");
+$langmsg['templates'][143] = x("Dim templedi wedi cael eu mewnforio");
+$langmsg['templates'][144] = x("Allforio");
+$langmsg['templates'][145] = x("Mewnforio templedi.");
 
 $langmsg['uploadedfiles'][0] = x("Llwythiadau ffeil");
 $langmsg['uploadedfiles'][1] = x("Lanlwytho ffeil newydd");

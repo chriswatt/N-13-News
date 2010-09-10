@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Shfaq titullin miqësore e shkrimit lajmeve.");
 $langmsg['templates'][134] = x("formën e kërkimit");
 $langmsg['templates'][135] = x("Rezultatet e kërkimit");
 $langmsg['templates'][136] = x("Ngarkoni skeda");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Ngarko një eksportohen template (s) file");
+$langmsg['templates'][139] = x("Ngarko");
+$langmsg['templates'][140] = x("Paste eksportohen template (s)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Template (a) të importuara");
+$langmsg['templates'][143] = x("No templates janë importuar");
+$langmsg['templates'][144] = x("Eksport");
+$langmsg['templates'][145] = x("Importi templates.");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Ngarko një skedar të ri");

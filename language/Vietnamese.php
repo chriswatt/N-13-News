@@ -664,6 +664,15 @@ $langmsg['templates'][133] = x("Hiển thị tiêu đề thân thiện của bà
 $langmsg['templates'][134] = x("Mẫu đơn tìm kiếm");
 $langmsg['templates'][135] = x("Kết quả tìm kiếm");
 $langmsg['templates'][136] = x("Tải lên tập tin");
+$langmsg['templates'][137] = x("Nhập khẩu");
+$langmsg['templates'][138] = x("Tải lên một bản mẫu xuất khẩu (các) tập tin");
+$langmsg['templates'][139] = x("Tải lên");
+$langmsg['templates'][140] = x("Dán xuất khẩu mẫu (s)");
+$langmsg['templates'][141] = x("Nhập khẩu");
+$langmsg['templates'][142] = x("Tiêu bản (s) nhập khẩu");
+$langmsg['templates'][143] = x("Không có mẫu đã được nhập khẩu");
+$langmsg['templates'][144] = x("Xuất khẩu");
+$langmsg['templates'][145] = x("Nhập khẩu mẫu.");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Tải lên một tập tin mới");

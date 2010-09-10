@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Zobrazuje priateľské názvu spravodajský čl�
 $langmsg['templates'][134] = x("Formulár pre vyhľadávanie");
 $langmsg['templates'][135] = x("Výsledky hľadania");
 $langmsg['templates'][136] = x("Nahrané súbory");
+$langmsg['templates'][137] = x("Dovoz");
+$langmsg['templates'][138] = x("Upload vyvážané šablónu (y) súbor");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Vložiť vyvážané šablónu (y)");
+$langmsg['templates'][141] = x("Dovoz");
+$langmsg['templates'][142] = x("Šablóna (s) dovážané");
+$langmsg['templates'][143] = x("Č šablóny boli dovezené");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import šablón.");
 
 $langmsg['uploadedfiles'][0] = x("Súbor Súborov");
 $langmsg['uploadedfiles'][1] = x("Nahrať nový súbor");

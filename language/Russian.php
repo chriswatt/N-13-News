@@ -685,6 +685,15 @@ $langmsg['templates'][133] = x("Отображает дружественных 
 $langmsg['templates'][134] = x("Форма поиска");
 $langmsg['templates'][135] = x("Результаты поиска");
 $langmsg['templates'][136] = x("Загруженные файлы");
+$langmsg['templates'][137] = x("Импорт");
+$langmsg['templates'][138] = x("Добавить экспортировать шаблон (ы) файла");
+$langmsg['templates'][139] = x("Загружать");
+$langmsg['templates'][140] = x("Вставить экспортировать шаблон (ы)");
+$langmsg['templates'][141] = x("Импорт");
+$langmsg['templates'][142] = x("Шаблон (ы), ввозимых");
+$langmsg['templates'][143] = x("Ни одного шаблона не были импортированы");
+$langmsg['templates'][144] = x("Экспорт");
+$langmsg['templates'][145] = x("Импорт шаблонов.");
 
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");

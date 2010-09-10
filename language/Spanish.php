@@ -685,6 +685,15 @@ $langmsg['templates'][133] = x("Muestra el título descriptivo del reportaje.");
 $langmsg['templates'][134] = x("Formulario de búsqueda");
 $langmsg['templates'][135] = x("Resultados de la búsqueda");
 $langmsg['templates'][136] = x("Archivos subidos");
+$langmsg['templates'][137] = x("Importación");
+$langmsg['templates'][138] = x("Cargar una plantilla de exportación (s) de archivo");
+$langmsg['templates'][139] = x("Subir");
+$langmsg['templates'][140] = x("Pegar exportados plantilla (s)");
+$langmsg['templates'][141] = x("Importación");
+$langmsg['templates'][142] = x("Plantilla (s) importados");
+$langmsg['templates'][143] = x("No hay plantillas se han importado");
+$langmsg['templates'][144] = x("Exportación");
+$langmsg['templates'][145] = x("Importar plantillas.");
 
 #-----UPLOADED FILES
 $langmsg['uploadedfiles'][0] = x("Carga de Archivos");

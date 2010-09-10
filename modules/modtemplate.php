@@ -36,6 +36,9 @@ if($_GET['edit'] == "new"){
 if($_GET['edit'] == "true"){
 	echo '<span class="header">' . $langmsg['options'][2] . '</span>';
 }
+if($_GET['import'] == "true"){
+	echo '<span class="header">' . $langmsg['templates'][137] . '</span>';
+}
 
 echo '</div>';
 
@@ -591,6 +594,77 @@ if($_GET['edit'] == "new"){
 			}
 		}
 	}
+}elseif($_GET['import'] == "true"){
+	function importtemplate(){
+		global $langmsg;
+		
+		echo "<form enctype=\"multipart/form-data\" method=\"post\" name=\"template_upload\" action=\"\">";
+		echo "<div class=\"subheaders\">" . $langmsg['templates'][138] . "</div>";
+		echo "<div class=\"subheaders_body displaytable\" style=\"height: 35px\">";
+		echo "<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"10000000\" />\n";
+		echo "\n<input name=\"uploadedtemplate\" type=\"file\" />";
+		echo "<input type=\"submit\" name=\"upload_template\" style=\"margin-left: 4px;\" value=\"" . $langmsg['templates'][139] . "\" />";
+		echo "</div>";
+		echo "</form>";
+
+		echo "<form method=\"post\" name=\"template_paste\" action=\"\">";
+		echo "<div class=\"subheaders\">" . $langmsg['templates'][140] . "</div>";
+		echo "<div class=\"subheaders_body displaytable\" style=\"height: 35px\">";
+		echo "<textarea name=\"exported_template\" style=\"height: 100px; width: 98.5%\"></textarea>";
+		echo "<input type=\"submit\" name=\"paste_template\" value=\"" . $langmsg['templates'][141] . "\" style=\"width: 100%; margin-top: 4px;\" />";
+		echo "</div>";
+		echo "</form>";
+	}
+	
+	if($_POST['upload_template'] || $_POST['paste_template']){
+		if($_POST['upload_template']){
+			$templatedata = file_get_contents($_FILES['uploadedtemplate']['tmp_name']);
+		}elseif($_POST['paste_template']){
+			$templatedata = $_POST['exported_template'];
+		}
+		$templatedata = unserialize($templatedata);
+		$templatecount = count($templatedata);
+		foreach($templatedata AS $template){
+			if(array_key_exists('name', $template)){
+				// seems to be a valid template
+				$name				= $template['name'];
+				$news				= $template['template'];
+				$comments			= $template['comments'];
+				$commentsform		= $template['commentsform'];
+				$npagintation		= $template['npagintation'];
+				$cpagintation		= $template['cpagintation'];
+				$profile			= $template['profile'];
+				$newsstructure		= $template['newsstructure'];
+				$commentsstructure	= $template['commentsstructure'];
+				$registrationform	= $template['registrationform'];
+				$uploadedfiles		= $template['uploadedfiles'];
+				$loginform			= $template['loginform'];
+				$searchform			= $template['searchform'];
+				$searchresults		= $template['searchresults'];
+				
+				// check if a template already exists with that name
+				if(count(DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = ?", $name)) > 0){
+					// already exists so append a timestamp to the end of the name then insert
+					$name .= " " . time();
+				}
+				DataAccess::put("INSERT INTO " . NEWS_TEMPLATES . " 
+				(name, template, comments, commentsform, npagintation, cpagintation, profile, newsstructure, commentsstructure, registrationform, uploadedfiles, loginform, searchform, searchresults)
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				$name, $news, $comments, $commentsform, $npagintation, $cpagintation, $profile, $newsstructure, $commentsstructure, $registrationform, $uploadedfiles, $loginform, $searchform, $searchresults);
+				$i++;
+			}else{
+				// no dice
+			}
+		}
+		if($i > 0){
+			echo "<div class=\"success\">$i " . $langmsg['templates'][142] . "</div>";
+		}else{
+			echo "<div class=\"error\">" . $langmsg['templates'][143] . "</div>";
+		}		
+	}
+
+
+	importtemplate();
 }
 $_POST['templateaction'] = (empty($_POST['templateaction'])) ? '' : $_POST['templateaction'];
 if($_POST['templateaction'] == "delete"){
@@ -640,18 +714,17 @@ if($_POST['templateaction'] == "delete"){
 			echo "<div class=\"success\">$i ".$langmsg['templates'][85]."</div>";
 		}
 	}
-}                
+}
 
-		
- 
-          
+
+
 echo "<div class=panel>".$langmsg['templates'][86]."</div><br>";
 $_GET['select'] = (empty($_GET['select'])) ? '' : $_GET['select'];
 if($_GET['select'] == "true"){
     DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET template = ?", $_GET['id']);
 	echo "<div class=success>".$langmsg['templates'][87]."</div><br>";
 }
-echo "<form method=\"post\" name=\"edittemplateform\" id=\"edittemplateform\" action=\"?action=options&mod=template\">";
+echo "<form method=\"post\" name=\"edittemplateform\" id=\"edittemplateform\" action=\"?action=options&mod=templates\">";
 echo "<table id=\"rows\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\"><tr><td class=\"tableshead tablerightborder\"></td><td class=\"tableshead tablerightborder\" width=\"50%\">".$langmsg['templates'][88]."</td><td class=\"tableshead tablerightborder\" width=\"50%\">".$langmsg['templates'][89]."</td><td class=\"tableshead\"><input type=\"checkbox\" id=\"allcheck\" name=\"allcheck\" onclick=\"selectall()\" id=\"allcheck\" /></td></tr>";
 $tmpcolor = 1;
 $templateid = DataAccess::fetch("SELECT template FROM " . NEWS_OPTIONS . " WHERE 1");
@@ -675,13 +748,21 @@ echo "<tr><td align=right style=\"padding-top: 4px\" colspan=4>";
 echo "<select id=\"templateaction\" name=\"templateaction\"><option>".$langmsg['selectfield'][0]."</option>";
 echo "<option value=\"createcopy\">".$langmsg['selectfield'][19]."</option>";
 echo "<option value=\"delete\">".$langmsg['selectfield'][3]."</option>";
+echo "<option value=\"export\">" . $langmsg['templates'][144] . "</option>";
 echo "</select>&nbsp;<input type=\"button\" name=\"S1\" onclick=\"edittemplates()\" class=\"nostyle\" value=\"".$langmsg['submitfield'][0]."\">";
 echo "</td></tr>";
 echo "</table>";
 echo "</form>";
-echo "<a href=\"?action=options&mod=templates&edit=new\"><u>".$langmsg['templates'][90]."</u></a>";
+echo "<a href=\"?action=options&mod=templates&edit=new\">".$langmsg['templates'][90]."</a> | <a href=\"?action=options&mod=templates&import=true\">" . $langmsg['templates'][145] . "</a>";
 
 
 echo "		</div><!--rightside-->
 	</div><!--pageCont-->";
+	
+if($_POST['templateaction'] == "export"){
+	if($_POST['selected']){
+		$templateids = serialize($_POST['selected']);
+		redirect('exporttemplate.php?templateids=' . addslashes($templateids));
+	}
+}
 ?>

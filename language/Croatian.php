@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("Prikazuje prijateljski naslov vijest.");
 $langmsg['templates'][134] = x("Obrazac za pretraživanje");
 $langmsg['templates'][135] = x("Rezultati pretrage");
 $langmsg['templates'][136] = x("Postavljene datoteke");
+$langmsg['templates'][137] = x("Uvoz");
+$langmsg['templates'][138] = x("Upload izvoze predloška (e) datoteku");
+$langmsg['templates'][139] = x("Učitaj");
+$langmsg['templates'][140] = x("Tijesto izvoze predloška (e)");
+$langmsg['templates'][141] = x("Uvoz");
+$langmsg['templates'][142] = x("Predložak (a) uvezene");
+$langmsg['templates'][143] = x("Nema predložaka uvezeni");
+$langmsg['templates'][144] = x("Izvoz");
+$langmsg['templates'][145] = x("Uvoz predložaka.");
 
 $langmsg['uploadedfiles'][0] = x("File Uploads");
 $langmsg['uploadedfiles'][1] = x("Postavi novu datoteku");

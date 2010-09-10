@@ -662,6 +662,15 @@ $langmsg['templates'][133] = x("समाचार लेख के अनुक
 $langmsg['templates'][134] = x("खोज फार्म");
 $langmsg['templates'][135] = x("खोज परिणाम");
 $langmsg['templates'][136] = x("अपलोड फ़ाइलें");
+$langmsg['templates'][137] = x("आयात");
+$langmsg['templates'][138] = x("अपलोड एक (ओं टेम्पलेट निर्यात) फ़ाइल");
+$langmsg['templates'][139] = x("अपलोड");
+$langmsg['templates'][140] = x("पेस्ट निर्यात (ओं टेम्पलेट)");
+$langmsg['templates'][141] = x("आयात");
+$langmsg['templates'][142] = x("टेम्पलेट (ओं) आयात");
+$langmsg['templates'][143] = x("कोई आयातित किया गया है टेम्पलेट्स");
+$langmsg['templates'][144] = x("निर्यात");
+$langmsg['templates'][145] = x("आयात टेम्पलेट्स.");
 
 $langmsg['uploadedfiles'][0] = x("फाइल अपलोड");
 $langmsg['uploadedfiles'][1] = x("एक नई फ़ाइल अपलोड करें");

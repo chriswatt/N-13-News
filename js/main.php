@@ -223,6 +223,8 @@ function edittemplates(){
 		}
 	}else if(document.getElementById('templateaction').value == 'createcopy'){
 		document.getElementById('edittemplateform').submit();	
+	}else if(document.getElementById('templateaction').value == 'export'){
+		document.getElementById('edittemplateform').submit();	
 	}
 }
 function editbannedips(){

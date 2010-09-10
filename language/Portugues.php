@@ -685,6 +685,15 @@ $langmsg['templates'][133] = x("Exibe o título amigável da notícia.");
 $langmsg['templates'][134] = x("Formulário de Busca");
 $langmsg['templates'][135] = x("Resultados da pesquisa");
 $langmsg['templates'][136] = x("Envio de arquivos");
+$langmsg['templates'][137] = x("Importação");
+$langmsg['templates'][138] = x("Carregar um modelo exportado (s) arquivo");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Colar exportados modelo (s)");
+$langmsg['templates'][141] = x("Importação");
+$langmsg['templates'][142] = x("Modelo (s) importado");
+$langmsg['templates'][143] = x("Sem modelos foram importados");
+$langmsg['templates'][144] = x("Exportação");
+$langmsg['templates'][145] = x("Importar modelos.");
 
 #-----UPLOADED FILES
 $langmsg['uploadedfiles'][0] = x("Transferências de arquivo pela rede da lima");

@@ -685,6 +685,15 @@ $langmsg['templates'][133] = x("Geeft de vriendelijke titel van het nieuwsberich
 $langmsg['templates'][134] = x("Zoekformulier");
 $langmsg['templates'][135] = x("Zoekresultaten");
 $langmsg['templates'][136] = x("Geüploade bestanden");
+$langmsg['templates'][137] = x("Invoer");
+$langmsg['templates'][138] = x("Upload een geëxporteerde sjabloon bestand (en)");
+$langmsg['templates'][139] = x("Uploaden");
+$langmsg['templates'][140] = x("Plakken uitgevoerd template (s)");
+$langmsg['templates'][141] = x("Invoer");
+$langmsg['templates'][142] = x("Template (s) zijn ingevoerd");
+$langmsg['templates'][143] = x("Geen sjablonen zijn ingevoerd");
+$langmsg['templates'][144] = x("Uitvoer");
+$langmsg['templates'][145] = x("Import sjablonen.");
 
 #-----UPLOADED FILES
 $langmsg['uploadedfiles'][0] = x("Bestand uploaden");

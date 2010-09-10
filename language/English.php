@@ -687,6 +687,15 @@ $langmsg['templates'][133] = x("Displays the friendly title of the news article.
 $langmsg['templates'][134] = x("Search form");
 $langmsg['templates'][135] = x("Search results");
 $langmsg['templates'][136] = x("Uploaded files");
+$langmsg['templates'][137] = x("Import");
+$langmsg['templates'][138] = x("Upload an exported template(s) file");
+$langmsg['templates'][139] = x("Upload");
+$langmsg['templates'][140] = x("Paste exported template(s)");
+$langmsg['templates'][141] = x("Import");
+$langmsg['templates'][142] = x("Template(s) imported");
+$langmsg['templates'][143] = x("No templates have been imported");
+$langmsg['templates'][144] = x("Export");
+$langmsg['templates'][145] = x("Import templates.");
 
 #-----UPLOADED FILES
 $langmsg['uploadedfiles'][0] = x("File Uploads");
