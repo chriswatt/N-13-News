@@ -180,7 +180,7 @@ function templateform(){
 			$searchresults			= displayhtml($_POST['searchresults']);
 		}	
  	}elseif($_GET['edit'] == "true"){
- 		echo "<div class=panel>".$langmsg['templates'][79]."</div><br>";
+ 		echo "<div class=\"subheaders\">".$langmsg['templates'][79]."</div>";
  		if(!$_POST['S1']){
 		 	$templateid = $_GET['id'];
             $all = DataAccess::fetch("SELECT * FROM " . NEWS_TEMPLATES . " WHERE id = ?", $templateid);
@@ -223,10 +223,9 @@ function templateform(){
  	}
 
 	echo "<form method=post action=\"\">";
-	echo "<table width=\"100%\">";
-	echo "<tr><td width=\"40\">".$langmsg['templates'][2]."</td><td><input type=text size=\"40\" name=\"templatename\" value=\"$templatename\"></td></tr>";
-	echo "<tr><td colspan=2><hr></td></tr>";
-	echo "</table>";
+	echo "<div class=\"subheaders_body displaytable\" style=\"height: 25px\">";
+	echo $langmsg['templates'][2]." <input type=text size=\"40\" style=\"margin-left: 40px\" name=\"templatename\" value=\"$templatename\">";
+	echo "</div>";
 
 	// comments
 	echo "<div class=\"subheaders clickable clickable\" style=\"\" onclick=\"toggle_section2('comments')\">".$langmsg['templates'][21]."</div>";
