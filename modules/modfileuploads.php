@@ -221,12 +221,15 @@ function fileuploadform(){
 	}
 
 	echo "</td></tr>";
-	echo "<tr><td>".$langmsg['uploadedfiles'][15]."</td><td><input type=\"text\" name=\"file_title\" style=\"width: 300px\" /></td></tr>";
+	
 	echo "<tr><td valign=top>";
 	echo $langmsg['uploadedfiles'][4];
 	echo "</td><td> <input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"10000000\" />\n";
-	echo "\n<input name=\"uploadedfile\" type=\"file\" />";
-	echo "<input type=\"submit\" name=\"S1\" value=\"".$langmsg['uploadedfiles'][2]."\"><br />\n";
+	echo "\n<input name=\"uploadedfile[]\" type=\"file\" />";
+	echo "\n<input name=\"uploadedfile[]\" type=\"file\" />";
+	echo "\n<input name=\"uploadedfile[]\" type=\"file\" />";
+	echo "\n<input name=\"uploadedfile[]\" type=\"file\" />";
+	echo "<br /><input type=\"submit\" name=\"S1\" value=\"".$langmsg['uploadedfiles'][2]."\"><br />\n";
 	echo "</form>";
 	echo "</td></tr>";
 	echo "</table>";
@@ -243,54 +246,58 @@ if(!$_GET['fileuid']){
 			fileuploadform();
 		}else{
 			$e = 0;
-			$filename			= basename($_FILES['uploadedfile']['name']);
-			$filename			= str_replace(" ", "_", $filename);
-			$filename_length	= strlen($filename);
-			$filename_extension	= strrchr($filename, ".");
-			$filename_extension	= strtolower($filename_extension);
-			$filename_extension	= str_replace(".","",$filename_extension);
-			$minetype			= $_FILES['uploadedfile']['type'];
-			$allowed			= "true";
-			$allowedfiletypes	= explode(" ",$uploadedfiletypes);
-			if(!in_array($filename_extension,$allowedfiletypes)){
-				$allowed = false;	
-			}
-
-			if($allowed == "true"){
-				$target_path = $uploaddir;
-				$target_path = $target_path . $filename;
-
-				#check if a file already exists with that name
-				if(file_exists($uploaddir . $filename)){
-					echo " <span class=\"error\">" . $filename . " - " . $langmsg['uploadedfiles'][30]."</span>";
-				}elseif(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
-					$filesize		= filesize($uploaddir . $filename);
-					$filesize		= ($filesize / 1000);
-					echo " <span class=\"success\">" . $filename . " - " . $langmsg['uploadedfiles'][6]."</span>";
-					$title			= $_POST['file_title'];
-					$file			= basename($filename);
-					$uploader		= $_SESSION['uid'];
-					$g				= $currentpath;
-					$x				= explode("admin.php",$g);
-					$url			= $x[0] . $uploaddir . $filename;
-					$timestamp		= time();
-					DataAccess::put("INSERT INTO " . NEWS_FILES . " (title, url, filesize, downloadcount, author, timestamp) VALUES (?, ?, ?, ?, ?, ?)", $title, $url, $filesize, "0", $uploader, $timestamp);
-					$fileuid = $_SESSION['insert_id'];
-					$_POST['cats'] = (empty($_POST['cats'])) ? array() : $_POST['cats'];
-					if(count($_POST['cats']) > 0){	 
-						foreach($_POST['cats'] as $catid){					
-							DataAccess::put("INSERT INTO " . NEWS_GROUPCATS . " (storyid, catid, type) VALUES (?, ?, ?)", $fileuid, $catid, "file");
-						}
+			$j = 1;
+			while($e < count($_FILES['uploadedfile']['name'])){
+				if($_FILES['uploadedfile']['name'][$e]){
+					$filename			= basename($_FILES['uploadedfile']['name'][$e]);
+					$filename			= str_replace(" ", "_", $filename);
+					$filename_length	= strlen($filename);
+					$filename_extension	= strrchr($filename, ".");
+					$filename_extension	= strtolower($filename_extension);
+					$filename_extension	= str_replace(".","",$filename_extension);
+					$minetype			= $_FILES['uploadedfile']['type'][$e];
+					$allowed			= "true";
+					$allowedfiletypes	= explode(" ",$uploadedfiletypes);
+					if(!in_array($filename_extension,$allowedfiletypes)){
+						$allowed = false;	
 					}
-				}else{
-					echo " <span class=\"leftnavmain error\">" . $filename . " - ".  $langmsg['uploadedfiles'][7]."</span>";
+
+					if($allowed == "true"){
+						$target_path = $uploaddir;
+						$target_path = $target_path . $filename;
+
+						#check if a file already exists with that name
+						if(file_exists($uploaddir . $filename)){
+							echo " <span class=\"error\">" . $filename . " - " . $langmsg['uploadedfiles'][30]."</span>";
+						}elseif(move_uploaded_file($_FILES['uploadedfile']['tmp_name'][$e], $target_path)) {
+							$filesize		= filesize($uploaddir . $filename);
+							$filesize		= ($filesize / 1000);
+							echo " <span class=\"success\">" . $filename . " - " . $langmsg['uploadedfiles'][6]."</span>";
+							$title			= $_POST['file_title'];
+							$file			= basename($filename);
+							$uploader		= $_SESSION['uid'];
+							$g				= $currentpath;
+							$x				= explode("admin.php",$g);
+							$url			= $x[0] . $uploaddir . $filename;
+							$timestamp		= time();
+							DataAccess::put("INSERT INTO " . NEWS_FILES . " (title, url, filesize, downloadcount, author, timestamp) VALUES (?, ?, ?, ?, ?, ?)", $title, $url, $filesize, "0", $uploader, $timestamp);
+							$fileuid = $_SESSION['insert_id'];
+							$_POST['cats'] = (empty($_POST['cats'])) ? array() : $_POST['cats'];
+							if(count($_POST['cats']) > 0){	 
+								foreach($_POST['cats'] as $catid){					
+									DataAccess::put("INSERT INTO " . NEWS_GROUPCATS . " (storyid, catid, type) VALUES (?, ?, ?)", $fileuid, $catid, "file");
+								}
+							}
+						}else{
+							echo " <span class=\"leftnavmain error\">" . $filename . " - ".  $langmsg['uploadedfiles'][7]."</span>";
+						}
+					}else{
+						echo " <span class=\"leftnavmain error\">" . $filename ." - " . $langmsg['uploadedfiles'][8]."</span>";
+					}
+					$j++;
 				}
-			}else{
-				echo " <span class=\"leftnavmain error\">" . $filename ." - " . $langmsg['uploadedfiles'][8]."</span>";
+				$e++;				
 			}
-			$j++;
-			$e++;
-			fileuploadform();
 		}
 	}
 }else{
