@@ -214,7 +214,7 @@ $phpversion = explode(".", phpversion());
 $majorversion = $phpversion['0'];
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  
@@ -263,7 +263,6 @@ $majorversion = $phpversion['0'];
 			}else{
 				senddata(next);
 			}
-			
 		}
 	}
 </script>
@@ -556,6 +555,10 @@ $majorversion = $phpversion['0'];
 	<?php 
 	 } 
 	if(!$_GET['step']){ ?>
+		<?php
+			unset($_SESSION);
+			session_destroy();
+		?>
 		<form method="post" action="?step=1" />
 		<div class="subheaders">Select a language</div>
 		<div class="subheaders_body displaytable">				
