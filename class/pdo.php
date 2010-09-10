@@ -21,7 +21,7 @@ class DataAccess {
 
 	public function establish_db_conn(){
 		$db = new PDO("mysql:host=" . HOSTNAME . ";dbname=" . DATABASE, USER, PASS);   
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		#$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		return $db; 
 	}
 	public function close_db_conn(){
@@ -35,12 +35,21 @@ class DataAccess {
 		$link	= DataAccess::establish_db_conn();
 		$stmt = $link->prepare($sql);
 		
-		if($stmt->execute($args)){
-			$_SESSION['insert_id'] = $link->lastInsertId();
-			return true;
+		$stmt->execute($args);
+		$errorinfo = $stmt->errorInfo();
+		if($errorinfo[0] == "00000"){
+			$results = $stmt->fetchAll();
 		}else{
-			return false;
+			if($_SESSION['showerrors'] == true){
+				$_SESSION['errorcount']++;
+				$_SESSION['errors'][] = '<strong style="color: #AA0000">Error</strong>: ' . $errorinfo[2] . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: <pre>' . print_r($args, true) . "</pre>";
+			}else{	
+				die('<strong style="color: #AA0000">Error</strong>: ' . $errorinfo[2] . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: <pre>' . print_r($args, true) . "</pre>");
+			}
 		}
+
+		$_SESSION['insert_id'] = $link->lastInsertId();
+		return true;
 	}
 	public function fetch(){
 		//get args passed to fuction
@@ -51,8 +60,17 @@ class DataAccess {
 		$stmt = $link->prepare($sql);
 
 		$stmt->execute($args);
-
-		$results = $stmt->fetchAll();
+		$errorinfo = $stmt->errorInfo();
+		if($errorinfo[0] == "00000"){
+			$results = $stmt->fetchAll();
+		}else{
+			if($_SESSION['showerrors'] == true){
+				$_SESSION['errorcount']++;
+				$_SESSION['errors'][] = '<strong style="color: #AA0000">Error</strong>: ' . $errorinfo[2] . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: <pre>' . print_r($args, true) . "</pre>";
+			}else{	
+				die('<strong style="color: #AA0000">Error</strong>: ' . $errorinfo[2] . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: <pre>' . print_r($args, true) . "</pre>");
+			}
+		}
 		DataAccess::close_db_conn();
 
 		return $results;

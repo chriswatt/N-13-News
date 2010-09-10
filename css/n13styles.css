@@ -304,6 +304,10 @@ table, tr, td {
 .ok {
 	color: #118811;
 }
+.notok {
+	color: #AA0000;
+
+}
 .subheaders {
 	-moz-border-radius:5px 5px 0px 0px;
 	-khtml-border-radius:5px 5px 0px 0px; -webkit-border-radius:5px 5px 0px 0px;

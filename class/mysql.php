@@ -55,7 +55,13 @@ class DataAccess {
 			return true;
 		}else{
 			$error = mysql_error($link);
-			die('<strong style="color: #AA0000">Error</strong>: ' . $error . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: ' . implode(",", $args));
+			
+			if($_SESSION['showerrors'] == true){
+				$_SESSION['errorcount']++;
+				$_SESSION['errors'][] = '<strong style="color: #AA0000">Error</strong>: ' . $error . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: <pre>' . print_r($args, true) . "</pre>";
+			}else{	
+				die('<strong style="color: #AA0000">Error</strong>: ' . $error . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: <pre>' . print_r($args, true) . "</pre>");
+			}
 			return false;
 		}
 		
@@ -97,7 +103,12 @@ class DataAccess {
 			return $results;
 		}else{
 			$error = mysql_error($link);
-			die('<strong style="color: #AA0000">Error</strong>: ' . $error . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: ' . implode(",", $args));
+			if($_SESSION['showerrors'] == true){
+				$_SESSION['errorcount']++;
+				$_SESSION['errors'][] = '<strong style="color: #AA0000">Error</strong>: ' . $error . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: <pre>' . print_r($args, true) . "</pre>";
+			}else{	
+				die('<strong style="color: #AA0000">Error</strong>: ' . $error . ' <br /><strong style="color: #AA0000">Statement</strong>: ' . $sql . ' <br /><strong style="color: #AA0000">Arguments</strong>: <pre>' . print_r($args, true) . "</pre>");
+			}
 			return false;
 		}
 	}

@@ -45,7 +45,10 @@ $_POST['install'] = (empty($_POST['install'])) ? '' : $_POST['install'];
 if($_POST['install'] == "true"){
 	require_once(ABSPATH . 'db.php');
 	require_once(ABSPATH . 'functions.php');
+	$_SESSION['showerrors'] = true;
 	if($_POST['next'] == "sql.txt"){
+		$_SESSION['show_errors'] = true;
+		$_SESSION['errorcount'] = 0;
 		// drop all existing tables
 		DataAccess::put("DROP TABLE IF EXISTS news30_access, news30_accesslogs, news30_banned, news30_cats, news30_comments, news30_files, news30_filter, news30_groupcats, news30_images, news30_linkedfiles, news30_options, news30_private, news30_privateout, news30_rating, news30_rssfeeds, news30_smilies, news30_story, news30_templates, news30_users");
 		$querycount++;
@@ -69,13 +72,28 @@ if($_POST['install'] == "true"){
 			DataAccess::put("UPDATE " . NEWS_SMILIES . " SET path = '$newpath' WHERE id = '$row[id]'");
 			$querycount++;
 		}	
-		echo "sql.txt~~" . $querycount . "~~OK~~sqlchanges.txt";
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}
+		echo "sql.txt~~" . $querycount . "~~$ok~~sqlchanges.txt";
 	}elseif($_POST['next'] == "sqlchanges.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges.txt');
-		echo "sqlchanges.txt~~" . $querycount . "~~OK~~sqlchanges32.txt";
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}
+		echo "sqlchanges.txt~~" . $querycount . "~~$ok~~sqlchanges32.txt";
 	}elseif($_POST['next'] == "sqlchanges32.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges32.txt');
-		echo "sqlchanges32.txt~~" . $querycount . "~~OK~~sqlchanges33.txt";
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}		
+		echo "sqlchanges32.txt~~" . $querycount . "~~$ok~~sqlchanges33.txt";
 	}elseif($_POST['next'] == "sqlchanges33.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges33.txt');
 
@@ -95,13 +113,28 @@ if($_POST['install'] == "true"){
 		$uploadpath = "http://" . $uploadpath;
 		DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET uploadpath = '$uploadpath' WHERE 1");	
 		$querycount++;
-		echo "sqlchanges33.txt~~" . $querycount . "~~OK~~sqlchanges34.txt";
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}		
+		echo "sqlchanges33.txt~~" . $querycount . "~~$ok~~sqlchanges34.txt";
 	}elseif($_POST['next'] == "sqlchanges34.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges34.txt');
-		echo "sqlchanges34.txt~~" . $querycount . "~~OK~~sqlchanges35.txt";
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}		
+		echo "sqlchanges34.txt~~" . $querycount . "~~$ok~~sqlchanges35.txt";
 	}elseif($_POST['next'] == "sqlchanges35.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges35.txt');
-		echo "sqlchanges35.txt~~" . $querycount . "~~OK~~sqlchanges36.txt";
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}		
+		echo "sqlchanges35.txt~~" . $querycount . "~~$ok~~sqlchanges36.txt";
 	}elseif($_POST['next'] == "sqlchanges36.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges36.txt');
 
@@ -109,12 +142,21 @@ if($_POST['install'] == "true"){
 		// delete the old catid column
 		DataAccess::put("ALTER TABLE " . NEWS_ARTICLES . " DROP catid");
 		
-		echo "sqlchanges36.txt~~" . $querycount . "~~OK~~sqlchanges37.txt";
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}
+		echo "sqlchanges36.txt~~" . $querycount . "~~$ok~~sqlchanges37.txt";
 	}elseif($_POST['next'] == "sqlchanges37.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges37.txt');
 		
-
-		echo "sqlchanges37.txt~~" . $querycount . "~~OK~~sqlchanges40.txt~~";
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}
+		echo "sqlchanges37.txt~~" . $querycount . "~~$ok~~sqlchanges40.txt~~";
 	}elseif($_POST['next'] == "sqlchanges40.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges40.txt');
 		
@@ -151,8 +193,17 @@ if($_POST['install'] == "true"){
 		$querycount++;
 	
 		require_once(ABSPATH . '/langmsg.php');
-		$finishmessage = $langmsg['install'][24] . " <a href=\"../admin.php\">" . $langmsg['install'][25] . "</a><hr />";	
-		echo "sqlchanges37.txt~~" . $querycount . "~~OK~~finished~~" . $finishmessage;		
+		$finishmessage = "<div class=\"success\">" . $langmsg['install'][24] . " <a href=\"../admin.php\">" . $langmsg['install'][25] . "</a></div>";	
+		if($_SESSION['errorcount'] > 0){
+			$ok = "ERROR";
+		}else{
+			$ok = "OK";
+		}
+		if($_SESSION['errors'] > 0){
+			echo "sqlchanges37.txt~~" . $querycount . "~~$ok~~finished~~" . "<div class=\"error\">" . implode(",", $_SESSION['errors']) . "</div>";
+		}else{
+			echo "sqlchanges37.txt~~" . $querycount . "~~$ok~~finished~~" . $finishmessage;
+		}
 	}
 	die();
 }
@@ -165,10 +216,11 @@ $majorversion = $phpversion['0'];
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
 <head> 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../style.css" rel="stylesheet" type="text/css" />
-<title>N-13 News 4.0</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+	<link href="../css/n13styles.css" rel="stylesheet" type="text/css" />
+	
+	<title>N-13 News 4.0</title>
 
 <script language="javascript">
 	function createXMLHttpRequest(){
@@ -196,11 +248,16 @@ $majorversion = $phpversion['0'];
 			var status	= data[2];
 			var next	= data[3];
 			var finish	= data[4];
+			var errors	= data[5];
 			var result = current + ' ' + queries + ' ' + status + ' ' + next;
-			result = '<span style=\"float: right\">' + queries + ' Queries -  <span class=\"success\">' + status + '</span></span><br style=\"clear: both\" />';
+			if(status == "ERROR"){
+				result = '<span style=\"float: right\">' + queries + ' Queries -  <span class=\"notok\">' + status + '</span></span><br style=\"clear: both\" />';
+			}else{
+				result = '<span style=\"float: right\">' + queries + ' Queries -  <span class=\"ok\">' + status + '</span></span><br style=\"clear: both\" />';
+			}
 			document.getElementById('install_results').innerHTML = document.getElementById('install_results').innerHTML + result + '';
 			if(next == 'finished'){
-				document.getElementById('status_icon').src = '../images/green_tick.gif';
+				document.getElementById('status_icon').style.display = 'none';
 				document.getElementById('finish_message').innerHTML = finish;
 				//alert('done');
 			}else{
@@ -210,72 +267,106 @@ $majorversion = $phpversion['0'];
 		}
 	}
 </script>
+<style>
+#systemCont {
+	width:749px;
+}
 
+#outterCont {
+	
+}
+#menuCont {
+	
+}
+#subMenuCont {
+	display: none;
+}
+</style>
 </head>
-<body style="padding: 0px; margin: 0px; background-color: #15497c; background-image: url('../images/bgrepeat.png'); background-repeat: repeat-x"><strong></strong>
-<div align="center">
+<body>
+<!-- TOP MENU -->
+<div id="outterCont">
+<div id="menuCont">
+	</div><!--menu-->
+</div><!--menuContainer-->
+<div id="menuShadow"></div>
+</div>	
 
 
 
+<!-- SUB MENU -->
+<div id="systemCont">
 
 
-<div align="center" style="padding-top: 40px;">
-	<div style="width: 729px;">
-		<div style="background-position: 0px 50%; background-image: url('../images/content_top.png'); background-repeat: no-repeat; height: 12px;"></div>
-			<div style="margin-top: -3px; text-align: left; background-position: 0px 50%; background-image: url('../images/content_repeat.png'); background-repeat: repeat-y;">
-
-
+	<div id="pageCont">		
 
 
 
+		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->
+<div id="pageRight">
 
-<table border="0" style="" cellpadding="20" cellspacing="0" width="730" style="background-image:url(../images/index_03.png)">
-<tr><td width="100%" style="padding-bottom: 0px; padding-top: 10px">
-<div style='background-image: url("../images/headertest.png"); width: 682px; background-repeat: repeat-x; height: 30px;'>
-<span class="header">N-13 News Installer</span>
-</div>
-</td></tr>
-  <tr>
-    <td width="100%">
-		<?php 
-		$_GET['step'] = (empty($_GET['step'])) ? '' : $_GET['step'];
-		$_POST['install_language'] = (empty($_POST['install_language'])) ? '' : $_POST['install_language'];
-		if($_GET['step'] == "3"){
-			require_once(ABSPATH . 'db.php');
-		}
-		if($_GET['step']){
-			if($_POST['install_language']){
-				$_POST['install_language'] = strtolower($_POST['install_language']);
-				if(@file_exists(ABSPATH . 'language/' . $_POST['install_language'] . '.php')){
-					$_SESSION['language'] = $_POST['install_language'];
-				}else{
-					$_SESSION['language'] = "english";	
-				}
-				require_once(ABSPATH . 'functions.php');
-				require_once(ABSPATH . 'language/' . $_SESSION['language'] . '.php');
+
+
+<div style='background-image: url("../images/headertest.png"); background-repeat: repeat-x; height: 30px;'>
+<div class="headertitle">
+<?php
+	$_GET['step'] = (empty($_GET['step'])) ? '' : $_GET['step'];
+	$_POST['install_language'] = (empty($_POST['install_language'])) ? '' : $_POST['install_language'];
+	if($_GET['step'] == "3"){
+		require_once(ABSPATH . 'db.php');
+	}
+	if($_GET['step']){
+		if($_POST['install_language']){
+			$_POST['install_language'] = strtolower($_POST['install_language']);
+			if(@file_exists(ABSPATH . 'language/' . $_POST['install_language'] . '.php')){
+				$_SESSION['language'] = $_POST['install_language'];
 			}else{
-				require_once(ABSPATH . 'functions.php');
-				require_once(ABSPATH . 'language/' . $_SESSION['language'] . '.php');
+				$_SESSION['language'] = "english";	
 			}
-		}	
+			require_once(ABSPATH . 'functions.php');
+			require_once(ABSPATH . 'language/' . $_SESSION['language'] . '.php');
+		}else{
+			require_once(ABSPATH . 'functions.php');
+			require_once(ABSPATH . 'language/' . $_SESSION['language'] . '.php');
+		}
+	}
+?>
+<span class="header">N-13 News Installer</span><?php
+	if(!$_GET['step']){
+		echo "<span class=\"header\">Language</span>";
+	}elseif($_GET['step'] == "1"){
+		echo "<span class=\"header\">" . $langmsg['install'][0] . "</span>";
+	}elseif($_GET['step'] == "2"){
+		echo "<span class=\"header\">" . $langmsg['install'][11] . "</span>";
+	}
+?>
+</span></div>
+</div>
+		<?php
 		if(!$_GET['step']){
-			echo "<span class=\"header\">Step 0 <span style=\"color: #EEEEEE\">> Step 1 > Step 2 > Step 3 </span><br /><br />&nbsp;Language</span><br /><br />";
+			echo "<span class=\"header\">Step 0 <span style=\"color: #AAAAAA\">> Step 1 > Step 2 > Step 3 </span><br /></span><br /><br />";
 		}elseif($_GET['step'] == "1"){
-			echo "<span class=\"header\"><span style=\"color: #EEEEEE\">Step 0 ></span> Step 1 <span style=\"color: #EEEEEE\">> Step 2 > Step 3 </span><br /><br />". $langmsg['install'][0] . "</span><br /><br />";
+			echo "<span class=\"header\"><span style=\"color: #AAAAAA\">Step 0 ></span> Step 1 <span style=\"color: #AAAAAA\">> Step 2 > Step 3 </span><br /></span><br /><br />";
 		}elseif($_GET['step'] == "2"){
-			echo "<span class=\"header\"><span style=\"color: #EEEEEE\">Step 0 > Step 1 ></span> Step 2 <span style=\"color: #EEEEEE\">> Step 3</span><br /><br />" . $langmsg['install'][11] . "</span><br /><br />";		 
+			echo "<span class=\"header\"><span style=\"color: #AAAAAA\">Step 0 > Step 1 ></span> Step 2 <span style=\"color: #AAAAAA\">> Step 3</span><br /></span><br /><br />";		 
 		}elseif($_GET['step'] == "3"){
-			echo "<span class=\"header\"><span style=\"color: #EEEEEE\">Step 0 > Step 1 > Step 2 ></span> Step 3<br /><br />" . $langmsg['install'][22] . "</span><br /><br />";
+			echo "<span class=\"header\"><span style=\"color: #AAAAAA\">Step 0 > Step 1 > Step 2 ></span> Step 3<br /></span><br /><br />";
 		}
 		?>    
     <?php
 		if($_GET['step'] == "3"){
-			echo "<div style=\"padding-left: 150px; padding-right: 50px\">";
-			#echo "Installing <div style=\"float: right\">OK</div>";			
-			echo "<br style=\"clear: both\" />";
+			#echo "<div class=\"subheaders\"></div>";
+			#cho "Installing <div style=\"float: right\">OK</div>";			
+			
 			echo "<div id=\"finish_message\"></div>";
+			echo "<div class=\"subheaders\">" . $langmsg['install'][22] . "</div>";
+			echo "<div class=\"subheaders_body displaytable\">";
 			echo "<div id=\"install_results\" style=\"\"></div>";
-			echo "<div style=\"float: right\"><img src=\"../images/loadingspiral.gif\" id=\"status_icon\" /></div></div>";
+			echo "<img src=\"../images/loadingspiral.gif\" id=\"status_icon\" />";
+			echo "</div>";
 			echo "<script language=\"javascript\">senddata('sql.txt');</script>";
 		}
      if($_GET['step'] == "2"){
@@ -287,18 +378,18 @@ $majorversion = $phpversion['0'];
 		
 	 	function installacdetails($install,$error){
 	 		global $langmsg;
+			echo $error;
 			echo '<form method="post" action="?step=2" />';
-			echo '<div style="margin-left: 200px; background-color: #FFFFFF">';
-			echo '<div>' . $langmsg['install'][12] . '</div>';
-			echo $error . "<br />";
+			echo '<div class="subheaders">' . $langmsg['install'][12] . '</div>';
+			echo "<div class=\"subheaders_body displaytable\">";
 			echo '<table width="100%" cellpadding="0" cellspacing="2">';
 			
-			echo '		<tr><td style="width: 100px">' . $langmsg['install'][4] . '</td><td><input type="text" value="'.$_POST['loginusername'].'" name="loginusername" /></td></tr>';
+			echo '		<tr><td style="width: 130px">' . $langmsg['install'][4] . '</td><td><input type="text" value="'.$_POST['loginusername'].'" name="loginusername" /></td></tr>';
 			echo '		<tr><td style="width: 100px">' . $langmsg['install'][13] . '</td><td><input value="'.$_POST['loginemail'].'" type="text" name="loginemail" /></td></tr>';
 			echo '		<tr><td style="width: 100px">' . $langmsg['install'][5] . '</td><td><input value="'.$_POST['loginpassword1'].'" type="password" name="loginpassword1" /></td></tr>';
 			echo '		<tr><td style="width: 100px">' . $langmsg['install'][14] . '</td><td><input value="'.$_POST['loginpassword2'].'" type="password" name="loginpassword2" /></td></tr>';					
 			echo '		<tr><td style="width: 100px">&nbsp;</td><td>';
-			echo '<div id="installmsg" style="display: none; position: absolute; width: 250px; height: 50px; background-color: #FFFFFF; padding-left: 3px;">' . $langmsg['install'][30] . '</div>';
+			echo '<div id="installmsg" style="display: none; position: absolute; width: 250px; height: 50px; padding-left: 3px;">' . $langmsg['install'][30] . '</div>';
 			echo '<button type="submit" name="S1" value="Continue">' . $langmsg['install'][15] . '</button>&nbsp;';
 			if($install == false){
 				echo "<button type=\"submit\" name=\"install\" value=\"Install\" disabled=\"disabled\">" . $langmsg['install'][21] . "</button>";
@@ -316,17 +407,17 @@ $majorversion = $phpversion['0'];
 	    if(!$_POST['S1']){
 	     	installacdetails(false,"");
 	    }elseif(!$_POST['loginusername']){
-	     	installacdetails(false,"<span style=\"color: #FF0000\">" . $langmsg['install'][16] . "</span><br />");
+	     	installacdetails(false,"<span class=\"error\">" . $langmsg['install'][16] . "</span>");
 	    }elseif(!$_POST['loginemail']){
-	     	installacdetails(false,"<span style=\"color: #FF0000\">" . $langmsg['install'][17] . "</span><br />");
+	     	installacdetails(false,"<span class=\"error\">" . $langmsg['install'][17] . "</span>");
 	    }elseif($_POST['loginpassword1'] == $_POST['loginpassword2']){
 	     	if($_POST['loginpassword1'] == "" || $_POST['loginpassword2'] == ""){
-	     	 	installacdetails(false,"<span style=\"color: #FF0000\">" . $langmsg['install'][18] . "</span><br />");	
+	     	 	installacdetails(false,"<span class=\"error\">" . $langmsg['install'][18] . "</span>");	
 	     	}else{
-	     		installacdetails(true,"<span style=\"color: #00AA00\">" . $langmsg['install'][19] . "</span><br />");
+	     		installacdetails(true,"<span class=\"success\">" . $langmsg['install'][19] . "</span>");
 	     	}
 	    }else{
-	    		installacdetails(false,"<span style=\"color: #FF0000\">" . $langmsg['install'][20] . "</span><br />");
+	    		installacdetails(false,"<span class=\"error\">" . $langmsg['install'][20] . "</span>");
 	    }
 	}												               
     ?>
@@ -334,8 +425,9 @@ $majorversion = $phpversion['0'];
 	 if($_GET['step'] == "1"){ ?>
 		<form method="post" action="?step=1" />
 
-		<div style="margin-left: 200px; background-color: #FFFFFF">
-			<div><?php echo $langmsg['install'][1]; ?></div><br />
+		<div style="">
+			<div class="subheaders"><?php echo $langmsg['install'][1]; ?></div>
+			<div class="subheaders_body displaytable">
 		   <?php 
 		   			
 			if($_POST['S1'] == "Test Connection"){ 
@@ -356,18 +448,9 @@ $majorversion = $phpversion['0'];
 				}elseif($dbextension == "pdo"){
 					if(in_array('PDO', @get_loaded_extensions()) && in_array('pdo_mysql', @get_loaded_extensions())){
 						$c = true;
-						try{
-							$connection = new PDO("mysql:host=$dbserver;dbname=$dbdatabase",$dbusername,$dbpassword);
-						}catch(PDOException $pe){
-							$servererror = $pe->getMessage();
-							$c = false;
-						}
-						if($c){
-							$connection = true;
-							$db = true;
-						}			
+						require_once(ABSPATH . '/class/pdoinstall.php');
 					}else{
-						echo "<span class=\"error\">" . $langmsg['install'][32] . "</span>";
+						echo "<span class=\"notok\">" . $langmsg['install'][32] . "</span>";
 					}				
 		
 				}elseif($dbextension == "mysqli"){
@@ -377,14 +460,14 @@ $majorversion = $phpversion['0'];
 						$servererror	= mysqli_connect_error();
 						$dberror		= mysqli_connect_error();
 					}else{
-						echo "<span class=\"error\">" . $langmsg['install'][31] . "</span>";
+						echo "<span class=\"notok\">" . $langmsg['install'][31] . "</span>";
 					}
 				}
 
 				if($connection){
-					echo "<div style=\"float: left; width: 150px\">" . $langmsg['install'][8] . "</div><span class=success>OK</span><br />";
+					echo "<div style=\"float: left; width: 150px\">" . $langmsg['install'][8] . "</div><span class=ok>OK</span><br />";
 					if($db){
-						echo "<div style=\"float: left; width: 150px\">" . $langmsg['install'][8] . "</div><span class=success>OK</span><br />";
+						echo "<div style=\"float: left; width: 150px\">" . $langmsg['install'][8] . "</div><span class=ok>OK</span><br />";
 						$_SESSION['step2']			= "ok";
 						$_SESSION['dbserver']		= $dbserver;
 						$_SESSION['dbusername']		= $dbusername;
@@ -411,18 +494,18 @@ $majorversion = $phpversion['0'];
 							echo "<script language=\"javascript\">window.location='?step=2';</script>";	
 						}else{
 							echo "<br />";
-							echo "<div class=error>" . $langmsg['install'][10] . "</div>";
+							echo "<div class=notok>" . $langmsg['install'][10] . "</div>";
 						}
 						echo "<br />";
 					}else{
-						echo "<div style=\"float: left; width: 150px\">" . $langmsg['install'][9] . "</div><span class=error>" . $dberror . "</span><br /><br />";
+						echo "<div style=\"float: left; width: 150px\">" . $langmsg['install'][9] . "</div><span class=notok>" . $dberror . "</span><br /><br />";
 					}
 				}else{
-					echo "<div style=\"float: left; width: 150px\">" . $langmsg['install'][8] . "</div><span class=error>" . $servererror . "</span><br /><br />";
+					echo "<div style=\"float: left; width: 150px\">" . $langmsg['install'][8] . "</div><span class=notok>" . $servererror . "</span><br /><br />";
 				}
 			}
 			?>
-			
+
 			
 			<table width="100%" cellpadding="0" cellspacing="2">
 				<tr>
@@ -469,13 +552,13 @@ $majorversion = $phpversion['0'];
 
 		</div>
 		</form>
+		</div>
 	<?php 
 	 } 
-	 if(!$_GET['step']){ ?>
+	if(!$_GET['step']){ ?>
 		<form method="post" action="?step=1" />
-
-		<div style="margin-left: 200px; background-color: #FFFFFF">				
-			
+		<div class="subheaders">Select a language</div>
+		<div class="subheaders_body displaytable">				
 			<div style="width: 100px; padding-top: 3px; float: left;">Language:</div>
 			<select name="install_language">
 			<?php
@@ -502,24 +585,16 @@ $majorversion = $phpversion['0'];
 		</div>
 		</form>
 	<?php } ?>
-    </td>       
-  </tr>
-</table>
 
 
 
 
 
-
-
-
-			</div>
-		<div style="margin-top: -3px; background-position: 0px 50%; background-image: url('../images/content_bottom.png'); background-repeat: no-repeat; height: 12px;"/></div>
-	</div>
-</div>
-
-
-<br />
-
-<span style="color: #FFFFFF">Powered by <a style="color: rgb(255, 255, 255);" href="http://network-13.com">N-13 News 4.0</a> &copy; 2010</span>
-</div>
+	</div><!--rightside-->
+	</div><!--pageCont-->
+	<!-- FOOTER or BOTTOM LINKS -->
+	<div id="btmLinks">
+	  <div id="eMonkeyz">DESIGNED BY:<div id="eMonkeyzIcon"><a href="http://emonkeyz.com" target="_blank"><img src="../images/page/spacer.gif" width="27" height="30" border="0" /></a></div></div>
+		<div id="network13"><a href="http://network-13.com">N-13 News Version 4.0</a></div>
+	</div><!--btmLinks-->
+</div><!--systemCont-->
