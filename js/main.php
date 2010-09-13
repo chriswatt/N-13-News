@@ -593,7 +593,9 @@ function toggle_section(id){
 function toggle_section2(id){
 	if(document.getElementById('section_'+id).style.display == "none"){
 		document.getElementById('section_'+id).style.display = 'table';
+		document.getElementById(id+'_hidden').value = '1';
 	}else{
 		document.getElementById('section_'+id).style.display = 'none';
+		document.getElementById(id+'_hidden').value = '0';
 	}
 }

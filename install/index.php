@@ -160,6 +160,9 @@ if($_POST['install'] == "true"){
 	}elseif($_POST['next'] == "sqlchanges40.txt"){
 		sqldump(ABSPATH . 'update/sqlchanges40.txt');
 		
+		// update the welcome article to use html
+		DataAccess::put("UPDATE " . NEWS_ARTICLES . " SET old = '0'");
+		
 		#make 3.7 Ajax Template the default.
 		$templateid = DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = '3.7 Ajax Template'");
 		$templateid = $templateid['0']['id'];

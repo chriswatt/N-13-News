@@ -228,8 +228,17 @@ function templateform(){
 	echo "</div>";
 
 	// comments
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['comments_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"comments_hidden\" name=\"comments_hidden\">";
 	echo "<div class=\"subheaders clickable clickable\" style=\"\" onclick=\"toggle_section2('comments')\">".$langmsg['templates'][21]."</div>";
-	echo "<div id=\"section_comments\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";
+	echo "<div id=\"section_comments\" class=\"subheaders_body\" style=\"width: 519px; $display\">";
 	echo $langmsg['templates'][22] . "<br><br>";
 	echo "<b>{author}</b> - " . $langmsg['templates'][23] . "<br>";
 	echo "<b>{avatar}</b> - " . $langmsg['templates'][25] . "<br>";
@@ -253,8 +262,17 @@ function templateform(){
 
 	
 	// comments form
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['commentsform_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"commentsform_hidden\" name=\"commentsform_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('commentsform')\">".$langmsg['templates'][32]."</div>";
-	echo "<div id=\"section_commentsform\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_commentsform\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][33] . "<br><br>";
 	echo "<b>{email}</b> - " . $langmsg['templates'][37] . "<br />";
 	echo "<b>{id}</b> - " . $langmsg['templates'][34] . "<br />";
@@ -268,8 +286,17 @@ function templateform(){
 	echo "</div>";
 	
 	// comments pagintation	
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['commentspagintation_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"commentspagintation_hidden\" name=\"commentspagintation_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('commentspagintation')\">".$langmsg['templates'][44]."</div>";
-	echo "<div id=\"section_commentspagintation\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_commentspagintation\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo "<b>[firstpage] & [/firstpage]</b> - " . $langmsg['templates'][112] ."<br />";
 	echo "<b>[lastpage] & [/lastpage]</b> - " . $langmsg['templates'][113] . "<br />";		
 	echo "<b>{pages}</b> - " . $langmsg['templates'][47] . "<br />";		
@@ -289,8 +316,17 @@ function templateform(){
 
 	
 	// comments structure
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['commentsstructure_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"commentsstructure_hidden\" name=\"commentsstructure_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('commentsstructure')\">".$langmsg['templates'][65]."</div>";
-	echo "<div id=\"section_commentsstructure\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_commentsstructure\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][66];
 	echo "<br /><br /><b>{news}</b> - " . $langmsg['templates'][67] . "<br />";
 	echo "<b>{commentforms}</b> - " . $langmsg['templates'][70] . "<br />";
@@ -304,8 +340,17 @@ function templateform(){
 
 	
 	// login form
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['commentsloginform_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"commentsloginform_hidden\" name=\"commentsloginform_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('commentsloginform')\">".$langmsg['templates'][119]."</div>";
-	echo "<div id=\"section_commentsloginform\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_commentsloginform\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][120];
 	echo "<br /><br />";
 	echo "<b>{loginerror}</b> - " . $langmsg['templates'][122] . "<br />";
@@ -316,8 +361,17 @@ function templateform(){
 	
 
 	// news
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['news_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"news_hidden\" name=\"news_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('news')\">".$langmsg['templates'][80]."</div>";
-	echo "<div id=\"section_news\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_news\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][3] . "<br><br>";
 	echo "<b>{author}</b> - " . $langmsg['templates'][9] . "<br>";
 	echo "<b>{avatar}</b> - " . $langmsg['templates'][10] . "<br>";
@@ -353,8 +407,17 @@ function templateform(){
 	
 
 	// news pagintation
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['newspagintation_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"newspagintation_hidden\" name=\"newspagintation_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('newspagintation')\">".$langmsg['templates'][40]."</div>";
-	echo "<div id=\"section_newspagintation\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_newspagintation\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo "<b>[firstpage] & [/firstpage]</b> - " . $langmsg['templates'][112] ."<br />";
 	echo "<b>[lastpage] & [/lastpage]</b> - " . $langmsg['templates'][113] . "<br />";		
 	echo "<b>[prev-link] & [/prev-link]</b> - " . $langmsg['templates'][45] . "<br />";
@@ -371,8 +434,17 @@ function templateform(){
 
 
 	// news structure
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['newsstructure_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"newsstructure_hidden\" name=\"newsstructure_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('newsstructure')\">".$langmsg['templates'][61]."</div>";
-	echo "<div id=\"section_newsstructure\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_newsstructure\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][62];
 	echo "<br /><br /><b>{news}</b> - " . $langmsg['templates'][63] . "<br />";
 	echo "<b>{pagintation}</b> - " . $langmsg['templates'][64] . "<br /><br />";
@@ -382,8 +454,17 @@ function templateform(){
 
 	
 	// profiles
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['profiles_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"profiles_hidden\" name=\"profiles_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('profiles')\">".$langmsg['templates'][48]."</div>";
-	echo "<div id=\"section_profiles\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_profiles\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][49] . "<br><br>";
 	echo "<b>{age}</b> - " . $langmsg['templates'][52] . "<br>";
 	echo "<b>{image}</b> - " . $langmsg['templates'][60] . "<br>";                				
@@ -403,8 +484,17 @@ function templateform(){
 	
 	
 	// registration form
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['registrationform_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"registrationform_hidden\" name=\"registrationform_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('registrationform')\">".$langmsg['templates'][71]."</div>";
-	echo "<div id=\"section_registrationform\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_registrationform\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][72];
 	echo "<br /><br />";
 	echo "<b>{errormessage}</b> - " . $langmsg['templates'][75] . "<br />";
@@ -418,8 +508,17 @@ function templateform(){
 
 
 	// search form
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['searchform_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"searchform_hidden\" name=\"searchform_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('searchform')\">".$langmsg['templates'][134]."</div>";
-	echo "<div id=\"section_searchform\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_searchform\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][126];
 	echo "<br /><br />";
 	echo "<b>[results] & [/results]</b> - " . "Anything placed between these tags only shows when there are search results" . "<br />";
@@ -431,8 +530,17 @@ function templateform(){
 
 
 	// search results
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['searchresults_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"searchresults_hidden\" name=\"searchresults_hidden\">";
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('searchresults')\">".$langmsg['templates'][135]."</div>";
-	echo "<div id=\"section_searchresults\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_searchresults\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][128];
 	echo "<br /><br />";
 	echo "<b>{author}</b> - " . $langmsg['templates'][9] . "<br>";
@@ -452,8 +560,17 @@ function templateform(){
 	
 	
 	// uploaded files
+	echo "<input type=\"hidden\" value=\"";
+	if($_POST['uploadedfiles_hidden'] == "1"){
+		echo "1";
+		$display = 'display: table';
+	}else{
+		echo "0";
+		$display = 'display: none';
+	}
+	echo "\" id=\"uploadedfiles_hidden\" name=\"uploadedfiles_hidden\">";	
 	echo "<div class=\"subheaders clickable\" style=\"\" onclick=\"toggle_section2('uploadedfiles')\">".$langmsg['templates'][136]."</div>";
-	echo "<div id=\"section_uploadedfiles\" class=\"subheaders_body\" style=\"width: 519px; display: none\">";	
+	echo "<div id=\"section_uploadedfiles\" class=\"subheaders_body\" style=\"width: 519px; $display\">";	
 	echo $langmsg['templates'][101];
 	echo "<br /><br />";
 	echo "<b>{downloadcount}</b> - " . $langmsg['templates'][108] . "<br />";
