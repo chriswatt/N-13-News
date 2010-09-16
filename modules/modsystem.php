@@ -59,7 +59,6 @@ function systemsettingsform(){
 	$cppage				= displayhtml($all['cppage']);
 	$spamtime			= displayhtml($all['spamtime']);
 	$imagefiletypes		= displayhtml($all['imagefiletypes']);
-	$timezone			= displayhtml($all['timezone']);
 	$uploadpath			= displayhtml($all['uploadpath']);
 	$catdelimiter		= displayhtml($all['catdelimiter']);
 	$noaccessmsg		= displayhtml($all['noaccessmsg']);
@@ -366,10 +365,6 @@ function systemsettingsform(){
 	echo "<table border=\"0\" cellpadding=\"1\" style=\"border-collapse: collapse\" bordercolor=\"#111111\" width=\"100%\">\n";		
 	
 	echo "  <tr>\n";
-	echo "    <td class=\"\">".$langmsg['system'][32]."</td>\n";
-	echo "    <td class=\"\"><input type=\"text\" name=\"T8\" style=\"width: 140px\"  value=\"$timezone\"> <a href=\"http://php.net/time\" target=\"_NEW\">Time()</a></td>\n";
-	echo "  </tr>\n";
-	echo "  <tr>\n";
 	echo "    <td>".$langmsg['system'][33]."</td>\n";
 	echo "    <td><input type=\"text\" name=\"T7\" style=\"width: 140px\" value=\"$imagefiletypes\"></td>\n";
 	echo "  </tr>\n";
@@ -432,7 +427,6 @@ if(!$_POST['B1']){
 	$cppage				= (empty($_POST['T5'])) ? '1' : $_POST['T5'];
 	$spamtime			= (empty($_POST['T6'])) ? '' : $_POST['T6'];
 	$imagefiletypes		= (empty($_POST['T7'])) ? '' : $_POST['T7'];
-	$timezone			= (empty($_POST['T8'])) ? '' : $_POST['T8'];
 	$uploadpath			= (empty($_POST['T9'])) ? '' : $_POST['T9'];
 	$noaccessmsg		= (empty($_POST['T10'])) ? '' : $_POST['T10'];
 	$spammsg			= (empty($_POST['spammsg'])) ? '' : $_POST['spammsg'];
@@ -495,7 +489,6 @@ if(!$_POST['B1']){
 	commentspop = ?,
 	spamtime = ?,
 	imagefiletypes = ?,
-	timezone = ?,
 	uploadpath = ?,
 	noaccessmsg = ?,
 	spammsg = ?,
@@ -525,7 +518,7 @@ if(!$_POST['B1']){
 	enabletail = ?
 	WHERE 1";
 	
-	DataAccess::put($sql, $nppage, $newsorder, $newstime, $showavatars, $commentsorder, $commentstime, $commentslength, $cppage, $commentspop, $spamtime, $imagefiletypes, $timezone, $uploadpath, $noaccessmsg, $spammsg, $commentmsg, $commentapprovemsg, $furlenabled, $furlprefix, $furldirname, $furlextension, $catdelimiter, $useimgverification, $registrationaccess, $registrationallow, $regcomment, $commentsnotify, $registernotify, $emailnotify, $unapprovednotify, $uploadedfiletypes, $publickey, $privatekey, $scriptpath, $deleteowncomments, $loginverification, $registrationverification, $filetime, $enabletail);
+	DataAccess::put($sql, $nppage, $newsorder, $newstime, $showavatars, $commentsorder, $commentstime, $commentslength, $cppage, $commentspop, $spamtime, $imagefiletypes, $uploadpath, $noaccessmsg, $spammsg, $commentmsg, $commentapprovemsg, $furlenabled, $furlprefix, $furldirname, $furlextension, $catdelimiter, $useimgverification, $registrationaccess, $registrationallow, $regcomment, $commentsnotify, $registernotify, $emailnotify, $unapprovednotify, $uploadedfiletypes, $publickey, $privatekey, $scriptpath, $deleteowncomments, $loginverification, $registrationverification, $filetime, $enabletail);
 	echo "</tr><tr><td></td><td><div class=success>".$langmsg['system'][36]."</div>";
 	systemsettingsform();	
 	echo "</td></tr></table>";

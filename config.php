@@ -45,6 +45,14 @@ $imageupload_thumbnails = 1;
 // Example 'Cat1, Cat2, Cat3, ' Notice the ending ', ' characters, specifying $catcutoff = 2 will get rid of that
 $catcutoff = 2;
 
+// Check if the default timezone has been set, if not set it to UTC
+// For a list of supported timezones see here - http://www.php.net/manual/en/timezones.php
+// To set your own timezone comment out this code and use this example
+// date_default_timezone_set('Europe/London'); 
+if(!date_default_timezone_get()){
+	date_default_timezone_set('UTC');
+}
+
 // Set the language used for formatting dates
 setlocale(LC_ALL, 'eng');
 

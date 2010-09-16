@@ -199,7 +199,7 @@ function showsearchform(){
 		}
 		$categories		= substr($categories,0,strlen($categories) - $catcutoff);
 		$newresults		= str_replace("{categories}",$categories,$newresults);		
-		$stampzone		= $result['timestamp'] + TIMEZONE;
+		$stampzone		= $result['timestamp'];
 		$newresults		= str_replace("{oneortwo}", $oneortwo, $newresults);
 		$newresults		= str_replace("{numresult}", $x, $newresults);
 		$newresults		= str_replace("{categories}", $categories, $newresults);
@@ -666,7 +666,7 @@ function formatnews($str,$type,$row){
 		}else{
 		$str = str_replace("{author}","<span class=\"" . $row['accessname'] . "\">" . $row['user'] . "</span>",$str);	
 	}
-	$stampzone	= $row['timestamp'] + TIMEZONE;
+	$stampzone	= $row['timestamp'];
 	$str		= str_replace("{date}",strftime($newstime,$stampzone),$str);
 	$str		= str_replace("{id}",$row['id'],$str);
 	$str		= str_replace("{viewcount}",$row['viewcount'],$str);
@@ -835,7 +835,7 @@ function formatcomments($str,$row){
 	
 	$commentstime = $commentstimeformat;
 	
-	$stampzone = $row['timestamp'] + TIMEZONE;
+	$stampzone = $row['timestamp'];
 	$avatar = $row['useravatar'];
 	if($avatar){
         $avatar = "<img src=\"" . $avatar . "\" />";
@@ -1837,7 +1837,7 @@ function allnews(){
 			$g = "<a href=\"#\" id=\"showcatlink_$row[postid]\" onclick=\"this.style.display = 'none'; document.getElementById('showcats_$row[postid]').style.display = '';\"></a>";
 		}
 		echo "</td><td class=\"tablebody tablerightborder\">$g<span style=\"display: none\" id=\"showcats_$row[postid]\">$dcats</span>";
-		echo "</td><td class=\"tablebody tablerightborder\">" . date("d-m-y" ,$row['timestamp'] + TIMEZONE) . "</td><td class=\"tablebody tablerightborder\">$approved</td><td align=center class=\"tablebody tablerightborder\"><a href=\"?action=editcomments&pid=$row[postid]\">$numcomments</a></td><td class=\"tablebody\"><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" value=\"$row[postid]\" id=\"check_$d\" name=\"selectedposts[]\">";
+		echo "</td><td class=\"tablebody tablerightborder\">" . date("d-m-y" ,$row['timestamp']) . "</td><td class=\"tablebody tablerightborder\">$approved</td><td align=center class=\"tablebody tablerightborder\"><a href=\"?action=editcomments&pid=$row[postid]\">$numcomments</a></td><td class=\"tablebody\"><input type=\"checkbox\" onclick=\"if(document.getElementById('check_'+$d).checked == true){ markfield('$d'); }else{ unmarkfield('$d') }\" value=\"$row[postid]\" id=\"check_$d\" name=\"selectedposts[]\">";
 		echo "</td></tr>\n";
 		if($row['totalfiles'] > 0){
 			echo "<tr style=\"display: none\" id=\"files_$d\"><td style=\"padding: 5px\" class=\"rowhighlight\" colspan=\"8\">";
@@ -1901,19 +1901,19 @@ function newsform($type){
 
 	if(!$_POST['S1']){
 		$allowcomments	= 1;
-		$day			= date('d',time() + TIMEZONE);						
-		$month			= date('F',time() + TIMEZONE);
-		$year			= date('Y',time() + TIMEZONE);
-		$hour			= date('H',time() + TIMEZONE);
-		$minute			= date('i',time() + TIMEZONE);
-		$second			= date('s',time() + TIMEZONE);
+		$day			= date('d',time());						
+		$month			= date('F',time());
+		$year			= date('Y',time());
+		$hour			= date('H',time());
+		$minute			= date('i',time());
+		$second			= date('s',time());
 
-		$archive_day		= date('d',time() + TIMEZONE);						
-		$archive_month		= date('F',time() + TIMEZONE);
-		$archive_year		= date('Y',time() + TIMEZONE);
-		$archive_hour		= date('H',time() + TIMEZONE);
-		$archive_minute		= date('i',time() + TIMEZONE);
-		$archive_second		= date('s',time() + TIMEZONE);						
+		$archive_day		= date('d',time());
+		$archive_month		= date('F',time());
+		$archive_year		= date('Y',time());
+		$archive_hour		= date('H',time());
+		$archive_minute		= date('i',time());
+		$archive_second		= date('s',time());						
 		$neverarchive		= $newsform_options['never_archive'];
 		$togglesummary		= $newsform_options['toggle_summary'];
 		$allowcomments		= $newsform_options['allow_comments'];

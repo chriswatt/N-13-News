@@ -3,8 +3,8 @@
 define('HOSTNAME',	'localhost');
 define('USER',		'root');
 define('PASS',		'concept');
-define('DATABASE',	'news40_2');
+define('DATABASE',	'news40');
 define('PORT',		'');
 define('SOCKET',	'');
-define('EXTENSION',	'mysql');
+define('EXTENSION',	'pdo');
 ?>

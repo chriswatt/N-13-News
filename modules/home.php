@@ -79,7 +79,7 @@ if(file_exists(ABSPATH . "install/index.php")){
 		if(!@unlink("install/index.php")){
 			echo "<span class=error>";
 			echo $langmsg['home'][5];
-			echo "</span><br /><br />";			   		
+			echo "</span>";			   		
 		}
 	}
 }
