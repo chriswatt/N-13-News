@@ -21,10 +21,10 @@
 $image_verification = 0;	
 
 // Specify here which language should be used on the login module
-$default_login_language = 'english';
+$default_login_language = 'English';
 
 // Specify here which language should be used on the index.php file
-$default_index_language = 'english';
+$default_index_language = 'English';
 
 // Default options for the add news form
 $newsform_options['toggle_archive']		= 0; // 0 = Collapse archive options, 1 = Expand archive options

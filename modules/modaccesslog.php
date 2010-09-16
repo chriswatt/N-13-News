@@ -19,11 +19,19 @@
 
 if (!defined('ABSPATH')){ die(); }
 
-echo "<span class=header>".$langmsg['accesslogs'][0]."</span></div><br />";
-echo "<table width=\"685\"><tr>";
-echo "<td width=\"17%\" align=\"center\" valign=\"top\"><img src=\"images/accesslevels.png\" /></td><td valign=\"top\">";
-echo "<table width=\"100%\" cellpadding=\"0\" cellspacing=\"1\"><tr><td width=\"25%\">".$langmsg['accesslogs'][1]."</td><td width=\"25%\">".$langmsg['accesslogs'][2]."</td><td width=\"25%\">".$langmsg['accesslogs'][3]."</td><td width=\"25%\">".$langmsg['accesslogs'][4]."</td>";
-echo "<div class=\"panel\">".$langmsg['accesslogs'][5]." <b>$_SESSION[name]</b></div><br />";
+echo '		<div id="pageLeft">
+			<div id="pageIconHome"></div><!--icon-->
+			<div id="titleHome">N-13 News<br />4.0</div>
+		</div><!--leftside-->';
+echo '<div id="pageRight">';
+
+echo '<div class="headertitle">';
+
+echo '<span class="header">' . $langmsg['accesslogs'][0] . '</span>';
+echo '</div>';
+echo "<div class=\"panel\">".$langmsg['accesslogs'][5]." <b>" . $_SESSION['name'] . "</b></div><br />";
+echo "<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td  class=\"tableshead tablerightborder\" width=\"25%\">".$langmsg['accesslogs'][1]."</td><td  class=\"tableshead tablerightborder\" width=\"25%\">".$langmsg['accesslogs'][2]."</td><td  class=\"tableshead tablerightborder\" width=\"25%\">".$langmsg['accesslogs'][3]."</td><td  class=\"tableshead\" width=\"25%\">".$langmsg['accesslogs'][4]."</td>";
+
 $totalnews = DataAccess::fetch("SELECT COUNT(*) AS totalaccess FROM " . NEWS_ACCESSLOGS . " WHERE user = ?", $_SESSION['name']);
 $totalnews = $totalnews['0']['totalaccess'];
 $amounttoshow = 15;
@@ -86,7 +94,7 @@ foreach($alllogs AS $row){
 	}else{
 		$success = $langmsg['accesslogs'][7];;
 	}
-	echo "<tr class=\"$class\"><td>$row[user]</td><td>$success</td><td>$row[ip]</td><td>" . date("d M Y",$row['loggedin'] + TIMEZONE) . "</tD></tr>";
+	echo "<tr class=\"$class\"><td class=\"tablebody tablerightborder\">$row[user]</td><td class=\"tablebody tablerightborder\">$success</td><td class=\"tablebody tablerightborder\">$row[ip]</td><td class=\"tablebody\">" . date("d M Y",$row['loggedin'] + TIMEZONE) . "</td></tr>";
 }
 echo "<tr><td>";
 if($amountofpages > 1){
@@ -96,4 +104,6 @@ echo "</td></tr>";
 echo "</table>";
 echo "</td>";
 echo "</tr></table>";
+echo "		</div><!--rightside-->
+	</div><!--pageCont-->";
 ?>

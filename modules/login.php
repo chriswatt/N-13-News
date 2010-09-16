@@ -71,7 +71,7 @@ $languages = '';
 require_once(ABSPATH . '/language/config.php');
 foreach($language_names AS $name=>$native){
 	$languages .= "<option value=\"" . strtolower($name) . "\"";
-	if(strtolower($name) == $default_login_language){
+	if($name == $default_login_language){
 		$languages .= " selected=\"selected\"";	
 	}
 	$languages .= ">" . $name . " - " . $native . "</option>\n";

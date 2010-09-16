@@ -189,7 +189,7 @@ function rssform(){
 	echo "<b>{id}</b> - " . $langmsg['rss'][25] . "<br />";
 	echo "<b>{comments}</b> - " . $langmsg['rss'][26] . "<br /><br />";
 
-	echo "<textarea name=\"rsscode\" style=\"width: 100%; height: 100px\">$rsscode</textarea></td></tr>";
+	echo "<textarea name=\"rsscode\" style=\"width: 98%; height: 100px\">$rsscode</textarea></td></tr>";
 	if($_GET['new'] == "true"){
 		echo "<tr><td align=\"center\" colspan=\"2\"><input type=\"submit\" name=\"S1\" style=\"width: 100%\" value=\"".$langmsg['submitfield'][5]."\" /></td></tr>";
 	}else{
