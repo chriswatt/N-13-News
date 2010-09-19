@@ -497,18 +497,6 @@ function showeditimage(id){
 function hideeditimage(id){
 	document.getElementById(id+'_editicon').style.display = 'none';
 }
-function loadthumbnails(){
-	var youtubeid = document.getElementById('youtubeid').value;
-	if(youtubeid.length == '11'){
-		document.getElementById('http://i2.ytimg.com/vi/'+youtubeid+'/2.jpg');
-		document.getElementById('videothumbnail1').style.backgroundImage = "url('http://i2.ytimg.com/vi/"+youtubeid+"/2.jpg')"; 
-		//document.getElementById('thumbnailcontainer').innerHTML = thumbnails;
-	}else{
-		//alert('asds');
-	}
-}
-
-
 
 function deletefiles(){
 	if(document.getElementById('fileoptions').value == "delete"){
@@ -521,9 +509,33 @@ function deletefiles(){
 		document.getElementById('fileform').submit();
 	}
 }
+
+
+function createXMLHttpRequest(){
+	if (window.ActiveXObject){
+		xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}else if (window.XMLHttpRequest){
+		xmlHttp = new XMLHttpRequest();
+	}
+}
+function getimagethumbnails(){
+	createXMLHttpRequest();
+	xmlHttp.onreadystatechange = thumbnailshandleStateChange;
+	xmlHttp.open("POST", "getimagethumbnails.php", true);
+	xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xmlHttp.send("type=anythinghere&anothervar=datahere");
+}
+function thumbnailshandleStateChange() {
+	if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+		var data = xmlHttp.responseText;
+		alert(data);
+	}
+}
+
 function newschangecatgroup(){
 	//total catgroups
 	var totalgroups = document.getElementById('totalcatgroups').innerHTML;
+	getimagethumbnails();
 	for(i=1;i<=totalgroups;i++){
 		if(document.getElementById('news_selectcat').value == i){
 			//alert('cat_'+i);
@@ -533,9 +545,7 @@ function newschangecatgroup(){
 			//document.getElementById('imagecat_'+i).setAttribute("class", "noshow");
 			document.getElementById('imagecat_'+i).className = 'noshow';
 		}
-	}
-			
-	
+	}	
 }
 
 function newsfilechangecatgroup(){

@@ -1894,7 +1894,112 @@ function allnews(){
 	}
 	echo "</form>\n";
 }
+function selectimages(){
+	global $langmsg, $imageuploaddir;
+	echo "<div style=\"display: none\" id=\"whichbox\">x</div>";
+	echo "<div style=\"position: absolute; width: 580px; left: 35%; display: none; z-index: 10001\" id=\"imagebox\">";
+	echo "<div style=\"width:580px; height: 340px; background-color: #FFFFFF; padding: 10px; border: 1px solid #AAAAAA; position: absolute; left: -190px\">";
+	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"bbcode('image','story')\">[close]</a><span class=\"header\" style=\"padding-left: 0px\">" . $langmsg['newsform'][23] . "</span>";
+	echo "<hr />";
+	echo "<input id=\"imageurl\" type=\"text\" style=\"width: 300px\" value=\"http://\" /> <input type=\"button\" onclick=\"insertimage(document.getElementById('whichbox').innerHTML,''+ document.getElementById('imageurl').value + ''); bbcode('image','')\" value=\"" . $langmsg['newsform'][24] . "\" />";
+	
+	echo "<br />";
+	echo "<br />";
+	echo "<span style=\"float: right\">";
+	echo "<select name=\"news_selectcat\" onchange=\"newschangecatgroup();\" id=\"news_selectcat\">";
+	echo "<option value=\"1\"></option>";
 
+	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']); 														
+	if($allowedcats['0']['cats'] !== "all"){
+		$e = $allowedcats['0']['cats'];
+		if(!$e){ $e = ''; }else{ $e = "WHERE id IN ($e)"; }
+		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " $e ORDER BY name");	
+	}else{
+		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name");
+	}
+		
+	$g = 2;
+	foreach($allcats AS $row){			
+		echo "<option value=\"$g\"";
+		$_GET['catid'] = (empty($_GET['catid'])) ? '' : $_GET['catid'];
+		if(in_array($_GET['catid'], $allcats)){
+			echo " selected=\"selected\"";							
+		}
+		echo ">" . $row['name'] . "</option>";
+		$g++;
+	}
+		
+	echo "</select>";
+	echo "</span>";
+	echo "<span class=\"header\" style=\"padding-left: 0px\">" . $langmsg['newsform'][25] . "</span>";
+	echo "<hr />";
+	
+	
+	$b = 0;
+	echo "<div style=\"height: 225px; width: 580px; overflow: auto\">";
+			
+			
+
+	#get all images not assigned to cats
+	echo "<div id=\"imagecat_1\">";
+	#echo $xsql;
+	$noncatimages = DataAccess::fetch("SELECT file,filesize,uploader,height,width,uid FROM " . NEWS_IMAGES . " WHERE uid NOT IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE type = 'image') ORDER BY uid DESC");
+	foreach($noncatimages AS $row){ 
+		$file = $row['file'];
+		list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
+		if($width > 80 || $height > 80){
+			$new_width	= $width;
+			$new_height	= $height;
+			$percent = 0.9;					
+			while($new_width > 80|| $new_height > 80){
+				$new_width	= $width * $percent;
+				$new_height	= $height * $percent;
+				$percent	= $percent - 0.01;
+			}
+		}else{
+			$new_width	= $width;
+			$new_height	= $height;			
+		} 		 
+	 		 
+		$filesize = round(filesize($imageuploaddir . $file) / 1024,0);
+		$totalfilesize += $filesize;
+		$filesize .= " KB";
+		$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+		$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
+		
+		echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
+		echo '<div style="text-align: left">';
+		
+		echo '</div>';
+		if($imageupload_thumbnails == "1"){
+			echo "<img onclick=\"insertimage(document.getElementById('whichbox').innerHTML,'";				
+			echo UPLOADPATH . $file;				
+			echo "'); bbcode('image','')\" width=\"$new_width\" height=\"$new_height\" style=\"background-color: #FFFFFF; border: 1px solid #DDDDDD\" src=\"?action=options&mod=imageuploads&thumb=" . $imageuploaddir . $file . "&height=$new_height&width=$new_width\" />";
+		}else{
+			echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';		
+		}
+		echo '</div></div>'; 		 	 		 	 		 
+ 		$b++;
+	}									
+	echo "</div>";
+									
+
+		
+	#used to let javascript count how many cat sections are shown.
+	$f--;
+	echo "<span style=\"display: none\" id=\"totalfilecatgroups\">$f</span>";
+	
+
+	echo '</div></div>'; 		   
+				   
+
+
+
+	echo "</div>";
+	echo "</div>";
+	echo "</div>";
+	
+}
 function newsform($type){
 	global $imageuploaddir,$newsform_options, $langmsg, $imageupload_thumbnails;
 	$uploaddir = $imageuploaddir;
@@ -2013,201 +2118,8 @@ function newsform($type){
 	echo "<input type=\"text\" name=\"title\" $changecolor class=\"newborder\" value=\"$title\" /></td>\n";
 	echo "</div>";
 	echo "</tr>\n";
-
-	echo "<div style=\"display: none\" id=\"whichbox\">x</div>";
-	echo "<div style=\"position: absolute; width: 580px; left: 50%; display: none; z-index: 10001\" id=\"imagebox\">";
-	echo "<div style=\"width:580px; height: 340px; background-color: #FFFFFF; padding: 10px; border: 1px solid #AAAAAA; position: absolute; left: -190px\">";
-	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"bbcode('image','story')\">[close]</a><span class=\"header\" style=\"padding-left: 0px\">" . $langmsg['newsform'][23] . "</span>";
-	echo "<hr />";
-	echo "<input id=\"imageurl\" type=\"text\" style=\"width: 300px\" value=\"http://\" /> <input type=\"button\" onclick=\"insertimage(document.getElementById('whichbox').innerHTML,''+ document.getElementById('imageurl').value + ''); bbcode('image','')\" value=\"" . $langmsg['newsform'][24] . "\" />";
 	
-	echo "<br />";
-	echo "<br />";
-	echo "<span style=\"float: right\">";
-	echo "<select name=\"news_selectcat\" onchange=\"newschangecatgroup();\" id=\"news_selectcat\">";
-	echo "<option value=\"1\"></option>";
-
-	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']); 														
-	if($allowedcats['0']['cats'] !== "all"){
-		$e = $allowedcats['0']['cats'];
-		if(!$e){ $e = ''; }else{ $e = "WHERE id IN ($e)"; }
-		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " $e ORDER BY name");	
-	}else{
-		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name");
-	}
-		
-	$g = 2;
-	foreach($allcats AS $row){			
-		echo "<option value=\"$g\"";
-		$_GET['catid'] = (empty($_GET['catid'])) ? '' : $_GET['catid'];
-		if(in_array($_GET['catid'], $allcats)){
-			echo " selected=\"selected\"";							
-		}
-		echo ">" . $row['name'] . "</option>";
-		$g++;
-	}
-		
-	echo "</select>";
-	echo "</span>";
-	echo "<span class=\"header\" style=\"padding-left: 0px\">" . $langmsg['newsform'][25] . "</span>";
-	echo "<hr />";
-	
-	
-	$b = 0;
-	echo "<div style=\"height: 225px; width: 580px; overflow: auto\">";
-			
-			
-
-	#get all images not assigned to cats
-	echo "<div id=\"imagecat_1\">";
-	#echo $xsql;
-	$noncatimages = DataAccess::fetch("SELECT file,filesize,uploader,height,width,uid FROM " . NEWS_IMAGES . " WHERE uid NOT IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE type = 'image') ORDER BY uid DESC");
-	foreach($noncatimages AS $row){ 
-		$file = $row['file'];
-		list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
-		if($width > 80 || $height > 80){
-			$new_width	= $width;
-			$new_height	= $height;
-			$percent = 0.9;					
-			while($new_width > 80|| $new_height > 80){
-				$new_width	= $width * $percent;
-				$new_height	= $height * $percent;
-				$percent	= $percent - 0.01;
-			}
-		}else{
-			$new_width	= $width;
-			$new_height	= $height;			
-		} 		 
-	 		 
-		$filesize = round(filesize($imageuploaddir . $file) / 1024,0);
-		$totalfilesize += $filesize;
-		$filesize .= " KB";
-		$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-		$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
-		
-		echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
-		echo '<div style="text-align: left">';
-		
-		echo '</div>';
-		if($imageupload_thumbnails == "1"){
-			echo "<img onclick=\"insertimage(document.getElementById('whichbox').innerHTML,'";				
-			echo UPLOADPATH . $file;				
-			echo "'); bbcode('image','')\" width=\"$new_width\" height=\"$new_height\" style=\"background-color: #FFFFFF; border: 1px solid #DDDDDD\" src=\"?action=options&mod=imageuploads&thumb=" . $imageuploaddir . $file . "&height=$new_height&width=$new_width\" />";
-		}else{
-			echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';		
-		}
-		echo '</div></div>'; 		 	 		 	 		 
- 		$b++;
-	}									
-	echo "</div>";
-									
-	$f = 2;													
-	##show images for all cats the user can access							
-	$d = '';
-	$allowedcats = DataAccess::fetch("SELECT " . NEWS_ACCESS . ".cats FROM " . NEWS_USERS . " LEFT JOIN " . NEWS_ACCESS . " ON " . NEWS_USERS . ".access = " . NEWS_ACCESS . ".uid WHERE " . NEWS_USERS . ".user = ?", $_SESSION['name']);	
-	if($allowedcats['0']['cats'] !== "all"){
-		$a = explode(",",$allowedcats['0']['cats']);
-		foreach($a as $c){
-			echo "<div id=\"imagecat_$f\" class=\"noshow\">";
-			$catgroupimages = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'image'", $c);
-			foreach($catgroupimages AS $row){
-				$catimages = DataAccess::fetch("SELECT file,filesize,uploader,height,width,uid FROM " . NEWS_IMAGES . " WHERE uid = ?",$row['storyid']);
-				foreach($catimages AS $row2){
-					$file = $row2['file'];
-					list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
-					if($width > 80 || $height > 80){
-						$new_width	= $width;
-						$new_height	= $height;
-						$percent = 0.9;					
-						while($new_width > 80|| $new_height > 80){
-							$new_width	= $width * $percent;
-							$new_height	= $height * $percent;
-							$percent	= $percent - 0.01;
-						}
-					}else{
-						$new_width	= $width;
-						$new_height	= $height;			
-					} 		  
-					$filesize = round(filesize($imageuploaddir . $file) / 1024,0);
-					$totalfilesize += $filesize;
-					$filesize .= " KB";
-					$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-					$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
-
-					echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
-					echo '<div style="text-align: left">';
-					echo '</div>';
-					if($imageupload_thumbnails == "1"){
-						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="?action=options&mod=imageuploads&thumb='.$imageuploaddir.$file.'&height='.$new_height.'&width='.$new_width.'" />';
-					}else{
-						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';
-					}
-					echo '</div></div>'; 						
-				}
-			}
-			echo "</div>";
-			$f++;
-		}
-	}else{
-		$allcats = DataAccess::fetch("SELECT name, id FROM " . NEWS_CATS . " ORDER BY name ASC");
-		$totalfilesize = 0;
-		foreach($allcats AS $xrow){
-			echo "<div id=\"imagecat_$f\" class=\"noshow\">";
-			$catgroupimages = DataAccess::fetch("SELECT storyid, catid, type, uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'image'", $xrow['id']);
-			foreach($catgroupimages AS $row){
-				$catimages = DataAccess::fetch("SELECT file, filesize, uploader, height, width, uid FROM " . NEWS_IMAGES . " WHERE uid = ?", $row['storyid']);
-				foreach($catimages AS $row2){
-					$file = $row2['file'];
-					list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
-					if($width > 80 || $height > 80){
-						$new_width = $width;
-						$new_height = $height;
-						$percent = 0.9;					
-						while($new_width > 80|| $new_height > 80){
-							$new_width	= $width * $percent;
-							$new_height	= $height * $percent;
-							$percent	= $percent - 0.01;
-						}
-					}else{
-						$new_width	= $width;
-						$new_height	= $height;			
-					} 		 
-
-					$filesize = round(filesize($imageuploaddir. $file) / 1024,0);
-					$totalfilesize += $filesize;
-					$filesize .= " KB";
-					$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-					$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
-						
-					echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
-					echo '<div style="text-align: left">';
-					echo '</div>';
-					if($imageupload_thumbnails == "1"){
-						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="?action=options&mod=imageuploads&thumb='.$imageuploaddir.$file.'&height='.$new_height.'&width='.$new_width.'" />';
-					}else{
-						echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';
-					}
-					echo '</div></div>'; 						
-				}
-			}
-			echo "</div>";
-			$f++;
-		}
-	}
-		
-	#used to let javascript count how many cat sections are shown.
-	$f--;
-	echo "<span style=\"display: none\" id=\"totalfilecatgroups\">$f</span>";
-	
-
-	echo '</div></div>'; 		   
-				   
-
-
-
-	echo "</div>";
-	echo "</div>";
-	echo "</div>";
+	selectimages();
 	
 	
    
