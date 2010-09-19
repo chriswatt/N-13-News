@@ -518,32 +518,33 @@ function createXMLHttpRequest(){
 		xmlHttp = new XMLHttpRequest();
 	}
 }
-function getimagethumbnails(){
+function getimagethumbnails(catid){
+	catid--;
 	createXMLHttpRequest();
 	xmlHttp.onreadystatechange = thumbnailshandleStateChange;
 	xmlHttp.open("POST", "getimagethumbnails.php", true);
 	xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlHttp.send("type=anythinghere&anothervar=datahere");
+	xmlHttp.send("catid="+catid);
 }
 function thumbnailshandleStateChange() {
 	if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 		var data = xmlHttp.responseText;
-		alert(data);
+		document.getElementById('thumbnails_container').innerHTML = data;
 	}
 }
 
 function newschangecatgroup(){
 	//total catgroups
 	var totalgroups = document.getElementById('totalcatgroups').innerHTML;
-	getimagethumbnails();
+	getimagethumbnails(document.getElementById('news_selectcat').value);
 	for(i=1;i<=totalgroups;i++){
 		if(document.getElementById('news_selectcat').value == i){
 			//alert('cat_'+i);
-			document.getElementById('imagecat_'+i).className = 'show';
+			//document.getElementById('imagecat_'+i).className = 'show';
 			//document.getElementById('cat_'+i).setAttribute("class", "show");
 		}else{
 			//document.getElementById('imagecat_'+i).setAttribute("class", "noshow");
-			document.getElementById('imagecat_'+i).className = 'noshow';
+			//document.getElementById('imagecat_'+i).className = 'noshow';
 		}
 	}	
 }

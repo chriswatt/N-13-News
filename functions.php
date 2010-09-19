@@ -1895,11 +1895,11 @@ function allnews(){
 	echo "</form>\n";
 }
 function selectimages(){
-	global $langmsg, $imageuploaddir;
+	global $langmsg, $imageuploaddir, $imageupload_thumbnails;
 	echo "<div style=\"display: none\" id=\"whichbox\">x</div>";
 	echo "<div style=\"position: absolute; width: 580px; left: 35%; display: none; z-index: 10001\" id=\"imagebox\">";
 	echo "<div style=\"width:580px; height: 340px; background-color: #FFFFFF; padding: 10px; border: 1px solid #AAAAAA; position: absolute; left: -190px\">";
-	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"bbcode('image','story')\">[close]</a><span class=\"header\" style=\"padding-left: 0px\">" . $langmsg['newsform'][23] . "</span>";
+	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"bbcode('image','story')\">[close]</a><span class=\"header\" style=\"padding-left: 0px; background-color: #FFFFFF\">" . $langmsg['newsform'][23] . "</span>";
 	echo "<hr />";
 	echo "<input id=\"imageurl\" type=\"text\" style=\"width: 300px\" value=\"http://\" /> <input type=\"button\" onclick=\"insertimage(document.getElementById('whichbox').innerHTML,''+ document.getElementById('imageurl').value + ''); bbcode('image','')\" value=\"" . $langmsg['newsform'][24] . "\" />";
 	
@@ -1931,14 +1931,15 @@ function selectimages(){
 		
 	echo "</select>";
 	echo "</span>";
-	echo "<span class=\"header\" style=\"padding-left: 0px\">" . $langmsg['newsform'][25] . "</span>";
+	echo "<span class=\"header\" style=\"background-color: #FFFFFF; padding-left: 0px\">" . $langmsg['newsform'][25] . "</span>";
 	echo "<hr />";
 	
 	
 	$b = 0;
 	echo "<div style=\"height: 225px; width: 580px; overflow: auto\">";
-			
-			
+
+	// container for loading thumbnails
+	echo "<div id=\"thumbnails_container\">";		
 
 	#get all images not assigned to cats
 	echo "<div id=\"imagecat_1\">";
@@ -1974,9 +1975,9 @@ function selectimages(){
 		if($imageupload_thumbnails == "1"){
 			echo "<img onclick=\"insertimage(document.getElementById('whichbox').innerHTML,'";				
 			echo UPLOADPATH . $file;				
-			echo "'); bbcode('image','')\" width=\"$new_width\" height=\"$new_height\" style=\"background-color: #FFFFFF; border: 1px solid #DDDDDD\" src=\"?action=options&mod=imageuploads&thumb=" . $imageuploaddir . $file . "&height=$new_height&width=$new_width\" />";
+			echo "'); bbcode('image','')\" width=\"$new_width\" height=\"$new_height\" style=\"background-color: #FFFFFF; border: 1px solid #DDDDDD\" src=\"?action=options&mod=imageuploads&thumb=" . UPLOADPATH . $file . "&height=$new_height&width=$new_width\" />";
 		}else{
-			echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';		
+			echo '<img onclick="insertimage(document.getElementById(\'whichbox\').innerHTML,\''.UPLOADPATH . $file.'\'); bbcode(\'image\',\'\')" width="'.$new_width.'" height="'.$new_height.'" style="background-color: #FFFFFF; border: 1px solid #DDDDDD" src="'.$imageuploaddir.$file.'" />';
 		}
 		echo '</div></div>'; 		 	 		 	 		 
  		$b++;
@@ -1984,6 +1985,10 @@ function selectimages(){
 	echo "</div>";
 									
 
+	
+	echo "</div>";
+	//
+	
 		
 	#used to let javascript count how many cat sections are shown.
 	$f--;
@@ -2118,9 +2123,7 @@ function newsform($type){
 	echo "<input type=\"text\" name=\"title\" $changecolor class=\"newborder\" value=\"$title\" /></td>\n";
 	echo "</div>";
 	echo "</tr>\n";
-	
 	selectimages();
-	
 	
    
 

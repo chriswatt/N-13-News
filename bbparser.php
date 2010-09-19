@@ -84,7 +84,12 @@ function resizeimg2($img){
 			}
 		}
 	}
-	return $alt;
+	//http://dev.network-13.com/news/admin.php?action=options&mod=imageuploads&thumb=uploads/duceh.jpg&height=79.54&width=79.54
+	if($final['height'] && $final['width']){
+		return "<img src=\"" . SCRIPTPATH . "admin.php?action=options&mod=imageuploads&thumb=" . $src . "&height=" . $final['height'] . "&width=" . $final['width'] . "\" />";
+	}else{
+		return "<img src=\"" . $src . "\" />";
+	}
 }
 
 #on-the-fly links
@@ -104,7 +109,7 @@ function bb2html($str,$usehtml = '1', $style) {
 	if($style == "0"){
 		$match = array('#\<img(.*?)\/\>#se');
 		$replace = array("'' . resizeimg2('$1') . ''");
-		$str = preg_replace($match, $replace, $str);    
+		$str = preg_replace($match, $replace, $str);   
 		
 		return $str;
 	}else{

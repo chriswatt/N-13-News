@@ -39,7 +39,7 @@ $newsform_options['allow_comments']		= 1; // Default comment options. 0 = No, 1 
 
 // Enable or disable automatic creation of thumbnails when viewing uploaded images
 // If you're having trouble viewing the thumbnails change this to 0
-$imageupload_thumbnails = 1;
+$imageupload_thumbnails = 0;
 
 // Amount of characters to cut off the category delimiter when displaying categories
 // Example 'Cat1, Cat2, Cat3, ' Notice the ending ', ' characters, specifying $catcutoff = 2 will get rid of that
