@@ -386,25 +386,6 @@ function showstats(){
 	//will show the total amount of posts 
 	die();
 }
-function getdownload(){
-	global $url;
-	// if a download is requested grab the download count, increment by 1 then redirect to the file
-	if(FRIENDLY){
-		$file = $url['1'];
-	}else{
-		$file = $_GET['fileuid'];
-	}
-	$fileinfo = DataAccess::fetch("SELECT downloadcount, url FROM " . NEWS_FILES . " WHERE uid = ?", $file);
-	if(count($fileinfo) > 0){
-		$downloadcount = $fileinfo['0']['downloadcount'];
-		$downloadcount++;
-		$rurl = $fileinfo['0']['url'];
-		DataAccess::put("UPDATE " . NEWS_FILES . " SET downloadcount = ? WHERE uid = ?", $downloadcount, $file);
-		redirect($rurl);
-	}else{
-		// file doesn't exist - do nothing
-	}
-}
 function checklogin(){
 	global $default_index_language, $langmsg;
 	
@@ -698,9 +679,10 @@ function formatnews($str,$type,$row){
 			$afiles = $uploadedfilestemplate;
 			$url = $file['url'];
 				if(FRIENDLY){
-					$downloadurl = PREFIX . "download-" . $file['fileuid'];
+					//$downloadurl = PREFIX . "download-" . $file['fileuid'];
+					$downloadurl = SCRIPTPATH . "getdownload.php?goto=download&amp;fileuid=" . $file['fileuid'];
 				}else{
-					$downloadurl = "?goto=download&amp;fileuid=" . $file['fileuid'];
+					$downloadurl = SCRIPTPATH . "getdownload.php?goto=download&amp;fileuid=" . $file['fileuid'];
 				}
 			
 			$uploader = $file['user'];
@@ -1938,7 +1920,8 @@ function selectimages(){
 	echo "</select>";
 	echo "</span>";
 	echo "<span class=\"header\" style=\"background-color: #FFFFFF; padding-left: 0px\">" . $langmsg['newsform'][25] . "</span>";
-	echo "<hr />";
+	echo '<hr style="clear: both; background-color: #FFFFFF; color: #FFFFFF; border: 1px solid #FFFFFF" />
+	<hr style="clear: both;" />';
 	
 	
 	$b = 0;
@@ -1996,9 +1979,6 @@ function selectimages(){
 	//
 	
 		
-	#used to let javascript count how many cat sections are shown.
-	$f--;
-	echo "<span style=\"display: none\" id=\"totalfilecatgroups\">$f</span>";
 	
 
 	echo '</div></div>'; 		   
@@ -2130,6 +2110,8 @@ function newsform($type){
 	echo "</div>";
 	echo "</tr>\n";
 	selectimages();
+	#used to let javascript count how many cat sections are shown.
+
 	
    
 
@@ -2170,7 +2152,7 @@ function newsform($type){
 
 
 
-	echo "\n\n\n<div style=\"position: absolute; width: 580px; left: 50%; display: none; z-index: 10001\" id=\"filebox\">";
+	echo "\n\n\n<div style=\"position: absolute; width: 580px; left: 35%; display: none; z-index: 10001\" id=\"filebox\">";
 	echo "<div style=\"width:580px; height: 340px; background-color: #FFFFFF; padding: 10px; border: 1px solid #AAAAAA; position: absolute; left: -190px\">";
 	echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"bbcode('files','story')\">[close]</a>";
 				
@@ -2205,8 +2187,9 @@ function newsform($type){
 	
 	echo "</select>";
 	echo "</span>";
-	echo "<span class=\"header\" style=\"padding-left: 0px\">".$langmsg['newsform'][19]."</span>";
-	echo "<hr />";
+	echo "<span class=\"header\" style=\"background-color: #FFFFFF; padding-left: 0px\">".$langmsg['newsform'][19]."</span>";
+	echo '<hr style="clear: both; background-color: #FFFFFF; color: #FFFFFF; border: 1px solid #FFFFFF" />
+	<hr style="clear: both;" />';
 	
 	
 	
@@ -2217,7 +2200,7 @@ function newsform($type){
 	#get all files not assigned to cats
 	echo "<div id=\"filecat_1\" class=\"show\" style=\"width: 100%\">";
 	echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
-	echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">".$langmsg['newsform'][20]."</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">".$langmsg['newsform'][21]."</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
+	echo "<tr><td width=\"20%\" class=\"tableshead tablerightborder\">".$langmsg['uploadedfiles'][23]."</td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['newsform'][20]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['newsform'][21]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td class=\"tableshead\"></td></tr>";
 	$currentpath	= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 	$currentpath	= "http://" . $currentpath;
 	$g				= $currentpath;
@@ -2247,7 +2230,7 @@ function newsform($type){
 				echo " rowhighlight";
 			}
 		}                   
-		echo "\"><td>$file</td><td>$filename</td><td>$row[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\"";
+		echo "\"><td class=\"tablebody tablerightborder\">$file</td><td class=\"tablebody tablerightborder\">$filename</td><td class=\"tablebody tablerightborder\" style=\"text-align: right\">$row[downloadcount]<td class=\"tablebody tablerightborder\">$filesize</td><td class=\"tablebody tablerightborder\">$uploaded</td><td class=\"tablebody tablerightborder\">$uploader</td><td class=\"tablebody\"><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\"";
 		$selectedfiles = (empty($selectedfiles)) ? array() : $selectedfiles;
 		if(count($selectedfiles) > 0){
 			if(in_array($row['uid'],$selectedfiles)){
@@ -2270,7 +2253,7 @@ function newsform($type){
 		foreach($a as $c){
 			echo "<div id=\"filecat_$f\" class=\"noshow\" style=\"width: 100%\">";
 			echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
-			echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">Downloads</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">Uploaded</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
+			echo "<tr><td width=\"20%\" class=\"tableshead tablerightborder\">".$langmsg['uploadedfiles'][23]."</td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['newsform'][20]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['newsform'][21]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td class=\"tableshead\"></td></tr>";
 			$filecats = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'file'", $c);					
 			foreach($filecats AS $row){
 				$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
@@ -2299,7 +2282,7 @@ function newsform($type){
 							echo " rowhighlight";
 						}
 					}											
-					echo "\"><td>$file</td><td>$filename</td><td>$row2[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row2[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\" ";
+					echo "\"><td class=\"tablebody tablerightborder\">$file</td><td class=\"tablebody tablerightborder\">$filename</td><td class=\"tablebody tablerightborder\" style=\"text-align: right\">$row[downloadcount]<td class=\"tablebody tablerightborder\">$filesize</td><td class=\"tablebody tablerightborder\">$uploaded</td><td class=\"tablebody tablerightborder\">$uploader</td><td class=\"tablebody\"><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\"";
 					if(count($selectedfiles) > 0){
 						if(in_array($row2['uid'],$selectedfiles)){
 							echo "checked=\"checked\" ";	
@@ -2321,7 +2304,7 @@ function newsform($type){
 		foreach($allcats AS $xrow){
 			echo "<div id=\"filecat_$f\" class=\"noshow\" style=\"width: 100%\">";
 			echo "<table id=\"rows\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
-			echo "<tr><td width=\"20%\">".$langmsg['uploadedfiles'][23]."</td><td width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td width=\"15%\">Downloads</td><td width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td width=\"15%\">Uploaded</td><td width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td></td></tr>";
+			echo "<tr><td width=\"20%\" class=\"tableshead tablerightborder\">".$langmsg['uploadedfiles'][23]."</td><td class=\"tableshead tablerightborder\" width=\"20%\">".$langmsg['uploadedfiles'][12]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['newsform'][20]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][24]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['newsform'][21]."</td><td class=\"tableshead tablerightborder\" width=\"15%\">".$langmsg['uploadedfiles'][25]."</td><td class=\"tableshead\"></td></tr>";
 			$filecats = DataAccess::fetch("SELECT storyid,catid,type,uid FROM " . NEWS_GROUPCATS . " WHERE catid = ? AND type = 'file'", $xrow['id']);
 			foreach($filecats AS $row){
 				$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
@@ -2350,7 +2333,7 @@ function newsform($type){
 							echo " rowhighlight";
 						}
 					}											
-					echo "\"><td>$file</td><td>$filename</td><td>$row2[downloadcount]<td>$filesize</td><td>$uploaded</td><td>$uploader</td><td><input type=\"checkbox\" value=\"$row2[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\" ";
+					echo "\"><td class=\"tablebody tablerightborder\">$file</td><td class=\"tablebody tablerightborder\">$filename</td><td class=\"tablebody tablerightborder\" style=\"text-align: right\">$row[downloadcount]<td class=\"tablebody tablerightborder\">$filesize</td><td class=\"tablebody tablerightborder\">$uploaded</td><td class=\"tablebody tablerightborder\">$uploader</td><td class=\"tablebody\"><input type=\"checkbox\" value=\"$row[uid]\" onclick=\"if(document.getElementById('check_x'+$d).checked == true){ markfield('x$d'); }else{ unmarkfield('x$d') }\" id=\"check_x$d\"";
 					  if(count($selectedfiles) > 0){
 						 if(in_array($row2['uid'],$selectedfiles)){
 							echo "checked=\"checked\" ";	

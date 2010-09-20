@@ -551,7 +551,7 @@ function newschangecatgroup(){
 
 function newsfilechangecatgroup(){
 	//total catgroups
-	var totalgroups = document.getElementById('totalfilecatgroups').innerHTML;
+	var totalgroups = document.getElementById('totalcatgroups').innerHTML;
 	var i = 1;
 	while(i <= totalgroups){
 		if(document.getElementById('news_fileselectcat').value == i){

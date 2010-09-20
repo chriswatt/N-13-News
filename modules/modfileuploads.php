@@ -273,7 +273,7 @@ if(!$_GET['fileuid']){
 							$filesize		= filesize($uploaddir . $filename);
 							$filesize		= ($filesize / 1000);
 							echo " <span class=\"success\">" . $filename . " - " . $langmsg['uploadedfiles'][6]."</span>";
-							$title			= $_POST['file_title'];
+							$title			= empty($_POST['file_title']) ? ' ' : $title;
 							$file			= basename($filename);
 							$uploader		= $_SESSION['uid'];
 							$g				= $currentpath;
