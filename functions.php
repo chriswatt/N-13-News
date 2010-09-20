@@ -503,7 +503,9 @@ function sendunapprovednotifications($author, $title, $date){
 		$mailmessage = str_replace("{date}",displayhtml($date),$mailmessage);
 		$fromemail = "newcomment@" . $_SERVER['HTTP_HOST'];
 		$headers = 'From: New Unapproved <' . $fromemail . ">\r\n" . 'Reply-To: ' . $fromemail . "\r\n" . 'X-Mailer: PHP/' . phpversion();	
-		mail(EMAILNOTIFY,$mailsubject,$mailmessage,$headers);
+		foreach(explode(",", EMAILNOTIFY) AS $emails){
+			mail(trim($emails),$mailsubject,$mailmessage,$headers);
+		}
 	}	
 }
 function sendcommentnotification($user,$message,$email,$ip,$pid){
@@ -518,7 +520,9 @@ function sendcommentnotification($user,$message,$email,$ip,$pid){
 		$mailmessage = str_replace("{ip}",$ip,$mailmessage);
 		$fromemail = "newcomment@" . $_SERVER['HTTP_HOST'];
 		$headers = 'From: New Comment <' . $fromemail . ">\r\n" . 'Reply-To: ' . $fromemail . "\r\n" . 'X-Mailer: PHP/' . phpversion();	
-		mail(EMAILNOTIFY,$mailsubject,$mailmessage,$headers);
+		foreach(explode(",", EMAILNOTIFY) AS $emails){
+			mail(trim($emails),$mailsubject,$mailmessage,$headers);
+		}
 	}	
 }
 function sendregisternotification($user,$email,$ip){
@@ -532,7 +536,9 @@ function sendregisternotification($user,$email,$ip){
 		$mailmessage = str_replace("{ip}",$ip,$mailmessage);
 		$fromemail = "newregistration@" . $_SERVER['HTTP_HOST'];
 		$headers = 'From: New Registration <' . $fromemail . ">\r\n" . 'Reply-To: ' . $fromemail . "\r\n" . 'X-Mailer: PHP/' . phpversion();	
-		mail(EMAILNOTIFY,$mailsubject,$mailmessage,$headers);
+		foreach(explode(",", EMAILNOTIFY) AS $emails){
+			mail(trim($emails),$mailsubject,$mailmessage,$headers);
+		}
 	}	
 }
 function redirect($url){
