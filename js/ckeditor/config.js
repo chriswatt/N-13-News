@@ -83,6 +83,7 @@ CKEDITOR.editorConfig = function( config )
 		CKEDITOR.instances['message'].config.resize_maxWidth = 500;
 		CKEDITOR.instances['message'].config.resize_minWidth = 500;
 		CKEDITOR.instances['message'].config.resize_minHeight = 100;
+		CKEDITOR.instances['message'].config.height = 100;
 		CKEDITOR.instances['message'].config.toolbar = [
 		['Font','FontSize','Bold','Italic','Underline','NumberedList','BulletedList'],
 		['TextColor','Link','-','Source']

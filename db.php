@@ -6,5 +6,5 @@ define('PASS',		'concept');
 define('DATABASE',	'news40');
 define('PORT',		'');
 define('SOCKET',	'');
-define('EXTENSION',	'pdo');
+define('EXTENSION',	'mysql');
 ?>
