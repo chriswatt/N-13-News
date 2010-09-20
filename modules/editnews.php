@@ -53,14 +53,19 @@ if($_POST['action']){
 			echo "<div class=\"success\">".$langmsg['editnews'][17]."</div>";
 		}
 	}elseif($_POST['action'] == "changeapproval"){
-		$selected = $_POST['selectedposts'];
-		$approve = $_POST['approveaction'];
- 		if(count($_POST['selectedposts']) !== 0){
-			$allowcomments = $_POST['allowcomments'];
-			foreach($selected as $uid){
-				DataAccess::put("UPDATE " . NEWS_ARTICLES . " SET approved = ? WHERE id = ?", $approve, $uid);
+		$selected	= $_POST['selectedposts'];
+		$approve	= $_POST['approveaction'];
+		$accessdata	= unserialize($_SESSION['accessdata']);
+		$canapprove	= $accessdata['0']['canapprove'];
+		
+		if($canapprove == "1"){
+			if(count($_POST['selectedposts']) !== 0){
+				$allowcomments = $_POST['allowcomments'];
+				foreach($selected as $uid){
+					DataAccess::put("UPDATE " . NEWS_ARTICLES . " SET approved = ? WHERE id = ?", $approve, $uid);
+				}
+				echo "<div class=\"success\">".$langmsg['editnews'][18]."</div>";
 			}
-			echo "<div class=\"success\">".$langmsg['editnews'][18]."</div>";
 		}
 	}elseif($_POST['action'] == "resetview"){
 		$selected = $_POST['selectedposts'];
