@@ -98,7 +98,7 @@ if($_GET['todo'] == "new"){
 	function newmsgform(){
 		global $langmsg;
 		echo "<div class=\"subheaders\">".$langmsg['privmsgs'][10]."</div>";
-		echo "<div class=\"subheaders_body displaytable\">";
+		echo "<div class=\"subheaders_body displaytable\" style=\"height: 40px; padding-bottom: 5px\">";
 				$_GET['user'] = (empty($_GET['user'])) ? '' : $_GET['user'];
 		$_GET['title'] = (empty($_GET['title'])) ? '' : $_GET['title'];
 		$_POST['message'] = (empty($_POST['message'])) ? '' : $_POST['message'];
@@ -111,35 +111,23 @@ if($_GET['todo'] == "new"){
 			$title	= displayhtml($_POST['title']);
 		}
 	 
-		echo "<div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][11]."</div> <input type=\"text\" name=\"sendto\" value=\"$sendto\"> ". $langmsg['privmsgs'][14]; 
-		echo "<div style=\"padding-top: 2px; margin-bottom: 3px\"><div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][12]."</div> <input type=\"text\" name=\"title\" value=\"$title\" /></div>";
+		echo "<div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][11]."</div> <input type=\"text\" name=\"sendto\" style=\"width: 250px\" value=\"$sendto\"> ". $langmsg['privmsgs'][14]; 
+		echo "<div style=\"padding-top: 2px; margin-bottom: 3px\"><div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][12]."</div> <input type=\"text\" name=\"title\" style=\"width: 250px\" value=\"$title\" /></div>";
 		echo "<div id=\"smileybox\" style=\"width: 150px; background-color: #EEEEEE; border: 1px solid #AAAAAA; padding: 5px; display: none; position: absolute; z-index: 10001; \">";
 		echo "<a style=\"float: right; text-decoration: underline; cursor: pointer\" onclick=\"document.getElementById('smileybox').style.display = 'none'; document.getElementById('fade').style.display = 'none';\">[close]</a>Smilies<hr />";
 		$smilies = DataAccess::fetch("SELECT * FROM " . NEWS_SMILIES);
 		foreach($smilies AS $row){
-			echo "<img style=\"cursor: pointer\" onclick=\"document.getElementById('message').focus(); insertAtCursor(document.getElementById('message'),'$row[keycode]');\" src=\"$row[path]\" /> ";
+			echo "<img style=\"cursor: pointer\" onclick=\"insertsmiley('$row[keycode]', '$row[path]', 'message') \" src=\"$row[path]\" /> ";
 		}
 		echo "</div>";
-		$bbcode = '';
-		$bbcode .= "<img title=\"Bold\" src=\"images/icons/text_bold.png\" style=\"cursor: pointer\" onclick=\"bbcode('bold','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Italic\" src=\"images/icons/text_italic.png\" style=\"cursor: pointer\" onclick=\"bbcode('italic','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Underlined\" src=\"images/icons/text_underline.png\" style=\"cursor: pointer\" onclick=\"bbcode('underline','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Color\" src=\"images/icons/color_swatch.png\" style=\"cursor: pointer\" onclick=\"bbcode('color','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Font Size\" src=\"images/icons/style.png\" style=\"cursor: pointer\" onclick=\"bbcode('size','message')\">&nbsp;";
-		#$bbcode .= "<img title=\"Image\" src=\"images/icons/picture.png\" style=\"cursor: pointer\" onclick=\"bbcode('image','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Link\" src=\"images/icons/link.png\" style=\"cursor: pointer\" onclick=\"bbcode('url','message')\">&nbsp;";   
-		$bbcode .= "<img title=\"Smilies\" id=\"smileybutton\" src=\"images/icons/emoticon_smile.png\" style=\"cursor: pointer\" onclick=\"showsmilies(event);\" >&nbsp;";
-		$bbcode .= "<img title=\"List Bullets\" src=\"images/icons/text_list_bullets.png\" style=\"cursor: pointer\" onclick=\"bbcode('list1','message')\">&nbsp;";
-		$bbcode .= "<img title=\"List Numbers\" src=\"images/icons/text_list_numbers.png\" style=\"cursor: pointer\" onclick=\"bbcode('list2','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Left Align\" src=\"images/icons/text_align_left.png\" style=\"cursor: pointer\" onclick=\"bbcode('left','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Center Align\" src=\"images/icons/text_align_center.png\" style=\"cursor: pointer\" onclick=\"bbcode('center','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Right Align\" src=\"images/icons/text_align_right.png\" style=\"cursor: pointer\" onclick=\"bbcode('right','message')\">&nbsp;";
-		$bbcode .= "<img title=\"PHP Code\" src=\"images/icons/page_white_php.png\" style=\"cursor: pointer\" onclick=\"bbcode('code','message')\">&nbsp;";
-		$bbcode .= "<img title=\"Quote\" src=\"images/icons/comment.png\" style=\"cursor: pointer\" onclick=\"bbcode('quote','message')\">&nbsp;";		            
-		echo "<div style=\"width: 80px; float: left\">&nbsp;</div>$bbcode";
-		echo "<div style=\"padding-top: 2px\"><div style=\"width: 80px; float: left\">".$langmsg['privmsgs'][13]."</div> <textarea id=\"message\" style=\"width: 420px; height: 140px\" name=\"message\">" . displayhtml($_POST['message']) . "</textarea></div>"; 
-		echo "<div style=\"padding-top: 2px\"><div style=\"width: 80px; float: left\">&nbsp;</div> <input class=\"nostyle\" type=\"submit\" name=\"S2\" value=\"".$langmsg['submitfield'][1]."\" />&nbsp;<input type=\"submit\" name=\"S2\" class=\"nostyle\" value=\"".$langmsg['submitfield'][4]."\" /></div>";		
+
+		
+		
+
 		echo "</div>";
+		echo "<div class=\"subheaders\">asd</div>";
+		echo "<textarea styleid=\"message\" style=\"width: 420px; height: 140px\" class=\"ckeditor\" name=\"message\">" . displayhtml($_POST['message']) . "</textarea>"; 		
+		echo "<div style=\"margin: 5px 0 10px 0\"><input style=\"width: 49%\" type=\"submit\" name=\"S2\" value=\"".$langmsg['submitfield'][1]."\" />&nbsp;<input style=\"width: 50%\" type=\"submit\" name=\"S2\" class=\"nostyle\" value=\"".$langmsg['submitfield'][4]."\" /></div>";
 	}
 
 	$_POST['S2'] = (empty($_POST['S2'])) ? '' : $_POST['S2'];
@@ -148,19 +136,19 @@ if($_GET['todo'] == "new"){
 	}elseif($_POST['S2'] == "Preview"){
 		echo "<div class=\"subheaders\">".$langmsg['privmsgs'][15]."</div>";
 		echo "<div class=\"subheaders_body displaytable\">";
-		$message = bbcode($_POST['message'],'0','1');
+		$message = bbcode($_POST['message'],'1','1');
 		echo $message;
 		echo "</div>";
 		echo "<br />";
 		newmsgform();
 	}elseif(!$_POST['sendto']){
-		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][17]."</div><br />";
+		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][17]."</div>";
 		newmsgform();
 	}elseif(!$_POST['title']){
-		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][18]."</div><br />";
+		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][18]."</div>";
 		newmsgform();
 	}elseif(!$_POST['message']){
-		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][19]."</div><br />"; 	
+		echo "<div style=\"text-align: left\" class=error>".$langmsg['privmsgs'][19]."</div>";
 		newmsgform();
 	}else{
 		$sendtox = $_POST['sendto'];
@@ -351,7 +339,7 @@ function handleStateChange() {
 		}
 		$title = displayhtml($row['title']);
 		echo "</td><td class=\"tablebody tablerightborder\"><div style=\"height: 17px; width: 230px; overflow: hidden\"><a href=\"#\" onclick=\"senddata('$row[uid]','$type'); toggle('$row[uid]')\">$title</a></div></td><td class=\"tablebody tablerightborder\">$from</td><td class=\"tablebody tablerightborder\">$date</td><td  class=\"tablebody tablerightborder\" align=\"center\"><input type=\"checkbox\" value=\"$row[uid]\" id=\"selected[]\" name=\"selected[]\" /></tr>";
-		$message = bbcode($row['message'],'0','1');
+		$message = bbcode($row['message'],'1','1');
 		echo "<tr id=\"$row[uid]\" class=\"$class\" style=\"display: none\" bgcolor=\"\"><td></td><td class=\"tablebody tablerightborder\" colspan=4>$message<br /><br /><a href=\"?action=private&todo=new&user=$from&title=$title\">Reply to this message</a></td></tr>";
 		$i++;					
 	}

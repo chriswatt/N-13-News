@@ -572,6 +572,7 @@ function filecatchange(){
 function insertsmiley(keycode,path,source){
 	//document.getElementById(e).focus(); 
 	//insertAtCursor(document.getElementById(e),keycode); 
+	alert(document.getElementById('whichbox').innerHTML);
 	d = '<img src="' + path + '" title="' + keycode + '" alt="' + keycode + '" />';
 	CKEDITOR.instances[document.getElementById('whichbox').innerHTML].insertHtml(d);
 	document.getElementById('smileybox').style.display = 'none';

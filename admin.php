@@ -197,11 +197,11 @@ if(isloggedin()){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
 <head> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" src="js/main.php"></script>
-    <script type="text/javascript" src="js/lightbox.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="js/main.php"></script>
+	<script type="text/javascript" src="js/lightbox.js"></script>
 	<script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
-    
+	
 	<link href="css/n13styles.css" rel="stylesheet" type="text/css" />
 	
 	<title>N-13 News <?php echo $version; ?></title>
