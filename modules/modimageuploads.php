@@ -29,6 +29,10 @@ echo '<div class="headertitle">';
 
 echo '<span class="header">' . $langmsg['options'][0] . '</span>';
 echo '<span class="header">' . $langmsg['img'][0] . '</span>';
+
+$_GET['newimage']	= (empty($_GET['newimage'])) ? '' : $_GET['newimage'];
+$_GET['imageuid']	= (empty($_GET['imageuid'])) ? '' : $_GET['imageuid'];
+
 if($_GET['newimage'] == "true"){
 	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
 }

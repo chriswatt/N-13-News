@@ -1934,6 +1934,7 @@ function selectimages(){
 	echo "<div id=\"imagecat_1\">";
 	#echo $xsql;
 	$noncatimages = DataAccess::fetch("SELECT file,filesize,uploader,height,width,uid FROM " . NEWS_IMAGES . " WHERE uid NOT IN (SELECT storyid FROM " . NEWS_GROUPCATS . " WHERE type = 'image') ORDER BY uid DESC");
+	$totalfilesize = 0;
 	foreach($noncatimages AS $row){ 
 		$file = $row['file'];
 		list($width, $height, $type, $attr) = getimagesize($imageuploaddir . $file);
@@ -1955,7 +1956,7 @@ function selectimages(){
 		$totalfilesize += $filesize;
 		$filesize .= " KB";
 		$x = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-		$x = str_replace(basename($_SERVER['REQUEST_URI']),$uploaddir . $file,$x); 		 
+		$x = str_replace(basename($_SERVER['REQUEST_URI']),SCRIPTPATH . 'uploads/' . $file,$x); 		 
 		
 		echo '<div style="float: left; width: 112px; height: 130px"><div id="'.$b.'" class="thumbnail" style="cursor: pointer">';
 		echo '<div style="text-align: left">';

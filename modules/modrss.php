@@ -29,6 +29,10 @@ echo '<div class="headertitle">';
 
 echo '<span class="header">' . $langmsg['options'][0] . '</span>';
 echo '<span class="header">' . $langmsg['rss'][0] . '</span>';
+
+$_GET['new']	= (empty($_GET['new'])) ? '' : $_GET['new'];
+$_GET['edit']	= (empty($_GET['edit'])) ? '' : $_GET['edit'];
+
 if($_GET['new'] == "true"){
 	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
 }
@@ -171,8 +175,10 @@ function rssform(){
 	}
 	echo " />";
 	echo "</td></tr>";
-	echo "<tr class=\"row2\"><td colspan=\"2\" style=\"height: 25px\">".$langmsg['rss'][13]."</td></tr>";
-	echo "<tr><td colspan=\"2\">";
+	echo "</table>";
+	echo "</div>";
+	echo "<div class=\"subheaders\">".$langmsg['rss'][13]."</div>";
+	echo "<div class=\"subheaders_body displaytable\">";
 	echo $langmsg['rss'][14];
 	echo "<br /><br />";
 	echo "<b>{title}</b> - " . $langmsg['rss'][15] . "<br>";
@@ -189,13 +195,12 @@ function rssform(){
 	echo "<b>{id}</b> - " . $langmsg['rss'][25] . "<br />";
 	echo "<b>{comments}</b> - " . $langmsg['rss'][26] . "<br /><br />";
 
-	echo "<textarea name=\"rsscode\" style=\"width: 98%; height: 100px\">$rsscode</textarea></td></tr>";
+	echo "<textarea name=\"rsscode\" style=\"width: 98%; height: 100px; margin-bottom: 5px\">$rsscode</textarea><br />";
 	if($_GET['new'] == "true"){
-		echo "<tr><td align=\"center\" colspan=\"2\"><input type=\"submit\" name=\"S1\" style=\"width: 100%\" value=\"".$langmsg['submitfield'][5]."\" /></td></tr>";
+		echo "<input type=\"submit\" name=\"S1\" style=\"width: 100%\" value=\"".$langmsg['submitfield'][5]."\" />";
 	}else{
-		echo "<tr><td align=\"center\" colspan=\"2\"><input type=\"submit\" name=\"S1\" style=\"width: 100%\" value=\"".$langmsg['submitfield'][3]."\" /></td></tr>";
+		echo "<input type=\"submit\" name=\"S1\" style=\"width: 100%\" value=\"".$langmsg['submitfield'][3]."\" />";
 	}
-	echo "</table>";
 	echo "</form>";
 	echo "</div>";
 	

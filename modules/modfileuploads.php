@@ -30,6 +30,10 @@ echo '<div class="headertitle">';
 
 echo '<span class="header">' . $langmsg['options'][0] . '</span>';
 echo '<span class="header">' . $langmsg['uploadedfiles'][0] . '</span>';
+
+$_GET['newfile']	= (empty($_GET['newfile'])) ? '' : $_GET['newfile'];
+$_GET['fileuid']	= (empty($_GET['fileuid'])) ? '' : $_GET['fileuid'];
+
 if($_GET['newfile'] == "true"){
 	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
 }

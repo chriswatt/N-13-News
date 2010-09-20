@@ -30,6 +30,9 @@ echo '<div class="headertitle">';
 
 echo '<span class="header">' . $langmsg['options'][0] . '</span>';
 echo '<span class="header">' . $langmsg['cats'][0] . '</span>';
+
+$_GET['edit']	= (empty($_GET['edit'])) ? '' : $_GET['edit'];
+
 if($_GET['edit'] == "new"){
 	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
 }

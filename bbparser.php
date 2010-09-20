@@ -85,6 +85,8 @@ function resizeimg2($img){
 		}
 	}
 	//http://dev.network-13.com/news/admin.php?action=options&mod=imageuploads&thumb=uploads/duceh.jpg&height=79.54&width=79.54
+	$final['height']	= (empty($final['height'])) ? '' : $final['height'];
+	$final['width']		= (empty($final['width'])) ? '' : $final['width'];
 	if($final['height'] && $final['width']){
 		return "<img src=\"" . SCRIPTPATH . "admin.php?action=options&mod=imageuploads&thumb=" . $src . "&height=" . $final['height'] . "&width=" . $final['width'] . "\" />";
 	}else{

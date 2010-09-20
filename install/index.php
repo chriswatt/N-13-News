@@ -571,6 +571,7 @@ $majorversion = $phpversion['0'];
 			$_SESSION['langtype'] = "dropdown";
 			require_once(ABSPATH . 'functions.php');
 			require_once(ABSPATH . 'language/config.php');
+			$languages = '';
 			foreach($language_names AS $name=>$native){
 				$languages .= "<option value=\"$name\"";
 				if($name == "English"){

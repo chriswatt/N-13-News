@@ -165,6 +165,8 @@ if(isloggedin()){
 	if(isloggedin()){
 		if(getaccess("privatemsgs")){
 			if($_GET['action'] == "private"){
+				$_GET['todo'] = (empty($_GET['todo'])) ? '' : $_GET['todo'];
+				$_GET['type'] = (empty($_GET['type'])) ? '' : $_GET['type'];
 				$active = ($_GET['todo'] == "new") ? 'subMenuActive' : 'subMenu';
 				$showoptions .= '<a class="' . $active . '" href="?action=private&todo=new">'.$langmsg['menu'][3].'</a>';
 				$active = (empty($_GET['type']) && $_GET['todo'] !== "new") ? 'subMenuActive' : 'subMenu';
@@ -249,6 +251,7 @@ if(stristr($_SERVER['HTTP_USER_AGENT'], 'webkit')){
 			if(!$_GET['action'] || $_GET['action'] == "home"){
 				$class = 'menuButtonActive';
 			}
+			$class = (empty($class)) ? '' : $class;
 			echo '<a class="menuButton '. $class . ' menuButtonHome" href="?">' . $langmsg['menu'][18] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
 			$class = '';
 

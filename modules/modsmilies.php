@@ -29,6 +29,12 @@ echo '<div class="headertitle">';
 
 echo '<span class="header">' . $langmsg['options'][0] . '</span>';
 echo '<span class="header">' . $langmsg['smilies'][0] . '</span>';
+
+$_GET['edit']	= (empty($_GET['edit'])) ? '' : $_GET['edit'];
+$_GET['create']	= (empty($_GET['create'])) ? '' : $_GET['create'];
+$_GET['position']	= (empty($_GET['position'])) ? '' : $_GET['position'];
+$_GET['id']	= (empty($_GET['id'])) ? '' : $_GET['id'];
+
 if($_GET['create'] == "new"){
 	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
 }

@@ -30,6 +30,10 @@ echo '<div class="headertitle">';
 
 echo '<span class="header">' . $langmsg['options'][0] . '</span>';
 echo '<span class="header">' . $langmsg['filters'][0] . '</span>';
+
+$_GET['new']	= (empty($_GET['new'])) ? '' : $_GET['new'];
+
+
 if($_GET['new'] == "true"){
 	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
 }
@@ -40,6 +44,7 @@ echo '</div>';
 
 $_POST['filter'] = (empty($_POST['filter'])) ? '' : $_POST['filter'];
 $_GET['delete'] = (empty($_GET['delete'])) ? '' : $_GET['delete'];
+$_GET['edit'] = (empty($_GET['edit'])) ? '' : $_GET['edit'];
 
 function filterform(){
 	global $langmsg;
@@ -47,6 +52,9 @@ function filterform(){
 		$filterdata = DataAccess::fetch(sprintf("SELECT filter, alt FROM %s WHERE id = ?", NEWS_FILTER), $_GET['id']);
 		$filter		= $filterdata['0']['filter'];
 		$replace	= $filterdata['0']['alt'];
+	}else{
+		$filter		= '';
+		$replace	= '';
 	}
 	echo "<div class=\"subheaders\">" . $langmsg['filters'][7] . "</div>";
 	echo "<div class=\"subheaders_body displaytable\">";
@@ -57,6 +65,7 @@ function filterform(){
 	echo "</div>";
 }
 
+$_POST['selectedfilters']	= (empty($_POST['selectedfilters'])) ? array() : $_POST['selectedfilters'];
 
 if(count($_POST['selectedfilters']) !== 0){
 	$selected = $_POST['selectedfilters'];

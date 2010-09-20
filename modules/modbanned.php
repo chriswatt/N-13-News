@@ -29,6 +29,7 @@ echo '<div class="headertitle">';
 
 echo '<span class="header">' . $langmsg['options'][0] . '</span>';
 echo '<span class="header">' . $langmsg['bannedips'][0] . '</span>';
+$_GET['new']	= (empty($_GET['new'])) ? '' : $_GET['new'];
 if($_GET['new'] == "true"){
 	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
 }

@@ -30,6 +30,11 @@ echo '<div class="headertitle">';
 
 echo '<span class="header">' . $langmsg['options'][0] . '</span>';
 echo '<span class="header">' . $langmsg['templates'][0] . '</span>';
+
+$_GET['edit']	= (empty($_GET['edit'])) ? '' : $_GET['edit'];
+$_GET['import']	= (empty($_GET['import'])) ? '' : $_GET['import'];
+
+
 if($_GET['edit'] == "new"){
 	echo '<span class="header">' . $langmsg['options'][1] . '</span>';
 }
@@ -732,6 +737,9 @@ if($_GET['edit'] == "new"){
 		echo "</form>";
 	}
 	
+	$_POST['upload_template']	= (empty($_POST['upload_template'])) ? '' : $_POST['upload_template'];
+	$_POST['paste_template']	= (empty($_POST['paste_template'])) ? '' : $_POST['paste_template'];
+
 	if($_POST['upload_template'] || $_POST['paste_template']){
 		if($_POST['upload_template']){
 			$templatedata = file_get_contents($_FILES['uploadedtemplate']['tmp_name']);
@@ -876,6 +884,7 @@ echo "		</div><!--rightside-->
 	</div><!--pageCont-->";
 	
 if($_POST['templateaction'] == "export"){
+	$_POST['selected']	= (empty($_POST['selected'])) ? array() : $_POST['selected'];
 	if($_POST['selected']){
 		$templateids = serialize($_POST['selected']);
 		redirect('exporttemplate.php?templateids=' . addslashes($templateids));

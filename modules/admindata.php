@@ -21,7 +21,7 @@ if (!defined('ABSPATH')){ die(); }
 
 
 
-$hh .= '
+$hh = '
 			<div id="pageLeft">
 			<div id="pageIconHome"></div><!--icon-->
 			<div id="titleHome">N-13 News<br />4.0</div>
