@@ -204,8 +204,10 @@ if($_POST['install'] == "true"){
 		}
 		if($_SESSION['errors'] > 0){
 			echo "sqlchanges37.txt~~" . $querycount . "~~$ok~~finished~~" . "<div class=\"error\">" . implode(",", $_SESSION['errors']) . "</div>";
+			unset($_SESSION['errors']);
 		}else{
 			echo "sqlchanges37.txt~~" . $querycount . "~~$ok~~finished~~" . $finishmessage;
+			unset($_SESSION['errors']);
 		}
 	}
 	die();
