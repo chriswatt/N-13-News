@@ -199,6 +199,9 @@ input[type="text"], input[type="textarea"], input[type="password"], textarea, se
 	
 	padding: 3px; 
 }
+select {
+	padding: 1px;
+}
 input[type="text"]:focus, input[type="textarea"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
 	border: 1px solid #BBDAFD;
 }

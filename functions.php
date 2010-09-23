@@ -1698,11 +1698,11 @@ function allnews(){
 	echo "<span style=\"cursor: pointer; text-decoration: underline;\">".$langmsg['editnews'][2]."</span>&nbsp;</div>".$langmsg['editnews'][1]."</div><form style=\"margin: 0px\" method=\"POST\" name=\"editform\" id=\"editform\" action=\"?action=editnews&archives=" . $_GET['archives'] . "&filtercat=" . $_GET['filtercat'] . "\">\n";
 	echo "<div class=\"subheaders_body displaytable\" style=\"";
 	if($_POST['changeoptions']){
-		echo "display: block";
+		echo "display: table";
 	}else{
 		echo "display: none;";
 	} 
-	echo "text-align: left; margin-bottom: 18px; width: 100%\" id=\"section_newsoptions\">";
+	echo "text-align: left; margin-bottom: 18px; width: 691px\" id=\"section_newsoptions\">";
 	if($_GET['archives']){ $archives = "true"; }else{ $archives = ''; }
 	echo $langmsg['editnews'][25] . " <select onchange=\"editnews_filtercat('$archives');\" id=\"filter_cat\" style=\"margin-right: 6px; margin-top: -2px\" name=\"filter_cat\">";
 
