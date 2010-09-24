@@ -712,5 +712,5 @@ if($_POST['ajax'] !== "true"){
 		echo "</div>";
 	}
 }
-unset($commentstimeformat,$newstimeformat,$news,$comments,$g,$ratingsform,$sendtoform,$search,$allnews,$singlenews,$i,$cat,$author,$nppage,$orderby,$newsorder,$catids,$j,$e,$f,$u,$s,$v,$k,$w,$image_maxwidth,$image_maxheight,$width,$height,$static,$templateid,$template,$template2,$template5,$templateid,$commentstemplate,$commentstemplate2,$commentstemplate5,$commentsform,$allcommentsform,$h,$show,$pages,$cpages,$allcomments,$archives,$catids,$storyids,$userids,$image_clickable,$invalid,$register,$stripimg);
+unset($commentstimeformat,$newstimeformat,$news,$comments,$g,$ratingsform,$sendtoform,$search,$allnews,$singlenews,$i,$cat,$author,$nppage,$orderby,$newsorder,$catids,$j,$e,$f,$u,$s,$v,$k,$w,$image_maxwidth,$image_maxheight,$width,$height,$static,$templateid,$template,$template2,$template5,$templateid,$commentstemplate,$commentstemplate2,$commentstemplate5,$commentsform,$allcommentsform,$h,$show,$pages,$cpages,$allcomments,$archives,$catids,$storyids,$userids,$image_clickable,$invalid,$register,$stripimg,$imgresize);
 ?>

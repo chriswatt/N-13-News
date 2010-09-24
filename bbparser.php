@@ -61,6 +61,7 @@ function resizeimg($str,$caption,$oldformat){
 }
 
 function resizeimg2($img){
+	global $imgresize;
 	require_once(ABSPATH . '/simple_html_dom.php');
 	// $html = str_get_html('<img alt="Image" src="http://dev.network-13.com/news/uploads/34ui9ry3498r34dd_pen.jpg" style="width: 205px; height: 153px;" title="Image" />');
 
@@ -84,13 +85,20 @@ function resizeimg2($img){
 			}
 		}
 	}
-	//http://dev.network-13.com/news/admin.php?action=options&mod=imageuploads&thumb=uploads/duceh.jpg&height=79.54&width=79.54
+
 	$final['height']	= (empty($final['height'])) ? '' : $final['height'];
 	$final['width']		= (empty($final['width'])) ? '' : $final['width'];
-	if($final['height'] && $final['width']){
-		return "<img src=\"" . SCRIPTPATH . "admin.php?action=options&mod=imageuploads&thumb=" . $src . "&height=" . $final['height'] . "&width=" . $final['width'] . "\" />";
+
+	if($imgresize == true){
+		if($final['height'] && $final['width']){
+			// height and width found, create thumbnail
+			return "<img alt=\"" . $alt . "\" title=\"" . $title . "\" src=\"" . SCRIPTPATH . "admin.php?action=options&mod=imageuploads&thumb=" . $src . "&height=" . $final['height'] . "&width=" . $final['width'] . "\" />";
+		}else{
+			// height width not found, return original image
+			return $img;
+		}
 	}else{
-		return "<img src=\"" . $src . "\" />";
+		return $img;
 	}
 }
 
