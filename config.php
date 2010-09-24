@@ -76,7 +76,7 @@ if(isset($cfg)){
 		}
 	}
 }
-//testcommit
+
 
 require_once(ABSPATH . '/functions.php');
 require_once(ABSPATH . '/bbparser.php');
