@@ -536,15 +536,20 @@ function redirect($url){
 }
 
 function formatnews($str,$type,$row){
-	global $uploadedfilestemplate, $linkprefix, $newstimeformat,$stampzone, $templateid, $commentspop, $image_clickable, $catcutoff, $oneortwo, $news_layout, $comments_layout;
+	global $uploadedfilestemplate, $linkprefix, $newstimeformat,$stampzone, $templateid, $commentspop, $image_clickable, $catcutoff, $oneortwo, $news_layout, $comments_layout, $stripimg;
 	$newsorder		= (empty($newsorder)) ? '' : $newsorder;
     $numcomments	= $row['commentcount'];
 	
 	$newstime = $newstimeformat;
 	
+
+	
 	$str = str_replace("{oneortwo}", $oneortwo, $str);
 	$usehtml = $row['usehtml'];
 	$str = str_replace("{title}",bbcode($row['title'],$usehtml, $row['old']),$str); 
+
+
+	
 	$str = str_replace("{friendlytitle}", makefriendly($row['title']), $str);
 	$categories = '';
     $cats = DataAccess::fetch("SELECT storyid, catid, type, uid, " . NEWS_CATS . ".name AS catname
@@ -559,6 +564,13 @@ function formatnews($str,$type,$row){
     }
 	$categories = substr($categories,0,strlen($categories) - $catcutoff);
 	$str = str_replace("{categories}",$categories,$str);
+	
+	// if stripimg is true, remove images
+	$stripimg = (empty($stripimg)) ? false : true;
+	if($stripimg){
+		$row['story']		= strip_only($row['story'], "img");
+		$row['shortstory']	= strip_only($row['shortstory'], "img");
+	}	
 	
 	if($type == 0){
 		if($news_layout == "0"){
@@ -1355,6 +1367,19 @@ function formatnewspagintation(){
 	$npagintation = str_replace("{previouspage}", $previouspage, $npagintation);
 	$npagintation = str_replace("{nextpage}", $nextpage, $npagintation);
 	return $npagintation;
+}
+function strip_only($str, $tags, $stripContent = false) {
+	$content = '';
+	if(!is_array($tags)) {
+		$tags = (strpos($str, '>') !== false ? explode('>', str_replace('<', '', $tags)) : array($tags));
+		if(end($tags) == '') array_pop($tags);
+	}
+	foreach($tags as $tag) {
+		if ($stripContent)
+			$content = '(.+</'.$tag.'[^>]*>|)';
+		$str = preg_replace('#</?'.$tag.'[^>]*>'.$content.'#is', '', $str);
+	}
+	return $str;
 }
 function displayhtml($str){
 	$str = str_replace("&","&amp;",$str);
