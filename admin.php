@@ -279,7 +279,13 @@ if(stristr($_SERVER['HTTP_USER_AGENT'], 'webkit')){
 			echo '<a class="menuButton ' . $class . ' menuButtonOptions" href="?action=options&mod=' . $defaultmodule . '">' . $langmsg['menu'][21] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
 			$class = '';
 			if(getaccess('help')){
-				echo '<a class="menuButton menuButtonHelp" href="#">' . $langmsg['menu'][22] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+				if($_GET['action'] == "help"){
+					$class = 'menuButtonActive';
+				}
+				$class = (empty($class)) ? '' : $class;
+				echo '<a class="menuButton '. $class . ' menuButtonHelp" href="?action=help">' . $langmsg['menu'][22] . '</a>  <img src="images/menu/menuDivider.jpg" width="2" height="27" />';
+				$class = '';			
+				
 			}
 			echo '<a class="menuButton menuButtonLogout" href="?action=logout">' . $langmsg['menu'][23] . '</a>';
 			

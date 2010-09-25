@@ -37,6 +37,13 @@ $noaccessmsg = $hh . "<br />" . NOACCESSMSG . "
 if(isloggedin()){
     if(!$_GET['action']){
         require_once('modules/home.php');         
+	}elseif($_GET['action'] == "help"){
+		if(getaccess("help")){
+			require_once('modules/help.php');
+		}else{
+    		echo "<span class=header>".$langmsg['admindata'][1]."</span>";
+    		echo $noaccessmsg;		
+		}
 	}elseif($_GET['action'] == "addnews"){
     	if(getaccess("news")){
     		require_once( 'modules/addnews.php');
