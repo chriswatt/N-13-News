@@ -169,7 +169,7 @@ if($_POST['install'] == "true"){
 		$querycount++;
 		
 		// delete all other templates
-		DataAccess::put("DELETE FROM " . NEWS_TEMPLATES . " WHERE name != '3.7 Ajax Template'");
+		DataAccess::put("DELETE FROM " . NEWS_TEMPLATES . " WHERE name != '4.0 Ajax Template'");
 		$querycount++;
 		
 		// set recaptcha as the default
