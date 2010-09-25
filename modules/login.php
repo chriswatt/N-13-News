@@ -70,7 +70,7 @@ $_SESSION['langtype'] = "dropdown";
 $languages = '';
 require_once(ABSPATH . '/language/config.php');
 foreach($language_names AS $name=>$native){
-	$languages .= "<option value=\"" . strtolower($name) . "\"";
+	$languages .= "<option value=\"" . $name . "\"";
 	if($name == $default_login_language){
 		$languages .= " selected=\"selected\"";	
 	}

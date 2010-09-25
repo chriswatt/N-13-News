@@ -324,11 +324,11 @@ $majorversion = $phpversion['0'];
 	}
 	if($_GET['step']){
 		if($_POST['install_language']){
-			$_POST['install_language'] = strtolower($_POST['install_language']);
+			$_POST['install_language'] = $_POST['install_language'];
 			if(@file_exists(ABSPATH . 'language/' . $_POST['install_language'] . '.php')){
 				$_SESSION['language'] = $_POST['install_language'];
 			}else{
-				$_SESSION['language'] = "english";	
+				$_SESSION['language'] = "English";	
 			}
 			require_once(ABSPATH . 'functions.php');
 			require_once(ABSPATH . 'language/' . $_SESSION['language'] . '.php');

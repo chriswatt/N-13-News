@@ -37,7 +37,7 @@ function dologin(){
 				$_SESSION['email']			= $all['0']['email'];
 				$_SESSION['name']			= $all['0']['user'];
 				$_SESSION['uid']			= $all['0']['uid'];
-				$_SESSION['language']		= strtolower($language);
+				$_SESSION['language']		= $language;
 				$_SESSION['language_type']	= 'admin';
 				$newpass = md5(SALT . $pass);
                 DataAccess::put("UPDATE " . NEWS_USERS . " SET pass = ?, newpass = ? WHERE user = ?", "", $newpass, $_POST['name']);
@@ -58,7 +58,7 @@ function dologin(){
 				$_SESSION['email']			= $all['0']['email'];
 				$_SESSION['name']			= $all['0']['user'];
 				$_SESSION['uid']			= $all['0']['uid'];
-				$_SESSION['language']		= strtolower($language);
+				$_SESSION['language']		= $language;
 				$_SESSION['language_type']	= 'admin';
 				updatelogs('1', $_SESSION['name']);
 				$_POST['rememberme'] = (empty($_POST['rememberme'])) ? '' : $_POST['rememberme'];

@@ -53,8 +53,8 @@ if(defined('EXTENSION')){
 }
 
 function x($s){
-	$y = array('english','swedish','dutch','french','german','italian','portugues','spanish','turkish','finnish','filipinp','indonesian','malay','swahili','welsh');
-	$n = array('arabic','chinese simple','chinese traditional','japanese','korean','russian','thai','african','albanian','belarusian','bulgarian','catalan','czech','croatian','danish','estonian','galician','greek','haitian','hindi','hebrew','hungarian','icelandic','irish','latvian','macedonian','maltese','norwegian','persian','polish','romanian','serbian','slovak','slovenian','ukrainian','vietnamese','yiddish','lithuanian');
+	$y = array('English','Swedish','Dutch','French','German','Italian','Portugues','Spanish','Turkish','Finnish','Filipinp','Indonesian','Malay','Swahili','Welsh');
+	$n = array('Arabic','Chinese Simple','Chinese Traditional','Japanese','Korean','Russian','Thai','African','Albanian','Belarusian','Bulgarian','Catalan','Czech','Croatian','Danish','Estonian','Galician','Greek','Haitian','Hindi','Hebrew','Hungarian','Icelandic','Irish','Latvian','Macedonian','Maltese','Norwegian','Persian','Polish','Romanian','Serbian','Slovak','Slovenian','Ukrainian','Vietnamese','Yiddish','Lithuanian');
 	if($_SESSION['langtype'] !== "dropdown" || $_SESSION['langtype'] == "index"){
 		if(in_array($_SESSION['language'], $n)){
 		
@@ -398,9 +398,9 @@ function checklogin(){
 		$_SESSION['email'] = $all['0']['email'];
 		$_SESSION['name'] = $all['0']['user'];
 		$_SESSION['uid'] = $all['0']['uid'];
-		$_SESSION['language'] = strtolower($default_index_language);
+		$_SESSION['language'] = $default_index_language;
 		if($rememberme){
-			setcookies($all['0']['user'], $all['0']['uid'], strtolower($default_index_language));
+			setcookies($all['0']['user'], $all['0']['uid'], $default_index_language);
 		}
 		return true;
 	}else{
@@ -1431,7 +1431,7 @@ function setcookies($name,$uid,$language){
 	$hash	= rand(0,9999999);
 	$hash	= md5(SALT . $hash);
 	if(!file_exists(ABSPATH . '/language/' . basename($_SESSION['language']) . '.php')){
-		$language = 'english';
+		$language = 'English';
 	}	
 
 	DataAccess::put("UPDATE " . NEWS_USERS . " SET cookie = ?, language = ? WHERE user = ?", $hash, $language, $name);
