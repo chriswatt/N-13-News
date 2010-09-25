@@ -164,7 +164,7 @@ if($_POST['install'] == "true"){
 		DataAccess::put("UPDATE " . NEWS_ARTICLES . " SET old = '0'");
 		
 		#make 3.7 Ajax Template the default.
-		$templateid = DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = '3.7 Ajax Template'");
+		$templateid = DataAccess::fetch("SELECT id FROM " . NEWS_TEMPLATES . " WHERE name = '4.0 Ajax Template'");
 		$templateid = $templateid['0']['id'];
 		$querycount++;
 		
@@ -191,7 +191,7 @@ if($_POST['install'] == "true"){
 			}
 		}
 		
-		// set 3.7
+		// set 4.0
 		DataAccess::put("UPDATE " . NEWS_OPTIONS . " SET template = '$templateid' WHERE 1");	
 		$querycount++;
 	
