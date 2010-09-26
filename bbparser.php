@@ -92,7 +92,7 @@ function resizeimg2($img){
 	if($imgresize == true){
 		if($final['height'] && $final['width']){
 			// height and width found, create thumbnail
-			return "<img alt=\"" . $alt . "\" title=\"" . $title . "\" src=\"" . SCRIPTPATH . "admin.php?action=options&mod=imageuploads&thumb=" . $src . "&height=" . $final['height'] . "&width=" . $final['width'] . "\" />";
+			return "<img alt=\"" . $alt . "\" class=\"" . $element->class . "\" id=\"" . $element->id . "\" title=\"" . $title . "\" style=\"" . $element->style . "\" src=\"" . SCRIPTPATH . "admin.php?action=options&mod=imageuploads&thumb=" . $src . "&height=" . $final['height'] . "&width=" . $final['width'] . "\" />";
 		}else{
 			// height width not found, return original image
 			return $img;
