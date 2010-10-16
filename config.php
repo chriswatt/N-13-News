@@ -49,8 +49,10 @@ $catcutoff = 2;
 // For a list of supported timezones see here - http://www.php.net/manual/en/timezones.php
 // To set your own timezone comment out this code and use this example
 // date_default_timezone_set('Europe/London'); 
-if(!date_default_timezone_get()){
-	date_default_timezone_set('UTC');
+if(function_exists("date_default_timezone_get")){
+	if(!date_default_timezone_get()){
+		date_default_timezone_set('UTC');
+	}
 }
 
 // Set the language used for formatting dates
