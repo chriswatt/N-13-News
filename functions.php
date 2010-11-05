@@ -970,12 +970,12 @@ function commentspagintation($type){
 			if($amountofpages == 1){
 			}else{
 				if($d == $page){
-					$cpages .= "$d ";	
+					$cpages .= "<span class=\"n13_pages_cactive\">$d</span> ";
 				}else{
 					if(FRIENDLY){			
-						$cpages .= sprintf("<a href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $d, $friendlytitle, $d);
+						$cpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $d, $friendlytitle, $d);
 					}else{
-						$cpages .= sprintf("<a href=\"?%sid=%s&page=%s\">%s</a> ", $linkprefix, ID, $d, $d);
+						$cpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"?%sid=%s&page=%s\">%s</a> ", $linkprefix, ID, $d, $d);
 					}	
 				}
 			}
@@ -992,12 +992,12 @@ function commentspagintation($type){
 				if($amountofpages == 1){
 				}else{		
 					if($d == $page){
-						$newpages .= "$d ";	
+						$newpages .= "<span class=\"n13_pages_cactive\">$d</span> ";	
 					}else{
 						if(FRIENDLY){
-							$newpages .= sprintf("<a href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $d, $friendlytitle, $d);
+							$newpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $d, $friendlytitle, $d);
 						}else{
-							$newpages .= sprintf("<a href=\"?%s&id=%s&page=%s\">%s</a> ", $linkprefix, ID, $d, $d);
+							$newpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"?%s&id=%s&page=%s\">%s</a> ", $linkprefix, ID, $d, $d);
 						}	
 					}
 				}
@@ -1008,12 +1008,12 @@ function commentspagintation($type){
 				$r = 1;
 				while($r <= $maxtoshow){
 					if($r == $page){
-						$newpages .= "$r ";
+						$newpages .= "<span class=\"n13_pages_cactive\">$r</span> ";
 					}else{
 						if(FRIENDLY){
-							$newpages .= sprintf("<a href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $r, $friendlytitle, $r);
+							$newpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $r, $friendlytitle, $r);
 						}else{
-							$newpages .= sprintf("<a href=\"?%s&id=%s&page=%s\">%s</a> ", $linkprefix, ID, $r, $r);
+							$newpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"?%s&id=%s&page=%s\">%s</a> ", $linkprefix, ID, $r, $r);
 						}
 					}				
 				$r++;	
@@ -1022,12 +1022,12 @@ function commentspagintation($type){
 				$r = $page - $maxtoshow;
 				while($r <= $amountofpages){
 					if($r == $page){
-						$newpages .= "$r ";
+						$newpages .= "<span class=\"n13_pages_cactive\">$r</span> ";
 					}else{
 						if(FRIENDLY){
-							$newpages .= sprintf("<a href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $r, $friendlytitle, $r);
+							$newpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $r, $friendlytitle, $r);
 						}else{
-							$newpages .= sprintf("<a href=\"?%s&id=%s&page=%s\">%s</a> ", $linkprefix, ID, $r, $r);
+							$newpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"?%s&id=%s&page=%s\">%s</a> ", $linkprefix, ID, $r, $r);
 						}
 					}
 				$r++;					
@@ -1037,12 +1037,12 @@ function commentspagintation($type){
 				$r = 1;
 				while($r <= $maxtoshow){
 					if($d == $page){
-						$newpages .= "$d ";
+						$newpages .= "<span class=\"n13_pages_cactive\">$d</span> ";
 					}else{
 						if(FRIENDLY){
-							$newpages .= sprintf("<a href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $d, $friendlytitle, $d);
+							$newpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"%s%s-%s-%s\">%s</a> ", PREFIX, ID, $d, $friendlytitle, $d);
 						}else{
-							$newpages .= sprintf("<a href=\"?%s" . "&id=%s&page=%s\">%s</a> ", $linkprefix, ID, $d, $d);
+							$newpages .= sprintf("<a class=\"n13_pages_cnonactive\" href=\"?%s" . "&id=%s&page=%s\">%s</a> ", $linkprefix, ID, $d, $d);
 						}
 					}
 					$d++;
@@ -1058,9 +1058,9 @@ function commentspagintation($type){
 			$firstpagelink = "";
 		}else{
 			if(FRIENDLY){	
-				$firstpagelink = sprintf("<a href=\"%s%s-1-%s\"> ", PREFIX, ID, $friendlytitle);
+				$firstpagelink = sprintf("<a class=\"n13_pages_cfirstpage\" href=\"%s%s-1-%s\"> ", PREFIX, ID, $friendlytitle);
 			}else{
-				$firstpagelink = sprintf("<a href=\"?%s&id=%s&page=1\"> ", $linkprefix, ID);
+				$firstpagelink = sprintf("<a class=\"n13_pages_cfirstpage\" href=\"?%s&id=%s&page=1\"> ", $linkprefix, ID);
 			}							
 		}
 		return $firstpagelink;
@@ -1073,9 +1073,9 @@ function commentspagintation($type){
 		}else{
 			$g = $page + 1;
 			if(FRIENDLY){
-				$nlink = sprintf("<a href=\"%s%s-%s-%s\">", PREFIX, ID, $g, $friendlytitle);
+				$nlink = sprintf("<a class=\"n13_pages_cnextlink\" href=\"%s%s-%s-%s\">", PREFIX, ID, $g, $friendlytitle);
 			}else{	
-				$nlink = sprintf("<a href=\"?%sid=%s&page=%s\">", $linkprefix, ID, $g);
+				$nlink = sprintf("<a class=\"n13_pages_cnextlink\" href=\"?%sid=%s&page=%s\">", $linkprefix, ID, $g);
 			}
 		}
 		return $nlink;
@@ -1088,9 +1088,9 @@ function commentspagintation($type){
 		}else{
 			$g = $page - 1;
 			if(FRIENDLY){	
-				$plink = sprintf("<a href=\"%s%s-%s-%s\"> ", PREFIX, ID, $g, $friendlytitle);
+				$plink = sprintf("<a class=\"n13_pages_cprevlink\" href=\"%s%s-%s-%s\"> ", PREFIX, ID, $g, $friendlytitle);
 			}else{
-				$plink = sprintf("<a href=\"?%s&id=%s&page=%s\"> ", $linkprefix, ID, $g);
+				$plink = sprintf("<a class=\"n13_pages_cprevlinkh\" href=\"?%s&id=%s&page=%s\"> ", $linkprefix, ID, $g);
 			}							
 		}
 		return $plink;
@@ -1101,9 +1101,9 @@ function commentspagintation($type){
 			$lastpagelink = ""; 
 		}else{
 			if(FRIENDLY){
-				$lastpagelink = sprintf("<a href=\"%s%s-%s-%s\">", PREFIX, ID, $amountofpages, $friendlytitle);
+				$lastpagelink = sprintf("<a class=\"n13_pages_clastpage\" href=\"%s%s-%s-%s\">", PREFIX, ID, $amountofpages, $friendlytitle);
 			}else{	
-				$lastpagelink = sprintf("<a href=\"?%sid=%s&page=%s\">", $linkprefix, ID, $amountofpages);
+				$lastpagelink = sprintf("<a class=\"n13_pages_clastpage\" href=\"?%sid=%s&page=%s\">", $linkprefix, ID, $amountofpages);
 			}
 		}
 		return $lastpagelink;
@@ -1140,12 +1140,12 @@ function newspagintation($type){
 			if($amountofpages == 1){
 			}else{
 				if($d == $page){
-					$pages .= "$d ";	
+					$pages .= "<span class=\"n13_pages_active\">$d</span> ";
 				}else{
 					if(FRIENDLY){
-						$pages .= sprintf("<a href=\"%s%s-%s-%s\">%s</a> ", PREFIX, '0', $d, NEWSSUFFIX, $d);
+						$pages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"%s%s-%s-%s\">%s</a> ", PREFIX, '0', $d, NEWSSUFFIX, $d);
 					}else{
-						$pages .= sprintf("<a href=\"?%spage=%s\">%s</a> ", $linkprefix, $d, $d);
+						$pages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"?%spage=%s\">%s</a> ", $linkprefix, $d, $d);
 					}	
 				}
 			}
@@ -1161,12 +1161,12 @@ function newspagintation($type){
 			while($d <= $amountofpages){
 				if($amountofpages !== 1){		
 					if($d == $page){
-						$newpages .= "$d ";	
+						$newpages .= "<span class=\"n13_pages_active\">$d</span> ";	
 					}else{
 						if(FRIENDLY){
-							$newpages .= sprintf("<a href=\"%s0-%s-%s\">%s</a> ", PREFIX, $d, NEWSSUFFIX, $d);
+							$newpages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"%s0-%s-%s\">%s</a> ", PREFIX, $d, NEWSSUFFIX, $d);
 						}else{
-							$newpages .= "<a href=\"?$linkprefix" . "page=$d\">$d</a> ";
+							$newpages .= "<a class=\"n13_pages_nonactive\" href=\"?$linkprefix" . "page=$d\">$d</a> ";
 						}	
 					}
 				}
@@ -1177,12 +1177,12 @@ function newspagintation($type){
 				$r = 1;
 				while($r <= $maxtoshow){
 					if($r == $page){
-						$newpages .= "$r ";
+						$newpages .= "<span class=\"n13_pages_active\">$r</span> ";
 					}else{
 						if(FRIENDLY){ 
-							$newpages .= sprintf("<a href=\"%s0-1-%s\">%s</a> ", PREFIX, NEWSSUFFIX, $r);
+							$newpages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"%s0-1-%s\">%s</a> ", PREFIX, NEWSSUFFIX, $r);
 						}else{
-							$newpages .= sprintf("<a href=\"?%spage=%s\">%s</a> ", $linkprefix, $r, $r);
+							$newpages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"?%spage=%s\">%s</a> ", $linkprefix, $r, $r);
 						}
 					}				
 				$r++;	
@@ -1191,12 +1191,12 @@ function newspagintation($type){
 				$r = $page - $maxtoshow;
 				while($r <= $amountofpages){
 					if($r == $page){
-						$newpages .= sprintf("%s ", $r);
+						$newpages .= sprintf("<span class=\"n13_pages_active\">%s</span> ", $r);
 					}else{
 						if(FRIENDLY){
-							$newpages .= sprintf("<a href=\"%s0-%s-%s\">%s</a> ", PREFIX, $r, NEWSSUFFIX, $r);
+							$newpages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"%s0-%s-%s\">%s</a> ", PREFIX, $r, NEWSSUFFIX, $r);
 						}else{
-							$newpages .= sprintf("<a href=\"?%spage=%s\">%s</a> ", $linkprefix, $r, $r);
+							$newpages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"?%spage=%s\">%s</a> ", $linkprefix, $r, $r);
 						}
 					}
 				$r++;					
@@ -1206,12 +1206,12 @@ function newspagintation($type){
 				$r = 1;
 				while($r <= $maxtoshow){
 					if($d == $page){
-						$newpages .= "$d ";
+						$newpages .= "class=\"n13_pages_active\">$d</span> ";
 					}else{
 						if(FRIENDLY){
-							$newpages .= sprintf("<a href=\"%s0-%s-%s\">%s</a> ", PREFIX, $d, NEWSSUFFIX, $d);
+							$newpages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"%s0-%s-%s\">%s</a> ", PREFIX, $d, NEWSSUFFIX, $d);
 						}else{
-							$newpages .= sprintf("<a href=\"?%spage=%s\">%s</a> ", $linkprefix, $d, $d);
+							$newpages .= sprintf("<a class=\"n13_pages_nonactive\" href=\"?%spage=%s\">%s</a> ", $linkprefix, $d, $d);
 						}
 					}
 					$d++;
@@ -1228,9 +1228,9 @@ function newspagintation($type){
 			$firstpagelink = "";
 		}else{
 			if(FRIENDLY){
-				$firstpagelink = sprintf("<a href=\"%s0-1-%s\"> ", PREFIX, NEWSSUFFIX);
+				$firstpagelink = sprintf("<a class=\"n13_pages_firstpage\" href=\"%s0-1-%s\"> ", PREFIX, NEWSSUFFIX);
 			}else{
-				$firstpagelink = sprintf("<a href=\"?%spage=1\"> ", $linkprefix);
+				$firstpagelink = sprintf("<a class=\"n13_pages_firstpage\" href=\"?%spage=1\"> ", $linkprefix);
 			}		
 		}
 		return $firstpagelink;
@@ -1243,9 +1243,9 @@ function newspagintation($type){
 		}else{
 			$g = $page - 1;
 			if(FRIENDLY){
-				$plink = sprintf("<a href=\"%s0-%s-%s\"> ", PREFIX, $g, NEWSSUFFIX);
+				$plink = sprintf("<a class=\"n13_pages_prevlink\" href=\"%s0-%s-%s\"> ", PREFIX, $g, NEWSSUFFIX);
 			}else{
-				$plink = sprintf("<a href=\"?%spage=%s\"> ", $linkprefix, $g);
+				$plink = sprintf("<a class=\"n13_pages_prevlink\" href=\"?%spage=%s\"> ", $linkprefix, $g);
 			}
 				
 		}
@@ -1259,9 +1259,9 @@ function newspagintation($type){
 		}else{
 			$g = $page + 1;
 			if(FRIENDLY){
-				$lastpagelink = sprintf("<a href=\"%s0-%s-%s\">", PREFIX, $amountofpages, NEWSSUFFIX);
+				$lastpagelink = sprintf("<a class=\"n13_pages_lastpage\" href=\"%s0-%s-%s\">", PREFIX, $amountofpages, NEWSSUFFIX);
 			}else{
-				$lastpagelink = sprintf("<a href=\"?%spage=%s\">", $linkprefix, $amountofpages);
+				$lastpagelink = sprintf("<a class=\"n13_pages_lastpage\" href=\"?%spage=%s\">", $linkprefix, $amountofpages);
 			}
 		}
 		return $lastpagelink;
@@ -1274,9 +1274,9 @@ function newspagintation($type){
 		}else{
 			$g = $page + 1;
 			if(FRIENDLY){
-				$nlink = sprintf("<a href=\"%s0-%s-%s\">", PREFIX, $g, NEWSSUFFIX);
+				$nlink = sprintf("<a class=\"n13_pages_nextlink\" href=\"%s0-%s-%s\">", PREFIX, $g, NEWSSUFFIX);
 			}else{
-				$nlink = sprintf("<a href=\"?%spage=%s\">", $linkprefix, $g);
+				$nlink = sprintf("<a class=\"n13_pages_nextlink\" href=\"?%spage=%s\">", $linkprefix, $g);
 			}
 		}
 		return $nlink;
